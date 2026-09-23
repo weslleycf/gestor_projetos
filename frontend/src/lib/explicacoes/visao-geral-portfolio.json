@@ -1,0 +1,1931 @@
+[
+  {
+    "termo": "Total de projetos",
+    "sinonimos": [
+      "Projetos",
+      "Projetos no escopo"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos projetos entram no recorte que você está olhando agora — o tamanho da carteira sob análise. Só entram projetos não arquivados e que passam pelos filtros aplicados.",
+    "como_ler": "O subtexto diz quantos desses projetos estão em andamento (status Aprovado ou Em execução). Compare com **Em risco** e **Atrasados**: se quase todos estão ativos e poucos em risco, o portfólio está sob controle.",
+    "o_que_fazer": "Se o número surpreender, confira os filtros de portfólio, programa, gerente e área antes de concluir qualquer coisa sobre a organização inteira.",
+    "fonte": "Contagem dos projetos cadastrados, não arquivados, que atendem aos filtros do topo da tela."
+  },
+  {
+    "termo": "Em risco",
+    "sinonimos": [
+      "Projetos em risco"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos projetos estão com o semáforo de saúde em amarelo (**Atenção**) ou vermelho (**Crítico**). É o indicador de antecipação do portfólio.",
+    "como_ler": "Amarelo aparece quando o projeto está mais de 8 pontos percentuais atrás do planejado ou tem pelo menos um risco alto aberto. Vermelho aparece quando a data de fim já venceu, o desvio passa de 20 pontos, há três ou mais riscos altos abertos ou o custo real superou o orçamento. Projetos concluídos, cancelados ou arquivados ficam em cinza e não entram na conta.",
+    "o_que_fazer": "Trate os vermelhos primeiro e cobre um plano dos amarelos antes que virem atraso. Abra o projeto pela lista para ver a causa registrada.",
+    "fonte": "Semáforo de saúde calculado pelo sistema a partir de prazo, progresso, riscos abertos e custo de cada projeto."
+  },
+  {
+    "termo": "Atrasados",
+    "sinonimos": [
+      "Projetos atrasados",
+      "Marcos atrasados"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Conta os projetos cuja data de término planejada já passou e que ainda não foram concluídos nem cancelados. Nas telas de marcos, a mesma palavra indica marcos com data prevista vencida e status diferente de Concluído.",
+    "como_ler": "O atraso é medido em dias corridos desde a data de fim planejada, mesmo que o projeto tenha avançado. Um projeto pode estar 90% concluído e ainda assim atrasado.",
+    "o_que_fazer": "Abra a linha do projeto, confira a coluna **Real × Planejado** e decida entre repactuar o prazo, reduzir escopo ou reforçar o time. Não deixe o projeto envelhecer na lista sem decisão.",
+    "fonte": "Comparação entre a data de término planejada de cada projeto e a data de hoje."
+  },
+  {
+    "termo": "Progresso médio",
+    "sinonimos": [
+      "Progresso médio do portfólio",
+      "Progresso médio dos projetos"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Média do percentual de conclusão dos projetos do recorte. No dashboard executivo entram apenas os projetos em andamento; nas listas de projetos, programas e portfólios entram todos os projetos exibidos.",
+    "como_ler": "É uma média simples, em que cada projeto pesa igual, independentemente do tamanho. Serve como termômetro geral: 60% de progresso médio com metade do prazo consumido é um ritmo saudável; o mesmo progresso com o prazo quase esgotado, não.",
+    "o_que_fazer": "Se a média cair entre duas medições, verifique quais projetos pararam de avançar — normalmente o problema está em poucos projetos, não em todos.",
+    "formula": "Progresso médio = soma do percentual de conclusão dos projetos ÷ quantidade de projetos",
+    "fonte": "Percentual de conclusão de cada projeto, calculado pelo esforço das tarefas ou informado manualmente pelo gerente."
+  },
+  {
+    "termo": "Orçamento",
+    "sinonimos": [
+      "Orçamento planejado",
+      "Orçamento total",
+      "Orçamento do portfólio filtrado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Soma do orçamento aprovado dos projetos do recorte — quanto o portfólio tem autorizado para gastar. Quando o projeto tem orçamento distribuído por categorias, vale a soma das categorias; caso contrário, o orçamento cadastrado no projeto.",
+    "como_ler": "Este é o valor de referência (o BAC) para todas as leituras de custo da tela. Compare com **Realizado**: se o consumo já passou do progresso entregue, o projeto está gastando mais rápido do que entrega.",
+    "o_que_fazer": "Projetos sem orçamento cadastrado entram como zero e distorcem a soma — complete o orçamento antes de usar o número em comitê.",
+    "formula": "Orçamento do recorte = Σ orçamento aprovado de cada projeto",
+    "fonte": "Soma dos orçamentos planejados das categorias de cada projeto; na ausência delas, o orçamento do cadastro do projeto."
+  },
+  {
+    "termo": "Realizado",
+    "sinonimos": [
+      "Custo realizado",
+      "Realizado (AC)",
+      "Custo real"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Total já gasto nos projetos do recorte, somando as despesas efetivamente realizadas e as comprometidas (contratadas e ainda não pagas).",
+    "como_ler": "O subtexto mostra o percentual consumido do orçamento. A leitura correta é sempre aos pares: consumir 70% do orçamento com 70% do trabalho entregue é equilíbrio; consumir 70% com 45% entregue é ineficiência.",
+    "o_que_fazer": "Se o consumo estiver à frente da entrega, revise os lançamentos por categoria e verifique se houve aumento de escopo sem revisão de orçamento.",
+    "formula": "Consumo (%) = Realizado ÷ Orçamento × 100",
+    "fonte": "Soma das despesas com status Realizado ou Comprometido lançadas nos projetos filtrados."
+  },
+  {
+    "termo": "Projetos por status",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Distribuição dos projetos do recorte pelas etapas do ciclo de vida: Ideia, Planejado, Em análise, Aprovado, Em execução, Pausado, Concluído, Cancelado e Arquivado.",
+    "como_ler": "O centro mostra o total de projetos. Um bloco grande em **Em execução** indica carteira em entrega; muito volume em **Ideia** ou **Em análise** indica fila de decisão represada; **Pausado** costuma ser dinheiro parado.",
+    "o_que_fazer": "Se houver muitos projetos pausados ou parados em análise, leve ao comitê a decisão de retomar ou cancelar — projeto parado consome atenção sem entregar.",
+    "fonte": "Contagem dos projetos por status, considerando os filtros aplicados na tela."
+  },
+  {
+    "termo": "Saúde do portfólio",
+    "sinonimos": [
+      "Saúde",
+      "Saúde dos projetos filtrados"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Reparte os projetos do recorte nas quatro cores do semáforo: **No prazo** (verde), **Atenção** (amarelo), **Crítico** (vermelho) e **Não avaliado** (cinza).",
+    "como_ler": "Cinza reúne projetos concluídos, cancelados ou arquivados — não é elogio nem problema, é ausência de avaliação. O que importa é a proporção entre verde, amarelo e vermelho: o saudável é a maioria verde e nenhum vermelho sem plano de recuperação.",
+    "o_que_fazer": "Clique em um projeto vermelho para abrir o dashboard dele e atacar a causa (atraso, desvio de progresso, riscos altos ou estouro de custo).",
+    "fonte": "Semáforo de saúde calculado pelo sistema para cada projeto, agrupado por cor."
+  },
+  {
+    "termo": "Desempenho (EVM)",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Resumo do valor agregado do portfólio filtrado: compara o que foi planejado, o que foi entregue e o que foi gasto, e traduz isso em eficiência de custo e de prazo.",
+    "como_ler": "Os dois medidores têm meta 1,00. **CPI médio** abaixo de 1,00 significa gasto acima do valor entregue; **SPI médio** abaixo de 1,00 significa entrega atrás do ritmo previsto. O rodapé traz o saldo orçamentário, a receita prevista e o ROI estimado.",
+    "o_que_fazer": "Se os dois índices estiverem abaixo de 1,00 ao mesmo tempo, o problema costuma ser de escopo ou de estimativa — reveja a linha de base antes de cobrar velocidade do time.",
+    "fonte": "Cálculo de valor agregado consolidado dos projetos do recorte."
+  },
+  {
+    "termo": "CPI médio",
+    "sinonimos": [
+      "Índice de desempenho de custo médio"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Média dos índices de desempenho de custo dos projetos do portfólio filtrado. Cada projeto calcula o seu CPI e a tela mostra a média deles.",
+    "como_ler": "A faixa saudável começa em 0,95. De 0,95 a 0,85 o sistema trata como atenção e abaixo de 0,85 como crítico. Como é média simples, um projeto muito ruim pode derrubar o número mesmo com a maioria saudável — vale abrir o **Orçado × Realizado por projeto** para achar o responsável.",
+    "formula": "CPI do projeto = EV ÷ AC; o card mostra a média dos CPI dos projetos",
+    "exemplo": "Três projetos com CPI 1,05, 0,92 e 0,70 resultam em CPI médio de 0,89 — atenção, puxado por um único projeto.",
+    "fonte": "Média dos índices de custo calculados projeto a projeto sobre valor agregado e despesas realizadas.",
+    "o_que_fazer": "Se a média ficar abaixo de 0,95, abra o gráfico de orçado × realizado por projeto e ataque primeiro o projeto de pior índice: a média esconde o caso isolado que derruba o número."
+  },
+  {
+    "termo": "SPI médio",
+    "sinonimos": [
+      "Índice de desempenho de prazo médio"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Média dos índices de desempenho de prazo dos projetos do recorte: quanto do trabalho previsto para a data de referência foi efetivamente entregue.",
+    "como_ler": "Acima de 1,00 o portfólio está adiantado; a partir de 0,95 é considerado saudável; de 0,95 a 0,85 atenção; abaixo de 0,85 crítico. É média simples entre projetos, então projetos pequenos e atrasados pesam tanto quanto os grandes.",
+    "o_que_fazer": "Se o SPI médio estiver abaixo de 0,95, verifique se o atraso vem de dependências externas ou de falta de gente — as duas causas pedem ações diferentes.",
+    "formula": "SPI do projeto = EV ÷ PV; o card mostra a média dos SPI dos projetos",
+    "fonte": "Média dos índices de prazo calculados projeto a projeto sobre valor agregado e valor planejado."
+  },
+  {
+    "termo": "Saldo orçamentário",
+    "sinonimos": [
+      "Saldo"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto ainda resta do orçamento aprovado depois de descontar tudo o que já foi realizado ou comprometido no portfólio filtrado.",
+    "como_ler": "Positivo (verde) significa orçamento disponível; negativo (vermelho) significa que o gasto já ultrapassou o orçamento aprovado. Saldo alto com progresso baixo também é sinal de alerta: pode haver trabalho contratado e não executado.",
+    "o_que_fazer": "Saldo negativo exige revisão imediata de escopo ou de aporte; saldo positivo demais pede checagem do cronograma físico-financeiro.",
+    "formula": "Saldo = Orçamento planejado − Custo realizado",
+    "fonte": "Diferença entre a soma dos orçamentos aprovados e a soma das despesas realizadas e comprometidas."
+  },
+  {
+    "termo": "Receita prevista",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Soma da receita esperada dos projetos do recorte, informada no cadastro de cada projeto. É o retorno financeiro contratado ou esperado da carteira.",
+    "como_ler": "Compare com o orçamento planejado: receita prevista menor que o custo planejado indica projetos deficitários por concepção. A receita prevista não é receita realizada — é expectativa registrada.",
+    "o_que_fazer": "Projetos sem receita informada entram como zero; se a carteira tem projetos com retorno contratual, mantenha esse campo preenchido para o ROI não mentir.",
+    "formula": "Receita prevista do recorte = Σ receita prevista de cada projeto",
+    "fonte": "Soma do campo de receita prevista dos projetos filtrados."
+  },
+  {
+    "termo": "ROI estimado",
+    "sinonimos": [
+      "Retorno sobre o investimento estimado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Retorno esperado do portfólio filtrado: quanto a receita prevista supera (ou não) o orçamento planejado, em percentual.",
+    "como_ler": "Positivo em verde significa que a receita prevista cobre o custo planejado; negativo em vermelho significa prejuízo projetado. É uma estimativa baseada no que está cadastrado, não em caixa realizado.",
+    "o_que_fazer": "ROI negativo no consolidado pede revisão da carteira: identifique quais projetos puxam o resultado para baixo e decida entre repactuar, repriorizar ou descontinuar.",
+    "formula": "ROI estimado = (Receita prevista − Orçamento planejado) ÷ Orçamento planejado × 100",
+    "exemplo": "Receita prevista de R$ 1,2 milhão com orçamento de R$ 1 milhão resulta em ROI estimado de 20%.",
+    "fonte": "Calculado a partir da receita prevista e do orçamento planejado dos projetos do recorte."
+  },
+  {
+    "termo": "Riscos do portfólio",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Mostra quantos riscos seguem abertos no recorte e como eles se distribuem entre os níveis Baixo, Médio, Alto e Extremo.",
+    "como_ler": "O subtítulo informa o total de riscos abertos e quantos são críticos (níveis Alto e Extremo). O donut ajuda a ver a gravidade da carteira: muitos riscos extremos abertos significam exposição concentrada e decisões pendentes.",
+    "o_que_fazer": "Riscos de nível Alto e Extremo abertos precisam de plano de resposta com responsável e prazo — clique no risco para abrir a matriz do projeto.",
+    "fonte": "Riscos não encerrados dos projetos do recorte, agrupados por nível."
+  },
+  {
+    "termo": "Orçado × Realizado por projeto",
+    "sinonimos": [
+      "Orçado × Realizado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Compara, projeto a projeto, o orçamento aprovado (barra clara) com o custo já incorrido (barra colorida).",
+    "como_ler": "A cor da barra segue o CPI do projeto: verde a partir de 0,95, âmbar entre 0,95 e 0,85 e vermelho abaixo de 0,85. Barra colorida maior que a clara significa que o projeto já gastou mais do que tinha autorizado.",
+    "o_que_fazer": "Ao encontrar um projeto com a barra colorida passando da clara, abra-o e verifique se há trabalho a executar sem orçamento correspondente.",
+    "fonte": "Custo real (despesas realizadas e comprometidas) comparado ao orçamento aprovado de cada projeto ativo."
+  },
+  {
+    "termo": "Matriz de riscos do portfólio",
+    "sinonimos": [
+      "Matriz probabilidade × impacto"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Grade que cruza probabilidade (de 1 a 5, no eixo vertical) e impacto (de 1 a 5, no eixo horizontal) dos riscos abertos, mostrando quantos riscos caem em cada combinação.",
+    "como_ler": "A cor vem da severidade (probabilidade × impacto): até 4 verde, até 9 âmbar, até 16 laranja e acima de 16 vermelho. Células no canto superior direito concentram o que exige ação imediata.",
+    "o_que_fazer": "Clique em uma célula com riscos para abrir o projeto na aba de riscos e definir a resposta.",
+    "formula": "Severidade = probabilidade × impacto (cada eixo de 1 a 5)",
+    "fonte": "Riscos abertos dos projetos do recorte, agrupados por probabilidade e impacto."
+  },
+  {
+    "termo": "Riscos mais severos",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Lista os dez riscos abertos de maior severidade do portfólio filtrado, com projeto, nível, probabilidade × impacto e responsável.",
+    "como_ler": "A ordenação é pela severidade: quanto mais alto na lista, mais urgente. Nível **EXTREMO** significa probabilidade e impacto altos ao mesmo tempo. Responsável vazio indica risco sem dono — e risco sem dono não é tratado.",
+    "o_que_fazer": "Atribua um responsável a cada risco da lista e registre o plano de resposta na matriz do projeto.",
+    "fonte": "Riscos não encerrados dos projetos do recorte, ordenados da maior para a menor severidade."
+  },
+  {
+    "termo": "P×I",
+    "sinonimos": [
+      "Probabilidade × impacto",
+      "Severidade"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Mostra a probabilidade e o impacto do risco lado a lado (por exemplo, 4×5) e é a base do cálculo de severidade.",
+    "como_ler": "As duas escalas vão de 1 a 5. O produto define o nível: até 4 Baixo, até 9 Médio, até 16 Alto e acima de 16 Extremo. Severidade 25 é o pior caso possível.",
+    "o_que_fazer": "Reduzir a probabilidade (com prevenção) ou o impacto (com contingência) muda o nível do risco — registre qual das duas frentes o plano ataca.",
+    "formula": "Severidade = probabilidade × impacto",
+    "exemplo": "Probabilidade 4 com impacto 5 resulta em severidade 20, nível Extremo.",
+    "fonte": "Avaliação registrada na matriz de riscos de cada projeto."
+  },
+  {
+    "termo": "Atraso",
+    "sinonimos": [
+      "Dias de atraso"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantos dias corridos já se passaram desde a data de término planejada do projeto sem que ele tenha sido concluído.",
+    "como_ler": "O número cresce todos os dias enquanto o projeto permanecer aberto, mesmo que o time esteja trabalhando nele. Use junto da coluna **Real × Planejado** para saber se o atraso é de ritmo ou de escopo.",
+    "o_que_fazer": "Atrasos acima de duas semanas raramente se resolvem sozinhos: leve ao patrocinador a decisão de repactuar prazo ou reforçar o time.",
+    "fonte": "Diferença entre a data de hoje e a data de término planejada do projeto."
+  },
+  {
+    "termo": "Real × Planejado",
+    "sinonimos": [
+      "Executado × planejado",
+      "Executado"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Coloca lado a lado o percentual já concluído do projeto e o percentual que deveria estar concluído na data de hoje, segundo o cronograma.",
+    "como_ler": "O planejado é o quanto do prazo já passou: dias decorridos divididos pela duração total do projeto. Quando o realizado fica abaixo do planejado, existe desvio em pontos percentuais — até 8 pontos o projeto segue verde, acima de 8 vira atenção e acima de 20 vira crítico.",
+    "o_que_fazer": "Desvio persistente pede replanejamento das tarefas restantes, não apenas cobrança de velocidade.",
+    "formula": "Progresso planejado = dias decorridos ÷ duração total do projeto × 100",
+    "exemplo": "Planejado de 70% com realizado de 55% dá desvio de 15 pontos percentuais — semáforo amarelo.",
+    "fonte": "Percentual de conclusão do projeto comparado ao progresso planejado calculado pelas datas de início e fim."
+  },
+  {
+    "termo": "Prazo",
+    "sinonimos": [
+      "Data de término planejada"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Data de término planejada do projeto, conforme registrada no cadastro ou na linha de base ativa.",
+    "como_ler": "É a data de referência de todo o acompanhamento de atraso. Projeto sem prazo definido não entra nas contagens de atraso nem no cálculo do progresso planejado — e por isso aparece como não avaliado em várias análises.",
+    "o_que_fazer": "Mantenha a data de fim atualizada a cada repactuação; prazo desatualizado faz o semáforo e as previsões mentirem.",
+    "fonte": "Campo de término planejado do projeto."
+  },
+  {
+    "termo": "Heatmap de ocupação da equipe",
+    "sinonimos": [
+      "Ocupação",
+      "Ocupação de recursos",
+      "Heatmap de capacidade"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Grade de pessoas por semana que mostra quanto cada uma está alocada, em percentual da jornada, nas próximas doze semanas.",
+    "como_ler": "A referência é 100% da jornada: cinza é ausência de alocação, tons mais fortes indicam carga maior e vermelho indica sobrecarga. Como parâmetro prático do sistema, a partir de 85% a pessoa é considerada ocupada e acima de 100% entra na lista de conflitos de alocação.",
+    "o_que_fazer": "Clique em uma célula vermelha para ver a pessoa e as semanas envolvidas e redistribua a carga antes que o projeto atrase por falta de disponibilidade.",
+    "fonte": "Soma das alocações confirmadas e em execução de cada pessoa em cada semana."
+  },
+  {
+    "termo": "Alocação e capacidades",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Bloco que reúne, em quatro indicadores, a qualidade do motor de alocação e a saúde das capacidades da organização: aderência média do matching, recomendações pendentes, cobertura do catálogo e índice de desenvolvimento.",
+    "como_ler": "Aderência alta com poucas recomendações pendentes indica que o motor está sendo usado e acertando. Cobertura baixa significa que muita gente ainda não tem perfil de competências registrado — e sem perfil o motor não recomenda bem.",
+    "o_que_fazer": "Se a cobertura estiver baixa, priorize o cadastro de perfis das áreas mais críticas antes de cobrar precisão das recomendações.",
+    "fonte": "Consolidação dos painéis de alocação e de capacidades."
+  },
+  {
+    "termo": "Aderência média",
+    "sinonimos": [
+      "Aderência média do matching",
+      "Aderência das recomendações"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Score médio de aderência das alocações feitas pelo motor de matching: o quanto a pessoa escolhida atendia aos requisitos de competência, disponibilidade e custo do projeto.",
+    "como_ler": "O score vai de 0% a 100%. Valores altos indicam que as sugestões do motor estão sendo aceitas e que os requisitos estão bem descritos; valores baixos costumam vir de requisitos vagos, perfis desatualizados ou escolhas manuais muito diferentes da recomendação.",
+    "o_que_fazer": "Aderência baixa com taxa de override alta sugere que os requisitos do projeto precisam ser revistos — o motor recomenda a partir do que está descrito.",
+    "fonte": "Média do score de aderência registrado nas alocações feitas a partir de recomendação do motor."
+  },
+  {
+    "termo": "Recomendações pendentes",
+    "sinonimos": [
+      "Sugeridas"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantas sugestões de alocação geradas pelo motor de matching ainda aguardam decisão do gestor.",
+    "como_ler": "Recomendação parada é oportunidade perdida: a pessoa sugerida pode ser alocada em outro projeto enquanto a decisão não sai. O número deve ser baixo e cair ao longo da semana.",
+    "o_que_fazer": "Abra a tela de alocação e aceite ou recuse cada sugestão; recusar também é decidir e realimenta o motor.",
+    "fonte": "Recomendações de alocação com status Sugerida."
+  },
+  {
+    "termo": "Cobertura do catálogo",
+    "sinonimos": [
+      "Cobertura do catálogo de capacidades"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Percentual de colaboradores ativos que já têm pelo menos uma competência registrada no perfil.",
+    "como_ler": "É a base de confiança de toda a análise de capacidades: 100% significa que todos têm perfil; valores baixos significam que matriz de skills, gap analysis, bus factor e motor de matching estão enxergando apenas parte da organização.",
+    "o_que_fazer": "Cobertura abaixo do esperado pede campanha de atualização de perfis com as lideranças, começando pelas competências críticas.",
+    "formula": "Cobertura = colaboradores ativos com perfil ÷ colaboradores ativos × 100",
+    "fonte": "Comparação entre o quadro ativo e as pessoas que possuem competências registradas."
+  },
+  {
+    "termo": "Índice de desenvolvimento",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Termômetro do esforço de desenvolvimento da organização, calculado a partir da experiência acumulada média nos perfis de competência.",
+    "como_ler": "Vai de 0 a 100 e serve para comparar a evolução da organização no tempo, não para avaliar uma pessoa. Subir devagar é normal: indica que as pessoas estão acumulando experiência e registrando evolução.",
+    "o_que_fazer": "Se o índice estagnar, verifique se as trilhas e os planos de desenvolvimento individuais estão ativos e sendo concluídos.",
+    "fonte": "Média da experiência acumulada registrada nos perfis de competência, convertida para uma escala de 0 a 100."
+  },
+  {
+    "termo": "PDIs ativos",
+    "sinonimos": [
+      "PDI"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos planos de desenvolvimento individual estão em andamento na organização.",
+    "como_ler": "É um indicador de movimento, não de qualidade: mostra quantas pessoas têm um plano formal em execução. Zero PDI ativo com lacunas de competência abertas indica que o desenvolvimento não está sendo tratado.",
+    "o_que_fazer": "Cruze com o gap de capacidades: as lacunas mais críticas deveriam ter plano de desenvolvimento correspondente.",
+    "fonte": "Planos de desenvolvimento com status Ativo."
+  },
+  {
+    "termo": "Mentorias",
+    "sinonimos": [
+      "Mentorias ativas"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas mentorias estão ativas no momento, ou seja, com mentor e mentorado em acompanhamento.",
+    "como_ler": "Mentoria é a forma mais rápida de reduzir bus factor: capacidades com poucos especialistas melhoram quando há transferência de conhecimento em andamento.",
+    "o_que_fazer": "Se houver capacidades críticas com um único especialista e nenhuma mentoria ativa nelas, crie a mentoria antes que a pessoa saia de férias ou do time.",
+    "fonte": "Mentorias com status Ativa."
+  },
+  {
+    "termo": "Promoções",
+    "sinonimos": [
+      "Promoções pendentes"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas sugestões de promoção aguardam análise e decisão.",
+    "como_ler": "O número aparece destacado em âmbar porque sugestão parada afeta motivação e retenção. Não é uma ordem de promoção: é um sinal de que alguém atingiu critérios objetivos de nível e precisa de decisão humana.",
+    "o_que_fazer": "Leve as sugestões pendentes para a próxima conversa de carreira e decida com os critérios de nível da competência.",
+    "fonte": "Sugestões de promoção com status Pendente."
+  },
+  {
+    "termo": "Capacidades críticas",
+    "sinonimos": [
+      "Skills críticas (bus factor)"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Lista as competências de criticidade Alta ou Estratégica ordenadas das mais frágeis para as mais sustentadas, mostrando quantas pessoas as dominam.",
+    "como_ler": "Quando aparece a etiqueta de bus factor 0 ou 1, a organização depende de uma única pessoa (ou de ninguém) para sustentar aquela competência. Quanto menos detentores, maior o risco operacional.",
+    "o_que_fazer": "Para cada capacidade em risco, forme uma segunda pessoa: mentoria, pareamento em projeto ou trilha de desenvolvimento.",
+    "fonte": "Competências de criticidade alta e estratégica, comparadas com a quantidade de pessoas de nível avançado."
+  },
+  {
+    "termo": "bus factor",
+    "sinonimos": [
+      "Bus factor"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas pessoas dominam de fato uma competência — consideradas apenas as que estão no nível avançado ou acima. É o número de pessoas que poderiam assumir o assunto se uma delas saísse.",
+    "como_ler": "Zero ou um significa dependência crítica de uma pessoa; a partir de dois o risco começa a ser administrável. O sistema marca em vermelho as competências críticas com bus factor menor ou igual a 1.",
+    "o_que_fazer": "Priorize desenvolver uma segunda pessoa nas competências estratégicas com bus factor 1 — é a ação de continuidade mais barata que existe.",
+    "fonte": "Contagem de pessoas com nível avançado ou especialista na competência."
+  },
+  {
+    "termo": "Próximos marcos (45 dias)",
+    "sinonimos": [
+      "Próximos marcos",
+      "Próximos 30 dias"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Lista os marcos ainda pendentes ou em andamento que vencem nos próximos 45 dias (na tela de marcos, o filtro é de 30 dias).",
+    "como_ler": "A contagem regressiva fica vermelha quando faltam até 7 dias e âmbar até 15 dias. Marco marcado como crítico impacta o caminho crítico do projeto: se ele atrasa, o projeto atrasa junto.",
+    "o_que_fazer": "Confirme com o responsável se cada marco próximo tem entrega encaminhada; marco crítico sem responsável é risco puro.",
+    "fonte": "Marcos com status Pendente ou Em andamento, ordenados pela data prevista."
+  },
+  {
+    "termo": "Conflitos de alocação",
+    "sinonimos": [
+      "conflito(s) de alocação detectado(s)"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Número de semanas em que uma pessoa está alocada acima de 100% da jornada somando todos os projetos.",
+    "como_ler": "O sistema considera apenas alocações propostas, confirmadas e em execução. Até 130% o alerta é de atenção; a partir de 130% é tratado como crítico, porque a sobrecarga costuma virar atraso em algum dos projetos.",
+    "o_que_fazer": "Redistribua ou reduza o percentual de uma das alocações da semana apontada; sobrecarga não é resolvida com horas extras sustentáveis.",
+    "fonte": "Soma das alocações vigentes de cada pessoa em cada semana, comparada ao limite de 100%."
+  },
+  {
+    "termo": "Score médio de risco",
+    "sinonimos": [
+      "Score médio"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Média do score de risco de atraso dos projetos analisados, numa escala de 0 a 100 construída a partir de sete fatores ponderados.",
+    "como_ler": "Até 24 é risco baixo, de 25 a 49 médio, de 50 a 74 alto e de 75 a 100 crítico. Como é média do portfólio, um único projeto crítico já desloca o número — leia junto com **Em atenção**.",
+    "o_que_fazer": "Se a média passar de 50, ataque primeiro os projetos individuais com score alto: o resumo de cada um aponta as duas causas principais.",
+    "fonte": "Média do score de risco de atraso calculado para cada projeto do escopo."
+  },
+  {
+    "termo": "Projetos avaliados",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos projetos entraram no cálculo analítico atual, depois dos filtros de programa e área.",
+    "como_ler": "É o tamanho da amostra de tudo o que está na tela. Números calculados sobre poucos projetos oscilam muito — desconfie de conclusões tiradas de uma base de três ou quatro projetos.",
+    "o_que_fazer": "Se a amostra for pequena demais para decidir, remova filtros ou amplie o período antes de tirar conclusões.",
+    "fonte": "Contagem dos projetos do escopo considerados nas análises."
+  },
+  {
+    "termo": "Em atenção",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Quantos projetos têm risco de atraso alto ou crítico, ou seja, score de 50 a 100 na escala do modelo.",
+    "como_ler": "É a fila de trabalho do gestor: cada projeto aqui tem fatores identificados que puxaram o score. Diferente de **Em risco**, que olha o semáforo de saúde, este indicador é preditivo — aponta o que ainda pode dar errado.",
+    "o_que_fazer": "Abra os projetos da lista e trate o fator de maior contribuição; melhorar o fator derruba o score.",
+    "fonte": "Contagem dos projetos classificados como risco alto ou crítico."
+  },
+  {
+    "termo": "Séries em piora",
+    "sinonimos": [
+      "Em piora"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas das séries mensais monitoradas do portfólio estão piorando no horizonte escolhido.",
+    "como_ler": "As séries acompanhadas são progresso médio, CPI médio, SPI médio, risco médio e ocupação média da equipe. O subtexto mostra quantas séries existem ao todo. Uma série só entra como piora quando a inclinação da reta passa do limiar de estabilidade — variação pequena é tratada como estável.",
+    "o_que_fazer": "Vá à aba de tendências e olhe quais séries pioram: custo e prazo caindo juntos pedem intervenção no portfólio, não em um projeto.",
+    "fonte": "Classificação da direção de cada série mensal reconstruída a partir dos registros do portfólio."
+  },
+  {
+    "termo": "Meses em escassez",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantos meses do horizonte projetado têm demanda de pessoas maior do que a capacidade instalada da equipe.",
+    "como_ler": "Um mês entra como escassez quando a demanda supera a capacidade em mais de meio FTE; o subtexto traz o gap médio do período. Como a capacidade é a da equipe hoje envolvida, contratações ou realocações mudam o resultado.",
+    "o_que_fazer": "Planeje com antecedência os meses apontados: contratar ou remanejar gente leva semanas e não resolve escassez do mês que vem.",
+    "fonte": "Comparação mensal entre demanda projetada em FTE e capacidade instalada da equipe."
+  },
+  {
+    "termo": "Grupos críticos de viés",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos grupos de colaboradores apresentam disparidade crítica nas recomendações do motor de alocação.",
+    "como_ler": "O sistema compara grupos por área, localização, tempo de casa, faixa de custo/hora e perfil, e classifica a diferença como atenção ou crítica. O subtexto mostra quantos registros estão em atenção. Disparidade estatística não é prova de discriminação — exige leitura humana qualificada.",
+    "o_que_fazer": "Leve os grupos apontados para revisão com RH e liderança antes de qualquer decisão que afete pessoas.",
+    "fonte": "Auditoria de viés das recomendações de alocação no período analisado."
+  },
+  {
+    "termo": "Simulação de Monte Carlo",
+    "sinonimos": [
+      "Monte Carlo"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Roda até mil cenários possíveis para o projeto e mostra a distribuição dos prazos e custos resultantes, em vez de uma única data. Em cada cenário o sistema sorteia uma duração para cada tarefa em aberto e soma as durações respeitando as dependências.",
+    "como_ler": "Cada tarefa em aberto recebe uma duração entre 70% (otimista) e 160% (pessimista) do esforço restante, com o valor mais provável no centro. A simulação corrige as estimativas pelo viés histórico das tarefas já concluídas e limita o paralelismo pelo número de responsáveis disponíveis. A etiqueta de confiança do dado indica o quanto as informações de entrada estão completas.",
+    "o_que_fazer": "Use o cenário do meio para conversar sobre expectativa e o P80 para assumir compromisso. Se a faixa entre P10 e P90 for muito larga, o problema é a qualidade das estimativas: complete datas, esforço e responsáveis antes de decidir.",
+    "fonte": "Simulação sobre as tarefas em aberto do projeto, com dependências, viés histórico e disponibilidade da equipe."
+  },
+  {
+    "termo": "P10",
+    "sinonimos": [
+      "P10 otimista"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Cenário otimista da simulação: apenas 10% dos cenários terminam antes dessa data ou custam menos que esse valor.",
+    "como_ler": "Serve para medir o limite inferior da incerteza. Um P10 muito distante do P50 indica que nem no melhor cenário o projeto é rápido — geralmente sinal de escopo grande ou de equipe pequena.",
+    "o_que_fazer": "Não use o P10 como compromisso: ele só se realiza em uma minoria dos cenários.",
+    "fonte": "Percentil 10 da distribuição de prazos e custos gerada pela simulação do projeto."
+  },
+  {
+    "termo": "P50",
+    "sinonimos": [
+      "P50 provável",
+      "P50 de prazo",
+      "Custo final P50"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Cenário do meio da simulação: metade dos cenários termina antes dessa data e metade depois. É a estimativa mais provável de prazo e de custo final.",
+    "como_ler": "É o número para conversar sobre expectativa com o time e o cliente. A diferença entre o P50 de prazo e a data planejada é o desvio mais provável; quando positiva, indica atraso esperado.",
+    "o_que_fazer": "Se o P50 já passa do prazo planejado, a repactuação precisa entrar na pauta agora — esperar o atraso se confirmar custa mais caro.",
+    "fonte": "Percentil 50 da distribuição de prazos e custos gerada pela simulação do projeto."
+  },
+  {
+    "termo": "P80",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Cenário com 80% de confiança: em quatro de cada cinco simulações o projeto termina até essa data (ou custa até esse valor).",
+    "como_ler": "É o número recomendado para assumir compromisso público, porque embute uma margem de segurança realista em vez de otimismo.",
+    "o_que_fazer": "Ao negociar prazo ou verba com o patrocinador, parta do P80 e explique a diferença em relação ao P50.",
+    "fonte": "Percentil 80 da distribuição de prazos e custos gerada pela simulação do projeto."
+  },
+  {
+    "termo": "P90",
+    "sinonimos": [
+      "P90 pessimista"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Cenário pessimista da simulação: só é superado em 10% dos cenários.",
+    "como_ler": "Mostra o tamanho do risco caso várias coisas dêem errado ao mesmo tempo. Quanto maior a distância entre o P90 e o P50, mais frágil é o plano.",
+    "o_que_fazer": "Use o P90 para dimensionar contingência de prazo e de reserva orçamentária, não para assustar o comitê.",
+    "fonte": "Percentil 90 da distribuição de prazos e custos gerada pela simulação do projeto."
+  },
+  {
+    "termo": "Probabilidade de atraso",
+    "sinonimos": [
+      "Prob. de atraso"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Fração dos cenários simulados em que o projeto termina depois da data planejada. Responde à pergunta 'qual a chance de este projeto atrasar?'.",
+    "como_ler": "A leitura executiva é: abaixo de 25% risco baixo, de 25% a 50% médio, de 50% a 75% alto e acima de 75% crítico. Na tela, o anel fica verde abaixo de 25%, âmbar a partir de 25% e vermelho a partir de 50%. Projetos sem data de término planejada não têm essa probabilidade avaliada.",
+    "o_que_fazer": "Acima de 50%, trate o atraso como provável e não como possibilidade: revise cronograma, escopo ou time antes da próxima medição.",
+    "formula": "Probabilidade de atraso = cenários que terminam após a data planejada ÷ total de cenários simulados",
+    "exemplo": "Em 1.000 simulações, 430 terminaram depois do prazo planejado: probabilidade de atraso de 43%, faixa média.",
+    "fonte": "Contagem dos cenários da simulação que ultrapassaram a data de término planejada do projeto."
+  },
+  {
+    "termo": "Probabilidade de estouro de orçamento",
+    "sinonimos": [
+      "Probabilidade de estouro",
+      "de estouro"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Fração dos cenários simulados em que o custo final ultrapassa o orçamento aprovado do projeto.",
+    "como_ler": "Segue a mesma escala da probabilidade de atraso: abaixo de 25% baixo, até 50% médio, até 75% alto e acima disso crítico. O custo de cada cenário é o orçamento aprovado multiplicado por um fator calibrado pelo desempenho de custo atual e agravado pelo atraso sorteado.",
+    "o_que_fazer": "Se a probabilidade passar de 50%, revise o orçamento por categoria e verifique se há escopo executado sem verba correspondente.",
+    "formula": "Probabilidade de estouro = cenários com custo acima do orçamento aprovado ÷ total de cenários simulados",
+    "fonte": "Contagem dos cenários da simulação cujo custo final superou o orçamento aprovado."
+  },
+  {
+    "termo": "Confiança do dado",
+    "sinonimos": [
+      "Índice de confiança",
+      "Confiança do dado de entrada"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Mede o quanto as informações que alimentam a previsão estão completas: datas das tarefas, esforço estimado, responsável definido, datas reais de execução, dependências mapeadas, orçamento e custo registrados.",
+    "como_ler": "Vai de 0% a 100%. Na tela, a partir de 70% é verde, de 40% a 70% âmbar e abaixo de 40% vermelho. Quanto menor, mais a previsão depende de suposição e menos ela deve ser usada para decidir.",
+    "o_que_fazer": "Confiança baixa se resolve com dados, não com mais simulações: preencha datas, esforço e responsáveis das tarefas em aberto e mapeie as dependências.",
+    "formula": "Índice = completude de datas, esforço, responsável e datas reais + dependências mapeadas + orçamento e custo registrados",
+    "fonte": "Avaliação da completude dos dados de entrada do projeto."
+  },
+  {
+    "termo": "Distribuição dos prazos simulados",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Histograma que mostra quantos cenários simulados terminaram em cada faixa de dias até a conclusão.",
+    "como_ler": "Uma distribuição concentrada indica estimativa estável; uma distribuição espalhada, com cauda longa à direita, indica alto risco de estouro de prazo — poucos cenários muito ruins puxam a média para cima.",
+    "o_que_fazer": "Se a cauda à direita for longa, investigue quais tarefas em aberto têm maior incerteza de duração e reduza-a com estimativas melhores.",
+    "fonte": "Frequência dos cenários simulados por faixa de dias até a conclusão."
+  },
+  {
+    "termo": "Regressão de progresso",
+    "sinonimos": [
+      "Previsão por regressão"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Projeta a data de conclusão a partir da velocidade que o projeto vem apresentando: o sistema reconstrói a série de progresso ao longo do tempo, ajusta uma reta e extrapola até 100%.",
+    "como_ler": "Diferente da simulação, que olha para frente, a regressão olha para o passado. Se o ritmo oscilou muito, o ajuste fica fraco e a data projetada deve ser lida com desconfiança. Sem dados suficientes, a tela informa o motivo em vez de mostrar um número inventado.",
+    "o_que_fazer": "Compare com a previsão por simulação: quando as duas apontam atraso, a decisão de repactuar é mais segura.",
+    "fonte": "Série histórica de progresso do projeto, ponderada pelo esforço das tarefas e ajustada por regressão linear."
+  },
+  {
+    "termo": "Conclusão projetada",
+    "sinonimos": [
+      "Data projetada de conclusão"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Data em que o projeto chega a 100% se mantiver a velocidade observada até aqui.",
+    "como_ler": "Compare com o prazo planejado exibido logo abaixo. Quando a projeção é posterior à data planejada, o sistema sinaliza tendência de atraso.",
+    "o_que_fazer": "Se a projeção já passou do prazo, decida agora entre reforçar o time, reduzir escopo ou repactuar a data.",
+    "fonte": "Extrapolação da velocidade de progresso observada no projeto."
+  },
+  {
+    "termo": "Desvio previsto",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Diferença em dias entre a data de conclusão projetada e a data de término planejada do projeto.",
+    "como_ler": "Positivo em vermelho significa atraso projetado; negativo ou zero em verde significa que a projeção cabe no prazo. O texto abaixo indica se há tendência de atraso.",
+    "o_que_fazer": "Use este número para antecipar a conversa de repactuação com o patrocinador, em vez de esperar o atraso acontecer.",
+    "formula": "Desvio previsto = data projetada de conclusão − data de término planejada",
+    "fonte": "Comparação entre a projeção de conclusão e o prazo planejado do projeto."
+  },
+  {
+    "termo": "Qualidade do ajuste (R²)",
+    "sinonimos": [
+      "Qualidade do ajuste",
+      "R²"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Mostra o quanto a reta de progresso explica o que realmente aconteceu no projeto. Vai de 0 a 1.",
+    "como_ler": "A partir de 0,75 o ajuste é considerado alto; de 0,40 a 0,75, médio; abaixo de 0,40, baixo. Ajuste baixo significa ritmo irregular: a data projetada existe, mas é frágil.",
+    "o_que_fazer": "Com ajuste baixo, procure a causa da irregularidade (paradas, bloqueios, mudanças de escopo) antes de confiar na data projetada.",
+    "formula": "R² = proporção da variação do progresso explicada pela reta de tendência",
+    "fonte": "Ajuste da regressão linear sobre a série de progresso do projeto."
+  },
+  {
+    "termo": "Velocidade observada",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quanto o projeto avança por semana, em pontos percentuais de conclusão, segundo a série histórica.",
+    "como_ler": "É a taxa que sustenta a projeção de conclusão. Divida o que falta por essa velocidade para saber quantas semanas o projeto ainda precisa — se a velocidade for zero ou negativa, não há projeção.",
+    "o_que_fazer": "Velocidade caindo entre medições é sinal de bloqueio ou de sobrecarga; verifique as tarefas em andamento antes de cobrar prazo.",
+    "fonte": "Inclinação da reta ajustada sobre a série de progresso do projeto."
+  },
+  {
+    "termo": "Progresso modelado",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Progresso calculado pelo modelo a partir das datas reais das tarefas, na data de hoje.",
+    "como_ler": "Compare com **Progresso informado** e **Progresso planejado**. Modelado próximo do informado indica que os registros de execução estão coerentes; modelado abaixo do planejado confirma o atraso por outra via que não o percentual digitado.",
+    "o_que_fazer": "Grande diferença entre modelado e informado indica dados de tarefa desatualizados — corrija o cronograma antes de decidir com base no número.",
+    "fonte": "Progresso reconstruído pelo sistema a partir das datas e do esforço das tarefas."
+  },
+  {
+    "termo": "Progresso informado",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Percentual de conclusão registrado no cadastro do projeto, seja calculado pelo esforço das tarefas, seja informado manualmente pelo gerente.",
+    "como_ler": "É o número oficial do projeto e o que alimenta semáforo, EVM e relatórios. Se o projeto usa progresso manual, ele depende inteiramente da disciplina de atualização.",
+    "o_que_fazer": "Mantenha o progresso atualizado junto com as tarefas; número desatualizado contamina saúde, previsão e valor agregado.",
+    "fonte": "Percentual de conclusão do projeto."
+  },
+  {
+    "termo": "Progresso planejado",
+    "sinonimos": [
+      "Planejado para hoje"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quanto do projeto deveria estar concluído na data de hoje, considerando que o prazo é consumido em dias corridos entre o início e o fim planejados.",
+    "como_ler": "Se o projeto ainda não começou é 0%; se a data final já passou, é 100%. A diferença entre planejado e realizado, em pontos percentuais, define o desvio que alimenta o semáforo de saúde.",
+    "o_que_fazer": "Use como régua única de cobrança: comparar o realizado com o planejado evita a discussão sobre 'quanto já foi feito' sem referência.",
+    "formula": "Progresso planejado = dias decorridos desde o início ÷ duração total do projeto × 100",
+    "fonte": "Datas de início e de término planejadas do projeto."
+  },
+  {
+    "termo": "Custo final estimado (EAC)",
+    "sinonimos": [
+      "Custo final estimado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Estimativa do custo total do projeto no término, calculada por três métodos diferentes para mostrar o quanto a projeção depende da hipótese adotada.",
+    "como_ler": "O método marcado como mais provável aparece destacado, com a justificativa. A média dos três, o intervalo entre o menor e o maior e a amplitude em reais e em percentual completam a leitura. Amplitude grande não é erro: é o retrato honesto da incerteza.",
+    "o_que_fazer": "Ao levar o número ao comitê, informe qual método foi usado e por quê; comparar EAC com o orçamento aprovado mostra o tamanho do problema.",
+    "formula": "EAC = BAC ÷ CPI  |  EAC = AC + (BAC − EV)  |  EAC = AC + (BAC − EV) ÷ (CPI × SPI)",
+    "fonte": "Cálculo sobre o orçamento aprovado, o valor agregado e o custo real do projeto."
+  },
+  {
+    "termo": "Desempenho de custo se mantém",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Primeiro método de projeção de custo final: mantém, no restante do projeto, a mesma eficiência de custo observada até agora.",
+    "como_ler": "É o método mais indicado quando o CPI está estável em torno de 1,00. Se o projeto está gastando 10% acima do previsto, essa projeção assume que continuará gastando 10% acima.",
+    "o_que_fazer": "Se este for o método mais provável e o resultado já passar do orçamento, ataque a causa do gasto antes de assumir que ele se repete.",
+    "formula": "EAC = BAC ÷ CPI",
+    "fonte": "Orçamento aprovado dividido pelo índice de desempenho de custo atual."
+  },
+  {
+    "termo": "Desempenho futuro volta ao plano",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Segundo método de projeção: soma o que já foi gasto ao que ainda falta do orçamento, assumindo que o trabalho restante custará exatamente o previsto.",
+    "como_ler": "É o método indicado quando o desvio de custo foi um evento pontual já resolvido. Costuma ser o mais otimista dos três — cuidado ao usá-lo como cenário único.",
+    "o_que_fazer": "Só adote este cenário se conseguir nomear o evento que causou o desvio e explicar por que ele não se repete.",
+    "formula": "EAC = AC + (BAC − EV)",
+    "fonte": "Custo real somado ao orçamento restante do projeto."
+  },
+  {
+    "termo": "Considera também o atraso",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Terceiro método de projeção: corrige o orçamento restante pela ineficiência de custo e também pela ineficiência de prazo.",
+    "como_ler": "É o cenário mais conservador e o sistema o aponta como mais provável quando o SPI está abaixo de 0,95 — ou seja, quando há atraso relevante. Projetos atrasados costumam custar mais, e este método captura isso.",
+    "o_que_fazer": "Se este for o método escolhido, o plano de recuperação precisa tratar prazo e custo juntos, não separadamente.",
+    "formula": "EAC = AC + (BAC − EV) ÷ (CPI × SPI)",
+    "fonte": "Custo real, orçamento restante e os índices de custo e de prazo do projeto."
+  },
+  {
+    "termo": "Média dos métodos",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Média aritmética das três projeções de custo final do projeto.",
+    "como_ler": "Serve como um número de consenso entre as hipóteses. Fica entre o cenário mais otimista e o mais conservador.",
+    "o_que_fazer": "Use como referência rápida; para decidir, prefira o método apontado como mais provável no contexto do projeto.",
+    "formula": "Média = (EAC por desempenho + EAC de retorno ao plano + EAC com atraso) ÷ 3",
+    "fonte": "Média das três projeções de custo final calculadas para o projeto."
+  },
+  {
+    "termo": "Intervalo (mínimo → máximo)",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Mostra o menor e o maior custo final entre os três métodos de projeção.",
+    "como_ler": "É a fronteira da discussão orçamentária: o custo final esperado está em algum ponto entre esses dois valores, dependendo de qual hipótese se confirmar.",
+    "o_que_fazer": "Leve o intervalo, e não um número único, para a conversa de orçamento com o patrocinador.",
+    "fonte": "Menor e maior valor entre as três projeções de custo final."
+  },
+  {
+    "termo": "Amplitude da incerteza",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Diferença entre a maior e a menor projeção de custo final, em reais e em percentual sobre o orçamento aprovado.",
+    "como_ler": "Amplitude pequena indica que as três hipóteses levam ao mesmo lugar e que a projeção é robusta. Amplitude grande mostra que a decisão de custo depende fortemente da premissa escolhida.",
+    "o_que_fazer": "Amplitude acima de 10% do orçamento pede mais dados de execução antes de assumir compromisso de valor.",
+    "formula": "Amplitude = EAC máximo − EAC mínimo; em percentual, ÷ BAC × 100",
+    "fonte": "Comparação entre as três projeções de custo final do projeto."
+  },
+  {
+    "termo": "Contexto EVM",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Resumo do valor agregado do projeto que acompanha a previsão de custo: CPI, SPI e as situações de custo e de prazo.",
+    "como_ler": "Verde a partir de 0,95, âmbar entre 0,95 e 0,85 e vermelho abaixo de 0,85, tanto para custo quanto para prazo. É o contexto que explica por que um dos métodos de projeção foi escolhido como mais provável.",
+    "o_que_fazer": "Se custo e prazo estiverem vermelhos ao mesmo tempo, trate como crise do projeto e não como desvio de execução.",
+    "fonte": "Índices de valor agregado calculados para o projeto na data de referência."
+  },
+  {
+    "termo": "Risco de atraso do projeto",
+    "sinonimos": [
+      "Score de risco por projeto"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Nota de 0 a 100 que resume a chance de o projeto atrasar, calculada pela soma de sete fatores ponderados e explicáveis.",
+    "como_ler": "Até 24 é risco baixo, de 25 a 49 médio, de 50 a 74 alto e de 75 a 100 crítico. Cada fator é normalizado de 0 a 1, multiplicado pelo seu peso e convertido em pontos; a soma dos pesos é 1,00. A lista abaixo do anel mostra exatamente o que puxou a nota.",
+    "o_que_fazer": "Ataque os fatores de maior contribuição em vez da nota: reduzir o desvio de progresso ou destravar tarefas críticas derruba o score.",
+    "formula": "Score = Σ (peso do fator × valor normalizado do fator) × 100",
+    "fonte": "Modelo de risco calculado sobre progresso, valor agregado, tarefas, riscos abertos e alocação da equipe."
+  },
+  {
+    "termo": "Desvio de progresso",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Fator de maior peso no score de risco de atraso: mede quantos pontos percentuais o projeto está atrás do planejado.",
+    "como_ler": "Peso de 30% no score. O valor é a diferença entre progresso planejado e realizado, dividida por 30 pontos percentuais e limitada a 1 — ou seja, 30 pontos de desvio já saturam o fator. Impacto alto a partir de 15 pontos de contribuição.",
+    "o_que_fazer": "É o fator com maior retorno sobre esforço: recuperar o ritmo de entrega derruba o score mais do que qualquer outra ação isolada.",
+    "formula": "Valor = desvio em pontos percentuais ÷ 30 (limitado a 1); contribuição = 0,30 × valor × 100",
+    "fonte": "Comparação entre o progresso planejado e o percentual de conclusão do projeto."
+  },
+  {
+    "termo": "SPI abaixo de 1",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Fator do score de risco que mede o quanto a entrega está abaixo do ritmo previsto pelo cronograma.",
+    "como_ler": "Peso de 15%. O valor é a distância do SPI até 1,00 dividida por 0,30 e limitada a 1 — um SPI de 0,70 já satura o fator. SPI igual ou acima de 1,00 zera a contribuição.",
+    "o_que_fazer": "Quando este fator aparece com impacto alto, o problema é de ritmo: verifique bloqueios, dependências e disponibilidade da equipe.",
+    "formula": "Valor = (1 − SPI) ÷ 0,30 (limitado a 1); contribuição = 0,15 × valor × 100",
+    "fonte": "Índice de desempenho de prazo do projeto."
+  },
+  {
+    "termo": "Tarefas atrasadas",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Fator do score de risco que mede a proporção de tarefas em aberto com prazo já vencido.",
+    "como_ler": "Peso de 15%. O valor é o número de tarefas atrasadas dividido pelo total de tarefas em aberto. Dez por cento das tarefas atrasadas já representa um décimo do peso total do score.",
+    "o_que_fazer": "Renegocie ou redistribua as tarefas vencidas: cada tarefa atrasada que sai da lista reduz a contribuição deste fator.",
+    "formula": "Valor = tarefas em aberto com prazo vencido ÷ tarefas em aberto; contribuição = 0,15 × valor × 100",
+    "fonte": "Tarefas em aberto do projeto com data de término anterior a hoje."
+  },
+  {
+    "termo": "Tarefas críticas atrasadas",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Fator do score de risco que olha especificamente para o atraso dentro do caminho crítico do projeto.",
+    "como_ler": "Peso de 15%. O valor é a proporção de tarefas críticas atrasadas em relação ao total de tarefas críticas. Projetos sem tarefas marcadas no caminho crítico zeram este fator — o que não é bom sinal, e sim falta de mapeamento.",
+    "o_que_fazer": "Atraso no caminho crítico vira atraso do projeto: trate essas tarefas antes das que têm folga.",
+    "formula": "Valor = tarefas críticas atrasadas ÷ tarefas críticas; contribuição = 0,15 × valor × 100",
+    "fonte": "Tarefas marcadas no caminho crítico com prazo vencido."
+  },
+  {
+    "termo": "Riscos altos ou extremos abertos",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Fator do score de risco que conta quantos riscos de nível Alto ou Extremo seguem sem encerramento no projeto.",
+    "como_ler": "Peso de 10%. O valor é o número de riscos graves dividido por 3 e limitado a 1 — três riscos graves abertos já saturam o fator.",
+    "o_que_fazer": "Encerrar riscos com plano de resposta executado é a forma mais direta de reduzir este fator.",
+    "formula": "Valor = riscos graves abertos ÷ 3 (limitado a 1); contribuição = 0,10 × valor × 100",
+    "fonte": "Riscos abertos de nível alto ou extremo do projeto."
+  },
+  {
+    "termo": "Sobrecarga da equipe",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Fator do score de risco que mede quantos conflitos de alocação acima de 100% existem na equipe do projeto.",
+    "como_ler": "Peso de 8%. O valor é o número de conflitos dividido pelo número de pessoas alocadas. Equipe sobrecarregada entrega menos e atrasa mais — este fator captura o efeito da disputa por pessoas.",
+    "o_que_fazer": "Redistribua as alocações acima de 100% da equipe do projeto; o conflito costuma estar em outro projeto disputando a mesma pessoa.",
+    "formula": "Valor = conflitos de alocação ÷ pessoas alocadas no projeto (limitado a 1); contribuição = 0,08 × valor × 100",
+    "fonte": "Conflitos semanais de alocação acima de 100% identificados na equipe do projeto."
+  },
+  {
+    "termo": "Tarefas sem responsável ou sem data",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Fator do score de risco que mede quanto trabalho em aberto ainda depende de definição: tarefas sem responsável ou sem data de término.",
+    "como_ler": "Peso de 7%. O valor soma as tarefas sem dono e as sem prazo e divide pelo total de tarefas em aberto. É o fator mais fácil de zerar e o que mais indica desorganização do plano.",
+    "o_que_fazer": "Atribua responsável e prazo a cada tarefa em aberto; é a ação mais barata para reduzir o risco de atraso.",
+    "formula": "Valor = (tarefas sem responsável + sem data) ÷ tarefas em aberto; contribuição = 0,07 × valor × 100",
+    "fonte": "Tarefas em aberto do projeto sem responsável definido ou sem data de término."
+  },
+  {
+    "termo": "Faixa P10-P90",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Amplitude em dias entre o cenário otimista (P10) e o pessimista (P90) das previsões gravadas do projeto.",
+    "como_ler": "Faixa estreita indica estimativa madura e previsível; faixa larga indica que o prazo ainda é uma incerteza grande. Comparar a faixa ao longo do tempo mostra se as estimativas estão amadurecendo.",
+    "o_que_fazer": "Faixa que não estreita entre previsões sucessivas indica problema de qualidade de dados, não de sorte.",
+    "fonte": "Diferença entre as datas dos percentis 10 e 90 registradas na previsão."
+  },
+  {
+    "termo": "Previsões gravadas deste projeto",
+    "sinonimos": [
+      "Previsões recentes do portfólio"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Histórico das previsões salvas: cada linha guarda a data de referência, o método, o cenário provável, a probabilidade de atraso, o custo projetado e a confiança do dado no momento em que foi registrada.",
+    "como_ler": "Serve para comparar o que o sistema previa com o que de fato aconteceu. A coluna de probabilidade de atraso fica vermelha a partir de 50%, e a confiança do dado segue a faixa de 70% e 40%.",
+    "o_que_fazer": "Salve uma previsão a cada medição relevante (fim de fase, replanejamento) para ter rastreabilidade das decisões.",
+    "fonte": "Registros de previsão salvos pelo próprio sistema a partir do cálculo preditivo."
+  },
+  {
+    "termo": "Distribuição das métricas",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Tabela que mostra, para cada métrica comparada, o mínimo, o P25, a mediana, o P75, o máximo e a média do conjunto de projetos analisados.",
+    "como_ler": "As métricas comparadas são CPI, SPI, desvio de prazo em dias, consumo orçamentário, densidade de riscos por mês, densidade de issues por mês e progresso realizado. A mediana é o valor do projeto do meio: metade do conjunto está acima, metade abaixo. A linha de apoio indica quantos projetos entraram no cálculo.",
+    "o_que_fazer": "Use a mediana como meta realista: é o desempenho que o conjunto já alcança, não uma meta teórica.",
+    "fonte": "Estatísticas calculadas sobre os projetos do escopo filtrado."
+  },
+  {
+    "termo": "Posição de cada projeto",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Tabela que mostra o valor de cada projeto em cada métrica e o percentil de desempenho correspondente dentro do conjunto.",
+    "como_ler": "O percentil vai de 0 a 100, em que 100 é o melhor projeto do conjunto naquela métrica. Em métricas em que menor é melhor — desvio de prazo, consumo orçamentário e densidade de riscos — a posição é invertida, para que a leitura continue sendo quanto maior, melhor. A cor acompanha o percentil.",
+    "o_que_fazer": "Olhe as colunas em que o projeto está abaixo do 25º percentil: são as frentes em que ele puxa o conjunto para baixo.",
+    "fonte": "Comparação do valor de cada projeto com a distribuição do conjunto."
+  },
+  {
+    "termo": "Índice geral",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Média dos percentis de desempenho do projeto em todas as métricas do comparativo. Resume a posição do projeto no conjunto em um único número de 0 a 100.",
+    "como_ler": "Quanto mais alto, melhor o desempenho relativo. Como é média de percentis, um projeto pode ter índice alto mesmo com uma métrica ruim, desde que as outras compensem.",
+    "o_que_fazer": "Use para priorizar conversas: comece pelos projetos de índice mais baixo, mas verifique qual métrica derruba cada um.",
+    "formula": "Índice geral = média dos percentis de desempenho do projeto nas métricas comparadas",
+    "fonte": "Média dos percentis do projeto em cada métrica do comparativo."
+  },
+  {
+    "termo": "Percentil de desempenho",
+    "sinonimos": [
+      "percentil"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Posição do projeto dentro do conjunto comparado, de 0 a 100, sempre no sentido de que maior é melhor.",
+    "como_ler": "O 100º percentil é o melhor projeto do conjunto na métrica; o 0 é o pior. Projetos sem medição aparecem como sem percentil e não entram na distribuição.",
+    "o_que_fazer": "Um projeto no 10º percentil de CPI e no 90º de progresso está entregando muito gastando demais: a ação é de custo, não de ritmo.",
+    "fonte": "Posição relativa do valor do projeto na distribuição do conjunto."
+  },
+  {
+    "termo": "Mapa de calor de desempenho",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Grade de projetos por métricas em que a cor de cada célula representa o percentil de desempenho daquele projeto naquela métrica.",
+    "como_ler": "A escala vai de vermelho (pior do conjunto) a verde (melhor). Linhas com muitas células vermelhas indicam projetos fracos em várias frentes ao mesmo tempo — normalmente problema estrutural, não de execução.",
+    "o_que_fazer": "Procure colunas inteiras em vermelho: quando todos os projetos vão mal na mesma métrica, a causa é do processo, não de um gerente.",
+    "fonte": "Percentis de desempenho de cada projeto em cada métrica comparada."
+  },
+  {
+    "termo": "Melhores do conjunto",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Lista os três primeiros colocados em cada métrica do comparativo, com o valor medido.",
+    "como_ler": "Serve para identificar referências internas: os projetos citados podem ser usados como fonte de prática, não apenas como vencedores.",
+    "o_que_fazer": "Converse com os responsáveis pelos melhores colocados para entender o que fazem diferente e reproduza a prática nos demais.",
+    "fonte": "Ordenação dos projetos do escopo pelo valor de cada métrica."
+  },
+  {
+    "termo": "Piores do conjunto",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Lista os três últimos colocados em cada métrica do comparativo, com o valor medido.",
+    "como_ler": "São os pontos de atenção que pedem ação do gestor. Estar no fim de uma métrica não significa projeto ruim: significa que, naquele aspecto, ele está pior que os pares.",
+    "o_que_fazer": "Trate os piores de custo e de prazo primeiro; densidade de riscos e de issues altas costumam ser consequência, não causa.",
+    "fonte": "Ordenação dos projetos do escopo pelo valor de cada métrica."
+  },
+  {
+    "termo": "Práticas observadas",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Padrões extraídos dos projetos com melhor desempenho, sempre acompanhados da evidência numérica que sustenta a afirmação.",
+    "como_ler": "Cada prática mostra a comparação entre dois grupos de projetos — por exemplo, projetos com CPI acima da mediana contra os abaixo — e o efeito medido. Só aparecem práticas com pelo menos dois projetos em cada grupo e diferença comprovada nos dados.",
+    "o_que_fazer": "Use as práticas como hipóteses a testar na sua carteira, não como regra: a evidência é do conjunto analisado, não do seu projeto específico.",
+    "fonte": "Comparação estatística entre grupos de projetos do escopo, com a evidência apresentada junto."
+  },
+  {
+    "termo": "Referência em eficiência de custo",
+    "sinonimos": [
+      "Referência em desempenho de prazo",
+      "Referência em pontualidade",
+      "Referência em gestão de riscos",
+      "Referência em execução"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Cartão de destaque que aponta o projeto com melhor desempenho do conjunto em uma dimensão: eficiência de custo, desempenho de prazo, pontualidade, gestão de riscos ou execução.",
+    "como_ler": "O detalhe mostra o valor alcançado pelo projeto contra a mediana do conjunto. Só aparece quando há pelo menos dois projetos medidos naquela métrica — sem base de comparação, não há destaque.",
+    "o_que_fazer": "Use esses projetos como referência interna ao definir metas para os demais.",
+    "fonte": "Projeto de melhor valor em cada métrica do comparativo, comparado à mediana do conjunto."
+  },
+  {
+    "termo": "Desvio de prazo",
+    "sinonimos": [
+      "Desvio de prazo (dias)"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Diferença, em dias, entre a data real de término do projeto e a data planejada. Para projetos ainda em andamento com prazo vencido, conta os dias já transcorridos desde a data planejada.",
+    "como_ler": "Negativo significa concluído antes do prazo; zero significa dentro do prazo; positivo significa atraso. No comparativo entre projetos, menor é melhor.",
+    "o_que_fazer": "Projetos com desvio positivo acumulado costumam ter a causa no caminho crítico — verifique antes de culpar a equipe.",
+    "formula": "Desvio de prazo = data real de término − data planejada",
+    "fonte": "Datas planejadas e reais de término do projeto."
+  },
+  {
+    "termo": "Consumo orçamentário",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Percentual do orçamento aprovado que já foi gasto no projeto, somando despesas realizadas e comprometidas.",
+    "como_ler": "No comparativo entre projetos, menor é melhor. Consumo alto não é problema por si só: é problema quando está à frente do progresso entregue.",
+    "o_que_fazer": "Cruze o consumo com o progresso do projeto: consumo muito acima do progresso indica ineficiência ou escopo extra sem orçamento.",
+    "formula": "Consumo orçamentário = AC ÷ BAC × 100",
+    "fonte": "Custo real do projeto comparado ao orçamento aprovado."
+  },
+  {
+    "termo": "Densidade de riscos",
+    "sinonimos": [
+      "Densidade de riscos (riscos/mês)"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quantidade de riscos registrados no projeto por mês de duração. Normaliza a comparação: projetos longos naturalmente acumulam mais riscos que projetos curtos.",
+    "como_ler": "No comparativo, menor é melhor. Densidade alta pode significar tanto exposição real quanto boa prática de registro — vale olhar a proporção de riscos graves abertos antes de concluir.",
+    "o_que_fazer": "Densidade alta com poucos riscos graves pode ser sinal de gestão madura; densidade baixa com muitos problemas indica que os riscos não estão sendo registrados.",
+    "formula": "Densidade = riscos registrados ÷ meses de duração do projeto",
+    "fonte": "Riscos cadastrados no projeto e duração do projeto."
+  },
+  {
+    "termo": "Densidade de issues",
+    "sinonimos": [
+      "Densidade de issues (issues/mês)"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quantidade de issues (problemas já ocorridos) registradas no projeto por mês de duração.",
+    "como_ler": "No comparativo, menor é melhor. Issues são riscos que se materializaram — densidade alta indica problema de execução ou de qualidade, não de planejamento.",
+    "o_que_fazer": "Densidade alta recorrente pede análise de causa raiz nos processos de entrega, não apenas correção pontual.",
+    "formula": "Densidade = issues registradas ÷ meses de duração do projeto",
+    "fonte": "Issues cadastradas no projeto e duração do projeto."
+  },
+  {
+    "termo": "Progresso realizado",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Percentual de conclusão efetivo do projeto, usado no comparativo entre projetos do escopo.",
+    "como_ler": "No comparativo, maior é melhor. Progresso alto com prazo estourado indica que o projeto avançou devagar ao longo do tempo, e não que está quase pronto.",
+    "o_que_fazer": "Compare progresso e consumo: entregar pouco gastando muito é o pior quadrante da carteira.",
+    "fonte": "Percentual de conclusão registrado em cada projeto."
+  },
+  {
+    "termo": "Evolução das séries",
+    "sinonimos": [
+      "Tendências do portfólio"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Gráfico das séries mensais do portfólio — progresso médio, CPI médio, SPI médio, risco médio e ocupação média da equipe — reconstruídas a partir dos registros reais.",
+    "como_ler": "Cada linha tem direção própria: para progresso, CPI e SPI, subir é melhorar; para risco e ocupação, subir é piorar. Meses sem medição aparecem como zero para manter a linha contínua, então uma queda abrupta pode ser ausência de dado, e não piora real.",
+    "o_que_fazer": "Leia as linhas em conjunto: progresso caindo com ocupação subindo indica equipe sobrecarregada entregando menos.",
+    "fonte": "Séries mensais reconstruídas de datas de conclusão de tarefas, lançamentos, riscos abertos e alocações vigentes."
+  },
+  {
+    "termo": "Piorando",
+    "sinonimos": [
+      "Melhorando",
+      "Estável",
+      "Tendência da série"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Classificação da direção de uma série mensal: melhorando, estável ou piorando.",
+    "como_ler": "O sistema ajusta uma reta sobre a série e compara a inclinação com um limiar de estabilidade próprio de cada indicador (por exemplo, 0,01 por mês para CPI e SPI e 0,5 ponto percentual para progresso). Abaixo do limiar, a série é considerada estável, mesmo que oscile.",
+    "o_que_fazer": "Duas ou três medições seguidas em piora justificam ação; uma oscilação isolada, não.",
+    "fonte": "Inclinação da reta ajustada sobre os valores mensais da série, comparada ao limiar de estabilidade."
+  },
+  {
+    "termo": "Limiar de estabilidade",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Variação mínima por mês que o sistema exige para considerar que uma série está realmente subindo ou caindo.",
+    "como_ler": "Cada indicador tem o seu limiar, calibrado pela escala do número: índices como CPI e SPI usam 0,01 por mês; progresso e ocupação usam 0,5 e 1,0 ponto percentual; risco médio usa 0,2 de severidade. Variação menor que isso é ruído.",
+    "o_que_fazer": "Use o limiar para não reagir a oscilações normais: só mobilize o time quando a tendência superar esse valor.",
+    "fonte": "Parâmetro de estabilidade definido para cada série monitorada."
+  },
+  {
+    "termo": "maior é melhor",
+    "sinonimos": [
+      "menor é melhor"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Indica o sentido de leitura da série: em algumas, aumentar é melhorar; em outras, aumentar é piorar.",
+    "como_ler": "Progresso, CPI e SPI melhoram quando sobem. Risco médio e ocupação da equipe pioram quando sobem. Sem essa informação, a mesma subida poderia ser lida como boa ou ruim.",
+    "o_que_fazer": "Antes de reagir a uma variação, confirme o sentido da série para não comemorar uma piora.",
+    "fonte": "Definição de cada série monitorada no painel de tendências."
+  },
+  {
+    "termo": "Capacidade instalada",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Soma da capacidade das pessoas envolvidas nos projetos do escopo, convertida em pessoas equivalentes de tempo integral (FTE).",
+    "como_ler": "Cada pessoa contribui com a sua capacidade semanal dividida por 40 horas: quem tem jornada de 20 horas soma meio FTE. É a oferta contra a qual a demanda projetada é comparada em todos os meses do horizonte.",
+    "o_que_fazer": "Se a capacidade instalada não cobre a demanda, decida entre contratar, reduzir escopo ou repriorizar projetos — o sistema apenas mostra o tamanho do buraco.",
+    "formula": "Capacidade instalada = Σ (capacidade semanal da pessoa ÷ 40 horas)",
+    "fonte": "Capacidade semanal cadastrada das pessoas alocadas ou responsáveis por tarefas nos projetos do escopo."
+  },
+  {
+    "termo": "Capacidade da organização",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Capacidade total de todas as pessoas ativas da organização, convertida em FTE.",
+    "como_ler": "Serve de teto de comparação: mostra quanto a organização tem no total, além das pessoas hoje envolvidas nos projetos do escopo. A distância entre capacidade instalada e capacidade da organização indica quanto ainda existe de gente fora desses projetos.",
+    "o_que_fazer": "Se a escassez projetada for coberta pela diferença entre os dois números, o caminho é realocação interna, não contratação.",
+    "formula": "Capacidade da organização = Σ (capacidade semanal das pessoas ativas ÷ 40 horas)",
+    "fonte": "Capacidade semanal cadastrada de todas as pessoas ativas."
+  },
+  {
+    "termo": "Demanda média",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Média mensal da demanda de pessoas projetada para o escopo, em FTE, ao longo do horizonte escolhido.",
+    "como_ler": "A demanda soma as alocações futuras já planejadas e as tarefas em aberto que ainda não têm responsável. Média alta com picos concentrados é diferente de média alta distribuída: a primeira exige decisão de curto prazo.",
+    "o_que_fazer": "Compare com a capacidade instalada: se a média já supera a oferta, todos os meses serão de disputa por pessoas.",
+    "fonte": "Média da demanda mensal projetada em FTE no horizonte analisado."
+  },
+  {
+    "termo": "Gap médio",
+    "sinonimos": [
+      "Gap"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Diferença média entre a demanda mensal projetada e a capacidade instalada, em FTE. Positivo significa falta de gente; negativo, sobra.",
+    "como_ler": "Acima de meio FTE positivo o mês é classificado como escassez; abaixo de um FTE negativo, como ociosidade; no meio, equilíbrio. O gap médio do período resume o desequilíbrio estrutural.",
+    "o_que_fazer": "Gap positivo recorrente pede plano de capacidade; gap negativo recorrente indica capacidade paga e não usada — revise a carteira ou antecipe projetos.",
+    "formula": "Gap do mês = demanda projetada − capacidade instalada",
+    "fonte": "Comparação mensal entre demanda projetada e capacidade instalada da equipe."
+  },
+  {
+    "termo": "Meses ociosos",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantos meses do horizonte têm capacidade instalada sobrando em relação à demanda projetada.",
+    "como_ler": "Um mês entra como ociosidade quando a capacidade supera a demanda em mais de um FTE. Ociosidade não é folga saudável: é custo fixo sem entrega associada.",
+    "o_que_fazer": "Use esses meses para antecipar entregas, formar pessoas ou iniciar projetos que estavam na fila.",
+    "fonte": "Comparação mensal entre demanda projetada em FTE e capacidade instalada da equipe."
+  },
+  {
+    "termo": "Demanda contra capacidade",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Gráfico que sobrepõe, mês a mês, a demanda projetada em FTE (área colorida) e a capacidade instalada da equipe (linha tracejada).",
+    "como_ler": "Onde a área fica acima da linha, falta gente; onde fica abaixo, sobra capacidade. A distância entre as duas curvas é o tamanho do problema em cada mês.",
+    "o_que_fazer": "Leve o gráfico para a reunião de capacidade: ele mostra em que meses a decisão precisa estar tomada.",
+    "fonte": "Projeção mensal de demanda em FTE comparada à capacidade instalada da equipe."
+  },
+  {
+    "termo": "Gap por mês",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Barras divergentes que mostram, para cada mês, quanto falta (à direita, escassez) ou quanto sobra (à esquerda, ociosidade) de pessoas.",
+    "como_ler": "Vermelho indica escassez de pessoas e azul indica ociosidade. A barra é proporcional ao maior gap do período, então serve para comparar meses entre si.",
+    "o_que_fazer": "Concentre a ação nos meses de escassez; realocações feitas agora evitam atraso nos meses seguintes.",
+    "formula": "Gap do mês = demanda projetada em FTE − capacidade instalada em FTE",
+    "fonte": "Diferença mensal entre demanda projetada e capacidade instalada."
+  },
+  {
+    "termo": "Meses de pico",
+    "sinonimos": [
+      "pico de demanda"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Os três meses com maior demanda projetada de pessoas no horizonte analisado.",
+    "como_ler": "Cada cartão mostra demanda, oferta, gap e quantos FTE vêm de tarefas ainda sem responsável, além da razão entre demanda e capacidade. A situação do mês pode ser escassez, equilíbrio ou ociosidade.",
+    "o_que_fazer": "Antecipe a decisão para o pico: contratação e integração de novos profissionais levam tempo e não resolvem o mês seguinte.",
+    "fonte": "Meses de maior demanda projetada em FTE no horizonte analisado."
+  },
+  {
+    "termo": "FTE",
+    "sinonimos": [
+      "FTE de demanda"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Unidade que representa uma pessoa trabalhando em tempo integral. Meio FTE equivale a metade da jornada de uma pessoa.",
+    "como_ler": "É a moeda das análises de capacidade: demanda, oferta e gap são todos medidos em FTE, o que permite somar pessoas com jornadas diferentes.",
+    "o_que_fazer": "Ao ler um gap de 2 FTE, traduza para o seu contexto: são duas pessoas em tempo integral ou quatro em meio período.",
+    "formula": "1 FTE = 40 horas semanais",
+    "fonte": "Conversão da capacidade semanal de cada pessoa em jornadas integrais."
+  },
+  {
+    "termo": "Sem responsável",
+    "sinonimos": [
+      "demanda sem responsável"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Parte da demanda projetada que vem de tarefas em aberto que ainda não têm responsável definido, medida em FTE.",
+    "como_ler": "Esse pedaço da demanda não está em nenhuma alocação: ele ainda não tem dono no plano. Quando aparece com volume relevante, a projeção fica menos confiável.",
+    "o_que_fazer": "Atribua responsáveis às tarefas em aberto: isso reduz a incerteza da projeção e evita que o trabalho fique sem execução.",
+    "fonte": "Tarefas em aberto sem responsável definido, distribuídas pelo período em que estão previstas."
+  },
+  {
+    "termo": "Tarefas abertas",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas tarefas atribuídas a você ainda estão em aberto — ou seja, fora dos status Concluída e Cancelada.",
+    "como_ler": "O sistema considera Backlog, A fazer, Em andamento, Em revisão e Bloqueada como trabalho em aberto. Tarefa em revisão ainda conta como aberta e continua ocupando sua atenção.",
+    "o_que_fazer": "Se o número não cair ao longo da semana, verifique se há tarefas bloqueadas ou paradas em revisão esperando outra pessoa.",
+    "fonte": "Tarefas sob sua responsabilidade que não estão concluídas nem canceladas."
+  },
+  {
+    "termo": "Atrasadas",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas tarefas suas (ou do projeto, quando o card está dentro de um projeto) estão em aberto com a data de término já vencida.",
+    "como_ler": "A contagem é por data de término planejada, independentemente do percentual já executado. Tarefa concluída fora do prazo não entra — atraso aqui é trabalho pendente, não histórico.",
+    "o_que_fazer": "Priorize o que está vencido: renegocie a data ou conclua. Tarefa vencida esquecida contamina o cronograma do projeto inteiro.",
+    "fonte": "Tarefas em aberto com data de término anterior a hoje."
+  },
+  {
+    "termo": "Concluídas no mês",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas tarefas suas foram concluídas desde o primeiro dia do mês corrente.",
+    "como_ler": "Mede vazão, não esforço: dez tarefas pequenas concluídas valem dez aqui, mesmo que custem menos que uma grande. Acompanhe a série mês a mês para perceber variação de ritmo.",
+    "o_que_fazer": "Queda de vazão com tarefas abertas estáveis costuma indicar bloqueio ou excesso de trabalho em paralelo.",
+    "fonte": "Tarefas concluídas com data real de término dentro do mês corrente."
+  },
+  {
+    "termo": "Horas na semana",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Total de horas que você apontou na semana corrente, comparado à sua meta semanal (por padrão, 40 horas).",
+    "como_ler": "O subtexto mostra a meta. Horas muito abaixo da meta podem indicar apontamento em falta, não trabalho em falta — e apontamento incompleto distorce custo, valor agregado e capacidade.",
+    "o_que_fazer": "Mantenha os apontamentos em dia: eles alimentam o custo real do projeto e as análises de ocupação.",
+    "fonte": "Soma dos apontamentos de horas registrados por você na semana corrente."
+  },
+  {
+    "termo": "Capacidades",
+    "sinonimos": [
+      "Minhas capacidades"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas competências estão registradas no seu perfil.",
+    "como_ler": "Cada competência no perfil conta uma vez, com o nível em que você está. O número é a base do seu radar de competências e das recomendações de alocação em que você aparece.",
+    "o_que_fazer": "Mantenha o perfil atualizado: competência não registrada é competência que o motor de alocação não enxerga quando procura alguém para um projeto.",
+    "fonte": "Competências registradas no seu perfil de capacidades."
+  },
+  {
+    "termo": "Nível médio",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Média dos seus níveis consolidados nas competências registradas, numa escala de 1 a 5 (Iniciante a Especialista).",
+    "como_ler": "Nível consolidado é o que já foi demonstrado e validado, não o que você declarou. Média alta com poucas competências indica especialista; média média com muitas competências indica perfil generalista — os dois são úteis em contextos diferentes.",
+    "o_que_fazer": "Use o radar para achar lacunas: competências exigidas pelos seus projetos com nível abaixo do desejado são prioridade de desenvolvimento.",
+    "formula": "Nível médio = soma dos níveis consolidados ÷ quantidade de competências no perfil",
+    "fonte": "Média dos níveis consolidados das competências registradas no seu perfil."
+  },
+  {
+    "termo": "alocado",
+    "sinonimos": [
+      "% alocado"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Soma dos percentuais de todas as suas alocações confirmadas ou em execução neste momento.",
+    "como_ler": "Até 85% é considerado saudável, de 85% a 100% é ocupação cheia e acima de 100% indica sobrecarga — a mesma régua que gera os alertas de conflito de alocação no sistema.",
+    "o_que_fazer": "Se passar de 100%, converse com a liderança: a sobreposição de projetos costuma virar atraso em pelo menos um deles.",
+    "fonte": "Soma dos percentuais das suas alocações com status Confirmada ou Em execução."
+  },
+  {
+    "termo": "Minhas tarefas por status",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Distribuição das suas tarefas em aberto pelas etapas do fluxo: Backlog, A fazer, Em andamento, Em revisão e Bloqueada.",
+    "como_ler": "O centro do gráfico mostra o total de tarefas abertas. Muitas tarefas em andamento ao mesmo tempo indicam trabalho paralelo excessivo; muitas bloqueadas indicam dependência de outra pessoa ou de uma decisão.",
+    "o_que_fazer": "Reduza o trabalho em andamento antes de puxar novas tarefas: terminar é mais valioso que começar.",
+    "fonte": "Contagem das suas tarefas em aberto por status."
+  },
+  {
+    "termo": "Horas da semana",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Gráfico das horas apontadas por dia na semana corrente, com as horas já aprovadas e as pendentes de aprovação no cabeçalho.",
+    "como_ler": "A meta diária de referência é de 8 horas: barras acima disso aparecem em âmbar, sinalizando dia sobrecarregado. Horas pendentes ainda não foram aprovadas pelo gestor e podem ser ajustadas.",
+    "o_que_fazer": "Apontamentos pendentes por muitos dias costumam ser esquecidos ou recusados — resolva antes do fechamento do mês.",
+    "fonte": "Apontamentos de horas registrados por você na semana corrente."
+  },
+  {
+    "termo": "Minhas alocações",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Lista os projetos em que você está alocado, com o percentual da sua jornada dedicado a cada um, o papel e o período.",
+    "como_ler": "A soma das barras é a sua carga total do período. Alocações com papel indefinido ou período muito curto costumam gerar dúvida sobre o que se espera de você.",
+    "o_que_fazer": "Confirme com o gerente as alocações sem papel definido; clareza de papel reduz retrabalho.",
+    "fonte": "Alocações ativas registradas no seu nome."
+  },
+  {
+    "termo": "Projetos no período",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos projetos aparecem na timeline depois dos filtros de programa, saúde e busca.",
+    "como_ler": "É o recorte visível do cronograma macro. Projetos sem data de início ou de fim não conseguem ser posicionados na linha do tempo e ficam fora da leitura.",
+    "o_que_fazer": "Se um projeto esperado não aparece, verifique se ele tem período cadastrado ou se foi arquivado.",
+    "fonte": "Contagem dos projetos com período cadastrado que passam pelos filtros da timeline."
+  },
+  {
+    "termo": "Tarefas",
+    "sinonimos": [
+      "Total de tarefas"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantidade de tarefas cadastradas — no projeto, quando o card está dentro dele, ou somando todos os projetos do recorte, quando está na timeline do portfólio.",
+    "como_ler": "É uma medida de granularidade do plano: planos com poucas tarefas muito longas escondem o atraso até o fim; planos com muitas tarefas curtas permitem acompanhar o avanço de perto.",
+    "o_que_fazer": "Se o número for muito baixo para o tamanho do projeto, quebre as entregas em tarefas menores para conseguir medir progresso.",
+    "fonte": "Contagem das tarefas cadastradas nos projetos do recorte."
+  },
+  {
+    "termo": "Orçamento por programa",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Gráfico que soma o orçamento dos projetos de cada programa, mostrando onde está concentrado o dinheiro do portfólio.",
+    "como_ler": "Projetos sem programa aparecem agrupados como Sem programa. Concentração alta em um único programa significa dependência: se ele atrasar, o resultado do portfólio inteiro é afetado.",
+    "o_que_fazer": "Use o gráfico para discutir priorização: onde está o maior orçamento é onde o acompanhamento precisa ser mais rigoroso.",
+    "fonte": "Soma do orçamento cadastrado dos projetos, agrupada por programa."
+  },
+  {
+    "termo": "Em execução",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos projetos do recorte estão com status Em execução — ou seja, entregando de fato.",
+    "como_ler": "Projetos aprovados e planejados ainda não contam aqui. A comparação entre o total de projetos e os que estão em execução mostra quanta coisa está na carteira sem estar produzindo.",
+    "o_que_fazer": "Carteira com muito projeto aprovado e pouco em execução indica fila de início: verifique disponibilidade de equipe e dependências de aprovação.",
+    "fonte": "Contagem dos projetos com status Em execução que atendem aos filtros aplicados."
+  },
+  {
+    "termo": "Atrasado",
+    "sinonimos": [
+      "Projeto atrasado"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Marca aplicada ao projeto cuja data de término planejada já passou sem que ele tenha sido concluído ou cancelado.",
+    "como_ler": "No cartão do projeto, a etiqueta aparece junto do status e da prioridade, e o rodapé troca a contagem de dias restantes por dias de atraso, em vermelho.",
+    "o_que_fazer": "Projeto marcado como atrasado precisa de decisão registrada: novo prazo, novo escopo ou novo time.",
+    "fonte": "Comparação entre a data de término planejada e a data de hoje."
+  },
+  {
+    "termo": "dias restantes",
+    "sinonimos": [
+      "dias de atraso",
+      "dia(s) restantes"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantos dias faltam para a data de término planejada do projeto — ou, quando ela já passou, quantos dias de atraso já se acumularam.",
+    "como_ler": "Quando o projeto está atrasado, o texto muda para dias de atraso e fica em vermelho. Projeto sem prazo definido mostra a indicação de que não há prazo cadastrado.",
+    "o_que_fazer": "Nas últimas duas semanas antes do prazo, confirme com o time se a entrega está garantida; é o momento de decidir, não de descobrir depois.",
+    "fonte": "Diferença entre a data de término planejada do projeto e a data de hoje."
+  },
+  {
+    "termo": "Cartão do projeto",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Primeiro passo do assistente de criação: identidade do projeto (nome, categoria, área, ícone e cor), responsáveis, prioridade, criticidade e orçamento.",
+    "como_ler": "O painel lateral mostra a pré-visualização do cartão como ele aparecerá nas listas. O projeto nasce com status Planejado e semáforo Não avaliado, porque ainda não há execução para medir.",
+    "o_que_fazer": "Nome, categoria, área e gerente são obrigatórios para avançar — e são exatamente os campos que permitem filtrar e cobrar o projeto depois.",
+    "fonte": "Dados informados no cadastro do projeto."
+  },
+  {
+    "termo": "Timeline arrastável",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Segundo passo do assistente: definição do período do projeto e dos marcos principais, com ajuste visual das datas.",
+    "como_ler": "As datas informadas aqui são a base do progresso planejado e de todo o acompanhamento de atraso. Marcos marcados como críticos passam a impactar a leitura do caminho crítico.",
+    "o_que_fazer": "Cadastre os marcos de decisão (aprovações, entregas parciais) junto com o período: sem marcos, o acompanhamento fica restrito ao percentual.",
+    "fonte": "Datas de início e fim e marcos informados no cadastro."
+  },
+  {
+    "termo": "Capacidades requeridas",
+    "sinonimos": [
+      "Requisitos selecionados"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Terceiro passo do assistente: definição das competências que o projeto exige, com nível mínimo, nível desejado e obrigatoriedade.",
+    "como_ler": "Esses requisitos alimentam o motor de matching, o gap analysis do projeto e o alerta de alocação bloqueada. Requisito obrigatório sem ninguém que atenda aparece como pendência e trava a alocação.",
+    "o_que_fazer": "Descreva o nível mínimo com honestidade: requisito inflado reduz a lista de candidatos e atrasa o início do projeto.",
+    "fonte": "Requisitos de capacidade informados no cadastro do projeto."
+  },
+  {
+    "termo": "Equipe sugerida",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quarto passo do assistente: lista de pessoas recomendadas pelo motor de matching, ranqueada pela aderência aos requisitos de competência, disponibilidade e custo do projeto.",
+    "como_ler": "A recomendação é insumo, não decisão: o gestor pode escolher outra pessoa, e a escolha manual fica registrada para a auditoria de viés. Quanto melhor descritos os requisitos, melhor a lista.",
+    "o_que_fazer": "Antes de confirmar, confira a disponibilidade de cada pessoa no período do projeto para não criar conflito de alocação.",
+    "fonte": "Recomendações geradas pelo motor de alocação a partir dos requisitos do projeto."
+  },
+  {
+    "termo": "Pré-visualização do cartão",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Mostra, durante o cadastro, como o cartão do projeto ficará nas listas, nos quadros e na timeline.",
+    "como_ler": "A barra de progresso aparece zerada e o semáforo em Não avaliado, porque o projeto ainda não começou. A duração em dias é calculada a partir das datas informadas.",
+    "o_que_fazer": "Use a pré-visualização para conferir nome, cor, ícone e responsáveis antes de salvar — o cartão é o que as pessoas verão todos os dias.",
+    "fonte": "Dados preenchidos no formulário de criação do projeto."
+  },
+  {
+    "termo": "Divisão CAPEX / OPEX",
+    "sinonimos": [
+      "CAPEX",
+      "OPEX"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Define quanto do orçamento total do projeto é investimento (CAPEX) e quanto é despesa operacional (OPEX).",
+    "como_ler": "O controle deslizante define o percentual de CAPEX; o restante vira OPEX e os dois valores aparecem em reais logo abaixo. A divisão afeta a forma de contabilizar e de depreciar o gasto, não o total do projeto.",
+    "o_que_fazer": "Confirme a classificação com a área financeira antes de salvar: mudar isso depois afeta o planejamento contábil do ano.",
+    "formula": "CAPEX = orçamento total × % CAPEX; OPEX = orçamento total − CAPEX",
+    "fonte": "Percentual informado no cadastro, aplicado sobre o orçamento total do projeto."
+  },
+  {
+    "termo": "Programas",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantidade de programas cadastrados — os agrupadores que reúnem projetos relacionados sob uma mesma gerência.",
+    "como_ler": "Na tela de programas, o número considera todos os cadastrados; na tela de portfólios, conta os programas que servem de agrupadores dentro das carteiras. Programa sem gerente aparece separadamente como pendência.",
+    "o_que_fazer": "Revise periodicamente programas sem projeto vinculado: agrupador vazio é estrutura sem função.",
+    "fonte": "Contagem dos programas cadastrados."
+  },
+  {
+    "termo": "Ativos",
+    "sinonimos": [
+      "Programas ativos"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos programas estão com status Ativo, ou seja, em andamento.",
+    "como_ler": "Programas Planejados ainda não começaram; Pausados pararam; Concluídos e Cancelados saíram da execução. A proporção de ativos sobre o total mostra quanta estrutura está realmente produzindo.",
+    "o_que_fazer": "Programas pausados há muito tempo devem voltar à pauta: mantenha-os ou encerre-os com registro.",
+    "fonte": "Contagem dos programas com status Ativo."
+  },
+  {
+    "termo": "Sem gerente",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos programas não têm gerente responsável definido.",
+    "como_ler": "O número aparece em vermelho porque programa sem responsável não tem quem responda por prazo, orçamento e riscos dos projetos que estão dentro dele.",
+    "o_que_fazer": "Nomeie um responsável para cada programa da lista: é a correção mais rápida e de maior efeito na governança.",
+    "fonte": "Programas sem gerente vinculado no cadastro."
+  },
+  {
+    "termo": "Portfólios",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantidade de carteiras cadastradas, cada uma com objetivo estratégico, responsável e orçamento anual próprios.",
+    "como_ler": "O portfólio é o nível mais alto de agrupamento: reúne programas e projetos sob uma mesma lógica de investimento. Poucas carteiras com muitos projetos indicam concentração; muitas carteiras com poucos projetos indicam fragmentação da governança.",
+    "o_que_fazer": "Revise a lista de carteiras a cada ciclo de planejamento para que ela reflita as prioridades estratégicas atuais.",
+    "fonte": "Contagem dos portfólios cadastrados."
+  },
+  {
+    "termo": "Orçamento anual",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Soma do orçamento anual previsto nas carteiras. É o quanto a organização planejou investir no conjunto de portfólios no ano.",
+    "como_ler": "É um valor de planejamento macro, diferente da soma dos orçamentos dos projetos: serve para comparar o planejado no nível da carteira com o que efetivamente está distribuído em projetos.",
+    "o_que_fazer": "Se a soma dos orçamentos dos projetos ficar muito acima ou abaixo do orçamento anual das carteiras, revise o alinhamento entre planejamento e execução.",
+    "fonte": "Soma do orçamento anual informado em cada portfólio."
+  },
+  {
+    "termo": "No prazo",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Fatia do gráfico de saúde que conta os projetos do portfólio com semáforo verde.",
+    "como_ler": "Verde significa sem atraso, desvio de até 8 pontos percentuais atrás do planejado e nenhum risco alto aberto. É o estado desejado da carteira.",
+    "o_que_fazer": "Se essa fatia for pequena, o problema é da carteira e não de um projeto: revise priorização e capacidade antes de cobrar os gerentes.",
+    "fonte": "Projetos do portfólio com semáforo de saúde verde."
+  },
+  {
+    "termo": "Atenção",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Fatia do gráfico de saúde que conta os projetos com semáforo amarelo.",
+    "como_ler": "Amarelo aparece quando o projeto está mais de 8 pontos percentuais atrás do planejado ou tem pelo menos um risco alto aberto. É o estágio em que a intervenção ainda é barata.",
+    "o_que_fazer": "Cobre um plano de recuperação dos projetos amarelos antes que eles virem vermelhos.",
+    "fonte": "Projetos do portfólio com semáforo de saúde amarelo."
+  },
+  {
+    "termo": "Crítico",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Fatia do gráfico de saúde que conta os projetos com semáforo vermelho.",
+    "como_ler": "Vermelho significa data de fim vencida, desvio acima de 20 pontos percentuais, três ou mais riscos altos abertos ou custo real acima do orçamento. Qualquer um desses critérios basta.",
+    "o_que_fazer": "Projeto vermelho precisa de decisão da liderança, não apenas de cobrança: reavalie escopo, prazo e recursos.",
+    "fonte": "Projetos do portfólio com semáforo de saúde vermelho."
+  },
+  {
+    "termo": "Não avaliado",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Fatia do gráfico de saúde que reúne os projetos sem avaliação de prazo: concluídos, cancelados e arquivados.",
+    "como_ler": "Cinza não indica problema nem saúde: indica que o projeto saiu da execução e não faz sentido medir atraso. Um cinza grande em um portfólio ativo, porém, pode indicar projetos sem datas cadastradas.",
+    "o_que_fazer": "Confirme que os projetos em cinza estão realmente encerrados e não apenas sem cronograma preenchido.",
+    "fonte": "Projetos do portfólio com semáforo cinza."
+  },
+  {
+    "termo": "Marcos",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantidade de marcos no recorte atual — os pontos de controle que marcam entregas ou decisões importantes do projeto.",
+    "como_ler": "O número considera os filtros aplicados (projeto, status, criticidade, período e busca). Marcos marcados como críticos são os que impactam o caminho crítico: se um deles atrasa, o projeto atrasa junto.",
+    "o_que_fazer": "Mantenha marcos para as entregas que o patrocinador acompanha: eles dão visibilidade ao avanço melhor do que o percentual do projeto.",
+    "fonte": "Contagem dos marcos cadastrados nos projetos, respeitando os filtros da tela."
+  },
+  {
+    "termo": "Concluídos",
+    "sinonimos": [
+      "Marcos concluídos"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantos marcos do recorte já foram concluídos.",
+    "como_ler": "Um marco passa automaticamente para Concluído quando a data real é registrada. Comparar concluídos com o total mostra o quanto do plano de controle já foi cumprido.",
+    "o_que_fazer": "Marco cumprido e não registrado distorce a leitura: registre a data real na mesma semana em que a entrega aconteceu.",
+    "fonte": "Marcos com status Concluído no recorte filtrado."
+  },
+  {
+    "termo": "Críticos",
+    "sinonimos": [
+      "Projetos críticos",
+      "Risco crítico"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "No painel de risco de atraso, conta os projetos com score de 75 a 100 — a faixa crítica do modelo preditivo.",
+    "como_ler": "A classificação completa é: até 24 risco baixo, de 25 a 49 médio, de 50 a 74 alto e de 75 a 100 crítico. Projeto crítico tem vários fatores acionados ao mesmo tempo, normalmente desvio de progresso somado a tarefas críticas atrasadas.",
+    "o_que_fazer": "Trate os projetos críticos como pauta de comitê: o cartão de cada um lista os fatores e mostra por onde começar.",
+    "fonte": "Classificação do score de risco de atraso calculado para cada projeto."
+  },
+  {
+    "termo": "Altos",
+    "sinonimos": [
+      "Risco alto"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "No painel de risco de atraso, conta os projetos com score de 50 a 74 — a faixa alta do modelo preditivo.",
+    "como_ler": "Projetos nesta faixa ainda não estão em crise, mas já acumulam fatores relevantes. É o grupo em que a ação preventiva tem melhor custo-benefício.",
+    "o_que_fazer": "Revise os fatores de maior contribuição de cada projeto alto e defina ação com prazo antes que migrem para crítico.",
+    "fonte": "Classificação do score de risco de atraso calculado para cada projeto."
+  },
+  {
+    "termo": "Médios",
+    "sinonimos": [
+      "Risco médio"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "No painel de risco de atraso, conta os projetos com score de 25 a 49 — a faixa média do modelo preditivo.",
+    "como_ler": "São projetos com um ou dois fatores acionados, geralmente desvio de progresso moderado ou algumas tarefas atrasadas, sem risco grave aberto.",
+    "o_que_fazer": "Acompanhe na rotina semanal: resolver o fator acionado agora evita que ele se combine com outros.",
+    "fonte": "Classificação do score de risco de atraso calculado para cada projeto."
+  },
+  {
+    "termo": "Baixos",
+    "sinonimos": [
+      "Risco baixo"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "No painel de risco de atraso, conta os projetos com score de 0 a 24 — a faixa baixa do modelo preditivo.",
+    "como_ler": "Significa que nenhum ou pouquíssimos fatores foram acionados: progresso próximo do planejado, poucas tarefas atrasadas e nenhum risco grave aberto. Vale conferir se o projeto tem dados suficientes para ser avaliado.",
+    "o_que_fazer": "Projeto baixo com poucos dados cadastrados pode estar baixo por falta de informação, e não por bom desempenho — confira a confiança do dado.",
+    "fonte": "Classificação do score de risco de atraso calculado para cada projeto."
+  },
+  {
+    "termo": "Composições salvas",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Painéis montados por você com widgets arrastados, salvos com nome para reutilizar depois. Uma delas pode ser marcada como padrão e ficar visível para toda a organização.",
+    "como_ler": "A composição guarda quais widgets, em que ordem e em que tamanho. Ela não guarda os dados: ao abrir, os números são recalculados no momento.",
+    "o_que_fazer": "Salve composições diferentes por público — comitê, diretoria, equipe — em vez de tentar concentrar tudo em um único painel.",
+    "fonte": "Composições de widgets salvas na sua conta."
+  },
+  {
+    "termo": "Relatórios salvos",
+    "sinonimos": [],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Composições transformadas em relatórios com nome, descrição, agendamento e lista de destinatários.",
+    "como_ler": "O agendamento define a periodicidade de envio e os destinatários recebem o painel sem precisar acessar o sistema. Relatórios sem agendamento ficam disponíveis apenas para consulta manual.",
+    "o_que_fazer": "Revise periodicamente os relatórios agendados: enviar painel desatualizado para a diretoria custa mais do que não enviar.",
+    "fonte": "Relatórios customizáveis salvos com agendamento e destinatários."
+  },
+  {
+    "termo": "Burndown",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Gráfico que mostra o trabalho restante ao longo do tempo, comparado à linha ideal de queima. É o espelho da curva S: em vez de acumular o entregue, acompanha o que falta.",
+    "como_ler": "A linha azul é o restante real, a linha tracejada é o restante ideal e a área verde é o realizado. Quando o restante real fica acima do ideal, o projeto está queimando trabalho mais devagar do que deveria.",
+    "o_que_fazer": "Use o burndown nas reuniões de acompanhamento: ele mostra rapidamente se o ritmo da semana foi suficiente para chegar ao fim no prazo.",
+    "fonte": "Horas estimadas das tarefas do projeto comparadas ao esforço já realizado."
+  },
+  {
+    "termo": "Matriz de skills",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Grade de pessoas por competências em que cada célula mostra o nível consolidado daquela pessoa naquela competência.",
+    "como_ler": "Os níveis vão de 1 a 5, de Iniciante a Especialista, e o nível consolidado é o que já foi demonstrado e validado, não apenas declarado. Colunas com poucas células preenchidas indicam competências com cobertura frágil.",
+    "o_que_fazer": "Olhe as competências críticas com poucas pessoas de nível alto: são exatamente as candidatas a mentoria e trilha de desenvolvimento.",
+    "fonte": "Perfis de competência registrados e validados na organização."
+  },
+  {
+    "termo": "Gap de capacidades",
+    "sinonimos": [
+      "Gap analysis"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Compara o que os projetos exigem de competência com o que a organização realmente tem, mostrando o déficit por competência.",
+    "como_ler": "Cada item mostra o nível mínimo exigido, quantas pessoas atendem e quantas faltam. A severidade é calculada pela criticidade da competência combinada com o tamanho do déficit: gaps críticos e altos são os que bloqueiam alocação.",
+    "o_que_fazer": "Comece pelos requisitos obrigatórios pendentes: eles impedem alocar pessoas e travam o início do trabalho.",
+    "fonte": "Comparação entre os requisitos de capacidade dos projetos e os perfis registrados."
+  },
+  {
+    "termo": "Atividades recentes",
+    "sinonimos": [
+      "Histórico de atividades"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Linha do tempo das últimas ações registradas no sistema, com quem fez, o que fez e quando.",
+    "como_ler": "O registro é automático e serve como rastro de auditoria: mudanças de prazo, status, alocação e orçamento aparecem aqui com autor e horário.",
+    "o_que_fazer": "Use o histórico quando precisar entender quando um número mudou e por decisão de quem.",
+    "fonte": "Registro de auditoria das ações realizadas no sistema."
+  },
+  {
+    "termo": "Progresso físico",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Compara o percentual já concluído do projeto com o percentual que deveria estar concluído hoje segundo o cronograma. O anel mostra o realizado; as barras mostram realizado e planejado lado a lado.",
+    "como_ler": "O anel fica verde com desvio de até 5 pontos percentuais, âmbar até 10 e vermelho acima disso. Adiantado também é possível: quando o realizado supera o planejado, o texto indica o quanto o projeto está à frente.",
+    "o_que_fazer": "Desvio acima de 10 pontos sustentado por duas medições pede replanejamento das tarefas restantes, não apenas cobrança.",
+    "formula": "Desvio = progresso planejado − percentual de conclusão (em pontos percentuais)",
+    "fonte": "Percentual de conclusão do projeto comparado ao progresso planejado calculado pelas datas de início e fim."
+  },
+  {
+    "termo": "Valor agregado (EVM)",
+    "sinonimos": [
+      "EVM"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Compara o que foi planejado, o que foi entregue e o que foi gasto no projeto, traduzindo tudo em eficiência de custo (CPI) e de prazo (SPI).",
+    "como_ler": "Os dois medidores têm meta 1,00: acima disso o projeto entrega mais do que o previsto para o que gastou ou para o prazo consumido. A grade mostra PV, EV, AC, EAC, VAC e ETC, e o rodapé traz o orçamento aprovado, o percentual consumido e o percentual agregado.",
+    "o_que_fazer": "Se o percentual consumido estiver muito à frente do percentual agregado, o projeto está gastando mais rápido do que entrega — revise as categorias de orçamento com maior consumo.",
+    "fonte": "Cálculo de valor agregado sobre orçamento aprovado, tarefas e despesas do projeto."
+  },
+  {
+    "termo": "BAC",
+    "sinonimos": [
+      "Orçamento total aprovado",
+      "Budget at Completion"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Orçamento total aprovado do projeto: quanto ele tem autorizado para gastar do início ao fim. É o valor de referência de todas as contas de custo.",
+    "como_ler": "Quando o projeto tem orçamento distribuído por categorias, o BAC é a soma dessas categorias; caso contrário, é o orçamento cadastrado no projeto. Orçamento zerado faz os índices de custo perderem sentido.",
+    "o_que_fazer": "Mantenha o orçamento distribuído por categorias: sem essa divisão não é possível saber onde o dinheiro está sendo consumido.",
+    "formula": "BAC = Σ orçamento planejado das categorias (ou o orçamento do projeto)",
+    "exemplo": "Projeto com R$ 500 mil em desenvolvimento e R$ 100 mil em infraestrutura tem BAC de R$ 600 mil.",
+    "fonte": "Soma dos orçamentos planejados por categoria do projeto."
+  },
+  {
+    "termo": "PV",
+    "sinonimos": [
+      "Valor planejado",
+      "Planned Value"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto do orçamento deveria ter sido agregado ao projeto até hoje, segundo o cronograma. É o valor do trabalho que estava previsto para já estar pronto.",
+    "como_ler": "O PV é calculado distribuindo o orçamento pelas tarefas, proporcionalmente ao esforço estimado de cada uma, e aplicando o quanto cada tarefa deveria ter avançado na data. Quanto mais tarefas sem datas, menos confiável ele fica.",
+    "o_que_fazer": "Se o PV estiver distorcido, revise as datas e o esforço das tarefas antes de usar o SPI como referência.",
+    "formula": "PV = Σ (orçamento da tarefa × progresso planejado da tarefa)",
+    "fonte": "Orçamento aprovado distribuído pelo esforço e pelas datas planejadas das tarefas."
+  },
+  {
+    "termo": "EV",
+    "sinonimos": [
+      "Valor agregado",
+      "Earned Value"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto do orçamento já foi efetivamente conquistado pelo trabalho concluído. É o valor do que o projeto entregou, medido em reais.",
+    "como_ler": "O EV é calculado pela mesma distribuição do orçamento por esforço, aplicando o percentual de conclusão de cada tarefa. É por isso que tarefas com progresso desatualizado contaminam diretamente o valor agregado.",
+    "o_que_fazer": "Mantenha o percentual das tarefas em dia: EV desatualizado faz CPI e SPI apontarem problemas que não existem — ou esconderem os que existem.",
+    "formula": "EV = Σ (orçamento da tarefa × percentual de conclusão da tarefa)",
+    "exemplo": "Uma tarefa de R$ 100 mil com 40% concluída agrega R$ 40 mil ao EV do projeto.",
+    "fonte": "Orçamento aprovado distribuído pelo esforço das tarefas e pelo percentual de conclusão de cada uma."
+  },
+  {
+    "termo": "AC",
+    "sinonimos": [
+      "Custo real",
+      "Actual Cost"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Custo efetivamente incorrido no projeto até a data de referência, somando despesas realizadas e comprometidas.",
+    "como_ler": "Comprometido é o gasto contratado e ainda não pago: ele já conta como custo porque o dinheiro está comprometido. Despesas previstas e canceladas não entram.",
+    "o_que_fazer": "Se o AC parecer baixo demais, verifique se as despesas estão sendo lançadas: custo não registrado produz indicadores falsamente bons.",
+    "formula": "AC = Σ despesas com status Realizado ou Comprometido até a data de referência",
+    "fonte": "Lançamentos de despesa do projeto até a data de referência."
+  },
+  {
+    "termo": "CV",
+    "sinonimos": [
+      "Variação de custo"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Diferença entre o valor que o projeto já entregou e o quanto custou para entregar, em reais.",
+    "como_ler": "Positivo significa que o projeto gastou menos do que agregou de valor — está dentro ou abaixo do orçamento. Negativo significa gasto acima do valor entregue. O CV é uma foto do momento; o CPI é a mesma informação em forma de índice.",
+    "o_que_fazer": "CV negativo recorrente exige revisar as categorias de orçamento com maior consumo e checar aumento de escopo sem revisão de verba.",
+    "formula": "CV = EV − AC",
+    "exemplo": "EV de R$ 400 mil com AC de R$ 450 mil resulta em CV de −R$ 50 mil.",
+    "fonte": "Valor agregado comparado ao custo real do projeto."
+  },
+  {
+    "termo": "SV",
+    "sinonimos": [
+      "Variação de prazo"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Diferença entre o valor agregado e o valor planejado para a data de referência. Mostra, em reais, o quanto o projeto está atrasado ou adiantado em relação ao cronograma.",
+    "como_ler": "Positivo significa que o projeto entregou mais do que estava previsto até aqui; negativo significa entrega atrás do planejado. Como está em reais, o SV deve ser lido junto do SPI, que é a versão em índice.",
+    "o_que_fazer": "SV negativo persistente indica problema de cronograma: verifique o caminho crítico antes de reforçar o time inteiro.",
+    "formula": "SV = EV − PV",
+    "exemplo": "EV de R$ 400 mil com PV de R$ 500 mil resulta em SV de −R$ 100 mil.",
+    "fonte": "Valor agregado comparado ao valor planejado na data de referência."
+  },
+  {
+    "termo": "CPI",
+    "sinonimos": [
+      "Índice de desempenho de custo"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Mostra quanto de valor o projeto entregou para cada real gasto. É o principal termômetro de eficiência de custo do projeto.",
+    "como_ler": "Acima de 1,00 significa que você está gastando menos do que o previsto para o que já entregou. Abaixo de 1,00 significa gasto acima do previsto. A faixa saudável começa em 0,95; de 0,95 a 0,85 o sistema mostra atenção e abaixo de 0,85 mostra crítico.",
+    "o_que_fazer": "Abaixo de 0,95, revise os lançamentos da categoria que mais consumiu orçamento e verifique se o escopo cresceu sem revisão de orçamento.",
+    "formula": "CPI = EV ÷ AC",
+    "exemplo": "EV de R$ 400 mil com AC de R$ 500 mil resulta em CPI de 0,80: cada real gasto entregou 80 centavos de valor.",
+    "fonte": "Calculado a partir do valor agregado e das despesas realizadas e comprometidas do projeto."
+  },
+  {
+    "termo": "SPI",
+    "sinonimos": [
+      "Índice de desempenho de prazo"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Mostra o ritmo de entrega do projeto em relação ao que estava planejado para a data de referência.",
+    "como_ler": "Acima de 1,00 o projeto está adiantado; igual a 1,00 está no ritmo; abaixo de 1,00 está atrasado. A faixa saudável começa em 0,95; de 0,95 a 0,85 o sistema mostra atenção e abaixo de 0,85 mostra crítico.",
+    "o_que_fazer": "Abaixo de 0,95, procure bloqueios, dependências não resolvidas e falta de disponibilidade da equipe antes de concluir que o problema é de produtividade.",
+    "formula": "SPI = EV ÷ PV",
+    "exemplo": "EV de R$ 400 mil com PV de R$ 500 mil resulta em SPI de 0,80: o projeto entregou 80% do que estava previsto para a data.",
+    "fonte": "Calculado a partir do valor agregado e do valor planejado do projeto."
+  },
+  {
+    "termo": "EAC",
+    "sinonimos": [
+      "Estimativa no término",
+      "Estimate at Completion",
+      "Projeção final"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Projeção do custo total do projeto no término, considerando o desempenho de custo observado até agora.",
+    "como_ler": "É calculado dividindo o orçamento aprovado pelo CPI atual: se o projeto vem entregando 90 centavos por real gasto, o EAC assume que isso continua até o fim. Compare com o BAC para saber se há estouro projetado.",
+    "o_que_fazer": "EAC acima do orçamento aprovado pede decisão de escopo ou de aporte antes que o gasto se concretize.",
+    "formula": "EAC = BAC ÷ CPI",
+    "exemplo": "BAC de R$ 1 milhão com CPI de 0,80 resulta em EAC de R$ 1,25 milhão — R$ 250 mil acima do aprovado.",
+    "fonte": "Orçamento aprovado e índice de desempenho de custo do projeto."
+  },
+  {
+    "termo": "ETC",
+    "sinonimos": [
+      "Estimativa para concluir",
+      "Estimate to Complete"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto ainda falta gastar para concluir o projeto, segundo a projeção de custo final.",
+    "como_ler": "É a diferença entre o custo final estimado e o que já foi gasto. Serve para o planejamento financeiro dos próximos meses: é o dinheiro que ainda precisa estar disponível.",
+    "o_que_fazer": "Compare o ETC com o saldo disponível: se o que falta gastar for maior que o saldo, o projeto vai estourar antes do fim.",
+    "formula": "ETC = EAC − AC",
+    "exemplo": "EAC de R$ 1,25 milhão com AC de R$ 500 mil resulta em ETC de R$ 750 mil ainda a gastar.",
+    "fonte": "Projeção de custo final comparada ao custo já incorrido."
+  },
+  {
+    "termo": "VAC",
+    "sinonimos": [
+      "Variação no término",
+      "Variance at Completion"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto o projeto deve sobrar ou estourar em relação ao orçamento aprovado, segundo a projeção de custo final.",
+    "como_ler": "Positivo significa economia projetada; negativo significa estouro projetado e aparece em vermelho. É a resposta direta à pergunta 'vai dar dinheiro ou vai faltar?'.",
+    "o_que_fazer": "VAC negativo pede ação imediata: reveja escopo, renegocie contratos ou solicite aporte complementar.",
+    "formula": "VAC = BAC − EAC",
+    "exemplo": "BAC de R$ 1 milhão com EAC de R$ 1,25 milhão resulta em VAC de −R$ 250 mil: estouro projetado.",
+    "fonte": "Orçamento aprovado comparado à projeção de custo final do projeto."
+  },
+  {
+    "termo": "TCPI",
+    "sinonimos": [
+      "Índice de desempenho para terminar",
+      "To-Complete Performance Index"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Mostra a eficiência de custo que o projeto precisa atingir no trabalho restante para terminar exatamente dentro do orçamento aprovado.",
+    "como_ler": "Acima de 1,00 significa que o time precisa ser mais eficiente do que foi até agora para caber no orçamento; abaixo de 1,00, pode manter ou até relaxar o ritmo. Quanto mais alto o TCPI, mais irreais ficam as chances de recuperação sem cortar escopo.",
+    "o_que_fazer": "TCPI muito acima de 1,00 é sinal para repactuar orçamento ou escopo, em vez de exigir do time um ganho de eficiência improvável.",
+    "formula": "TCPI = (BAC − EV) ÷ (BAC − AC)",
+    "exemplo": "TCPI de 1,30 significa que o trabalho restante precisa render 30% mais valor por real gasto do que o já executado.",
+    "fonte": "Orçamento aprovado, valor agregado e custo real do projeto."
+  },
+  {
+    "termo": "Curva S (EVM)",
+    "sinonimos": [
+      "Curva S",
+      "Curva S — planejado × agregado × custo real"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Gráfico que mostra, ao longo do tempo, o valor planejado (linha azul tracejada), o valor agregado (linha verde) e o custo real acumulado (linha vermelha).",
+    "como_ler": "O formato em S vem do ritmo natural dos projetos: começo lento, meio acelerado e fim desacelerando. Quanto mais as linhas se afastam, maior o desvio: verde abaixo de vermelho indica custo à frente da entrega; verde abaixo de azul indica atraso.",
+    "o_que_fazer": "Leve o gráfico para a reunião de status: a distância entre as curvas explica o resultado dos índices sem precisar de planilha.",
+    "fonte": "Série temporal de valor planejado, valor agregado e custo real do projeto."
+  },
+  {
+    "termo": "Orçamento por categoria",
+    "sinonimos": [
+      "Orçado × realizado por categoria"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Compara, por categoria de orçamento, o valor planejado e o valor já realizado no projeto.",
+    "como_ler": "A situação de cada categoria é definida pelo consumo: até 90% do planejado é verde, até 100% é âmbar e acima de 100% é vermelho. Categoria estourada aparece em vermelho mesmo que o projeto como um todo esteja dentro do orçamento.",
+    "o_que_fazer": "Ao encontrar uma categoria acima de 100%, verifique se o excesso foi compensado por economia em outra ou se é estouro real do projeto.",
+    "formula": "Consumo da categoria = realizado ÷ planejado × 100",
+    "fonte": "Orçamentos por categoria do projeto comparados aos lançamentos vinculados a cada uma."
+  },
+  {
+    "termo": "Tarefas por status",
+    "sinonimos": [],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Distribuição das tarefas do projeto pelas etapas do fluxo de trabalho: Backlog, A fazer, Em andamento, Em revisão, Bloqueada, Concluída e Cancelada.",
+    "como_ler": "Ajuda a enxergar onde o trabalho trava. Muitas tarefas em revisão indicam gargalo de aprovação; muitas bloqueadas indicam dependência externa; muitas em andamento ao mesmo tempo indicam excesso de trabalho paralelo.",
+    "o_que_fazer": "Reduza o trabalho em andamento simultâneo e destrave as tarefas bloqueadas antes de puxar novas entregas.",
+    "fonte": "Contagem das tarefas do projeto por status."
+  },
+  {
+    "termo": "Top riscos",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Lista os riscos mais severos do projeto, com nível, probabilidade × impacto e responsável.",
+    "como_ler": "A ordenação é pela severidade (probabilidade × impacto, de 1 a 25). Nível Alto vai até 16 e acima disso é Extremo. Risco sem responsável é risco que não está sendo tratado.",
+    "o_que_fazer": "Para cada risco da lista, defina estratégia de resposta (evitar, mitigar, transferir, aceitar, explorar, elevar ou compartilhar) e um responsável com prazo.",
+    "fonte": "Riscos abertos do projeto ordenados por severidade."
+  },
+  {
+    "termo": "Carga por responsável",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Mostra quantas tarefas e quantas horas estimadas cada responsável tem no projeto.",
+    "como_ler": "Concentração de horas em uma única pessoa indica dependência e risco de gargalo; carga muito distribuída com prazos curtos pode indicar falta de foco. É uma leitura de distribuição de esforço, não de produtividade.",
+    "o_que_fazer": "Se uma pessoa concentra a maior parte das horas críticas, planeje uma segunda pessoa para reduzir o risco de ausência.",
+    "fonte": "Tarefas do projeto agrupadas por responsável, com a soma do esforço estimado."
+  },
+  {
+    "termo": "Conflitos de recursos",
+    "sinonimos": [
+      "Conflitos de alocação detectados"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Alerta de pessoas da equipe do projeto alocadas acima de 100% da jornada em alguma semana.",
+    "como_ler": "O sistema soma todas as alocações vigentes da pessoa, inclusive de outros projetos, e compara com o limite de 100% da jornada. Acima disso, a entrega de pelo menos um dos projetos tende a atrasar.",
+    "o_que_fazer": "Redistribua as alocações da semana apontada ou reduza o percentual em um dos projetos envolvidos.",
+    "fonte": "Soma das alocações vigentes de cada pessoa da equipe em cada semana."
+  },
+  {
+    "termo": "KPIs do projeto",
+    "sinonimos": [
+      "Indicadores do projeto"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Indicadores próprios do projeto, cada um com valor inicial, valor atual e meta definida pelo gerente.",
+    "como_ler": "O atingimento é a razão entre o valor atual e a meta. Quando maior é melhor, 95% ou mais é verde, de 80% a 95% é âmbar e abaixo de 80% é vermelho. Quando menor é melhor, até 100% é verde, até 120% é âmbar e acima disso é vermelho.",
+    "o_que_fazer": "Se um indicador estiver vermelho, registre a ação corretiva no próprio indicador para que o histórico mostre a reação, não só o desvio.",
+    "formula": "Atingimento = valor atual ÷ meta × 100",
+    "fonte": "Indicadores cadastrados no projeto, com meta, valor inicial e valor atual."
+  },
+  {
+    "termo": "Fluxo de caixa",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Mostra entradas e saídas do projeto mês a mês, separando o que já aconteceu do que está previsto, e o saldo acumulado.",
+    "como_ler": "As saídas realizadas vêm dos lançamentos do projeto; as previstas distribuem o orçamento ainda não gasto pelos meses restantes até o fim do projeto. O saldo acumulado mostra em que mês o projeto entra no negativo.",
+    "o_que_fazer": "Se o saldo acumulado ficar negativo antes do fim do projeto, antecipe a discussão de aporte ou de antecipação de receita.",
+    "formula": "Saldo final projetado = Σ (entradas realizadas e previstas) − Σ (saídas realizadas e previstas)",
+    "fonte": "Lançamentos de receita e despesa do projeto, com projeção do orçamento restante até o término."
+  },
+  {
+    "termo": "Saldo projetado",
+    "sinonimos": [
+      "Saldo final projetado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Saldo acumulado de caixa do projeto ao final do período analisado, somando o que já entrou e saiu e o que ainda está previsto.",
+    "como_ler": "Positivo indica folga de caixa; negativo indica necessidade de aporte. Como inclui valores previstos e não apenas realizados, depende da qualidade do planejamento financeiro.",
+    "o_que_fazer": "Saldo projetado negativo pede antecipação de recebíveis ou reprogramação de desembolsos com a área financeira.",
+    "fonte": "Somatório das entradas e saídas realizadas e previstas do projeto."
+  },
+  {
+    "termo": "Requisitos",
+    "sinonimos": [
+      "Requisitos de capacidade"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas competências o projeto exige, com o nível mínimo necessário para cada uma.",
+    "como_ler": "Cada requisito pode ser obrigatório ou desejável e recebe uma criticidade. Requisito obrigatório sem ninguém que atenda bloqueia a alocação e vira pendência visível no gap do projeto.",
+    "o_que_fazer": "Revise os requisitos conforme o projeto evolui: exigência que não faz mais sentido reduz desnecessariamente o pool de candidatos.",
+    "fonte": "Requisitos de capacidade cadastrados no projeto."
+  },
+  {
+    "termo": "Cobertura",
+    "sinonimos": [
+      "Índice de cobertura"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Percentual dos requisitos de capacidade do projeto que já têm pelo menos uma pessoa capaz de atender ao nível mínimo exigido.",
+    "como_ler": "Quanto mais próximo de 100%, menor o risco de o projeto parar por falta de competência. Cobertura parcial significa que existem frentes do projeto sem ninguém qualificado disponível.",
+    "o_que_fazer": "Cobertura baixa com projeto em execução é risco imediato: aloque alguém qualificado ou reprograme a frente descoberta.",
+    "formula": "Cobertura = requisitos atendidos ÷ total de requisitos × 100",
+    "fonte": "Comparação entre os requisitos do projeto e os perfis de competência registrados."
+  },
+  {
+    "termo": "Obrigatórios pendentes",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos requisitos marcados como obrigatórios ainda não têm ninguém que atenda ao nível mínimo.",
+    "como_ler": "Diferente dos gaps classificados por severidade, estes são bloqueios: o sistema impede ou dificulta alocar alguém que não atenda a um requisito obrigatório.",
+    "o_que_fazer": "Resolva os obrigatórios pendentes primeiro: desenvolver a competência internamente, contratar ou rever a obrigatoriedade do requisito com o patrocinador.",
+    "fonte": "Requisitos obrigatórios de capacidade sem candidato que atenda ao nível mínimo."
+  },
+  {
+    "termo": "Exposição",
+    "sinonimos": [
+      "Valor monetário esperado"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Soma do valor monetário esperado dos riscos da matriz do projeto: o quanto o projeto espera perder, em média, considerando a chance de cada risco acontecer e o impacto financeiro estimado.",
+    "como_ler": "É uma medida de risco em reais, e não em ocorrências. Serve para comparar projetos entre si e para justificar investimento em mitigação: mitigar um risco cuja exposição é maior que o custo da ação é decisão financeira favorável.",
+    "o_que_fazer": "Se o custo da mitigação for menor que a exposição do risco, mitigar é decisão financeira óbvia — leve o número para a discussão de orçamento.",
+    "formula": "Exposição = Σ valor monetário esperado registrado em cada risco",
+    "exemplo": "Dois riscos com valor monetário esperado de R$ 30 mil e R$ 12 mil somam R$ 42 mil de exposição para o projeto.",
+    "fonte": "Soma do valor monetário esperado informado em cada risco do projeto."
+  },
+  {
+    "termo": "Críticas",
+    "sinonimos": [
+      "Tarefas críticas abertas"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas tarefas do projeto estão marcadas no caminho crítico — a sequência de tarefas em que qualquer atraso empurra a data final do projeto.",
+    "como_ler": "São tarefas com folga zero: não existe margem para atrasar sem afetar o prazo. O número aparece destacado em roxo no painel do projeto justamente para indicar onde a atenção rende mais.",
+    "o_que_fazer": "Acompanhe as tarefas críticas de perto e destrave-as antes das demais: atraso fora do caminho crítico consome folga, atraso dentro dele consome prazo do projeto.",
+    "fonte": "Tarefas do projeto marcadas no caminho crítico pelo cálculo de dependências."
+  },
+  {
+    "termo": "Horas estimadas",
+    "sinonimos": [
+      "Esforço planejado"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Soma do esforço planejado das tarefas do projeto, em horas — quanto trabalho o plano previu custar.",
+    "como_ler": "É a base do cálculo de progresso ponderado e da distribuição do orçamento pelas tarefas no valor agregado. Projetos com muitas tarefas sem esforço informado têm progresso e valor agregado menos confiáveis.",
+    "o_que_fazer": "Se o esforço estimado estiver incompleto, complete as tarefas em aberto: é o dado que faz o progresso refletir o trabalho real, e não a contagem de tarefas.",
+    "fonte": "Soma do esforço estimado das tarefas cadastradas no projeto."
+  },
+  {
+    "termo": "Horas realizadas",
+    "sinonimos": [
+      "Esforço realizado"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Soma das horas efetivamente apontadas nas tarefas do projeto.",
+    "como_ler": "Comparar horas realizadas com horas estimadas mostra o consumo do esforço planejado. Consumo de horas muito à frente do progresso entregue indica que o projeto está custando mais esforço do que o previsto, mesmo que o financeiro ainda não mostre.",
+    "o_que_fazer": "Se as horas realizadas já superam as estimadas e o projeto não está concluído, revise as estimativas do que falta antes que o desvio vire atraso.",
+    "fonte": "Soma do esforço real registrado nas tarefas do projeto."
+  },
+  {
+    "termo": "Riscos abertos",
+    "sinonimos": [
+      "Riscos do projeto"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quantos riscos do projeto ainda não foram encerrados. O subtexto mostra quantos deles são de nível alto ou extremo.",
+    "como_ler": "Risco encerrado é risco tratado ou que deixou de existir; os demais seguem exigindo acompanhamento. O número de riscos críticos entre os abertos é o que realmente importa para a decisão.",
+    "o_que_fazer": "Mantenha a matriz atualizada e encerre os riscos cujo plano de resposta já foi executado: matriz inflada esconde os riscos que importam.",
+    "fonte": "Riscos do projeto com status diferente de Encerrado."
+  },
+  {
+    "termo": "Projetos que eu gerencio",
+    "sinonimos": [],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Lista os projetos em que você aparece como gerente, com o semáforo de saúde e o percentual de conclusão de cada um.",
+    "como_ler": "É o seu recorte de responsabilidade: a cor ao lado do nome é o resumo de prazo, progresso, riscos e custo do projeto, calculada pelo sistema.",
+    "o_que_fazer": "Use a lista como rotina de acompanhamento: qualquer projeto que mude de cor merece uma verificação no mesmo dia.",
+    "fonte": "Projetos cadastrados com você como gerente responsável."
+  },
+  {
+    "termo": "Timeline do portfólio",
+    "sinonimos": [
+      "Timeline"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Visão macro do cronograma: todas as barras de projeto posicionadas no tempo, com marcos, cor de saúde e progresso de cada um.",
+    "como_ler": "É a leitura de sobreposição da carteira: barras empilhadas no mesmo período indicam disputa pelas mesmas pessoas e pelos mesmos recursos. Marcos em destaque mostram os pontos de decisão concentrados no tempo.",
+    "o_que_fazer": "Use a visão para identificar picos de trabalho simultâneo e escalonar projetos que competiriam pela mesma equipe.",
+    "fonte": "Datas de início e fim, marcos e semáforo de saúde dos projetos do escopo."
+  }
+]

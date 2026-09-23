@@ -1,0 +1,635 @@
+[
+  {
+    "rota": "/",
+    "titulo": "Dashboard executivo",
+    "grupo": "Visão geral",
+    "icone": "gauge",
+    "resumo": "Reúne, em uma página, os indicadores de prazo, custo, risco, ocupação e capacidade de todo o portfólio.",
+    "para_que_serve": "É a leitura executiva do portfólio: mostra se os projetos estão entregando no prazo e dentro do orçamento, quantos riscos graves seguem abertos e como está a ocupação da equipe. Todos os números respeitam os filtros de portfólio, programa, gerente e área, o que permite trocar o portfólio inteiro pelo recorte de uma diretoria em poucos cliques. Cada bloco leva ao registro que originou o número, para que a conversa saia do sintoma e chegue à causa.",
+    "quando_usar": [
+      "Antes da reunião de comitê, para montar o retrato do portfólio no período",
+      "Quando você precisa saber quais projetos estão atrasados e quem são os gerentes responsáveis",
+      "Para conferir se o consumo do orçamento está caminhando junto com o progresso físico",
+      "Para identificar pessoas sobrealocadas e capacidades sustentadas por uma única pessoa",
+      "Para acompanhar os marcos que vencem nas próximas seis semanas"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher o recorte",
+        "detalhe": "Use os filtros **Portfólio**, **Programa**, **Gerente** e **Área** na barra logo abaixo do título. Eles se combinam, então dá para ver apenas os projetos de um programa sob a responsabilidade de um gerente. Quando houver qualquer filtro aplicado, aparece o link **limpar filtros** ao lado.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler os seis indicadores do topo",
+        "detalhe": "**Total de projetos**, **Em risco**, **Atrasados**, **Progresso médio**, **Orçamento** e **Realizado**. O subtítulo de cada um explica o critério: em andamento, saúde amarela ou vermelha, prazo vencido, projetos ativos, planejado total e percentual consumido.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Cruzar status, saúde, desempenho e riscos",
+        "detalhe": "Os cartões **Projetos por status** e **Saúde do portfólio** mostram a distribuição em rosca. **Desempenho (EVM)** traz os medidores **CPI médio** e **SPI médio** contra a meta de 1,00, além de **Saldo orçamentário**, **Receita prevista** e **ROI estimado**. **Riscos do portfólio** resume quantos riscos estão abertos e quantos são críticos.",
+        "icone": "activity"
+      },
+      {
+        "titulo": "Comparar orçado e realizado",
+        "detalhe": "Em **Orçado × Realizado por projeto**, a barra clara é o orçamento aprovado e a barra colorida é o custo real. A cor segue a situação de custo: verde, âmbar de atenção e vermelho crítico. O gráfico mostra os projetos de maior orçamento do recorte.",
+        "icone": "wallet"
+      },
+      {
+        "titulo": "Ler a matriz de riscos",
+        "detalhe": "Em **Matriz de riscos do portfólio**, a altura é a probabilidade e a largura é o impacto, ambos de 1 a 5. O número dentro da célula é a quantidade de riscos naquela combinação: quanto mais para o canto superior direito, mais grave. Clique na célula para abrir o projeto na aba **Riscos**.",
+        "icone": "grid-3x3"
+      },
+      {
+        "titulo": "Agir sobre atrasos e riscos severos",
+        "detalhe": "As tabelas **Projetos atrasados** e **Riscos mais severos** são a fila de ação. Em atrasados você vê dias de atraso, progresso real contra planejado, prazo e saúde; em riscos, o código, o nível, a combinação probabilidade × impacto e o responsável. Clique na linha para abrir o projeto.",
+        "icone": "alert-triangle"
+      },
+      {
+        "titulo": "Descer do portfólio até a pessoa",
+        "detalhe": "No **Heatmap de ocupação da equipe**, cada linha é uma pessoa e cada coluna é uma semana das próximas doze. A cor vai do azul ao vermelho conforme o percentual alocado sobe. Clique em uma célula para abrir a capacidade individual daquela pessoa.",
+        "icone": "grid-3x3"
+      },
+      {
+        "titulo": "Fechar com capacidade, conflitos e marcos",
+        "detalhe": "O bloco **Alocação e capacidades** traz aderência média do motor de matching, recomendações pendentes, cobertura do catálogo, índice de desenvolvimento, PDIs ativos, mentorias e promoções. **Capacidades críticas** sinaliza **bus factor** baixo; se houver conflito de alocação, aparece um aviso com o link **revisar alocações**. A lista **Próximos marcos (45 dias)** fecha a leitura, com os marcos a menos de sete dias em vermelho.",
+        "icone": "target"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Semáforo de saúde",
+        "descricao": "Verde no prazo, amarelo em atenção, vermelho crítico e cinza para projeto ainda sem avaliação."
+      },
+      {
+        "nome": "Medidores de CPI e SPI",
+        "descricao": "Ponteiro contra a meta de 1,00. Abaixo disso, o projeto gasta mais do que agrega ou avança menos do que planejou."
+      },
+      {
+        "nome": "Roscas de distribuição",
+        "descricao": "No centro aparece a quantidade total do recorte; cada fatia é uma situação, uma saúde ou um nível de risco."
+      },
+      {
+        "nome": "Matriz de riscos compacta",
+        "descricao": "Grade de probabilidade por impacto. A legenda embaixo vai de baixo a extremo, na mesma escala da tela de riscos."
+      },
+      {
+        "nome": "Mapa de calor de ocupação",
+        "descricao": "Escala de 0 a mais de 130% de alocação. Quanto mais quente a célula, maior o risco de sobrecarga naquela semana."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Portfólio",
+        "descricao": "Restringe os indicadores a um portfólio.",
+        "dica": "Combine com **Programa** para o recorte de uma frente específica."
+      },
+      {
+        "nome": "Programa",
+        "descricao": "Restringe a um programa do portfólio.",
+        "dica": "É o recorte natural das reuniões de programa."
+      },
+      {
+        "nome": "Gerente",
+        "descricao": "Restringe aos projetos de um gerente.",
+        "dica": "Útil para a conversa individual de acompanhamento."
+      },
+      {
+        "nome": "Área",
+        "descricao": "Restringe à área responsável pelo projeto.",
+        "dica": "A lista é montada a partir das áreas dos projetos do recorte atual."
+      },
+      {
+        "nome": "limpar filtros",
+        "descricao": "Remove todos os filtros ativos de uma vez.",
+        "dica": "Aparece apenas quando há algum filtro aplicado."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Total de projetos",
+        "descricao": "Quantidade de projetos no recorte filtrado.",
+        "leitura": "Serve de denominador para todos os outros números."
+      },
+      {
+        "nome": "Em risco",
+        "descricao": "Projetos com saúde amarela ou vermelha.",
+        "leitura": "É a fila de atenção do comitê; acima de 20% do portfólio pede revisão de causa raiz."
+      },
+      {
+        "nome": "Atrasados",
+        "descricao": "Projetos com prazo vencido e ainda não concluídos.",
+        "leitura": "Qualquer valor acima de zero exige plano de recuperação registrado."
+      },
+      {
+        "nome": "Progresso médio",
+        "descricao": "Média do percentual de conclusão dos projetos ativos.",
+        "leitura": "Compare com o consumo orçamentário: progresso menor que o consumo indica ineficiência."
+      },
+      {
+        "nome": "Orçamento",
+        "descricao": "Soma do orçamento planejado do recorte.",
+        "leitura": "É o total autorizado, não o gasto."
+      },
+      {
+        "nome": "Realizado",
+        "descricao": "Custo incorrido, com o percentual consumido no subtítulo.",
+        "leitura": "Consumo muito acima do progresso físico é sinal de estouro."
+      },
+      {
+        "nome": "CPI médio",
+        "descricao": "Desempenho de custo ponderado do portfólio.",
+        "leitura": "Abaixo de 1,00 o portfólio gasta mais do que entrega."
+      },
+      {
+        "nome": "SPI médio",
+        "descricao": "Desempenho de prazo ponderado do portfólio.",
+        "leitura": "Abaixo de 1,00 o avanço físico está atrás do planejado."
+      },
+      {
+        "nome": "Saldo orçamentário",
+        "descricao": "Orçamento planejado menos custo realizado.",
+        "leitura": "Negativo indica que o portfólio já comprometeu mais do que tinha."
+      },
+      {
+        "nome": "Riscos abertos e críticos",
+        "descricao": "Volume e gravidade das ameaças do recorte.",
+        "leitura": "Muitos riscos altos sem plano de resposta é risco de surpresa."
+      },
+      {
+        "nome": "Conflitos de alocação",
+        "descricao": "Pessoas acima de 100% de alocação em alguma semana.",
+        "leitura": "Qualquer valor acima de zero exige redistribuição."
+      },
+      {
+        "nome": "Próximos marcos (45 dias)",
+        "descricao": "Entregas previstas nas próximas seis semanas.",
+        "leitura": "Marcos a menos de sete dias aparecem em vermelho e pedem verificação de prontidão."
+      }
+    ],
+    "dicas": [
+      "Leia sempre o par: CPI sem SPI, ou orçamento sem progresso físico, conta metade da história.",
+      "Clique em **Atualizar** antes de apresentar o painel — os números são calculados no momento em que a tela abre.",
+      "Comece o dia pela fila de ação: conflitos de alocação, projetos atrasados e marcos a menos de sete dias.",
+      "Use **Exportar** para levar a lista de projetos atrasados para a planilha da reunião.",
+      "A saúde cinza não é boa nem ruim: é ausência de avaliação — vale cobrar o registro do gerente responsável."
+    ],
+    "limitacoes": [
+      "O painel é um retrato do momento da consulta: não há atualização automática em segundo plano.",
+      "Alguns blocos limitam a exibição para manter a leitura — o mapa de ocupação mostra até 14 pessoas e o gráfico de orçado × realizado, os projetos de maior orçamento. Os totais e percentuais continuam considerando o recorte inteiro.",
+      "A tela não cria nem altera nada: toda ação acontece na tela de destino, aberta pelo clique no bloco."
+    ],
+    "doc": "09-dashboards-e-relatorios.md",
+    "permissoes": [
+      "dashboard.ver"
+    ],
+    "ordem": 10
+  },
+  {
+    "rota": "/analytics",
+    "titulo": "Análises preditivas",
+    "grupo": "Visão geral",
+    "icone": "brain",
+    "resumo": "Transforma o histórico de tarefas, custos e alocações em previsões de prazo, custo, risco e demanda de pessoas.",
+    "para_que_serve": "Responde, com base no que já aconteceu, perguntas que a planilha não responde: qual a chance real de este projeto terminar no prazo, quanto ele deve custar de verdade, quais projetos têm maior risco de atraso e quantas pessoas serão necessárias nos próximos meses. Cada resposta vem acompanhada das premissas usadas e do índice de confiança do dado de entrada. Use tudo isso como insumo para decidir: a decisão continua sendo humana.",
+    "quando_usar": [
+      "Antes de assumir um compromisso de data com o cliente",
+      "Na revisão mensal de risco, para priorizar os projetos em atenção",
+      "Para explicar, fator a fator, por que um projeto está com risco alto de atraso",
+      "No planejamento de pessoas, para estimar quantas pessoas o portfólio vai exigir",
+      "Para descobrir o que os projetos com melhor desempenho têm em comum"
+    ],
+    "passos": [
+      {
+        "titulo": "Ler os indicadores do topo",
+        "detalhe": "**Score médio de risco**, **Projetos avaliados**, **Em atenção**, **Séries em piora**, **Meses em escassez** e **Grupos críticos de viés**. Eles resumem o portfólio inteiro e servem de bússola antes de entrar em uma aba. Os botões **Motor de alocação** e **Auditoria de viés** abrem as telas correspondentes.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Escolher a aba de análise",
+        "detalhe": "São cinco: **Previsão do projeto**, **Risco de atraso**, **Benchmarking**, **Tendências** e **Demanda de pessoas**. As abas **Risco de atraso** e **Benchmarking** mostram no rótulo quantos projetos ou alertas existem naquele escopo.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Prever prazo e custo de um projeto",
+        "detalhe": "Na aba **Previsão do projeto**, escolha o projeto no seletor. O cartão **Simulação de Monte Carlo** roda centenas de cenários e devolve **P10 otimista**, **P50 provável**, **P80** e **P90 pessimista**, para prazo e para custo, além das probabilidades de atraso e de estouro de orçamento e do histograma dos prazos simulados.",
+        "icone": "flask-conical"
+      },
+      {
+        "titulo": "Interpretar os cenários simulados",
+        "detalhe": "O **P50** é o cenário do meio: metade termina antes, metade depois. O **P80** é a data com 80% de confiança — em quatro de cada cinco simulações o projeto termina até ela. O **P90** só é superado em 10% das vezes. A distância entre o P10 e o P90 mede a incerteza: faixa larga significa estimativa ainda frágil.",
+        "icone": "sigma"
+      },
+      {
+        "titulo": "Ler a regressão e os três custos finais",
+        "detalhe": "**Regressão de progresso** projeta a data de conclusão pela velocidade observada, com a velocidade em pontos percentuais por semana, o desvio previsto em dias e o **R²** — acima de 0,75 o ajuste é alto, entre 0,40 e 0,75 é médio e abaixo de 0,40 é baixo. Em **Custo final estimado (EAC)** aparecem os três métodos: **Desempenho de custo se mantém**, **Desempenho futuro volta ao plano** e **Considera também o atraso**, com o método apontado como mais provável, a média, o intervalo e a amplitude da incerteza.",
+        "icone": "calculator"
+      },
+      {
+        "titulo": "Gravar a previsão para comparar depois",
+        "detalhe": "Com o projeto selecionado, clique em **Salvar previsão**. O resultado entra em **Previsões gravadas deste projeto**, com data de referência, método, P50 de prazo, probabilidade de atraso, custo final, faixa P10-P90 e confiança do dado. É assim que você compara o que o sistema previa com o que de fato aconteceu.",
+        "icone": "clock"
+      },
+      {
+        "titulo": "Priorizar pelo risco de atraso",
+        "detalhe": "Na aba **Risco de atraso**, filtre por **Programa** e **Área** e leia os cartões **Críticos**, **Altos**, **Médios**, **Baixos**, **Projetos avaliados** e **Score médio**. O cartão **Score de risco por projeto** traz um anel de 0 a 100 para cada projeto e a lista **Por que este score**, com peso, valor e pontos de cada fator.",
+        "icone": "shield-alert"
+      },
+      {
+        "titulo": "Comparar, acompanhar e projetar pessoas",
+        "detalhe": "Em **Benchmarking**, compare os projetos por métrica: distribuição com mínimo, quartis, mediana, máximo e média, posição com percentil de desempenho, mapa de calor, melhores e piores do conjunto e práticas observadas com a evidência numérica. Em **Tendências**, escolha o horizonte de **6 meses**, **12 meses** ou **24 meses** e veja a classificação de cada série. Em **Demanda de pessoas**, o mesmo horizonte projeta o FTE necessário mês a mês contra a capacidade instalada, com o gap, os meses de pico e as recomendações.",
+        "icone": "users"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Anel de probabilidade",
+        "descricao": "Mostra a fração dos cenários simulados que termina depois da data planejada."
+      },
+      {
+        "nome": "Histograma de prazos",
+        "descricao": "Frequência de cenários por faixa de dias até a conclusão. Barras altas em prazos longos indicam cauda de atraso."
+      },
+      {
+        "nome": "Anel de score",
+        "descricao": "Nota de 0 a 100 do risco de atraso, colorida conforme a classificação."
+      },
+      {
+        "nome": "Lista de fatores",
+        "descricao": "Cada fator mostra o impacto, o peso, o valor normalizado e quantos pontos contribuiu para o score."
+      },
+      {
+        "nome": "Mapa de calor de desempenho",
+        "descricao": "Cruza projetos e métricas com o percentil de desempenho: verde é posição confortável, vermelho é ponto de atenção."
+      },
+      {
+        "nome": "Barras divergentes do gap",
+        "descricao": "A linha central é o equilíbrio. Para a direita, escassez de pessoas; para a esquerda, ociosidade."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Projeto",
+        "descricao": "Projeto que será previsto na aba **Previsão do projeto**.",
+        "dica": "Só existe previsão com um projeto escolhido."
+      },
+      {
+        "nome": "Programa e Área",
+        "descricao": "Reduzem o escopo das abas **Risco de atraso**, **Benchmarking** e **Tendências**.",
+        "dica": "Use o mesmo recorte em todas as abas para comparar leituras."
+      },
+      {
+        "nome": "Portfólio",
+        "descricao": "Filtro adicional da aba **Benchmarking**.",
+        "dica": "Combine com programa e área para comparar projetos realmente semelhantes."
+      },
+      {
+        "nome": "Horizonte",
+        "descricao": "Janela de meses das abas **Tendências** e **Demanda de pessoas**.",
+        "dica": "Use 6 meses para a rotina e 24 meses para decisão de contratação."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Score médio de risco",
+        "descricao": "Média do risco de atraso dos projetos do escopo, de 0 a 100.",
+        "leitura": "Serve para comparar áreas e programas. Abaixo de 25 é confortável."
+      },
+      {
+        "nome": "Em atenção",
+        "descricao": "Projetos com risco classificado como alto ou crítico.",
+        "leitura": "Cada um deles pede plano de recuperação registrado."
+      },
+      {
+        "nome": "Probabilidade de atraso",
+        "descricao": "Fração dos cenários que termina depois da data planejada.",
+        "leitura": "Abaixo de 25% é risco baixo; acima de 75%, crítico."
+      },
+      {
+        "nome": "Probabilidade de estouro",
+        "descricao": "Fração dos cenários cujo custo ultrapassa o orçamento aprovado.",
+        "leitura": "Mesma leitura da probabilidade de atraso."
+      },
+      {
+        "nome": "Confiança do dado",
+        "descricao": "Completude das informações de entrada: datas, esforço, responsável, dependências, orçamento e custo real.",
+        "leitura": "Abaixo de 40% a previsão é frágil; acima de 70%, sólida."
+      },
+      {
+        "nome": "R²",
+        "descricao": "Qualidade do ajuste da regressão sobre o histórico do projeto.",
+        "leitura": "Acima de 0,75 o ajuste é alto; abaixo de 0,40, a data projetada deve ser lida com desconfiança."
+      },
+      {
+        "nome": "Faixa P10-P90",
+        "descricao": "Distância entre o cenário otimista e o pessimista.",
+        "leitura": "Faixa estreita em relação ao prazo total significa estimativa madura."
+      },
+      {
+        "nome": "Percentil de desempenho",
+        "descricao": "Posição do projeto dentro do conjunto comparado: 100 é o melhor.",
+        "leitura": "Em métricas em que menor é melhor, como desvio de prazo e consumo, a posição já vem invertida."
+      },
+      {
+        "nome": "Séries em piora",
+        "descricao": "Quantas séries mensais pioraram no horizonte escolhido.",
+        "leitura": "Uma série isolada não é alarme; várias juntas são."
+      },
+      {
+        "nome": "Meses em escassez",
+        "descricao": "Meses em que a demanda projetada supera a capacidade instalada.",
+        "leitura": "Base para contratar, realocar ou repactuar prazo."
+      },
+      {
+        "nome": "Gap médio",
+        "descricao": "Diferença média entre demanda e capacidade, medida em FTE.",
+        "leitura": "Positivo é falta de pessoas; negativo é sobra."
+      },
+      {
+        "nome": "Grupos críticos de viés",
+        "descricao": "Grupos de colaboradores com disparidade relevante nas recomendações do motor.",
+        "leitura": "Exige apuração com revisão humana antes de qualquer decisão sobre pessoas."
+      }
+    ],
+    "dicas": [
+      "Use o **P50** para conversar sobre expectativa e o **P80** para assumir compromisso público.",
+      "Leia as premissas e a confiança do dado antes dos números: elas explicam por que o resultado é o que é.",
+      "Ataque os fatores, não a nota — tarefa sem responsável, risco grave sem tratamento e sobrecarga da equipe são causas acionáveis.",
+      "Apresente o intervalo entre o menor e o maior custo final: ele mostra, com honestidade, o quanto a projeção depende da hipótese escolhida.",
+      "Compare a previsão gravada com o que de fato aconteceu para calibrar a confiança que a equipe deposita nas estimativas."
+    ],
+    "limitacoes": [
+      "A previsão é estatística: descreve o que os dados atuais permitem esperar, não o que vai acontecer. Mudança de escopo, troca de equipe ou uma decisão de negócio derrubam qualquer projeção.",
+      "Projetos com poucos dados podem ficar sem simulação ou sem regressão; quando isso acontece, a própria tela informa o motivo e o que falta cadastrar.",
+      "A tela não aloca pessoas, não altera prazo e não substitui o julgamento do gestor: ela entrega insumos para a decisão."
+    ],
+    "doc": "13-integracoes-e-analytics.md",
+    "permissoes": [
+      "dashboard.ver"
+    ],
+    "ordem": 20
+  },
+  {
+    "rota": "/meu-painel",
+    "titulo": "Meu painel",
+    "grupo": "Visão geral",
+    "icone": "gauge",
+    "resumo": "Sua tela pessoal: tarefas, horas da semana, alocações, PDI, capacidades e notificações em um só lugar.",
+    "para_que_serve": "Reúne o que depende de você: as tarefas atribuídas, o que está atrasado, as horas apontadas na semana e as alocações vigentes. Também é onde ficam o seu plano de desenvolvimento, o radar das suas capacidades e as trilhas recomendadas para fechar os gaps. É a tela indicada para começar o dia e para conferir sua carga antes de assumir trabalho novo.",
+    "quando_usar": [
+      "Ao começar o dia, para ver o que está atrasado e o que vence primeiro",
+      "Antes de apontar horas, para conferir como está a semana contra a sua meta",
+      "Quando surge um trabalho novo e você quer conferir a carga já alocada",
+      "Para acompanhar o andamento do seu PDI e das trilhas de desenvolvimento",
+      "Para revisar as notificações pendentes sem sair do sistema"
+    ],
+    "passos": [
+      {
+        "titulo": "Conferir a sua situação no cabeçalho",
+        "detalhe": "O título traz o seu nome, e o subtítulo mostra cargo e área. Ao lado aparece a etiqueta de carga com o total alocado: verde até 85%, âmbar acima disso e vermelha acima de 100%.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Ler os indicadores pessoais",
+        "detalhe": "**Tarefas abertas**, **Atrasadas**, **Concluídas no mês**, **Horas na semana** (com a meta ao lado), **Capacidades** e **Nível médio**. Se houver tarefa atrasada, um aviso vermelho aparece logo abaixo com o atalho **ver tarefas**.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Apontar as horas da semana",
+        "detalhe": "Clique em **Apontar horas** para abrir o **Timesheet**, ou leia o gráfico **Horas da semana**, que compara o que foi apontado em cada dia com a meta de oito horas. O subtítulo informa o período e separa as horas aprovadas das pendentes.",
+        "icone": "clock"
+      },
+      {
+        "titulo": "Percorrer as abas",
+        "detalhe": "São cinco: **Visão geral**, **Minhas tarefas**, **PDI e trilhas**, **Minhas capacidades** e **Atividade**. As abas mostram no rótulo a quantidade de tarefas abertas, de capacidades registradas e de atividades recentes. A aba escolhida fica gravada no endereço da página.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Tratar as tarefas atribuídas",
+        "detalhe": "Em **Minhas tarefas**, cada cartão traz o projeto, a barra de progresso com o planejado ao lado, o prazo, o esforço estimado e a prioridade. O selo **atrasada** marca o que passou do prazo. Clique no cartão para abrir a tarefa dentro do projeto.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Acompanhar o PDI e as trilhas",
+        "detalhe": "Em **PDI e trilhas**, o **Meu radar de capacidades** compara o seu nível atual com o desejado em cada capacidade. O bloco **Meu PDI** mostra objetivo, período, progresso e as próximas ações; **Trilhas recomendadas para você** sugere capacidades por urgência, nível alvo, demanda dos projetos e XP que falta para subir de nível.",
+        "icone": "route"
+      },
+      {
+        "titulo": "Revisar as suas capacidades",
+        "detalhe": "Em **Minhas capacidades**, cada cartão traz o nível consolidado, o XP acumulado, o gap para o nível desejado e o selo de **decay** quando a capacidade está enferrujada por falta de uso. O botão **Abrir meu perfil completo** leva ao seu cadastro de pessoa.",
+        "icone": "sparkles"
+      },
+      {
+        "titulo": "Fechar pelas notificações e pela atividade",
+        "detalhe": "Ainda em **Visão geral**, **Notificações não lidas** lista os avisos com data relativa e leva a **configurar alertas** nas suas preferências. **Projetos que eu gerencio** mostra a saúde e o percentual de conclusão de cada um. Em **Atividade**, você vê o que as outras pessoas fizeram recentemente.",
+        "icone": "bell"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Etiqueta de carga",
+        "descricao": "Soma das suas alocações confirmadas e em execução, com cor conforme a faixa de ocupação."
+      },
+      {
+        "nome": "Gráfico de horas da semana",
+        "descricao": "Uma barra por dia, com a meta de oito horas. Dias acima da meta aparecem em âmbar."
+      },
+      {
+        "nome": "Radar de capacidades",
+        "descricao": "Compara nível atual e nível desejado. Precisa de pelo menos três capacidades registradas para ser exibido."
+      },
+      {
+        "nome": "Barra real × planejado",
+        "descricao": "A parte escura é o quanto você concluiu; a faixa clara atrás é o planejado para a data."
+      },
+      {
+        "nome": "Linha do tempo de atividade",
+        "descricao": "Mostra quem fez o quê e quando, com avatar e tempo relativo."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Tarefas abertas",
+        "descricao": "Tarefas atribuídas a você que ainda não foram concluídas.",
+        "leitura": "Serve de base para negociar prazo antes de aceitar trabalho novo."
+      },
+      {
+        "nome": "Atrasadas",
+        "descricao": "Tarefas suas com prazo vencido.",
+        "leitura": "Priorize antes de qualquer coisa: é a faixa saudável igual a zero."
+      },
+      {
+        "nome": "Concluídas no mês",
+        "descricao": "Tarefas que você finalizou no mês corrente.",
+        "leitura": "Ajuda a perceber o seu ritmo real de entrega."
+      },
+      {
+        "nome": "Horas na semana",
+        "descricao": "Total apontado na semana, com a meta ao lado.",
+        "leitura": "Bem abaixo da meta indica subapontamento; bem acima, sobrecarga."
+      },
+      {
+        "nome": "Capacidades",
+        "descricao": "Quantidade de capacidades registradas no seu perfil.",
+        "leitura": "Perfil incompleto reduz sua chance de ser recomendado nas alocações."
+      },
+      {
+        "nome": "Nível médio",
+        "descricao": "Média dos seus níveis consolidados de 0 a 5.",
+        "leitura": "Compare com o nível desejado das suas trilhas para priorizar o desenvolvimento."
+      },
+      {
+        "nome": "% alocado",
+        "descricao": "Soma das alocações vigentes, em percentual da jornada.",
+        "leitura": "Acima de 100% há sobreposição de compromissos na mesma semana."
+      }
+    ],
+    "dicas": [
+      "Comece o dia por aqui e termine no **Dashboard executivo**: o primeiro mostra o que depende de você, o segundo o efeito do trabalho de todos.",
+      "Se a etiqueta de carga ficar vermelha, converse com o gestor antes de assumir mais um compromisso.",
+      "Apontar as horas no mesmo dia mantém o **Timesheet** e os indicadores do projeto corretos.",
+      "Preencha as capacidades desejadas no seu PDI: é o que faz as trilhas recomendadas fazerem sentido para você.",
+      "Guarde o endereço com a aba **Minhas tarefas** aberta, se for a que você mais usa."
+    ],
+    "limitacoes": [
+      "A tela mostra apenas o que é seu: para ver a carga do time inteiro, use **Capacidade** ou **Alocação**.",
+      "O painel não permite editar tarefa, alocação, PDI nem capacidade — ele mostra a situação e leva para a tela onde a alteração acontece.",
+      "O radar de capacidades só aparece com pelo menos três capacidades registradas no seu perfil."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para um projeto, uma tarefa ou uma pessoa"
+      },
+      {
+        "tecla": "Ctrl+B",
+        "acao": "Recolher ou reabrir o menu lateral, ganhando espaço na tela"
+      }
+    ],
+    "doc": "01-visao-geral-e-primeiros-passos.md",
+    "permissoes": [],
+    "ordem": 30
+  },
+  {
+    "rota": "/timeline",
+    "titulo": "Timeline do portfólio",
+    "grupo": "Visão geral",
+    "icone": "calendar-range",
+    "resumo": "Visão macro do cronograma de todos os projetos, com marcos, saúde, agrupamento e zoom.",
+    "para_que_serve": "Mostra em uma única faixa de tempo quando cada projeto começa e termina, onde estão os marcos e quais projetos estão atrasados. Serve para enxergar sobreposição de iniciativas, concentração de entregas em um mesmo período e vazios na agenda da equipe. Os indicadores do topo resumem o recorte filtrado em orçamento, atrasos, progresso e volume de tarefas.",
+    "quando_usar": [
+      "No planejamento do ano, para ver a sobreposição entre os projetos",
+      "Quando você precisa saber quais marcos caem nos próximos meses",
+      "Para comparar o cronograma de dois programas e negociar prioridade",
+      "Antes de prometer uma data, para conferir o que mais está previsto no mesmo período",
+      "Para identificar rapidamente quais projetos estão com saúde vermelha"
+    ],
+    "passos": [
+      {
+        "titulo": "Filtrar o recorte",
+        "detalhe": "Use a busca por nome ou código e os filtros **Programa** e **Saúde** na barra de ferramentas. Os indicadores, o cronograma e os dois gráficos do fim da página passam a refletir apenas os projetos filtrados.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler os indicadores do topo",
+        "detalhe": "**Projetos no período**, **Orçamento total**, **Atrasados**, **Progresso médio**, **Tarefas** e a data de **Referência** usada no cálculo dos atrasos.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Ajustar o zoom",
+        "detalhe": "O controle **Zoom** vai de 0,4× a 3× e também pode ser ajustado pelos botões de mais e menos no cabeçalho da faixa de tempo. Com o zoom reduzido, os rótulos de mês passam a aparecer a cada trimestre para não poluir a leitura.",
+        "icone": "zoom-in"
+      },
+      {
+        "titulo": "Escolher o agrupamento",
+        "detalhe": "O seletor oferece **Agrupar por programa**, **Por portfólio** e **Sem agrupar**. Ao agrupar, cada faixa mostra o nome do grupo e quantos projetos estão ali, o que facilita comparar frentes diferentes.",
+        "icone": "layers"
+      },
+      {
+        "titulo": "Ler as barras e os marcos",
+        "detalhe": "Cada barra é um projeto: a parte mais escura é o progresso já realizado e o trecho claro é o que falta. Um contorno vermelho indica projeto atrasado. Os losangos sobre a barra são os marcos — vermelho para marco crítico e âmbar para os demais. A linha vertical azul marca o dia de hoje.",
+        "icone": "calendar-days"
+      },
+      {
+        "titulo": "Abrir o detalhe de um projeto",
+        "detalhe": "Clique na barra para abrir um painel com **Programa**, **Gerente**, **Progresso** (real contra planejado) e **Tarefas**. Clique de novo para fechar. Para entrar no projeto, clique no nome dele na coluna da esquerda; o ponto colorido ao lado indica a saúde.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Fechar com os gráficos de apoio",
+        "detalhe": "No fim da página, **Saúde dos projetos filtrados** mostra a distribuição em rosca e **Orçamento por programa** compara as barras horizontais dos programas com maior orçamento. Os dois respeitam os filtros aplicados.",
+        "icone": "chart-column"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Barra do projeto",
+        "descricao": "A largura representa a duração entre as datas de início e de término; o preenchimento escuro é o percentual concluído."
+      },
+      {
+        "nome": "Marcos em losango",
+        "descricao": "Ficam posicionados na data prevista sobre a barra do projeto; vermelho indica marco crítico."
+      },
+      {
+        "nome": "Linha de hoje",
+        "descricao": "Faixa vertical azul que atravessa o cronograma e mostra onde a execução está agora."
+      },
+      {
+        "nome": "Cabeçalho de período",
+        "descricao": "Duas faixas: o ano em cima e o mês embaixo, para orientar a leitura horizontal."
+      },
+      {
+        "nome": "Coluna fixa de projetos",
+        "descricao": "Permanece visível ao rolar a página e traz nome, código, gerente, orçamento e o ponto de saúde de cada projeto."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Projetos no período",
+        "descricao": "Quantidade de projetos no recorte filtrado.",
+        "leitura": "Confirme que o filtro não deixou projetos importantes de fora antes de concluir."
+      },
+      {
+        "nome": "Orçamento total",
+        "descricao": "Soma do orçamento dos projetos filtrados.",
+        "leitura": "É o total autorizado para o conjunto, não o gasto."
+      },
+      {
+        "nome": "Atrasados",
+        "descricao": "Projetos filtrados com prazo vencido.",
+        "leitura": "No cronograma eles aparecem com contorno vermelho na barra."
+      },
+      {
+        "nome": "Progresso médio",
+        "descricao": "Média do percentual de conclusão dos projetos filtrados.",
+        "leitura": "Compare com o orçamento total para sentir o ritmo do conjunto."
+      },
+      {
+        "nome": "Tarefas",
+        "descricao": "Soma das tarefas dos projetos filtrados.",
+        "leitura": "Ajuda a dimensionar o esforço por trás das barras."
+      },
+      {
+        "nome": "Referência",
+        "descricao": "Data usada como hoje no cálculo dos atrasos.",
+        "leitura": "Serve para explicar por que um projeto aparece como atrasado."
+      }
+    ],
+    "dicas": [
+      "Clique em **Atualizar** antes de apresentar a timeline, para garantir que o cronograma é o do momento.",
+      "Comece com o zoom baixo para ver o portfólio inteiro e aproxime apenas no período que está em discussão.",
+      "Marco vermelho é caminho crítico: se ele cai em uma semana já carregada, antecipe a conversa de capacidade.",
+      "Use a busca por código quando o portfólio tiver muitos projetos com nomes parecidos.",
+      "Combine o filtro de **Saúde** com o agrupamento por programa para localizar o programa que concentra os atrasos."
+    ],
+    "limitacoes": [
+      "Nesta versão, a opção **Por portfólio** agrupa os projetos pelo programa — o dado de portfólio ainda não separa as faixas.",
+      "A tela não exporta nem imprime a timeline. Para levar o cronograma para fora do sistema, use **Portfólio › Relatórios**, que tem o widget **Timeline do portfólio**, ou monte o recorte a partir de **Portfólio › Projetos**.",
+      "Projetos sem data de início ou de término continuam listados na coluna da esquerda, mas não desenham barra na faixa de tempo."
+    ],
+    "doc": "09-dashboards-e-relatorios.md",
+    "permissoes": [
+      "projeto.ver"
+    ],
+    "ordem": 40
+  }
+]

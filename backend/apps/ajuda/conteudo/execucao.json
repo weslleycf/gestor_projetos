@@ -1,0 +1,774 @@
+[
+  {
+    "rota": "/minhas-tarefas",
+    "titulo": "Minhas tarefas",
+    "grupo": "Execução",
+    "icone": "list-checks",
+    "resumo": "Seu painel pessoal de execução: reúne as tarefas atribuídas a você, agrupadas por prazo ou por projeto, com o timesheet da semana ao lado.",
+    "para_que_serve": "É a tela em que você começa o dia sem precisar procurar tarefa em projeto por projeto. Aqui está tudo o que está com você e ainda não foi concluído, já organizado por urgência, com o progresso e o status ao alcance de um clique. Ao lado, o bloco **Timesheet da semana** mostra quanto você já apontou e permite registrar horas do dia sem trocar de tela.",
+    "quando_usar": [
+      "Para decidir o que fazer primeiro, começando pelo grupo **Atrasadas**",
+      "Antes de assumir trabalho novo, para conferir o tamanho da sua fila",
+      "Ao terminar uma tarefa, para marcar o progresso e concluí-la na hora",
+      "No fim do dia, para apontar as horas e manter a semana em dia",
+      "Em uma conversa com o gestor, para mostrar o que está com você e o que está travado"
+    ],
+    "passos": [
+      {
+        "titulo": "Alternar o agrupamento",
+        "detalhe": "No alto da lista, escolha **Por prazo** ou **Por projeto**. Na visão **Por prazo**, as tarefas aparecem nos grupos **Atrasadas**, **Hoje**, **Esta semana**, **Próximas** e **Sem prazo**; na visão **Por projeto**, cada grupo traz o código e o nome do projeto.",
+        "icone": "calendar-range"
+      },
+      {
+        "titulo": "Filtrar por prioridade",
+        "detalhe": "Use o seletor **Todas as prioridades** para ver apenas as tarefas **Crítica**, **Alta**, **Média** ou **Baixa**.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Atualizar o andamento no cartão",
+        "detalhe": "Deslize o controle **Progresso** do cartão até o valor desejado. O valor é gravado sozinho depois de uma pequena pausa — não existe botão de salvar no cartão.",
+        "icone": "target"
+      },
+      {
+        "titulo": "Trocar o status ou concluir",
+        "detalhe": "Use o seletor de status do cartão para levar a tarefa a outra etapa, ou clique em **Concluir** quando o trabalho terminar. O botão **Concluir** desaparece quando a tarefa já está concluída.",
+        "icone": "clipboard-check"
+      },
+      {
+        "titulo": "Apontar horas",
+        "detalhe": "Clique em **Apontar horas**, no alto da tela. No diálogo, escolha a **Tarefa** (a lista traz as suas), confirme a **Data**, informe as **Horas**, a **Atividade** e escreva a **Descrição**; confirme em **Apontar horas**.",
+        "icone": "clock"
+      },
+      {
+        "titulo": "Apontar pelo dia da semana",
+        "detalhe": "No bloco **Timesheet da semana**, cada dia tem o botão **Apontar**, que abre o mesmo diálogo já com a data preenchida.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Acompanhar os painéis laterais",
+        "detalhe": "À direita ficam **Tarefas por status**, **Timesheet da semana** e **Apontamentos recentes**, com a situação de cada lançamento (**aprovado** ou **pendente**). O botão **Abrir timesheet completo e aprovações →** leva à tela de horas.",
+        "icone": "bar-chart-3"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Linha de indicadores",
+        "descricao": "Seis números no topo: **Tarefas abertas**, **Atrasadas**, **Concluídas no mês**, **Horas estimadas**, **Alta prioridade** e **Progresso médio**."
+      },
+      {
+        "nome": "Cartão de tarefa",
+        "descricao": "Traz o projeto, o nome da tarefa, o prazo (com a marca **atrasada** quando vencido), o esforço estimado, a prioridade, a etiqueta **crítica** para tarefas do caminho crítico, o controle **Progresso**, o seletor de status e o botão **Concluir**."
+      },
+      {
+        "nome": "Gráfico Tarefas por status",
+        "descricao": "Rosca com a distribuição das suas tarefas abertas por etapa, com o total no centro."
+      },
+      {
+        "nome": "Bloco Timesheet da semana",
+        "descricao": "Mostra o período, o total apontado contra a meta e um item por dia, com a quantidade de apontamentos e o total de horas."
+      },
+      {
+        "nome": "Lista Apontamentos recentes",
+        "descricao": "Os últimos lançamentos da semana, com a tarefa, as horas e a etiqueta **aprovado** ou **pendente**."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Tarefa",
+        "descricao": "A tarefa em que as horas foram gastas.",
+        "dica": "A lista traz apenas as tarefas atribuídas a você; é possível registrar **Sem tarefa vinculada**."
+      },
+      {
+        "nome": "Data",
+        "descricao": "O dia em que o trabalho aconteceu.",
+        "dica": "É possível apontar horas de datas passadas; cabe à aprovação validar."
+      },
+      {
+        "nome": "Horas",
+        "descricao": "Quanto tempo foi gasto.",
+        "dica": "Cada apontamento aceita de 0,5 a 24 horas por dia."
+      },
+      {
+        "nome": "Atividade",
+        "descricao": "A natureza do trabalho: **Desenvolvimento**, **Análise**, **Reunião**, **Testes**, **Documentação**, **Suporte** ou **Gestão**."
+      },
+      {
+        "nome": "Descrição",
+        "descricao": "O que foi realizado no período.",
+        "dica": "Uma ou duas linhas objetivas bastam para o gestor aprovar sem precisar perguntar."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Tarefas abertas",
+        "descricao": "Tudo o que está com você e não foi concluído nem cancelado.",
+        "leitura": "Volume alto significa fila longa: confira as prioridades antes de aceitar mais trabalho."
+      },
+      {
+        "nome": "Atrasadas",
+        "descricao": "Suas tarefas com prazo vencido.",
+        "leitura": "Cada atraso aqui já impacta o cronograma de alguém. A meta é zero."
+      },
+      {
+        "nome": "Concluídas no mês",
+        "descricao": "Entregas concluídas no mês corrente.",
+        "leitura": "Compare com **Tarefas abertas**: se a fila cresce, o ritmo de entrada está maior que o de saída."
+      },
+      {
+        "nome": "Horas estimadas",
+        "descricao": "Esforço previsto das tarefas que começam nos próximos sete dias.",
+        "leitura": "Serve para negociar prazo antes de a semana estourar."
+      },
+      {
+        "nome": "Alta prioridade",
+        "descricao": "Tarefas com prioridade **Alta** ou **Crítica**.",
+        "leitura": "Se esse número domina a lista, tudo virou urgente — vale renegociar prioridades."
+      },
+      {
+        "nome": "Progresso médio",
+        "descricao": "Média do percentual de conclusão das suas tarefas.",
+        "leitura": "Muito baixo com muitas tarefas abertas indica dispersão: menos tarefas em andamento, mais entrega."
+      }
+    ],
+    "dicas": [
+      "Comece o dia pelo grupo **Atrasadas** e só depois olhe **Hoje**.",
+      "O progresso do cartão é gravado automaticamente: arraste, espere um instante e siga para a próxima tarefa.",
+      "Apontar horas toda semana mantém a meta em dia e evita acumular lançamentos para o gestor aprovar.",
+      "Use **Por projeto** quando for prestar contas de um projeto específico e **Por prazo** no dia a dia.",
+      "Tarefas concluídas saem da lista na hora, então use este painel como a sua fila de trabalho real."
+    ],
+    "limitacoes": [
+      "A lista traz somente as tarefas em que você é o responsável: apoiar uma tarefa como responsável auxiliar não a faz aparecer aqui.",
+      "O painel carrega até 50 tarefas abertas por vez; quem tem uma fila maior vê apenas as primeiras.",
+      "Tarefas **Concluída** e **Cancelada** saem do painel; para revê-las, use o **Kanban** com o interruptor **Mostrar encerradas** ligado."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para uma tarefa ou uma tela"
+      },
+      {
+        "tecla": "F1",
+        "acao": "Abrir este guia a qualquer momento"
+      }
+    ],
+    "doc": "04-tarefas-e-execucao.md",
+    "permissoes": [],
+    "ordem": 10
+  },
+  {
+    "rota": "/kanban",
+    "titulo": "Kanban",
+    "grupo": "Execução",
+    "icone": "blocks",
+    "resumo": "Quadro de execução de todos os projetos, com uma coluna por status, no qual arrastar o cartão muda a etapa da tarefa.",
+    "para_que_serve": "O quadro mostra o fluxo de trabalho como ele é: cada coluna é um status e cada cartão é uma tarefa. Arrastar o cartão é a forma mais rápida de dizer que o trabalho avançou — o status muda na hora e a nova posição fica gravada. O quadro também revela o que está atrasado, o que está bloqueado e em quais colunas há trabalho em andamento além do combinado.",
+    "quando_usar": [
+      "Na reunião diária do time, para ver o que está em andamento e o que está travado",
+      "Para puxar a próxima tarefa da coluna **A fazer** quando você termina uma",
+      "Quando uma tarefa depende de terceiros: leve o cartão para **Bloqueada** e o impedimento fica visível",
+      "Para avaliar se o esforço estimado dos cartões visíveis cabe na semana da equipe",
+      "Para revisar o que foi encerrado, ligando o interruptor **Mostrar encerradas**"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher o projeto",
+        "detalhe": "No filtro **Projeto**, escolha um projeto ou deixe **Todos os projetos** para ver o quadro consolidado do portfólio.",
+        "icone": "folder-kanban"
+      },
+      {
+        "titulo": "Reduzir o recorte",
+        "detalhe": "Combine **Responsável**, **Prioridade**, **Etiqueta** e o campo **Buscar tarefa...**. Os indicadores do topo passam a refletir apenas o que sobrou no quadro.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Mostrar ou esconder o que já terminou",
+        "detalhe": "Ligue o interruptor **Mostrar encerradas** para exibir as colunas **Concluída** e **Cancelada**, que ficam ocultas por padrão.",
+        "icone": "search"
+      },
+      {
+        "titulo": "Arrastar o cartão",
+        "detalhe": "Segure o cartão e solte-o na coluna de destino: o status muda imediatamente e a posição é gravada. Se você soltar o cartão **sobre outro cartão**, ele assume exatamente aquele lugar na coluna.",
+        "icone": "blocks"
+      },
+      {
+        "titulo": "Mudar o status sem arrastar",
+        "detalhe": "Passando o mouse sobre o cartão aparece o seletor **Mover para ...**, útil quando a coluna está cheia ou quando você prefere não arrastar.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Abrir o cartão",
+        "detalhe": "Clique no cartão para abrir o painel lateral da tarefa, com **Nome**, **Descrição**, **Responsável**, **Prioridade**, **Início**, **Fim**, **Esforço estimado (h)**, **Status** e o controle **Percentual de conclusão**.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Trabalhar o detalhe da tarefa",
+        "detalhe": "Ainda no painel, expanda **Responsáveis auxiliares** para registrar quem apoia, **Checklist** para os passos, **Requisitos de capacidade** para as competências exigidas e **Comentários** para a conversa. Confirme tudo em **Salvar alterações**.",
+        "icone": "sparkles"
+      },
+      {
+        "titulo": "Observar o limite de cada coluna",
+        "detalhe": "O cabeçalho da coluna mostra a contagem de cartões e o indicador de limite. Ao passar do teto, aparece o aviso 'Limite de WIP excedido nesta etapa. Conclua itens antes de puxar novos.'",
+        "icone": "gauge"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Colunas por status",
+        "descricao": "**Backlog**, **A fazer**, **Em andamento**, **Em revisão**, **Bloqueada**, **Concluída** e **Cancelada**, cada uma com cor, contagem de cartões e a soma do esforço estimado."
+      },
+      {
+        "nome": "Cartão de tarefa",
+        "descricao": "Mostra o projeto, o prazo (em vermelho quando vencido), o esforço estimado, o avanço do **Checklist**, o responsável, os responsáveis auxiliares, a prioridade, o percentual de conclusão e a chama do caminho crítico."
+      },
+      {
+        "nome": "Aviso de limite de trabalho em andamento",
+        "descricao": "Faixa vermelha no alto da coluna quando a quantidade de cartões passa do teto combinado para aquela etapa."
+      },
+      {
+        "nome": "Painel lateral da tarefa",
+        "descricao": "Abre ao clicar no cartão e reúne os campos de edição, as seções de apoio, checklist, requisitos de capacidade e comentários, além dos botões **Salvar alterações**, **Excluir** e **Abrir projeto**."
+      },
+      {
+        "nome": "Rodapé do quadro",
+        "descricao": "Informa quantas tarefas estão visíveis em relação ao total e quantas estão atrasadas."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Status",
+        "descricao": "A etapa da tarefa no quadro.",
+        "dica": "Alterar o status pelo painel também reposiciona o cartão na coluna correspondente."
+      },
+      {
+        "nome": "Percentual de conclusão",
+        "descricao": "Quanto da tarefa está pronto, de 0 a 100.",
+        "dica": "Ao lado do controle, o painel mostra o esforço real já apontado no timesheet e o progresso planejado."
+      },
+      {
+        "nome": "Esforço estimado (h)",
+        "descricao": "As horas previstas para a tarefa.",
+        "dica": "É o peso da tarefa no progresso do projeto e entra na soma exibida no cabeçalho da coluna."
+      },
+      {
+        "nome": "Responsáveis auxiliares",
+        "descricao": "Quem apoia a tarefa sem ser o dono dela.",
+        "dica": "Use **Adicionar apoio** para incluir alguém; os apoios aparecem como avatares no cartão."
+      },
+      {
+        "nome": "Prioridade",
+        "descricao": "A urgência relativa da tarefa: **Baixa**, **Média**, **Alta** ou **Crítica**."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Cards no quadro",
+        "descricao": "Tarefas visíveis depois dos filtros.",
+        "leitura": "Use junto de **Bloqueados** e **Colunas no limite** para avaliar se o fluxo está saudável."
+      },
+      {
+        "nome": "Atrasados",
+        "descricao": "Cartões com prazo vencido entre os visíveis.",
+        "leitura": "Atraso em tarefa do caminho crítico empurra a data final do projeto."
+      },
+      {
+        "nome": "Bloqueados",
+        "descricao": "Tarefas paradas na coluna **Bloqueada**.",
+        "leitura": "Bloqueio parado é o maior inimigo do prazo: trate como fila de escalação."
+      },
+      {
+        "nome": "Colunas no limite",
+        "descricao": "Quantas colunas passaram do teto de trabalho em andamento.",
+        "leitura": "Muitos cartões em andamento ao mesmo tempo reduzem a vazão. A meta é zero."
+      },
+      {
+        "nome": "Esforço estimado",
+        "descricao": "Soma das horas previstas nos cartões visíveis.",
+        "leitura": "Ajuda a perceber se o quadro está carregado demais para a semana."
+      },
+      {
+        "nome": "Projeto",
+        "descricao": "O projeto filtrado ou a opção **Todos**.",
+        "leitura": "Em **Todos**, o quadro é a visão consolidada de toda a carteira."
+      }
+    ],
+    "dicas": [
+      "Ao soltar o cartão na coluna **Concluída**, o percentual da tarefa vai para 100% automaticamente.",
+      "Ao sair da coluna **Concluída**, o percentual volta para 80% — o sistema entende que a entrega foi reaberta.",
+      "Concluir uma tarefa credita XP ao responsável nas capacidades exigidas por ela: vale manter os **Requisitos de capacidade** preenchidos.",
+      "Respeite o limite de trabalho em andamento: 5 cartões em **Em andamento**, 3 em **Em revisão** e 3 em **Bloqueada**.",
+      "Preencha o **Checklist** das tarefas longas: a barra de itens concluídos no cartão mostra o avanço mesmo sem mudar de coluna."
+    ],
+    "limitacoes": [
+      "Passar do limite de trabalho em andamento não impede o arraste: o aviso é um alerta de gestão, não um bloqueio.",
+      "Voltar um cartão de **Concluída** não devolve o percentual anterior: ele fica em 80% e você ajusta à mão se precisar.",
+      "As colunas **Concluída** e **Cancelada** só aparecem com o interruptor **Mostrar encerradas** ligado."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Enter",
+        "acao": "Abrir o cartão quando ele está em foco"
+      },
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para uma tarefa ou uma tela"
+      }
+    ],
+    "doc": "04-tarefas-e-execucao.md",
+    "permissoes": [
+      "tarefa.ver"
+    ],
+    "ordem": 20
+  },
+  {
+    "rota": "/calendario",
+    "titulo": "Calendário",
+    "grupo": "Execução",
+    "icone": "calendar-days",
+    "resumo": "Calendário de execução com tarefas e marcos do período, filtro por projeto e reagendamento direto no painel do dia.",
+    "para_que_serve": "Mostra a carga de trabalho dia a dia, em vez de projeto por projeto. É a visão que responde o que vence nesta semana e onde estão os choques de agenda. Do próprio calendário você muda o status de uma tarefa ou ajusta as datas, sem abrir o cronograma.",
+    "quando_usar": [
+      "Para planejar a semana e ver o que está marcado para cada dia",
+      "Quando duas entregas caem na mesma data e é preciso redistribuir",
+      "Para conferir a posição dos marcos do período antes de uma reunião",
+      "Para reagendar uma tarefa que escorregou poucos dias, sem abrir o Gantt",
+      "Para acompanhar o avanço médio das tarefas do mês"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher o período",
+        "detalhe": "Use **Período anterior**, **Hoje** e **Próximo período** para navegar. O título na barra mostra o mês ou a faixa de datas em exibição.",
+        "icone": "calendar-range"
+      },
+      {
+        "titulo": "Alternar entre mês e semana",
+        "detalhe": "O seletor **Mês** e **Semana** troca a grade: a visão mensal dá o panorama do mês e a semanal abre espaço para os detalhes de cada dia.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Filtrar por projeto",
+        "detalhe": "No seletor **Projeto**, escolha um projeto ou mantenha **Todos os projetos**. Os indicadores do topo acompanham o filtro.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Abrir um dia",
+        "detalhe": "Clique em qualquer dia para abrir o painel lateral com a lista de eventos daquela data, entre tarefas e marcos, com projeto, responsável e período.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Mudar o status de uma tarefa",
+        "detalhe": "No painel do dia, use o seletor **Status** da tarefa para atualizar a etapa. A mudança é gravada na hora e vale para o projeto inteiro.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Reagendar uma tarefa",
+        "detalhe": "Clique em **Reagendar**, informe **Novo início** e **Novo fim** e confirme em **Confirmar**. As tarefas que dependem dela são empurradas quando a ligação é do tipo Término → Início.",
+        "icone": "calendar-days"
+      },
+      {
+        "titulo": "Abrir o registro",
+        "detalhe": "**Abrir tarefa** leva ao projeto com a tarefa selecionada; quando o evento é um marco, use **Abrir projeto do marco**.",
+        "icone": "route"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Grade do calendário",
+        "descricao": "Sete colunas, de segunda a domingo. O dia de hoje aparece destacado, e cada dia mostra a quantidade de eventos e os primeiros compromissos."
+      },
+      {
+        "nome": "Evento na grade",
+        "descricao": "Tarefas aparecem como faixas na cor do projeto; marcos aparecem com bandeirinha. Um triângulo vermelho indica atraso."
+      },
+      {
+        "nome": "Legenda",
+        "descricao": "No rodapé da grade, explica as cores de cada status, a bandeirinha de marco e o marcador de atraso."
+      },
+      {
+        "nome": "Painel do dia",
+        "descricao": "Lista os eventos da data escolhida, com projeto, responsável, período, barra de **Progresso** nas tarefas e as ações disponíveis."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Status",
+        "descricao": "A etapa da tarefa: **Backlog**, **A fazer**, **Em andamento**, **Em revisão**, **Bloqueada**, **Concluída** ou **Cancelada**."
+      },
+      {
+        "nome": "Novo início",
+        "descricao": "A nova data de começo da tarefa."
+      },
+      {
+        "nome": "Novo fim",
+        "descricao": "A nova data de término da tarefa.",
+        "dica": "A data de fim não pode ser anterior à data de início."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Eventos no período",
+        "descricao": "Tarefas e marcos somados no intervalo exibido.",
+        "leitura": "Ajuda a perceber se o mês está sobrecarregado antes de aceitar novas entregas."
+      },
+      {
+        "nome": "Tarefas",
+        "descricao": "Quantas tarefas aparecem no período.",
+        "leitura": "Comparar com **Marcos** mostra se o período é de execução ou de entrega."
+      },
+      {
+        "nome": "Marcos",
+        "descricao": "Entregas-chave previstas no período.",
+        "leitura": "Marcos concentrados na mesma semana pedem preparação antecipada."
+      },
+      {
+        "nome": "Atrasados",
+        "descricao": "Eventos com prazo vencido no período.",
+        "leitura": "Qualquer valor acima de zero pede ação imediata."
+      },
+      {
+        "nome": "Progresso médio",
+        "descricao": "Média do percentual das tarefas do período.",
+        "leitura": "Se fica abaixo do esperado para a altura do mês, a execução está escorregando."
+      },
+      {
+        "nome": "Projeto",
+        "descricao": "O projeto filtrado ou a opção **Todos**.",
+        "leitura": "Use o filtro para isolar um projeto antes de uma conversa específica."
+      }
+    ],
+    "dicas": [
+      "Comece a semana na visão **Semana** e use a visão **Mês** para planejar o que vem depois.",
+      "Dias com muitos eventos mostram só os primeiros compromissos: clique no dia para ver a lista completa.",
+      "Reagendar pelo calendário é mais rápido do que abrir o cronograma quando a mudança é de poucos dias.",
+      "Um marco é uma entrega-chave sem duração: aparece apenas no dia previsto, com bandeirinha.",
+      "Mudar o status por aqui tem o mesmo efeito do **Kanban**: entrar em **Concluída** leva o percentual a 100% e sair dela derruba para 80%."
+    ],
+    "limitacoes": [
+      "A grade reúne tarefas e marcos; a agenda de ocupação das pessoas fica na tela de alocação de recursos.",
+      "Em um dia cheio, a visão **Mês** mostra apenas os três primeiros eventos (oito na visão **Semana**) e resume o restante em '+N mais'.",
+      "O reagendamento vale para tarefas: marcos abrem o projeto, onde as datas são editadas."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir este guia a qualquer momento"
+      }
+    ],
+    "doc": "04-tarefas-e-execucao.md",
+    "permissoes": [
+      "tarefa.ver"
+    ],
+    "ordem": 30
+  },
+  {
+    "rota": "/timesheet",
+    "titulo": "Timesheet",
+    "grupo": "Execução",
+    "icone": "clock",
+    "resumo": "Apontamento de horas por dia, meta semanal, gráficos de esforço e aprovação dos lançamentos pelo gestor.",
+    "para_que_serve": "É a tela em que o esforço realizado vira número: horas por tarefa, por atividade e por projeto. O que você registra aqui alimenta o esforço real das tarefas, o custo do projeto e o comparativo entre orçado e realizado. A aprovação do gestor formaliza o lançamento e libera o XP nas capacidades exercitadas.",
+    "quando_usar": [
+      "No fim do dia ou da semana, para registrar as horas trabalhadas",
+      "Para conferir se o total apontado já alcançou a **Meta semanal**",
+      "Antes do fechamento do mês, para não deixar lançamento pendente",
+      "Como gestor, PMO ou RH, para aprovar a fila de apontamentos da equipe",
+      "Para corrigir ou excluir um lançamento feito com data ou horas erradas"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher a semana",
+        "detalhe": "Na aba **Minha semana**, use **Semana anterior**, **Semana atual** e **Próxima semana** para navegar; o cabeçalho mostra o período e o mês de referência.",
+        "icone": "calendar-range"
+      },
+      {
+        "titulo": "Registrar um apontamento",
+        "detalhe": "Clique em **Apontar horas**, no alto, ou em **Adicionar**, no rodapé do dia. Escolha a **Tarefa**, confirme a **Data**, informe as **Horas**, a **Atividade** e a **Descrição**, e confirme em **Registrar horas**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Corrigir um lançamento",
+        "detalhe": "No cartão do apontamento, o ícone de lápis abre o diálogo em modo de edição, com o botão **Salvar alterações**. A lixeira exclui o lançamento depois da confirmação em **Excluir apontamento**.",
+        "icone": "save"
+      },
+      {
+        "titulo": "Acompanhar a meta",
+        "detalhe": "A barra **Progresso da meta semanal** compara o total apontado com a sua meta, e os indicadores mostram **Horas apontadas**, **Meta semanal**, **Saldo da meta**, **Aprovadas** e **Pendentes**.",
+        "icone": "target"
+      },
+      {
+        "titulo": "Enviar a semana para aprovação",
+        "detalhe": "Clique em **Enviar para aprovação**, confira a lista e o total de horas pendentes e confirme em **Confirmar envio**.",
+        "icone": "upload"
+      },
+      {
+        "titulo": "Aprovar um lançamento",
+        "detalhe": "Na aba **Aprovações**, confira **Colaborador**, **Data**, **Tarefa**, **Projeto** e **Horas**, e clique em **Aprovar** na linha do apontamento.",
+        "icone": "user-check"
+      },
+      {
+        "titulo": "Aprovar em lote",
+        "detalhe": "Marque as caixas de seleção dos lançamentos — ou use **Selecionar todos** — e clique em **Aprovar selecionados (N)**.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Conferir os gráficos",
+        "detalhe": "**Horas por dia** mostra como o esforço se distribuiu na semana e **Horas por projeto** mostra para onde o seu tempo foi.",
+        "icone": "bar-chart-3"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Abas",
+        "descricao": "**Minha semana**, com os sete dias e os seus apontamentos, e **Aprovações**, com a fila de lançamentos pendentes de outros colaboradores."
+      },
+      {
+        "nome": "Colunas por dia",
+        "descricao": "Cada dia da semana traz o total de horas, os apontamentos lançados e o botão **Adicionar** no rodapé."
+      },
+      {
+        "nome": "Cartão de apontamento",
+        "descricao": "Mostra a tarefa, o projeto, as horas e a etiqueta **ok** ou **pend.**, além dos ícones de editar e excluir."
+      },
+      {
+        "nome": "Tabela de aprovações",
+        "descricao": "Colunas **Colaborador**, **Data**, **Tarefa**, **Projeto**, **Horas** e **Ações**, com a caixa de seleção de cada linha."
+      },
+      {
+        "nome": "Bloco Como funciona a aprovação",
+        "descricao": "Explica que o apontamento entra na fila do gestor, do PMO ou do RH e que a aprovação credita XP de capacidade e alimenta o esforço real das tarefas."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Tarefa",
+        "descricao": "Em que as horas foram gastas.",
+        "dica": "Apenas as tarefas atribuídas a você aparecem na lista; é possível registrar **Sem tarefa vinculada**."
+      },
+      {
+        "nome": "Data",
+        "descricao": "O dia em que o trabalho aconteceu.",
+        "dica": "É possível apontar horas de datas passadas; cabe à aprovação validar."
+      },
+      {
+        "nome": "Horas",
+        "descricao": "Quanto tempo foi gasto.",
+        "dica": "Entre 0,5 e 24 horas por dia."
+      },
+      {
+        "nome": "Atividade",
+        "descricao": "A natureza do trabalho: **Desenvolvimento**, **Análise**, **Reunião**, **Testes**, **Documentação**, **Suporte** ou **Gestão**."
+      },
+      {
+        "nome": "Descrição",
+        "descricao": "O que foi executado no período.",
+        "dica": "Detalhe o suficiente para o aprovador não precisar perguntar."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Horas apontadas",
+        "descricao": "Total registrado na semana.",
+        "leitura": "Compare com **Meta semanal**: abaixo da meta pode indicar sub-registro, não ociosidade."
+      },
+      {
+        "nome": "Meta semanal",
+        "descricao": "Quantas horas você deveria apontar na semana, conforme a sua capacidade.",
+        "leitura": "Vem da sua capacidade semanal de horas, definida em **Administração › Usuários e papéis**."
+      },
+      {
+        "nome": "Saldo da meta",
+        "descricao": "A diferença entre o apontado e a meta.",
+        "leitura": "Positivo é meta atingida; negativo mostra quantas horas ainda faltam."
+      },
+      {
+        "nome": "Aprovadas",
+        "descricao": "Horas já validadas pelo gestor.",
+        "leitura": "Só o que está aprovado libera XP e entra nos números oficiais do projeto."
+      },
+      {
+        "nome": "Pendentes",
+        "descricao": "Horas aguardando aprovação.",
+        "leitura": "Pendência acumulada distorce custo e XP: mantenha a aprovação em dia."
+      },
+      {
+        "nome": "Apontamentos",
+        "descricao": "Quantidade de lançamentos da semana e quantos projetos eles envolvem.",
+        "leitura": "Muitos lançamentos em poucos projetos costuma indicar foco; muitos projetos na mesma semana, dispersão."
+      }
+    ],
+    "dicas": [
+      "Apontar um pouco todo dia é mais preciso do que reconstruir a semana na sexta-feira.",
+      "Um apontamento aprovado e ligado a uma tarefa credita 0,5 ponto de XP por hora, com mínimo de 1 ponto, nas capacidades exigidas pela tarefa.",
+      "Quando a tarefa não tem requisitos próprios, o XP da aprovação usa as capacidades exigidas pelo projeto.",
+      "A aprovação também alimenta o esforço real das tarefas e o custo do projeto: não é apenas uma formalidade.",
+      "Use **Selecionar todos** seguido de **Aprovar selecionados** para fechar a fila da semana de uma vez."
+    ],
+    "limitacoes": [
+      "A aprovação é restrita a administradores, PMO, gerentes e RH. Quem não tem esse perfil consegue enviar a semana, mas a validação fica com o gestor — o aviso **Aprovação restrita** explica isso na aba **Aprovações**.",
+      "O timesheet registra esforço, não jornada: não há cronômetro, marcação de ponto nem controle de horas extras.",
+      "A tela mostra uma semana de cada vez; não há um consolidado mensal na própria página."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir este guia a qualquer momento"
+      }
+    ],
+    "doc": "04-tarefas-e-execucao.md",
+    "permissoes": [],
+    "ordem": 40
+  },
+  {
+    "rota": "/colaboracao",
+    "titulo": "Colaboração",
+    "grupo": "Execução",
+    "icone": "mail",
+    "resumo": "Salas de conversa por projeto, equipe ou área, chat com menções e reações e o feed de tudo o que a equipe fez no sistema.",
+    "para_que_serve": "É onde a conversa fica registrada no lugar certo: uma sala por projeto, por equipe ou por assunto, com histórico que continua disponível para quem chegar depois. Mencionar alguém com @ garante que a pessoa seja avisada, e o feed de atividades mostra, em ordem, o que mudou em tarefas, riscos, alocações e projetos — sem precisar abrir cada registro.",
+    "quando_usar": [
+      "Para alinhar um assunto do projeto sem espalhar a conversa por mensagens diretas",
+      "Quando você precisa que uma pessoa específica veja o recado: mencione com @",
+      "Para responder a um ponto específico sem quebrar o fluxo da conversa, usando uma thread",
+      "Antes da reunião semanal, para revisar o que a equipe fez desde o último encontro",
+      "Para confirmar um combinado rapidamente, com uma reação em vez de mais uma mensagem"
+    ],
+    "passos": [
+      {
+        "titulo": "Criar uma sala",
+        "detalhe": "Clique em **Nova sala**, dê um **Nome da sala**, escolha o **Tipo** (**Projeto**, **Equipe**, **Área** ou **Mensagem direta**) e, se fizer sentido, vincule um **Projeto** e escreva a **Descrição**. Marque os **Participantes** e confirme em **Criar sala**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Encontrar a conversa",
+        "detalhe": "No bloco **Salas**, use **Buscar sala...** — a busca considera o nome da sala e o do projeto — e clique na sala desejada; a conversa abre à direita.",
+        "icone": "search"
+      },
+      {
+        "titulo": "Escrever uma mensagem",
+        "detalhe": "Digite no campo de mensagem e clique em **Enviar**. A tecla **Enter** envia e **Shift + Enter** quebra a linha.",
+        "icone": "mail"
+      },
+      {
+        "titulo": "Mencionar alguém",
+        "detalhe": "Digite **@** e comece a escrever o nome: aparece uma lista com até seis pessoas. Clique na pessoa para inserir a menção — só assim ela é registrada e a pessoa é avisada. O rodapé mostra quantas pessoas foram mencionadas.",
+        "icone": "user-check"
+      },
+      {
+        "titulo": "Responder em thread",
+        "detalhe": "Clique em **Responder em thread**, abaixo da mensagem. Uma faixa mostra o trecho original; escreva e envie. Para desistir, use **Cancelar resposta**.",
+        "icone": "message-square"
+      },
+      {
+        "titulo": "Reagir a uma mensagem",
+        "detalhe": "Clique em **Reagir** e escolha entre 👍, 🎉, 🚀, ✅, 👀 e ❤️. A etiqueta abaixo da mensagem mostra quantas pessoas reagiram; clicar de novo remove a sua reação.",
+        "icone": "sparkles"
+      },
+      {
+        "titulo": "Acompanhar o feed de atividades",
+        "detalhe": "Na aba **Feed de atividades**, use **Filtrar por entidade** para restringir a um tipo de registro e clique em **Atualizar**. Quando o evento tem projeto, o link **abrir projeto** leva direto a ele.",
+        "icone": "history"
+      },
+      {
+        "titulo": "Conferir quem participa",
+        "detalhe": "No alto da conversa, os avatares mostram os participantes da sala; na lista, cada sala traz a etiqueta do tipo, a última mensagem e o horário dela.",
+        "icone": "users"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Abas",
+        "descricao": "**Salas e chat**, para as conversas, e **Feed de atividades**, para a linha do tempo do que a equipe fez no sistema."
+      },
+      {
+        "nome": "Lista de salas",
+        "descricao": "Cada sala mostra o nome, a última mensagem com autor e horário, a etiqueta do tipo e os avatares dos participantes. Sem mensagens, aparece 'Sem mensagens ainda'."
+      },
+      {
+        "nome": "Área da conversa",
+        "descricao": "Cabeçalho com o nome da sala, o projeto vinculado e a contagem de mensagens; no meio, as mensagens com autor, horário, trecho respondido, menções e reações."
+      },
+      {
+        "nome": "Faixa de sugestões de menção",
+        "descricao": "Aparece acima do campo de escrita com até seis pessoas enquanto você digita depois do @."
+      },
+      {
+        "nome": "Feed de atividades",
+        "descricao": "Cada linha traz quem fez, o que fez, o registro afetado, a etiqueta do tipo de entidade e quando aconteceu."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Nome da sala",
+        "descricao": "Um nome reconhecível, de preferência o do projeto ou o do time."
+      },
+      {
+        "nome": "Tipo",
+        "descricao": "**Projeto**, **Equipe**, **Área** ou **Mensagem direta**.",
+        "dica": "Ajuda a organizar e a encontrar a sala depois."
+      },
+      {
+        "nome": "Projeto vinculado",
+        "descricao": "O projeto ao qual a sala pertence.",
+        "dica": "É opcional: salas de área ou de equipe podem ficar sem projeto."
+      },
+      {
+        "nome": "Participantes",
+        "descricao": "Quem faz parte da sala.",
+        "dica": "Quem é incluído passa a ver a sala na lista e a receber aviso quando for mencionado com @."
+      },
+      {
+        "nome": "Filtrar por entidade",
+        "descricao": "Restringe o feed a um tipo de registro: **Tarefa**, **Projeto**, **Risco**, **Issue**, **Alocação**, **Apontamento**, **Lançamento**, **Comentário**, **Usuário**, **Capacidade** ou **Mensagem**."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Mensagens no total",
+        "descricao": "Mensagens acumuladas nas salas visíveis.",
+        "leitura": "Crescendo, mostra que a comunicação está migrando para dentro do sistema."
+      },
+      {
+        "nome": "Eventos no feed",
+        "descricao": "Quantidade de ações registradas na consulta atual.",
+        "leitura": "Volume zero costuma indicar que a equipe não está usando o sistema; volume alto em projeto pequeno pode indicar muita correção de rota."
+      },
+      {
+        "nome": "Participantes da sala",
+        "descricao": "Quantas pessoas acompanham o canal.",
+        "leitura": "Sala com poucos participantes costuma criar dependência de uma pessoa."
+      },
+      {
+        "nome": "Reações por mensagem",
+        "descricao": "Quantas pessoas reagiram a cada mensagem.",
+        "leitura": "Ausência de reação em avisos importantes pode significar que ninguém leu."
+      }
+    ],
+    "dicas": [
+      "Mantenha uma sala por projeto como fonte oficial das decisões e salas de equipe para o dia a dia.",
+      "Escreva o porquê, não apenas o combinado: quem lê depois precisa entender a razão da decisão.",
+      "Use reações para o 'ok' e o 'ciente' e reserve as mensagens para o que precisa de texto.",
+      "A menção só é registrada quando você escolhe a pessoa na lista de sugestões: escrever @ e o nome à mão não gera aviso.",
+      "Combine a mensagem com a atualização do registro: o chat não muda status de tarefa nem reprograma marcos."
+    ],
+    "limitacoes": [
+      "Os comentários de projeto e de tarefa não têm seletor de menção: escrever @ e um nome não gera aviso nem notificação. Para chamar alguém, mencione a pessoa no chat da sala e registre a conclusão no comentário.",
+      "Não há chamada de vídeo, áudio ou compartilhamento de tela, nem indicação de quem está online: a conversa é escrita e assíncrona.",
+      "As threads têm um único nível — uma resposta se liga a uma mensagem, sem conversas dentro de conversas — e não há botão para editar ou apagar mensagens pela tela."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Enter",
+        "acao": "Enviar a mensagem"
+      },
+      {
+        "tecla": "Shift + Enter",
+        "acao": "Quebrar a linha sem enviar a mensagem"
+      }
+    ],
+    "doc": "10-colaboracao-e-notificacoes.md",
+    "permissoes": [
+      "projeto.ver"
+    ],
+    "ordem": 50
+  }
+]

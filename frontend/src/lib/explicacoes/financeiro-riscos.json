@@ -1,0 +1,937 @@
+[
+  {
+    "termo": "Orçamento planejado",
+    "sinonimos": [
+      "BAC consolidado",
+      "Orçamento planejado do portfólio"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto de orçamento aprovado existe nos projetos do filtro. É a régua de tudo o que vem depois: sem ele não há como dizer se o gasto está alto ou baixo.",
+    "como_ler": "O sistema soma o orçamento total de cada projeto ativo. Projeto com linhas orçamentárias por categoria entra pela soma dessas linhas; projeto sem linhas entra pelo campo de orçamento do cadastro. Se o número não corresponde ao valor realmente aprovado, todo o consumo calculado a partir dele fica distorcido.",
+    "o_que_fazer": "Confira se os projetos com aditivo, corte de verba ou revisão de escopo tiveram o orçamento atualizado. Um **Consumo** alto pode ser apenas orçamento desatualizado.",
+    "formula": "Orçamento planejado = soma do orçamento aprovado de cada projeto do filtro",
+    "exemplo": "Três projetos com R$ 500 mil, R$ 800 mil e R$ 1,2 milhão somam R$ 2,5 milhões de orçamento planejado.",
+    "fonte": "Linhas orçamentárias e orçamento cadastrado de cada projeto ativo, conforme o filtro de programa."
+  },
+  {
+    "termo": "Custo realizado",
+    "sinonimos": [
+      "Custo real do portfólio",
+      "lançamentos realizados + comprometidos"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto do orçamento já virou gasto. Soma as despesas com status **Realizado** e **Comprometido** de todos os projetos do filtro.",
+    "como_ler": "Despesa apenas **Previsto** é intenção e não entra; **Cancelado** nunca entra. Como o comprometido entra junto, o número pode subir antes de o dinheiro sair do caixa — é o custo incorrido, não o pago.",
+    "o_que_fazer": "Compare com o **Consumo** e com o avanço físico dos projetos: gasto crescendo com entrega parada é o sinal mais claro de ineficiência.",
+    "fonte": "Lançamentos de despesa com status Realizado e Comprometido dos projetos do filtro."
+  },
+  {
+    "termo": "Saldo",
+    "sinonimos": [
+      "Saldo disponível",
+      "planejado - realizado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto do orçamento planejado ainda não foi consumido. É o orçamento menos o custo realizado.",
+    "como_ler": "Positivo significa que ainda há orçamento; negativo significa que já se gastou mais do que se planejou, e o número aparece em vermelho. Atenção: saldo positivo grande não é boa notícia se o projeto está atrasado — pode ser gasto que ainda vai chegar.",
+    "o_que_fazer": "Saldo negativo: identifique no **Top estouros** e na tabela **Projetos** quais projetos causaram o estouro e trate caso a caso, antes de olhar a média do portfólio.",
+    "formula": "Saldo = orçamento planejado − custo realizado",
+    "exemplo": "Orçamento de R$ 2,5 milhões com R$ 2,1 milhões realizados deixa R$ 400 mil de saldo.",
+    "fonte": "Diferença entre o orçamento aprovado e as despesas realizadas e comprometidas dos projetos do filtro."
+  },
+  {
+    "termo": "Receita prevista",
+    "sinonimos": [
+      "Receitas previstas",
+      "contratada / projetada"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto os projetos do filtro devem gerar de receita, seja por contrato assinado ou por projeção comercial.",
+    "como_ler": "Só tem significado comparada ao **Orçamento planejado**: é essa relação que define o **ROI estimado**. É um valor informado no cadastro do projeto, não apurado pelos lançamentos.",
+    "o_que_fazer": "Revise a receita prevista dos projetos sem contrato fechado — uma projeção otimista infla o ROI e esconde projetos que não se pagam.",
+    "formula": "Receita prevista = soma da receita cadastrada em cada projeto do filtro",
+    "fonte": "Campo de receita prevista do cadastro de cada projeto ativo."
+  },
+  {
+    "termo": "ROI estimado",
+    "sinonimos": [
+      "Retorno sobre o investimento",
+      "receita x orçamento"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto o portfólio deve retornar para cada real de orçamento, em percentual. Relaciona a receita prevista com o orçamento planejado.",
+    "como_ler": "Positivo indica que a receita prevista supera o orçamento e o projeto se paga; negativo aparece em vermelho e indica prejuízo projetado. O sistema não define faixa de corte — a leitura é contra a meta da organização.",
+    "o_que_fazer": "ROI negativo ou muito baixo: reavalie escopo e receita do projeto antes de consumir mais orçamento; pode ser caso de repactuação ou descontinuação.",
+    "formula": "ROI estimado = (receita prevista − orçamento planejado) ÷ orçamento planejado × 100",
+    "exemplo": "Receita prevista de R$ 1,3 milhão com orçamento de R$ 1 milhão dá ROI estimado de 30%.",
+    "fonte": "Receita prevista e orçamento planejado dos projetos do filtro; zero quando não há orçamento."
+  },
+  {
+    "termo": "Consumo",
+    "sinonimos": [
+      "Consumo do orçamento",
+      "do orçamento já consumido",
+      "Consumo por categoria"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Percentual do orçamento planejado que já foi gasto. É o medidor de velocidade do gasto.",
+    "como_ler": "Nas linhas de categoria as faixas são: até 90% verde, acima de 90% e até 100% amarelo, acima de 100% vermelho — a categoria estourou. No indicador do portfólio o valor fica amarelo até 100% e vermelho depois. Leia sempre ao lado do avanço do trabalho: 100% de consumo com 60% de conclusão é estouro disfarçado.",
+    "o_que_fazer": "Consumo acima de 90% em uma categoria: verifique se os lançamentos estão vinculados à linha orçamentária certa e se há entrega prevista para o valor já gasto.",
+    "formula": "Consumo = custo realizado ÷ orçamento planejado × 100",
+    "exemplo": "R$ 780 mil gastos de um orçamento de R$ 1 milhão resultam em 78% de consumo.",
+    "fonte": "Despesas realizadas e comprometidas comparadas ao orçamento planejado, por projeto e por categoria."
+  },
+  {
+    "termo": "CPI",
+    "sinonimos": [
+      "Índice de desempenho de custo",
+      "Índice de custo"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto de valor o projeto entrega para cada real gasto. É o principal termômetro de eficiência de custo.",
+    "como_ler": "Acima de 1,00 você entrega mais do que gasta; 0,90 significa que cada real gasto virou noventa centavos de entrega. A faixa saudável começa em 0,95 (verde); entre 0,85 e 0,95 o sistema mostra amarelo; abaixo de 0,85, vermelho. Sem custo lançado, o sistema assume 1,00.",
+    "o_que_fazer": "Abaixo de 0,95, investigue a categoria que mais consumiu orçamento e verifique se o escopo cresceu sem revisão de orçamento. Abaixo de 0,85, escale ao patrocinador: a recuperação exige decisão de escopo.",
+    "formula": "CPI = EV ÷ AC",
+    "exemplo": "EV de R$ 400 mil com AC de R$ 500 mil resulta em CPI de 0,80: cada real gasto entregou oitenta centavos de valor.",
+    "fonte": "Valor agregado e custo real do projeto calculados pelo sistema."
+  },
+  {
+    "termo": "CPI médio",
+    "sinonimos": [
+      "CPI médio do portfólio",
+      "Desempenho de custo"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Média simples do CPI dos projetos ativos do filtro. Resume a eficiência de custo do conjunto, e não de um projeto específico.",
+    "como_ler": "Usa as mesmas faixas do CPI: 0,95 ou mais verde, de 0,85 a 0,95 amarelo, abaixo de 0,85 vermelho; a meta exibida é 1,00. Por ser média simples, um projeto pequeno com CPI ruim pesa tanto quanto um projeto grande — o indicador aponta que existe problema, mas não onde ele está.",
+    "o_que_fazer": "Abaixo de 0,95, abra a tabela **Projetos** e ordene pela coluna **CPI**: a média costuma cair por causa de poucos projetos, e são eles que precisam de plano de correção.",
+    "formula": "CPI médio = soma do CPI dos projetos ÷ quantidade de projetos",
+    "fonte": "CPI calculado individualmente para cada projeto ativo e depois promediado."
+  },
+  {
+    "termo": "SPI",
+    "sinonimos": [
+      "Índice de desempenho de prazo",
+      "Índice de prazo"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto do trabalho planejado já foi efetivamente entregue. Mede eficiência de prazo, comparando o valor agregado com o valor que deveria estar pronto.",
+    "como_ler": "1,00 significa entrega no ritmo planejado; 0,90 significa 10% atrás do plano. A faixa saudável começa em 0,95 (verde); entre 0,85 e 0,95 o sistema mostra amarelo; abaixo de 0,85, vermelho. Sem valor planejado, o sistema assume 1,00.",
+    "o_que_fazer": "Abaixo de 0,95, revise dependências, remova bloqueios e confirme se as datas das tarefas refletem a realidade. Atraso estrutural pede renegociação formal de cronograma.",
+    "formula": "SPI = EV ÷ PV",
+    "exemplo": "EV de R$ 450 mil com PV de R$ 500 mil resulta em SPI de 0,90 — o projeto está 10% atrás do plano.",
+    "fonte": "Valor agregado e valor planejado do projeto na data de referência."
+  },
+  {
+    "termo": "SPI médio",
+    "sinonimos": [
+      "SPI médio do portfólio",
+      "Desempenho de prazo"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Média simples do SPI dos projetos ativos do filtro. Mostra se o conjunto está andando no ritmo planejado.",
+    "como_ler": "Mesmas faixas do SPI: 0,95 ou mais verde, de 0,85 a 0,95 amarelo, abaixo de 0,85 vermelho; a meta exibida é 1,00. Leia sempre junto com o **CPI médio** — custo bom com prazo ruim e prazo bom com custo ruim são problemas diferentes.",
+    "o_que_fazer": "Abaixo de 0,95, use a tabela **Projetos** para localizar os projetos com pior SPI e atue no caminho crítico deles.",
+    "formula": "SPI médio = soma do SPI dos projetos ÷ quantidade de projetos",
+    "fonte": "SPI calculado individualmente para cada projeto ativo e depois promediado."
+  },
+  {
+    "termo": "Top estouros",
+    "sinonimos": [
+      "Top estouros do portfólio"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Os projetos com a maior diferença entre o custo realizado e o orçamento. O primeiro da lista é o que mais gastou além do previsto.",
+    "como_ler": "Valor em vermelho com sinal de mais é estouro: o projeto já gastou mais do que o orçamento aprovado. Valor em verde é projeto que ainda está dentro do orçamento — aparece na lista quando há poucos estouros reais. O percentual ao lado mostra o consumo sobre o orçamento, na escala até 90% verde, até 100% amarelo e acima de 100% vermelho.",
+    "o_que_fazer": "Clique no projeto para abrir a página dele e entender se o estouro vem de escopo novo, de lançamento em categoria errada ou de ineficiência real.",
+    "formula": "Desvio = custo realizado − orçamento planejado",
+    "exemplo": "Projeto com R$ 1,15 milhão gastos e R$ 1 milhão de orçamento aparece com +R$ 150 mil e 115% de consumo.",
+    "fonte": "Orçamento e despesas realizadas e comprometidas de cada projeto ativo, ordenados pelo maior desvio."
+  },
+  {
+    "termo": "Planejado × realizado por categoria",
+    "sinonimos": [
+      "Orçado × realizado por categoria"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Compara, gaveta por gaveta do orçamento, quanto foi reservado e quanto já foi gasto. A barra clara é o planejado; a colorida é o realizado.",
+    "como_ler": "A cor da barra segue o consumo da linha: até 90% verde, acima de 90% e até 100% amarelo, acima de 100% vermelho. No painel do portfólio as categorias de todos os projetos aparecem somadas; na tela de EVM o gráfico mostra apenas o projeto selecionado.",
+    "o_que_fazer": "Categoria vermelha: confirme se os lançamentos estão vinculados à linha orçamentária correta antes de concluir que o problema é real. Despesa sem vínculo não consome nenhuma gaveta.",
+    "fonte": "Orçamento planejado de cada linha orçamentária e despesas realizadas e comprometidas vinculadas a ela."
+  },
+  {
+    "termo": "Série mensal de despesas, receitas e saldo",
+    "sinonimos": [
+      "Série mensal"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Evolução mês a mês das despesas, das receitas e do saldo acumulado do portfólio, pela data de competência de cada lançamento.",
+    "como_ler": "A linha de **Saldo acumulado** é a que conta a história: se ela cruza o zero para baixo, o portfólio passou a gastar mais do que recebe no período acumulado. Como a série considera todos os lançamentos do mês, inclusive previstos e cancelados, ela mostra movimento, não custo apurado.",
+    "o_que_fazer": "Meses com despesa muito acima da média costumam concentrar lançamentos atrasados de meses anteriores — confira a data de competência antes de tirar conclusões.",
+    "fonte": "Lançamentos de despesa e receita dos projetos do filtro, agrupados por mês de competência."
+  },
+  {
+    "termo": "Situação por categoria",
+    "sinonimos": [
+      "Semáforo por categoria"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Lista as categorias orçamentárias do portfólio com o valor realizado e uma etiqueta de consumo. A bolinha colorida repete a cor do semáforo.",
+    "como_ler": "Verde até 90% do planejado, amarelo acima de 90% e até 100%, vermelho acima de 100% — categoria estourada. Categorias sem orçamento planejado aparecem com consumo zerado.",
+    "o_que_fazer": "Comece pelos vermelhos: são as gavetas que já consumiram mais do que foi aprovado para elas.",
+    "fonte": "Orçamento e despesas realizadas e comprometidas por categoria, somados entre os projetos do filtro."
+  },
+  {
+    "termo": "Situação",
+    "sinonimos": [
+      "Situação do projeto"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Resume a saúde do projeto na tabela financeira: o semáforo principal é o de custo, e o texto abaixo mostra a situação de prazo.",
+    "como_ler": "Verde quando o CPI é 0,95 ou mais, amarelo entre 0,85 e 0,95 e vermelho abaixo de 0,85. O texto de prazo usa as mesmas faixas sobre o SPI. Linhas com VAC negativo aparecem destacadas em vermelho.",
+    "o_que_fazer": "Projeto com custo vermelho e prazo vermelho é o caso mais grave da tabela: trate antes dos demais.",
+    "fonte": "CPI e SPI do projeto comparados com as faixas de corte do sistema."
+  },
+  {
+    "termo": "Despesas",
+    "sinonimos": [
+      "Total de despesas",
+      "total lançado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Soma de todas as despesas que atendem ao filtro atual, independentemente do status. É o total lançado, não o custo apurado.",
+    "como_ler": "Entram previstas, comprometidas, realizadas e canceladas — por isso este número costuma ser maior que **Realizado** mais **Comprometido**. Use-o para dimensionar o movimento financeiro do recorte, não para medir custo.",
+    "o_que_fazer": "Se a diferença entre **Despesas** e o custo apurado for grande, há muito lançamento parado em previsto ou cancelado — revise o status para o número refletir a realidade.",
+    "formula": "Despesas = soma do valor de todos os lançamentos do tipo despesa no filtro",
+    "fonte": "Lançamentos do tipo despesa no filtro atual, em qualquer status."
+  },
+  {
+    "termo": "Receitas",
+    "sinonimos": [
+      "Total de receitas"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Soma de todas as receitas que atendem ao filtro atual, em qualquer status.",
+    "como_ler": "É o total lançado como entrada, incluindo o que ainda está previsto. Comparado ao indicador **Despesas**, mostra o **Resultado** do recorte.",
+    "fonte": "Lançamentos do tipo receita no filtro atual, em qualquer status."
+  },
+  {
+    "termo": "Realizado",
+    "sinonimos": [
+      "Realizado (despesas)",
+      "despesas realizadas"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Valor das despesas com status **Realizado** dentro do filtro — o gasto já reconhecido. Junto com o comprometido, forma o custo real do projeto.",
+    "como_ler": "Ao aprovar um lançamento ele sai de **Comprometido** e entra aqui, e a data de pagamento é preenchida com o dia da aprovação caso esteja vazia. Atenção: na tabela **Projetos** do painel financeiro a coluna **Realizado** mostra o custo incorrido completo (realizado + comprometido), e não apenas os aprovados.",
+    "o_que_fazer": "Se o realizado está muito abaixo do comprometido, há notas contratadas sem aprovação: aprove em lote para dar segurança ao número.",
+    "fonte": "Lançamentos de despesa com status Realizado."
+  },
+  {
+    "termo": "Comprometido",
+    "sinonimos": [
+      "contratado a pagar"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Valor contratado que ainda não foi pago nem reconhecido como realizado. É o dinheiro já assumido com fornecedor ou prestador.",
+    "como_ler": "Entra no custo real do projeto mesmo antes do pagamento — é isso que faz o estouro aparecer cedo. Comprometido alto com realizado baixo indica aprovação atrasada, não ausência de gasto.",
+    "o_que_fazer": "Confira se as notas já conferidas não estão paradas em comprometido: aprove para migrar o valor para realizado e manter o custo confiável.",
+    "fonte": "Lançamentos de despesa com status Comprometido."
+  },
+  {
+    "termo": "Previsto",
+    "sinonimos": [
+      "a realizar"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Valor das despesas planejadas que ainda não viraram compromisso nem gasto. É intenção, e por isso não entra no custo real.",
+    "como_ler": "Serve para antecipar necessidade de caixa, não para medir consumo de orçamento. Um previsto alto indica desembolso relevante à frente; um previsto que nunca vira comprometido indica planejamento desatualizado.",
+    "o_que_fazer": "Revise periodicamente os lançamentos previstos antigos: se a despesa não vai mais acontecer, marque como **Cancelado** para não distorcer o fluxo de caixa projetado.",
+    "fonte": "Lançamentos de despesa com status Previsto."
+  },
+  {
+    "termo": "Resultado",
+    "sinonimos": [
+      "receitas - despesas"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto o recorte filtrado gera de sobra entre receitas e despesas lançadas. Positivo é superávit; negativo aparece em vermelho.",
+    "como_ler": "Considera todos os status, inclusive previstos e cancelados, então é o retrato do que foi lançado e não o resultado contábil do período.",
+    "o_que_fazer": "Resultado negativo recorrente no mesmo projeto pede revisão do orçamento ou da receita prevista, e não apenas do lançamento.",
+    "formula": "Resultado = receitas − despesas",
+    "fonte": "Totais de receitas e despesas do filtro atual."
+  },
+  {
+    "termo": "Despesas por categoria",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "As quinze categorias que mais receberam despesas no filtro atual, ordenadas da maior para a menor.",
+    "como_ler": "Considera todos os status de lançamento, então mistura gasto apurado com previsto. Concentração em poucas categorias é normal; o que chama atenção é uma categoria fora do padrão do projeto.",
+    "o_que_fazer": "Categoria muito acima das demais: confirme se os lançamentos usaram o nome padronizado pelo PMO — variações de escrita criam linhas separadas no gráfico.",
+    "fonte": "Soma das despesas por categoria no filtro atual, limitada às quinze maiores."
+  },
+  {
+    "termo": "Despesas por mês",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Total de despesas lançadas em cada um dos últimos doze meses presentes no filtro, pela data de competência.",
+    "como_ler": "Mostra a sazonalidade do desembolso. Picos isolados normalmente são competência concentrada — várias notas do mesmo mês lançadas de uma vez —, não necessariamente aumento de custo.",
+    "o_que_fazer": "Se um mês concentra despesa de vários meses, corrija a data de competência: é ela que define o período e alimenta a curva S e o fluxo de caixa.",
+    "fonte": "Lançamentos de despesa agrupados por mês de competência."
+  },
+  {
+    "termo": "BAC",
+    "sinonimos": [
+      "BAC (orçamento)",
+      "Orçamento original (BAC)",
+      "Orçamento original",
+      "Orçamento total",
+      "Orçamento total aprovado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "O orçamento total aprovado do projeto — a régua contra a qual todo o desempenho é medido. Sem BAC não existe valor agregado: é ele que o sistema fatia entre as tarefas.",
+    "como_ler": "O sistema usa a soma das linhas orçamentárias por categoria; se o projeto não tiver nenhuma linha, usa o campo de orçamento do projeto. Se o BAC não corresponde ao valor realmente aprovado, EAC, VAC e consumo saem errados em cascata.",
+    "o_que_fazer": "Confira se as linhas orçamentárias somam o valor aprovado. Havendo aditivo ou corte de verba, ajuste as linhas — é a soma delas que manda no BAC, e não o campo do cadastro.",
+    "formula": "BAC = soma do valor planejado das linhas orçamentárias (ou o orçamento do projeto, se não houver linhas)",
+    "exemplo": "Linhas de R$ 300 mil, R$ 450 mil e R$ 250 mil definem um BAC de R$ 1 milhão.",
+    "fonte": "Linhas orçamentárias do projeto e o orçamento cadastrado nele."
+  },
+  {
+    "termo": "PV",
+    "sinonimos": [
+      "PV planejado",
+      "Valor planejado",
+      "Planned Value"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto do orçamento já deveria ter virado entrega na data de referência. É o plano: sem PV não há como medir atraso.",
+    "como_ler": "O BAC é dividido entre as tarefas conforme o esforço estimado de cada uma. O PV da tarefa é a fatia dela multiplicada pelo progresso planejado. PV acima do EV significa atraso; PV abaixo do EV significa adiantamento.",
+    "o_que_fazer": "PV baixo demais costuma indicar cronograma subestimado — revise datas e esforço das tarefas, porque o plano é a base de toda a leitura de prazo.",
+    "formula": "PV = Σ (fatia da tarefa no BAC × progresso planejado da tarefa)",
+    "exemplo": "Numa tarefa que responde por 20% do esforço de um projeto de R$ 1 milhão, metade do prazo decorrido gera PV de R$ 100 mil.",
+    "fonte": "Esforço estimado e progresso planejado das tarefas aplicados sobre o orçamento. Sem tarefas, usa o progresso planejado do projeto."
+  },
+  {
+    "termo": "EV",
+    "sinonimos": [
+      "EV agregado",
+      "Valor agregado",
+      "Earned Value",
+      "valor entregue"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto do orçamento já virou entrega de fato. É o valor do trabalho concluído, medido pelo percentual de conclusão das tarefas.",
+    "como_ler": "Comparado ao PV mostra o atraso; comparado ao AC mostra a eficiência. EV baixo com tarefas marcadas como concluídas quase sempre significa percentual de conclusão desatualizado, e não trabalho que não foi feito.",
+    "o_que_fazer": "Se o EV parece baixo demais, cobre a atualização do percentual de conclusão das tarefas antes de concluir que o projeto está atrasado.",
+    "formula": "EV = Σ (fatia da tarefa no BAC × percentual de conclusão da tarefa)",
+    "fonte": "Percentual de conclusão das tarefas ponderado pelo esforço estimado de cada uma."
+  },
+  {
+    "termo": "AC",
+    "sinonimos": [
+      "AC custo real",
+      "Custo real",
+      "Actual Cost"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "O custo efetivamente incorrido até a data de referência. Soma as despesas realizadas e comprometidas do projeto.",
+    "como_ler": "AC alto sem EV correspondente indica gasto antecipado, lançamento em categoria errada ou despesa que não gerou entrega. Só despesas contam: receitas não reduzem o AC.",
+    "o_que_fazer": "Se o AC cresce sem o EV acompanhar, revise o vínculo e o status dos lançamentos — um comprometido que na verdade era previsto muda o número.",
+    "formula": "AC = soma das despesas realizadas e comprometidas com competência até a data de referência",
+    "fonte": "Lançamentos de despesa do projeto dentro do período de referência."
+  },
+  {
+    "termo": "CV",
+    "sinonimos": [
+      "Desvio de custo",
+      "Variação de custo"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto o projeto entregou a mais ou a menos do que gastou, em reais. Positivo é economia; negativo é estouro.",
+    "como_ler": "CV positivo significa que o valor entregue supera o gasto; negativo, que se gastou mais do que se entregou. É um valor absoluto — para comparar projetos de portes diferentes, use o CPI.",
+    "o_que_fazer": "CV negativo e crescendo: revise contratos e o escopo do que resta, e leve o número ao patrocinador enquanto ainda há margem de manobra.",
+    "formula": "CV = EV − AC",
+    "exemplo": "EV de R$ 400 mil com AC de R$ 460 mil resulta em CV de −R$ 60 mil.",
+    "fonte": "Valor agregado menos custo real na data de referência."
+  },
+  {
+    "termo": "SV",
+    "sinonimos": [
+      "Desvio de prazo",
+      "Variação de prazo"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto de trabalho deixou de ser entregue em relação ao plano, em reais. Positivo é adiantamento; negativo é atraso.",
+    "como_ler": "O número representa o valor do trabalho que ficou para trás, não a quantidade de dias de atraso. É possível ter SV negativo com o prazo formalmente em dia: significa que o previsto para hoje não foi entregue.",
+    "o_que_fazer": "SV negativo: revise o caminho crítico, remova bloqueios, realoque pessoas e renegocie prazos antes que o atraso alcance o marco final.",
+    "formula": "SV = EV − PV",
+    "exemplo": "EV de R$ 450 mil com PV de R$ 500 mil resulta em SV de −R$ 50 mil.",
+    "fonte": "Valor agregado menos valor planejado na data de referência."
+  },
+  {
+    "termo": "EAC",
+    "sinonimos": [
+      "EAC projetado",
+      "Estimativa no término"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto o projeto deve custar no total, mantido o desempenho atual. É o orçamento corrigido pelo CPI.",
+    "como_ler": "EAC maior que o BAC indica tendência de estouro, e a diferença aparece no VAC. O cálculo assume que o restante do trabalho será executado com a mesma eficiência medida até aqui — é projeção, não sentença.",
+    "o_que_fazer": "Acima do BAC, decida: cortar escopo, reduzir custo ou aprovar orçamento adicional. Não deixe o número crescer sem decisão registrada — ele só muda quando algo muda no projeto.",
+    "formula": "EAC = BAC ÷ CPI",
+    "exemplo": "BAC de R$ 1 milhão com CPI de 0,80 projeta EAC de R$ 1,25 milhão.",
+    "fonte": "Orçamento total do projeto corrigido pelo índice de custo apurado até a data de referência."
+  },
+  {
+    "termo": "ETC",
+    "sinonimos": [
+      "ETC (falta gastar)",
+      "Estimativa para concluir"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto ainda falta gastar para concluir o trabalho restante do projeto.",
+    "como_ler": "Somando o ETC ao AC você chega ao EAC. ETC alto com prazo curto indica um ritmo de desembolso que pode ser inviável de cumprir.",
+    "o_que_fazer": "Leve o ETC ao financeiro: é ele que mostra se haverá caixa disponível nos próximos meses para terminar o projeto.",
+    "formula": "ETC = EAC − AC",
+    "exemplo": "EAC de R$ 1,25 milhão com AC de R$ 500 mil deixa R$ 750 mil a gastar.",
+    "fonte": "Estimativa no término menos o custo real já incorrido."
+  },
+  {
+    "termo": "VAC",
+    "sinonimos": [
+      "Variação no término"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "A sobra ou o estouro projetado no término do projeto, em reais.",
+    "como_ler": "Positivo: o projeto deve terminar abaixo do orçamento. Negativo: deve faltar dinheiro, e o valor aparece em vermelho — é o mesmo critério que destaca linhas em vermelho na tabela **Projetos** do painel financeiro.",
+    "o_que_fazer": "VAC negativo: informe o patrocinador com o valor exato e apresente as opções (corte de escopo, repactuação, orçamento adicional). VAC negativo descoberto tarde vira crise.",
+    "formula": "VAC = BAC − EAC",
+    "exemplo": "BAC de R$ 1.000.000 e EAC de R$ 1.250.000 resultam em VAC de −R$ 250.000.",
+    "fonte": "Orçamento total aprovado menos a estimativa de custo no término."
+  },
+  {
+    "termo": "TCPI",
+    "sinonimos": [
+      "TCPI necessário",
+      "Índice para concluir"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "A eficiência de custo que o time precisa atingir no trabalho restante para o projeto caber no orçamento aprovado.",
+    "como_ler": "Igual a 1,00: basta manter o ritmo planejado. Acima de 1,10 o sistema mostra vermelho, porque recuperar mantendo o escopo é improvável. Abaixo de 1,00 há folga: é possível gastar um pouco mais no que resta.",
+    "o_que_fazer": "Muito acima de 1,10: reduza escopo, amplie o orçamento ou aceite formalmente a projeção. As três opções exigem decisão registrada do patrocinador.",
+    "formula": "TCPI = (BAC − EV) ÷ (BAC − AC)",
+    "exemplo": "BAC de R$ 1 milhão, EV de R$ 400 mil e AC de R$ 500 mil resultam em TCPI de 1,20 — seria preciso 20% mais eficiência no restante.",
+    "fonte": "Orçamento, valor agregado e custo real do projeto na data de referência."
+  },
+  {
+    "termo": "Percentual consumido",
+    "sinonimos": [
+      "% consumido",
+      "consumido do orçamento"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto do orçamento aprovado já foi gasto. É o custo real sobre o orçamento total, exibido ao lado do indicador de custo real.",
+    "como_ler": "Leia junto com o **Percentual agregado**: consumir 60% do orçamento tendo agregado 40% de valor indica ineficiência; percentuais próximos indicam ritmo saudável.",
+    "o_que_fazer": "Consumo muito à frente do agregado é sinal antecipado de estouro: aja antes de o CPI cair.",
+    "formula": "Percentual consumido = AC ÷ BAC × 100",
+    "fonte": "Custo real comparado ao orçamento total aprovado do projeto."
+  },
+  {
+    "termo": "Percentual agregado",
+    "sinonimos": [
+      "% agregado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto do orçamento aprovado já virou entrega. É o valor agregado sobre o orçamento total.",
+    "como_ler": "É o avanço medido em dinheiro, e não em quantidade de tarefas. Compare com o **Percentual consumido** e com o avanço físico informado pelo time.",
+    "formula": "Percentual agregado = EV ÷ BAC × 100",
+    "fonte": "Valor agregado comparado ao orçamento total aprovado do projeto."
+  },
+  {
+    "termo": "Curva S — PV × EV × AC",
+    "sinonimos": [
+      "Curva S"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "O gráfico que mostra, ao longo do projeto, quanto deveria estar pronto (PV), quanto está pronto (EV) e quanto já foi gasto (AC), sempre em valores acumulados. O formato em S vem do acúmulo de trabalho no tempo.",
+    "como_ler": "EV acima de PV significa adiantado; EV abaixo de PV, atrasado; AC acima de EV, gastando mais do que entrega. A linha vertical marca a **Data de referência**. Clique em qualquer ponto para abrir o **Instante selecionado**.",
+    "o_que_fazer": "Quando o AC se descola do EV, volte aos pontos anteriores e investigue o que mudou no projeto naquele período — é ali que está a causa.",
+    "fonte": "PV distribuído linearmente pela duração das tarefas, EV pelo percentual de conclusão e AC pelos lançamentos de despesa com competência até cada dia. A linha de AC da curva acumula as despesas pela data de competência sem filtrar por status, então ela pode diferir do cartão de custo real, que considera apenas lançamentos realizados e comprometidos. O projeto precisa ter data de início e de término definidas."
+  },
+  {
+    "termo": "Desvios ao longo do tempo",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Duas linhas de variação do projeto: desvio de custo (EV − AC) e desvio de prazo (EV − PV). Valores positivos são folga; negativos, problema.",
+    "como_ler": "A linha tracejada marca o zero. Desvio de custo caindo indica gasto crescendo mais rápido que a entrega; desvio de prazo caindo indica atraso se acumulando. O cruzamento do zero é o ponto em que o projeto deixou de estar sob controle.",
+    "o_que_fazer": "Identifique quando cada linha cruzou o zero e verifique o que houve no projeto naquele período — mudança de escopo, troca de fornecedor ou atraso de terceiro.",
+    "fonte": "Diferenças entre valor agregado, custo real e valor planejado em cada ponto da curva S."
+  },
+  {
+    "termo": "Instante selecionado",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Painel que abre ao clicar em um ponto da curva S e mostra o PV, o EV, o AC, o desvio de custo e o desvio de prazo daquele dia.",
+    "como_ler": "Serve para descobrir exatamente quando o desvio começou. O EAC projetado neste ponto repete, para todos os pontos até a data de referência, a estimativa de custo final calculada para essa data.",
+    "fonte": "Ponto escolhido na curva S do projeto."
+  },
+  {
+    "termo": "Projeção no término",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "Quadro que reúne **Orçamento original (BAC)**, **EAC projetado**, **ETC (falta gastar)**, **VAC** e **TCPI necessário** — o retrato de onde o projeto termina se o desempenho atual continuar.",
+    "como_ler": "Compare o BAC com o EAC: se o EAC é maior, a diferença é o estouro projetado, que aparece no VAC em negativo. O TCPI mostra o esforço de recuperação necessário no que resta.",
+    "o_que_fazer": "Leve este quadro para a conversa com o patrocinador: ele responde quanto o projeto vai custar e o que precisaria mudar para caber no orçamento.",
+    "fonte": "Indicadores de valor agregado do projeto na data de referência."
+  },
+  {
+    "termo": "Saldo acumulado projetado",
+    "sinonimos": [
+      "Saldo final projetado",
+      "Saldo acumulado"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto de caixa o projeto acumula mês a mês, somando o que já foi realizado e o que está previsto. O valor em destaque abaixo do gráfico é o saldo final projetado.",
+    "como_ler": "Barras vermelhas mostram meses com saldo acumulado negativo, ou seja, necessidade de caixa. O acumulado considera o previsto, não apenas o realizado — por isso antecipa apertos que o extrato ainda não mostra.",
+    "o_que_fazer": "Mês negativo à frente: leve o número ao financeiro antes que o mês chegue, para não interromper pagamento por falta de caixa.",
+    "formula": "Saldo acumulado = Σ (entradas − saídas + previstos) mês a mês",
+    "fonte": "Lançamentos do projeto mais a projeção do orçamento restante distribuída nos meses até a data de término."
+  },
+  {
+    "termo": "Fluxo de caixa mensal",
+    "sinonimos": [
+      "Fluxo de caixa",
+      "Entradas",
+      "Saídas"
+    ],
+    "categoria": "Financeiro",
+    "o_que_e": "Tabela de entradas e saídas de dinheiro mês a mês, com as colunas **Período**, **Entradas**, **Saídas**, **Saldo**, **Previsto** e **Saldo acumulado**.",
+    "como_ler": "**Entradas** e **Saídas** trazem apenas o que já está marcado como **Realizado**. Todo lançamento que não está como realizado entra em **Previsto**, junto com a parcela do orçamento que ainda falta gastar, distribuída nos meses até o término do projeto. O **Saldo acumulado** soma o previsto, e não só o realizado.",
+    "o_que_fazer": "Um mês com saídas altas e saldo negativo seguido de meses positivos indica necessidade pontual de caixa — negocie prazo com o fornecedor ou antecipe a entrada.",
+    "fonte": "Lançamentos de receita e despesa do projeto, mais a projeção do orçamento restante."
+  },
+  {
+    "termo": "Data de referência",
+    "sinonimos": [],
+    "categoria": "Financeiro",
+    "o_que_e": "A data de corte de todo o cálculo do EVM: só entra o que ocorreu até ela. Sem data informada, o sistema usa o dia de hoje.",
+    "como_ler": "Ao fixar uma data, PV, EV, AC, índices, curva S e fluxo de caixa voltam ao que o projeto mostrava naquele momento. A linha vertical na curva S indica onde está o corte.",
+    "o_que_fazer": "Use em reuniões de encerramento de fase para reproduzir o cenário da data do marco e comparar com o de hoje; limpe a data para voltar ao cálculo atual.",
+    "fonte": "Data informada no campo de referência ou a data corrente do sistema."
+  },
+  {
+    "termo": "Riscos ativos",
+    "sinonimos": [
+      "Riscos ativos (projeto)"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quantidade de riscos sob gestão, ou seja, todos os que não estão com status **Encerrado**. Risco encerrado sai da matriz, do heatmap e dos indicadores.",
+    "como_ler": "É um número de volume: compare projetos de porte parecido em vez de buscar um valor ideal. Queda brusca costuma indicar encerramento em lote, e não melhora real da exposição.",
+    "o_que_fazer": "Se o volume cair sem que os riscos tenham sido tratados, confira o status: risco encerrado por engano desaparece do radar e da conta.",
+    "fonte": "Riscos do filtro atual, excluindo os encerrados."
+  },
+  {
+    "termo": "Exposição total",
+    "sinonimos": [
+      "probabilidade × impacto financeiro"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Soma da exposição de cada risco ativo do portfólio ou do projeto filtrado. É a estimativa de quanto o conjunto de riscos pesa financeiramente.",
+    "como_ler": "Quanto menor, melhor — e vale comparar com o orçamento do portfólio para dar escala ao número. Como a base de cálculo muda conforme o risco tem ou não custo de mitigação informado, trate o total como ordem de grandeza, não como valor contábil.",
+    "o_que_fazer": "Se a exposição total é alta em relação ao orçamento, priorize os riscos de nível **Extremo** e **Alto** e revise os planos de resposta antes de ampliar a carteira de projetos.",
+    "formula": "Exposição total = soma da exposição de cada risco ativo",
+    "fonte": "Soma da exposição calculada para cada risco ativo, com os filtros aplicados."
+  },
+  {
+    "termo": "Custo de mitigação",
+    "sinonimos": [
+      "investimento planejado",
+      "Custo da mitigação"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quanto se pretende investir para tratar os riscos ativos — a soma dos custos de mitigação informados risco a risco.",
+    "como_ler": "Deve ficar abaixo da **Exposição total**: se estiver acima, o time está gastando mais para prevenir do que o risco representa. É valor de referência e não gera lançamento financeiro automaticamente.",
+    "o_que_fazer": "Custo de mitigação próximo ou acima da exposição: reavalie se o plano de resposta é proporcional ao risco ou se cabe aceitar o risco conscientemente.",
+    "fonte": "Campo de custo de mitigação de cada risco ativo."
+  },
+  {
+    "termo": "Riscos extremos",
+    "sinonimos": [
+      "extremos",
+      "requerem ação imediata"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Riscos de severidade 17 a 25, o topo da matriz. São os que exigem ação imediata e visibilidade na instância de governança.",
+    "como_ler": "Zero é a meta. Todo risco extremo deveria ter responsável, plano de resposta com prazo e um gatilho observável. O sistema notifica o gerente do projeto e o responsável no momento do cadastro de riscos **Alto** e **Extremo**.",
+    "o_que_fazer": "Comece a reunião de riscos por esta lista: risco extremo sem dono ou sem plano é o maior passivo silencioso do portfólio.",
+    "fonte": "Contagem de riscos ativos com nível Extremo."
+  },
+  {
+    "termo": "Alto/Extremo",
+    "sinonimos": [
+      "Críticos"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quantos riscos do projeto estão nos dois níveis mais graves da matriz: **Alto** (severidade 10 a 16) e **Extremo** (17 a 25).",
+    "como_ler": "A coluna fica vermelha assim que existe pelo menos um. É o número que separa projeto com riscos de projeto com riscos que preocupam, e serve para comparar projetos na tabela do painel.",
+    "o_que_fazer": "Projeto com muitos riscos altos e extremos concentra a atenção do PMO: verifique se os planos de resposta estão com prazo e responsável definidos.",
+    "fonte": "Riscos ativos do projeto com nível Alto ou Extremo."
+  },
+  {
+    "termo": "Matriz de riscos 5 × 5",
+    "sinonimos": [
+      "Matriz de riscos",
+      "Matriz consolidada"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Grade com probabilidade no eixo vertical (de 1 a 5) e impacto no horizontal (de 1 a 5). Cada célula mostra a severidade (P × I) e quantos riscos estão posicionados ali.",
+    "como_ler": "Quanto mais para cima e para a direita, maior a severidade. As cores seguem as faixas: **Baixo** (1 a 4, verde), **Médio** (5 a 9, amarelo), **Alto** (10 a 16, laranja) e **Extremo** (17 a 25, vermelho). Na aba **Painel** a **Matriz consolidada** mostra só a contagem por célula.",
+    "o_que_fazer": "Arraste um card entre as células para reposicionar o risco quando o cenário mudar: a severidade, o nível e a cor são recalculados e a movimentação fica no histórico.",
+    "formula": "Severidade da célula = probabilidade × impacto",
+    "exemplo": "Probabilidade 4 com impacto 5 resulta em severidade 20 — célula de nível Extremo.",
+    "fonte": "Riscos ativos do filtro, excluindo os encerrados."
+  },
+  {
+    "termo": "Severidade",
+    "sinonimos": [
+      "Severidade calculada",
+      "P × I",
+      "P x I"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Probabilidade multiplicada pelo impacto, de 1 a 25. É a prioridade do risco, calculada pelo sistema — você informa a probabilidade e o impacto, não a severidade.",
+    "como_ler": "1 a 4 é **Baixo** e dispensa urgência; 5 a 9 é **Médio** e pede plano de resposta; 10 a 16 é **Alto** e exige plano com prazo curto; 17 a 25 é **Extremo** e exige ação imediata. Sempre que a probabilidade ou o impacto mudam, o sistema recalcula severidade, nível e cor.",
+    "o_que_fazer": "Use a severidade, e não a impressão da equipe, para definir a ordem de tratamento: os maiores valores primeiro, sem exceção.",
+    "formula": "Severidade = probabilidade × impacto",
+    "exemplo": "Probabilidade 3 com impacto 5 resulta em severidade 15 — nível Alto.",
+    "fonte": "Calculada automaticamente a partir da probabilidade e do impacto informados no risco."
+  },
+  {
+    "termo": "Severidade média",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Média das severidades dos riscos ativos de um projeto. Resume o peso médio do risco, sem olhar o volume.",
+    "como_ler": "Abaixo de 10 é uma carteira de riscos moderada; acima disso, o projeto convive com riscos altos em média. Compare projetos de porte semelhante — média alta com poucos riscos é tão relevante quanto média média com muitos.",
+    "o_que_fazer": "Média acima de 10: revise se os riscos já tratados continuam parados na posição original. Reposicionar o card para a célula real é o que faz a média refletir o presente.",
+    "formula": "Severidade média = soma das severidades dos riscos ativos ÷ quantidade de riscos",
+    "fonte": "Severidade dos riscos ativos do projeto, excluindo os encerrados."
+  },
+  {
+    "termo": "Nível",
+    "sinonimos": [
+      "Nível do risco"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "A faixa em que a severidade cai: **Baixo**, **Médio**, **Alto** ou **Extremo**. É o rótulo que aparece nas etiquetas coloridas.",
+    "como_ler": "Baixo vai de 1 a 4, Médio de 5 a 9, Alto de 10 a 16 e Extremo de 17 a 25. As cores seguem a escala: verde, amarelo, laranja e vermelho.",
+    "o_que_fazer": "Use o filtro de nível para trabalhar por faixa: numa reunião semanal, comece por **Extremo** e **Alto**.",
+    "fonte": "Classificação da severidade do risco calculada pelo sistema."
+  },
+  {
+    "termo": "Probabilidade",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Chance de o risco acontecer, em uma escala de 1 a 5. É a primeira metade da severidade.",
+    "como_ler": "1 é remoto e 5 é praticamente certo dentro do horizonte do projeto. Mudar a probabilidade reposiciona o risco e recalcula severidade, nível e cor. Use evidência, não sensação.",
+    "o_que_fazer": "Reavalie a probabilidade sempre que o cenário mudar — fornecedor confirmou atraso, verba foi aprovada, tecnologia foi trocada — e arraste o card para a nova célula.",
+    "fonte": "Informada no cadastro ou no reposicionamento do risco."
+  },
+  {
+    "termo": "Impacto",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Gravidade do efeito se o risco acontecer, em uma escala de 1 a 5. É a segunda metade da severidade.",
+    "como_ler": "Pense no efeito sobre prazo, custo, escopo e qualidade ao mesmo tempo: 1 é irrelevante e 5 é comprometer o resultado do projeto. O impacto é o que diferencia um risco frequente e inofensivo de um risco raro e devastador.",
+    "o_que_fazer": "Ao elevar o impacto, verifique se o plano de resposta e o valor monetário esperado continuam coerentes com a nova gravidade.",
+    "fonte": "Informado no cadastro ou no reposicionamento do risco."
+  },
+  {
+    "termo": "Exposição",
+    "sinonimos": [
+      "Exposição do risco"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Estimativa de quanto aquele risco pesa financeiramente, calculada pelo sistema. É diferente do **Valor monetário esperado**, que é informado pelo time.",
+    "como_ler": "Com custo de mitigação informado, a exposição é (probabilidade ÷ 5) × custo de mitigação. Sem custo de mitigação, é a severidade convertida para uma escala de 0 a 100. Como a base muda de um risco para outro, compare riscos que usam a mesma base.",
+    "o_que_fazer": "Se você quer que a exposição reflita o impacto em reais, informe o custo de mitigação do risco — sem ele o número é apenas proporcional à severidade.",
+    "formula": "Exposição = (probabilidade ÷ 5) × custo de mitigação; sem custo informado, exposição = (severidade ÷ 25) × 100",
+    "exemplo": "Probabilidade 3 com custo de mitigação de R$ 100 mil resulta em exposição de R$ 60 mil.",
+    "fonte": "Calculada a partir da probabilidade e do custo de mitigação do risco."
+  },
+  {
+    "termo": "Valor monetário esperado",
+    "sinonimos": [
+      "VME",
+      "Valor monetário esperado (R$)"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quanto o risco representa em dinheiro, considerando a chance de acontecer. É um valor informado pelo time — o sistema não calcula.",
+    "como_ler": "Serve para dimensionar a reserva de contingência e para comparar o risco com o orçamento do projeto. Na aba de riscos do projeto, a soma dos valores monetários esperados é o que aparece como exposição em reais.",
+    "o_que_fazer": "Preencha ao menos nos riscos **Alto** e **Extremo**: sem número não existe conversa de contingência com o patrocinador.",
+    "fonte": "Campo de valor monetário esperado informado no risco."
+  },
+  {
+    "termo": "Probabilidade residual",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "A chance que resta de o risco acontecer depois de aplicar o plano de resposta, em uma escala de 0 a 5.",
+    "como_ler": "Use 0 quando a resposta elimina o risco por completo. O valor não move o card na matriz: ele alimenta a **Severidade residual** e mostra o efeito do plano.",
+    "o_que_fazer": "Se a probabilidade residual ficou igual à original, o plano provavelmente é genérico — reescreva as ações antes de considerar o risco tratado.",
+    "fonte": "Informada no plano de resposta do risco."
+  },
+  {
+    "termo": "Impacto residual",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "A gravidade que resta se o risco acontecer depois de aplicar o plano de resposta, em uma escala de 0 a 5.",
+    "como_ler": "Reduzir impacto normalmente exige contingência, transferência ou mudança de escopo — mitigar só a probabilidade não baixa este número.",
+    "o_que_fazer": "Se o impacto residual continua alto, verifique se existe plano de contingência escrito e se o responsável sabe o que fazer quando o gatilho disparar.",
+    "fonte": "Informado no plano de resposta do risco."
+  },
+  {
+    "termo": "Severidade residual",
+    "sinonimos": [
+      "Redução de severidade"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Probabilidade residual multiplicada pelo impacto residual: a severidade que sobra depois do plano de resposta.",
+    "como_ler": "O sistema mostra a redução em pontos e em percentual — por exemplo, de 15 para 3, uma queda de 12 pontos (80%). Isso não tira o risco da matriz: o card continua na posição original.",
+    "o_que_fazer": "Para refletir a nova realidade, arraste o card para a célula correspondente à avaliação residual. Sem isso, a matriz continua mostrando um risco que já foi tratado.",
+    "formula": "Severidade residual = probabilidade residual × impacto residual",
+    "exemplo": "Residual de probabilidade 1 com impacto 3 resulta em severidade residual 3 — nível Baixo.",
+    "fonte": "Calculada a partir da probabilidade e do impacto residuais informados no plano de resposta."
+  },
+  {
+    "termo": "Índice de risco",
+    "sinonimos": [
+      "Índice de risco por projeto",
+      "Índice de risco do projeto"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Nota de 0 a 100% que resume a severidade média dos riscos ativos de um projeto, permitindo comparar projetos de portes diferentes na mesma régua.",
+    "como_ler": "Verde abaixo de 45%, laranja de 45% a 70% e vermelho a partir de 70%. O valor é limitado a 100%, que significaria todos os riscos do projeto com severidade 25.",
+    "o_que_fazer": "Índice a partir de 70%: o projeto lidera a atenção do portfólio — verifique se os riscos altos e extremos têm plano de resposta em execução.",
+    "formula": "Índice de risco = (severidade média ÷ 25) × 100",
+    "exemplo": "Severidade média de 12,5 resulta em índice de 50% — faixa laranja.",
+    "fonte": "Severidade dos riscos ativos do projeto, excluindo os encerrados."
+  },
+  {
+    "termo": "Riscos por categoria",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Distribuição dos riscos ativos pelas categorias do sistema: escopo, prazo, custo, qualidade, recursos, técnico, regulatório, segurança, fornecedor, mercado, pessoas e outro.",
+    "como_ler": "Concentração em uma ou duas categorias indica fragilidade estrutural do projeto ou do fornecedor — por exemplo, muitos riscos de fornecedor apontam dependência excessiva de terceiros.",
+    "o_que_fazer": "Categoria concentrando riscos: trate a causa comum, e não cada risco isoladamente. Um problema de fornecedor recorrente pede mudança de contrato, não mais um plano de resposta.",
+    "fonte": "Contagem de riscos ativos agrupados por categoria."
+  },
+  {
+    "termo": "Riscos por nível",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Distribuição dos riscos ativos entre os quatro níveis da matriz: **Baixo**, **Médio**, **Alto** e **Extremo**.",
+    "como_ler": "Uma carteira saudável tem mais riscos baixos e poucos extremos, formando uma pirâmide. Muitos riscos altos e extremos na base invertida indicam projeto em situação crítica; todos baixos pode indicar avaliação otimista demais.",
+    "o_que_fazer": "Se quase tudo está em **Baixo**, questione a avaliação de probabilidade e impacto com o time: risco subavaliado não recebe plano de resposta.",
+    "fonte": "Contagem de riscos ativos por nível de severidade."
+  },
+  {
+    "termo": "Estratégias de resposta",
+    "sinonimos": [
+      "Estratégias adotadas",
+      "Estratégia"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quantos riscos usam cada estratégia: **Evitar**, **Mitigar**, **Transferir**, **Aceitar**, **Explorar**, **Elevar** e **Compartilhar**. As quatro primeiras tratam ameaças; as três últimas tratam oportunidades.",
+    "como_ler": "A maioria deveria estar em **Mitigar**. Muitos riscos em **Aceitar** podem indicar acomodação — aceitar é decisão consciente, com justificativa registrada, e não esquecimento.",
+    "o_que_fazer": "Se **Aceitar** lidera a distribuição, revise os planos de resposta desses riscos: registre o porquê da aceitação e qual será o monitoramento.",
+    "fonte": "Contagem de riscos ativos por estratégia de resposta escolhida."
+  },
+  {
+    "termo": "Top riscos por severidade",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Os riscos mais severos do portfólio, com o valor da severidade, o código, o projeto e a exposição de cada um.",
+    "como_ler": "A lista já vem ordenada pela severidade — o primeiro é o que mais deveria ocupar a atenção. É a leitura rápida para comitê executivo.",
+    "o_que_fazer": "Clique em um item para abrir o risco na matriz e revisar plano de resposta, responsável e prazo.",
+    "fonte": "Riscos ativos do portfólio, ordenados pela maior severidade."
+  },
+  {
+    "termo": "Respostas atrasadas",
+    "sinonimos": [
+      "Prazo da resposta",
+      "Resposta atrasada"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Riscos cujo prazo da resposta já venceu e que ainda não foram encerrados. Mostra planos de resposta que não estão sendo cumpridos.",
+    "como_ler": "A meta é zero. O cartão lista responsável, risco, código e o prazo vencido; na matriz, o rodapé mostra quantos riscos estão nessa situação e, no detalhe, o prazo aparece em vermelho com a marca de atraso.",
+    "o_que_fazer": "Repactue o prazo ou conclua o plano: resposta vencida e não tratada significa que o risco está sem proteção efetiva.",
+    "fonte": "Riscos ativos com data limite da resposta anterior a hoje e status diferente de Encerrado."
+  },
+  {
+    "termo": "Gatilhos de monitoramento",
+    "sinonimos": [
+      "Gatilhos"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Os sinais concretos que indicam que o risco está se aproximando e que a contingência deve ser acionada. Cada gatilho aparece como uma etiqueta no detalhe do risco.",
+    "como_ler": "Gatilho bom é observável e verificável por qualquer pessoa do time — \"atraso superior a 5 dias na entrega\" e não \"fornecedor ruim\". O sistema não monitora esses sinais sozinho: quem observa é o time.",
+    "o_que_fazer": "Reescreva os gatilhos vagos e revise-os a cada reunião de riscos; gatilho que ninguém consegue verificar não dispara nada.",
+    "fonte": "Campo de gatilhos informado no cadastro do risco."
+  },
+  {
+    "termo": "Histórico do risco",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Linha do tempo das movimentações do risco: quando foi identificado, quando mudou de posição na matriz, quando o status mudou e quem registrou cada alteração.",
+    "como_ler": "Cada registro traz data e hora, comentário, a etiqueta P × I = severidade e o status daquele momento. O número ao lado do título da seção indica quantos registros existem.",
+    "o_que_fazer": "Use o histórico na análise de causa: comparar a data da piora com o que aconteceu no projeto naquela semana costuma revelar a origem do problema.",
+    "fonte": "Registros gerados automaticamente a cada cadastro, reposicionamento, mudança de status ou salvamento de plano de resposta."
+  },
+  {
+    "termo": "Plano de resposta",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "O que será feito antes de o risco acontecer, para reduzir a probabilidade ou o impacto, junto com a estratégia escolhida, o prazo e o responsável.",
+    "como_ler": "Ao salvar, o status do risco passa automaticamente para **Com resposta planejada** e o responsável é notificado. Informar a severidade residual não move o risco na matriz — ela mostra apenas o efeito esperado do plano.",
+    "o_que_fazer": "Escreva ações com responsável e marco de verificação. Se a severidade residual não cai, o plano é genérico e precisa ser reescrito.",
+    "fonte": "Campos de estratégia, plano, prazo e responsável mantidos no risco."
+  },
+  {
+    "termo": "Plano de contingência",
+    "sinonimos": [
+      "Contingência"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "O que será feito se o risco acontecer mesmo com o plano de resposta em execução. É a reação pronta, escrita antes da pressa.",
+    "como_ler": "Sem contingência, o time improvisa no pior momento. O plano deve dizer quem faz o quê e em quanto tempo, e estar ligado a um gatilho observável.",
+    "o_que_fazer": "Riscos **Extremo** e **Alto** sem contingência escrita são a prioridade da próxima reunião de riscos.",
+    "fonte": "Campo de plano de contingência mantido no risco."
+  },
+  {
+    "termo": "Riscos por projeto",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Tabela que compara os projetos do portfólio por volume de riscos ativos, quantidade de riscos **Alto** e **Extremo** e severidade média.",
+    "como_ler": "Projetos sem risco ativo aparecem zerados e não entram na lista do heatmap. Use as três colunas juntas: volume alto com severidade média baixa é diferente de volume baixo com severidade média alta.",
+    "o_que_fazer": "Clique na linha para filtrar a matriz por aquele projeto e trabalhar os riscos dele.",
+    "fonte": "Riscos ativos de cada projeto, excluindo os encerrados."
+  },
+  {
+    "termo": "Total de issues",
+    "sinonimos": [
+      "Total de issues (todas as situações)"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quantidade de issues, ações corretivas, solicitações de mudança, impedimentos e decisões pendentes registrados no filtro, em qualquer situação.",
+    "como_ler": "Inclui itens resolvidos, fechados e cancelados. Serve para medir o volume histórico de problemas, não o que está pendente — para isso use **Abertas**.",
+    "fonte": "Todos os itens do filtro atual, independentemente do status."
+  },
+  {
+    "termo": "Abertas",
+    "sinonimos": [
+      "Issues abertas",
+      "em tratamento"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Itens que ainda precisam de tratamento: tudo o que não está **Resolvida**, **Fechada** nem **Cancelada**.",
+    "como_ler": "Volume estável ou em queda é sinal de que o time dá conta da demanda. Crescimento contínuo indica que a taxa de abertura supera a de resolução — mais problemas chegando do que saindo.",
+    "o_que_fazer": "Se o número só cresce, verifique quantas estão **Aguardando terceiros**: dependência externa parada é a causa mais comum de fila que não anda.",
+    "fonte": "Itens do filtro atual, excluindo resolvidos, fechados e cancelados."
+  },
+  {
+    "termo": "Atrasadas",
+    "sinonimos": [
+      "Issues atrasadas",
+      "atrasada",
+      "prazo vencido"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Itens com prazo vencido e ainda sem solução. O sistema considera atrasado o item cuja data limite já passou e que não está **Resolvida**, **Fechada** nem **Cancelada**.",
+    "como_ler": "A meta é zero. Item sem prazo informado nunca aparece como atrasado — o que pode esconder problemas antigos sem data combinada. Na tabela, as linhas atrasadas aparecem destacadas em vermelho e cada card do Kanban recebe a etiqueta de atraso.",
+    "o_que_fazer": "Priorize por prioridade e antiguidade: um item crítico atrasado há semanas é o primeiro da fila. Se o prazo não é mais realista, repactue-o em vez de deixar o atraso acumular.",
+    "fonte": "Itens com prazo anterior a hoje e status diferente de Resolvida, Fechada ou Cancelada."
+  },
+  {
+    "termo": "Tempo médio de resolução",
+    "sinonimos": [
+      "até resolver"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Média de dias entre a abertura e a resolução dos itens já resolvidos ou fechados. Mede a velocidade de resposta do time.",
+    "como_ler": "Considera apenas os itens que já têm data de resolução — itens ainda abertos não entram na média, e por isso o indicador pode melhorar quando a fila antiga está parada. Compare com o prazo médio que o time promete.",
+    "o_que_fazer": "Se a média sobe, verifique onde o processo trava: triagem lenta, dependência de terceiros ou falta de responsável são as causas mais comuns.",
+    "formula": "Tempo médio de resolução = soma dos dias entre abertura e resolução ÷ quantidade de itens resolvidos",
+    "exemplo": "Dez itens resolvidos somando 120 dias de vida resultam em tempo médio de 12 dias.",
+    "fonte": "Data de abertura e data de resolução dos itens já resolvidos ou fechados."
+  },
+  {
+    "termo": "Tipos distintos",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Quantos dos cinco tipos de item aparecem no filtro: **Issue**, **Ação corretiva**, **Solicitação de mudança**, **Impedimento** e **Decisão pendente**.",
+    "como_ler": "Um projeto que só registra issues pode estar tratando mudanças e impedimentos como se fossem a mesma coisa — e perdendo a leitura de causa. Tipos distintos mostram que o time classifica o problema antes de resolvê-lo.",
+    "o_que_fazer": "Se aparecem apenas um ou dois tipos, oriente o time a classificar corretamente: mudança pede decisão, impedimento pede desbloqueio e ação corretiva pede ajuste de rota.",
+    "fonte": "Tipos de item presentes no filtro atual."
+  },
+  {
+    "termo": "Críticas abertas",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Itens de prioridade **Crítica** que continuam abertos. É o que exige atenção hoje.",
+    "como_ler": "A meta é zero. Prioridade crítica significa impacto imediato em prazo, custo ou entrega — qualquer número acima de zero é uma decisão pendente do gerente.",
+    "o_que_fazer": "Trate as críticas antes de qualquer outro item do quadro; se não houver como resolvê-las, registre formalmente o risco e o plano de contingência.",
+    "fonte": "Itens abertos com prioridade Crítica no filtro atual."
+  },
+  {
+    "termo": "Idade",
+    "sinonimos": [
+      "dias em aberto"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quantos dias o item está aberto: da data de abertura até hoje ou até a data de resolução, quando já resolvido.",
+    "como_ler": "Item antigo indica problema sem dono, sem decisão ou sem prioridade real. A idade aparece em cada card do Kanban e como coluna ordenável na tabela — ordene por ela para achar o que está envelhecendo na fila.",
+    "o_que_fazer": "Itens com idade muito acima do prazo combinado devem ser reavaliados: ou ganham responsável e data, ou são cancelados formalmente.",
+    "formula": "Idade = data de resolução (ou hoje) − data de abertura",
+    "fonte": "Datas de abertura e de resolução do item."
+  },
+  {
+    "termo": "Por tipo",
+    "sinonimos": [
+      "Issues por tipo"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Quantidade de itens por tipo: issue, ação corretiva, solicitação de mudança, impedimento e decisão pendente, em qualquer situação.",
+    "como_ler": "Muitos impedimentos indicam trabalho bloqueado; muitas solicitações de mudança indicam escopo instável; muitas ações corretivas indicam desvios de qualidade já materializados. O tipo aponta a natureza do problema, não a gravidade.",
+    "o_que_fazer": "Concentração em um tipo: trate a causa. Impedimento recorrente pede revisão de dependências; mudança recorrente pede controle de escopo.",
+    "fonte": "Itens do filtro atual agrupados por tipo."
+  },
+  {
+    "termo": "Por prioridade (abertas)",
+    "sinonimos": [
+      "Issues por prioridade",
+      "Por prioridade"
+    ],
+    "categoria": "Riscos",
+    "o_que_e": "Distribuição dos itens ainda abertos entre as prioridades **Baixa**, **Média**, **Alta** e **Crítica**.",
+    "como_ler": "O gráfico mostra apenas o que está em tratamento, e não o histórico. Muitas críticas e altas ao mesmo tempo significam fila sem hierarquia real: quando tudo é prioritário, nada é.",
+    "o_que_fazer": "Reordene a fila com o time: prioridade crítica é para o que não pode esperar a semana; o resto entra em ordem planejada.",
+    "fonte": "Itens abertos do filtro atual agrupados por prioridade."
+  },
+  {
+    "termo": "Por status",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Quantidade de itens em cada coluna do fluxo: **Aberta**, **Em triagem**, **Em análise**, **Em andamento**, **Aguardando terceiros**, **Resolvida**, **Fechada** e **Cancelada**.",
+    "como_ler": "Inclui todos os status, inclusive os encerrados. Coluna **Aguardando terceiros** grande é o sinal mais comum de fila travada; muitas **Aberta** indicam triagem lenta.",
+    "o_que_fazer": "Ataque o gargalo, não o volume: se o acúmulo está em uma coluna específica, o problema está no processo daquela etapa.",
+    "fonte": "Itens do filtro atual agrupados por status."
+  },
+  {
+    "termo": "Issues por projeto",
+    "sinonimos": [],
+    "categoria": "Riscos",
+    "o_que_e": "Os dez projetos com mais itens abertos, com a cor de cada projeto na barra.",
+    "como_ler": "Considera apenas o que está em tratamento e ajuda a localizar onde o portfólio está sofrendo. Volume alto em um projeto isolado costuma indicar problema estrutural, e não má sorte.",
+    "o_que_fazer": "Projeto liderando a lista: leve o quadro dele para a reunião e verifique se o gargalo é de pessoas, de dependência externa ou de decisão pendente.",
+    "fonte": "Itens abertos agrupados por projeto, limitados aos dez maiores volumes."
+  }
+]

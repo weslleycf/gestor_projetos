@@ -1,0 +1,49 @@
+[
+  {
+    "rota": "/assistente",
+    "titulo": "Assistente",
+    "grupo": "Ajuda",
+    "icone": "sparkles",
+    "resumo": "Converse em português com o sistema para consultar seus dados sem montar filtro nem relatório.",
+    "para_que_serve": "O assistente responde perguntas sobre projetos, tarefas, riscos, orçamento, alocação e capacidades consultando os dados reais do SGP. Ele mostra de onde tirou cada número, então a resposta é conferível. Use quando você sabe o que quer saber, mas não sabe em qual tela procurar.",
+    "quando_usar": [
+      "Para saber rapidamente quais projetos estão atrasados ou em risco",
+      "Antes de uma reunião, para levantar números sem abrir cinco telas",
+      "Para entender o que significa um indicador como CPI, SPI ou bus factor",
+      "Para descobrir como executar uma tarefa no sistema (o assistente consulta o próprio manual)"
+    ],
+    "passos": [
+      { "titulo": "Abrir o assistente", "detalhe": "Clique no ícone de brilho na barra superior ou pressione **Ctrl+I**. A tela **Assistente** no menu faz o mesmo, com o histórico de conversas ao lado.", "icone": "sparkles" },
+      { "titulo": "Escrever a pergunta", "detalhe": "Escreva em português, como falaria com um colega: \"quais projetos estão atrasados?\". Pressione **Enter** para enviar ou **Shift+Enter** para quebrar linha.", "icone": "message-square" },
+      { "titulo": "Conferir a trilha", "detalhe": "Abaixo da resposta aparecem chips com as consultas que o assistente fez (por exemplo **Projetos atrasados · 3**). É o que permite auditar a resposta.", "icone": "list-checks" },
+      { "titulo": "Abrir a fonte", "detalhe": "Quando a resposta cita um projeto, uma tarefa ou um guia, o nome vira um atalho clicável que leva direto para a tela daquele registro.", "icone": "external-link" },
+      { "titulo": "Avaliar a resposta", "detalhe": "Use os polegares ao lado da resposta. A avaliação alimenta o painel de uso do assistente e ajuda a melhorar as consultas.", "icone": "thumbs-up" },
+      { "titulo": "Começar de novo", "detalhe": "O botão **Nova conversa** limpa o contexto. As conversas anteriores continuam salvas e podem ser reabertas na tela cheia.", "icone": "plus" }
+    ],
+    "elementos": [
+      { "nome": "Trilha de ferramentas", "descricao": "Chips com as consultas feitas e o resumo do que cada uma encontrou." },
+      { "nome": "Fontes", "descricao": "Atalhos para os registros citados na resposta." },
+      { "nome": "Sugestões", "descricao": "Perguntas de acompanhamento adequadas ao seu perfil, que viram nova pergunta com um clique." },
+      { "nome": "Histórico", "descricao": "Na tela cheia, lista das suas conversas anteriores, com opção de apagar." }
+    ],
+    "dicas": [
+      "Pergunte com contexto: \"como está o CPI do PRJ-2026-004?\" funciona melhor que \"como está o projeto?\".",
+      "O assistente só devolve o que o seu perfil pode ver. Se ele disser que seu perfil não acessa, é a mesma regra das telas.",
+      "Peça explicação quando não entender um número: \"o que significa bus factor?\".",
+      "Ctrl+I abre e fecha o painel sem sair da tela em que você está."
+    ],
+    "limitacoes": [
+      "As respostas são geradas por um assistente e **podem conter imprecisões**. Confira os números antes de decidir, usando os atalhos de fonte.",
+      "Ele não altera dados: todas as consultas são de leitura. Criar, editar e excluir continua sendo feito nas telas.",
+      "Sem um serviço de IA configurado, as respostas vêm do motor local do sistema, que interpreta a pergunta e consulta o banco. Ele acerta as perguntas diretas e pode não entender formulações muito indiretas."
+    ],
+    "atalhos": [
+      { "tecla": "Ctrl+I", "acao": "Abrir ou fechar o assistente" },
+      { "tecla": "Enter", "acao": "Enviar a pergunta" },
+      { "tecla": "Shift+Enter", "acao": "Quebrar linha sem enviar" }
+    ],
+    "doc": "14-assistente-e-mcp.md",
+    "permissoes": [],
+    "ordem": 10
+  }
+]

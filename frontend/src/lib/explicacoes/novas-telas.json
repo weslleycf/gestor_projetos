@@ -1,0 +1,66 @@
+[
+  {
+    "termo": "Exceções no período",
+    "sinonimos": ["Excecoes no periodo", "Total de exceções"],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantas semanas do período analisado têm uma capacidade diferente do padrão — férias, afastamento ou hora extra.",
+    "como_ler": "Cada exceção vale para uma pessoa em uma semana. Muitas exceções no mesmo período costumam indicar férias coletivas ou um pico de esforço combinado com o time.",
+    "o_que_fazer": "Antes de prometer um prazo, confira se as semanas de entrega não estão dentro de uma exceção de férias.",
+    "fonte": "Registros de exceção de capacidade por semana, no período filtrado."
+  },
+  {
+    "termo": "Pessoas com exceção",
+    "sinonimos": ["Pessoas com excecao", "Colaboradores com exceção"],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantas pessoas diferentes têm ao menos uma semana com capacidade ajustada no período.",
+    "como_ler": "Número alto significa que boa parte do time terá disponibilidade irregular. O total pode ser menor que o de exceções quando a mesma pessoa tem várias semanas ajustadas.",
+    "o_que_fazer": "Cruze com a tela Capacidade para ver se as semanas de ausência coincidem com as semanas críticas do projeto.",
+    "fonte": "Contagem de pessoas distintas com exceção de capacidade no período."
+  },
+  {
+    "termo": "Horas somadas",
+    "sinonimos": ["Horas somadas das exceções", "Total de horas em exceção"],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Soma das horas de todas as exceções do período — o que essas semanas representam em capacidade.",
+    "como_ler": "É a capacidade que o time terá nessas semanas, e não um acréscimo ao padrão. Férias puxam o número para baixo; hora extra, para cima.",
+    "o_que_fazer": "Compare com a capacidade padrão do período (40 h por semana por pessoa) para dimensionar o impacto real na entrega.",
+    "fonte": "Soma das horas disponíveis informadas em cada exceção."
+  },
+  {
+    "termo": "Adicionadas",
+    "sinonimos": ["Tarefas adicionadas", "Itens adicionados"],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Tarefas que existem hoje no cronograma e não existiam na linha de base com que você está comparando.",
+    "como_ler": "Todo item aqui é escopo que entrou depois do congelamento da baseline. Volume alto de adicionadas é a causa mais comum de atraso sem que ninguém tenha trabalhado pior.",
+    "o_que_fazer": "Pergunte de onde veio cada acréscimo. Se for escopo novo, ele precisa de prazo e orçamento revistos, não de esforço extra da equipe.",
+    "fonte": "Comparação entre o cronograma atual e os itens gravados na linha de base."
+  },
+  {
+    "termo": "Removidas",
+    "sinonimos": ["Tarefas removidas", "Itens removidos"],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Tarefas que estavam na linha de base e não existem mais no cronograma atual.",
+    "como_ler": "Pode ser corte legítimo de escopo ou remoção acidental. Sem registro do motivo, as duas leituras são possíveis.",
+    "o_que_fazer": "Confirme com o gerente se a retirada foi acordada. Se foi, registre o corte nas lições aprendidas para o número não virar dúvida depois.",
+    "fonte": "Comparação entre o cronograma atual e os itens gravados na linha de base."
+  },
+  {
+    "termo": "Alteradas",
+    "sinonimos": ["Tarefas alteradas", "Itens alterados"],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Tarefas que continuam no cronograma mas tiveram algum campo modificado desde a linha de base — datas, esforço, responsável ou percentual.",
+    "como_ler": "É o indicador mais revelador dos três: mostra o que foi silenciosamente renegociado. Datas que andam sem justificativa registrada empurram o prazo final sem que ninguém perceba.",
+    "o_que_fazer": "Abra a lista de desvios e olhe campo por campo. Mudança de data em tarefa do caminho crítico merece explicação registrada.",
+    "fonte": "Comparação campo a campo entre o cronograma atual e a linha de base."
+  },
+  {
+    "termo": "Desvio de orçamento",
+    "sinonimos": ["Desvio de orcamento", "Variação de orçamento na baseline"],
+    "categoria": "Financeiro",
+    "o_que_e": "Quanto o orçamento previsto mudou desde a linha de base — a diferença entre o valor de então e o de agora.",
+    "como_ler": "Positivo indica que o projeto ficou mais caro no papel desde o congelamento. É diferente do consumo: aqui se mede a mudança na previsão, não o que já foi gasto.",
+    "o_que_fazer": "Se o desvio for relevante, ele precisa de aprovação formal de quem aprovou o orçamento original. Sem isso, o estouro aparece depois sem responsável.",
+    "formula": "Desvio de orçamento = orçamento atual − orçamento na linha de base",
+    "fonte": "Comparação do orçamento atual do projeto com o valor gravado na linha de base."
+  }
+]

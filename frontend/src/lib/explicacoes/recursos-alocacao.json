@@ -1,0 +1,992 @@
+[
+  {
+    "termo": "Alocações",
+    "sinonimos": [
+      "Total de alocações"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de compromissos registrados no sistema — cada um ligando uma pessoa ou um recurso material a um projeto ou tarefa, com período e percentual de dedicação. Entram todos os status, de proposta a cancelada.",
+    "como_ler": "O subrótulo mostra quantas estão vigentes hoje: início já passou, fim ainda não chegou e status Confirmada ou Em execução. Se o total sobe e as vigentes não acompanham, há acúmulo de propostas paradas ou de alocações já encerradas.",
+    "o_que_fazer": "Confirme as propostas pendentes na tabela **Alocações registradas** e exclua as canceladas que não representam mais compromisso — só as confirmadas e em execução reservam capacidade de verdade.",
+    "fonte": "Contagem de todas as alocações cadastradas; as vigentes são as que cobrem a data de hoje com status Confirmada ou Em execução."
+  },
+  {
+    "termo": "Taxa de override",
+    "sinonimos": [
+      "Override",
+      "Overrides",
+      "Taxa de override manual"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Percentual das alocações criadas escolhendo uma pessoa diferente da que o motor de matching recomendou. Mede o quanto a decisão humana se afasta da recomendação automática.",
+    "como_ler": "Não existe faixa verde ou vermelha: override alto pode ser saudável (contexto que o motor não vê, como negociação com o cliente ou plano de carreira) ou sintoma de ranking desalinhado. O que importa é a tendência e se as justificativas explicam os casos.",
+    "o_que_fazer": "Se a taxa estiver alta e sem justificativas registradas, revise os requisitos de capacidade dos projetos e os pesos do modo de alocação antes de confiar no ranking. Se estiver muito baixa, confirme se o motor não está sendo seguido às cegas.",
+    "formula": "Taxa de override = alocações marcadas como override ÷ total de alocações × 100",
+    "exemplo": "De 200 alocações, 30 nasceram de escolha manual diferente da recomendada: taxa de 15%.",
+    "fonte": "Proporção de alocações registradas como override manual sobre o total de alocações."
+  },
+  {
+    "termo": "Aderência média",
+    "sinonimos": [
+      "Aderência",
+      "Aderência do motor"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Nota média do motor de matching nas alocações que guardaram o score da recomendação. Responde à pergunta: as pessoas que estão sendo alocadas combinam bem com o que o projeto pedia?",
+    "como_ler": "Vai de 0% a 100%, e só entram no cálculo as alocações criadas a partir de uma recomendação com score registrado — alocações puramente manuais ficam de fora. Acima de 80% indica que o time segue os candidatos bem posicionados; abaixo de 50% sugere que o motor está sendo ignorado ou que os requisitos estão desatualizados.",
+    "o_que_fazer": "Cruze com a **Taxa de override**: aderência baixa com override alto significa que o motor perdeu aderência à realidade, não que a equipe esteja errando.",
+    "formula": "Aderência média = média dos scores do motor nas alocações que têm score × 100",
+    "fonte": "Média dos scores de matching gravados nas alocações que nasceram de uma recomendação."
+  },
+  {
+    "termo": "Sugeridas",
+    "sinonimos": [
+      "Recomendações sugeridas"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Recomendações do motor de matching que foram geradas e ainda não tiveram decisão: nem aceitas, nem recusadas. É a fila de espera do gestor.",
+    "como_ler": "Cada nova execução do motor para a mesma tarefa substitui as recomendações que ainda estavam pendentes. Número alto e parado significa que o motor está sendo executado, mas ninguém fecha a decisão — a recomendação perde validade sem que a escolha fique registrada.",
+    "o_que_fazer": "Abra a tarefa, avalie os candidatos e clique em **Alocar**, **Recusar** ou **Override manual**: sem isso o histórico não guarda o critério da escolha.",
+    "fonte": "Recomendações do motor que permanecem pendentes de decisão."
+  },
+  {
+    "termo": "Aceitas",
+    "sinonimos": [
+      "Recomendações aceitas"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Recomendações do motor que o gestor aceitou e que viraram uma alocação de verdade para a pessoa indicada.",
+    "como_ler": "Comparado com **Sugeridas** e **Recusadas**, mostra o aproveitamento do motor. Muitas aceitas e poucas recusadas indicam um ranking confiável; muitas recusas no mesmo perfil de candidato indicam peso mal calibrado.",
+    "fonte": "Recomendações do motor com decisão de aceite registrada."
+  },
+  {
+    "termo": "Recusadas",
+    "sinonimos": [
+      "Recomendações recusadas"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Recomendações do motor descartadas pelo gestor. A recusa não cria alocação; serve para documentar que a sugestão foi analisada e não servia para aquele momento.",
+    "como_ler": "Recusas espalhadas entre vários perfis costumam indicar contexto que o motor não enxerga. Recusas sempre no mesmo tipo de candidato — por exemplo, sempre o de menor custo — apontam um peso exagerado naquele fator.",
+    "o_que_fazer": "Leia as observações das recusas e teste novos pesos na **Simulação what-if de pesos** antes da próxima execução do motor.",
+    "fonte": "Recomendações do motor com decisão de recusa registrada."
+  },
+  {
+    "termo": "Pool de colaboradores",
+    "sinonimos": [
+      "Pool"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Lista de pessoas que podem ser arrastadas até a timeline para criar uma alocação. Cada card traz cargo, área, custo por hora, ocupação média das próximas semanas, quanto ainda está livre e quantas alocações estão vigentes hoje.",
+    "como_ler": "A etiqueta de ocupação fica verde abaixo de 85%, âmbar entre 85% e 100% e vermelha acima de 100%; a barra de disponibilidade usa azul na ocupação normal, âmbar a partir de 85% e vermelho acima de 100%. Quem não tem nenhuma semana alocada aparece como livre. O valor do custo dá lugar a **Custo restrito** quando o seu perfil não tem permissão para ver valores.",
+    "o_que_fazer": "Combine a busca por nome, cargo ou área, o filtro de área e o interruptor **Somente disponíveis** — que oculta quem já está com 100% ou mais — antes de arrastar o card.",
+    "fonte": "Pessoas ativas do sistema, com a ocupação média calculada sobre as semanas do mapa de ocupação."
+  },
+  {
+    "termo": "Timeline de alocações",
+    "sinonimos": [
+      "Timeline"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Faixa de tempo por pessoa em que cada barra colorida é uma alocação, na cor do projeto. A linha vertical marca a semana atual e a janela cobre do início mais antigo ao fim mais distante das alocações exibidas.",
+    "como_ler": "Barras sobrepostas na mesma linha somam dedicação: quanto mais empilhadas, maior a chance de a semana passar de 100%. A linha da pessoa ganha moldura vermelha e a etiqueta **sobrealocado** quando alguma semana dela está acima do limite. Passe o mouse sobre a barra para ver projeto, tarefa e percentual.",
+    "o_que_fazer": "Clique em uma barra para editar a alocação ou arraste um card do pool para a linha da pessoa para criar um novo compromisso.",
+    "fonte": "Alocações agrupadas por pessoa dentro do período filtrado."
+  },
+  {
+    "termo": "Conflitos de alocação",
+    "sinonimos": [
+      "Conflito de alocação",
+      "Conflitos",
+      "Painel de conflitos"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Semanas em que a soma dos percentuais de dedicação de uma pessoa passou de 100%. Cada alerta é uma pessoa em uma semana específica, com o total alocado e o excesso em pontos percentuais.",
+    "como_ler": "O subtítulo traz o total de sobrealocações e quantas são críticas. Até 129% a severidade é alerta (âmbar); a partir de 130% vira crítica (vermelho, com ícone de chama). Clique no alerta para ver todas as alocações daquela semana, com projeto, tarefa, período e percentual de cada uma.",
+    "o_que_fazer": "Redistribua parte da dedicação para outra pessoa ou reduza o percentual de uma das alocações da semana. O painel é recalculado a cada alteração; a alocação continua sendo criada mesmo com conflito, porque a decisão final é sua.",
+    "formula": "Conflito quando a soma dos percentuais das alocações da semana passa de 100%; crítico a partir de 130%",
+    "exemplo": "60% em um projeto mais 60% em outro na mesma semana somam 120%: alerta com 20 pontos de excesso.",
+    "fonte": "Soma dos percentuais das alocações de proposta, confirmada ou em execução que cobrem cada semana."
+  },
+  {
+    "termo": "Heatmap de ocupação da equipe",
+    "sinonimos": [
+      "Mapa de ocupação",
+      "Heatmap de ocupação"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Grade de pessoas por semanas em que cada célula mostra o total de dedicação daquela pessoa naquela semana. É o retrato que revela de uma vez onde a equipe está sobrecarregada e onde sobra capacidade.",
+    "como_ler": "A escala é 0% sem alocação, de 1% a 84% em azul (carga normal), de 85% a 100% em âmbar (praticamente sem folga) e acima de 100% em vermelho. A utilização média da equipe aparece logo acima da grade. Célula vazia significa ausência de alocação registrada, e não férias: o sistema só conhece afastamentos informados.",
+    "o_que_fazer": "Clique em uma célula para ver os projetos daquela semana e a ocupação média da pessoa, e renegocie a carga das células vermelhas antes que virem atraso.",
+    "fonte": "Soma dos percentuais das alocações confirmadas e em execução por pessoa e por semana, nas próximas 12 semanas."
+  },
+  {
+    "termo": "Alocações registradas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Tabela com todas as alocações criadas: pessoa ou recurso, projeto e tarefa, período, percentual de dedicação, modalidade, status e custo estimado. É onde a reserva de capacidade é confirmada, ajustada ou removida.",
+    "como_ler": "Linhas vigentes aparecem destacadas em verde, e o subtítulo informa quantos registros estão listados com os filtros atuais. Status **Proposta** ainda não reserva capacidade: só **Confirmada** e **Em execução** contam no mapa de ocupação.",
+    "o_que_fazer": "Filtre por status **Proposta** para encontrar reservas paradas e use **Confirmar proposta**; para encerrar um compromisso, use **Excluir alocação** — a exclusão fica registrada na auditoria.",
+    "fonte": "Cadastro de alocações, com período, status, modalidade e custo estimado de cada registro."
+  },
+  {
+    "termo": "Ocupação semanal",
+    "sinonimos": [
+      "Ocupação",
+      "Carga"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Escala de cores aplicada às células do mapa de ocupação, definida pelo total de dedicação da pessoa naquela semana.",
+    "como_ler": "0% significa semana sem nenhuma alocação; de 1% a 84% é carga normal; de 85% a 100% a pessoa está praticamente sem folga para imprevistos; acima de 100% há sobrealocação e a semana precisa de decisão.",
+    "o_que_fazer": "Use a escala como referência rápida ao varrer a grade: as células vermelhas são a fila de trabalho da semana.",
+    "fonte": "Faixas de corte aplicadas sobre a soma dos percentuais de dedicação de cada semana."
+  },
+  {
+    "termo": "Alocações por modalidade",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Distribuição das alocações pelo modo escolhido: Performance imediata, Desenvolvimento, Mista (sênior + júnior) ou Manual. Mostra se a organização está priorizando entrega imediata ou formação de pessoas.",
+    "como_ler": "Cada fatia é a quantidade de alocações naquele modo, considerando todos os status. Predomínio de Manual significa que as alocações não estão passando pelo motor; predomínio de Performance reduz a transferência de conhecimento e tende a concentrar risco nas pessoas mais experientes.",
+    "o_que_fazer": "Se Manual dominar, comece as próximas alocações pelo motor de matching e escolha conscientemente o modo; se Desenvolvimento estiver zerado, avalie formar sucessores nas capacidades críticas.",
+    "fonte": "Contagem das alocações agrupadas pelo modo de alocação registrado."
+  },
+  {
+    "termo": "Alocações por projeto",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Os 15 projetos com mais alocações registradas, na cor de cada projeto. Mostra onde a capacidade da organização está concentrada.",
+    "como_ler": "A barra é a quantidade de alocações no projeto. Projetos no topo consomem mais pessoas e são os que mais sofrem quando alguém sai ou adoece; projetos ausentes da lista podem estar subdimensionados ou sem alocação formal.",
+    "o_que_fazer": "Confira se a concentração corresponde à prioridade estratégica do portfólio e se algum projeto crítico está fora da lista por falta de alocação registrada.",
+    "fonte": "Contagem de alocações por projeto, limitada aos 15 maiores."
+  },
+  {
+    "termo": "Modalidade",
+    "sinonimos": [
+      "Modo de alocação",
+      "Performance imediata",
+      "Desenvolvimento",
+      "Mista (sênior + júnior)",
+      "Mista",
+      "Manual"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Estratégia com que a alocação foi decidida. **Performance imediata** prioriza quem já domina o assunto; **Desenvolvimento** prioriza o crescimento da pessoa com lacuna controlada; **Mista** combina sênior e profissional em desenvolvimento; **Manual** é a alocação criada sem passar pelo motor.",
+    "como_ler": "A modalidade não muda o percentual nem o período — ela registra a intenção da escolha e alimenta a leitura de transferência de conhecimento. Alocações manuais não têm score do motor, então ficam fora da aderência média.",
+    "o_que_fazer": "Ao criar uma alocação direto na tela, registre a modalidade correta: sem isso o painel não distingue escolha por entrega de escolha por desenvolvimento.",
+    "fonte": "Campo de modalidade informado em cada alocação."
+  },
+  {
+    "termo": "Status da alocação",
+    "sinonimos": [
+      "Status",
+      "Proposta",
+      "Confirmada",
+      "Em execução",
+      "Concluída",
+      "Cancelada"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Etapa em que a alocação está. **Proposta** é uma reserva ainda não validada; **Confirmada** é o compromisso aceito; **Em execução** é o trabalho em andamento; **Concluída** é o que terminou; **Cancelada** é o que foi desfeito.",
+    "como_ler": "Só **Confirmada** e **Em execução** entram no mapa de ocupação, no card do colaborador e nas semanas futuras — uma proposta não reserva capacidade de verdade. Concluídas e canceladas continuam na contagem total de alocações, mas não na ocupação.",
+    "o_que_fazer": "Confirme propostas que viraram acordo real e cancele as que não vão acontecer: status desatualizado distorce tanto a ocupação quanto a taxa de override.",
+    "fonte": "Situação registrada em cada alocação."
+  },
+  {
+    "termo": "Superalocado",
+    "sinonimos": [
+      "Sobrealocado",
+      "sobrealocado",
+      "Sobrealocação",
+      "sobrealocação"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Semana em que a soma dos percentuais de dedicação da pessoa passou de 100% — ela assumiu mais compromisso do que a própria capacidade semanal permite.",
+    "como_ler": "É a faixa vermelha da escala. Não existe “pouco acima do limite”: qualquer valor acima de 100% entra como superalocado, e a partir de 130% o conflito passa a crítico. Uma única semana assim já é risco de atraso e de horas extras não planejadas.",
+    "o_que_fazer": "Reduza o percentual de uma das alocações da semana ou mova parte da dedicação para outra pessoa antes do início do trabalho.",
+    "formula": "Superalocação quando a soma dos percentuais das alocações da semana > 100%",
+    "fonte": "Soma dos percentuais das alocações confirmadas e em execução que cobrem a semana."
+  },
+  {
+    "termo": "Ocupado",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Semana em que a pessoa está com dedicação entre 85% e 100% da própria capacidade. Carga cheia, mas dentro do limite.",
+    "como_ler": "É a faixa âmbar: não há sobrealocação, porém praticamente não sobra folga para urgências, reuniões extras ou retrabalho. Uma demanda nova nessa semana provavelmente empurra a pessoa para o vermelho.",
+    "o_que_fazer": "Antes de alocar mais alguém que esteja nesta faixa, verifique se a demanda pode esperar a semana seguinte ou ser dividida com quem está **Disponível**.",
+    "fonte": "Percentual de dedicação somado por semana, entre 85% e 100%."
+  },
+  {
+    "termo": "Disponível",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Semana em que a pessoa está alocada em algo, mas ainda tem folga de capacidade — dedicação acima de 0% e abaixo de 85%.",
+    "como_ler": "É a faixa azul da escala, a zona saudável para absorver novas demandas. É onde estão os melhores candidatos para assumir trabalho não previsto sem comprometer as entregas já assumidas.",
+    "o_que_fazer": "Use essa faixa como primeiro filtro ao redistribuir a carga de quem está **Superalocado**.",
+    "fonte": "Percentual de dedicação somado por semana, acima de 0% e abaixo de 85%."
+  },
+  {
+    "termo": "Ocioso",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Semana sem nenhuma alocação registrada para a pessoa — 0% de dedicação.",
+    "como_ler": "Ocioso significa ausência de alocação no sistema, e não necessariamente pessoa parada: férias, treinamento e trabalho não registrado também aparecem assim. Muitas semanas seguidas nessa faixa indicam capacidade paga e não utilizada, ou simplesmente falta de registro.",
+    "o_que_fazer": "Confirme com a liderança antes de concluir que há ociosidade real; se houver, é a hora de realocar para as capacidades em escassez.",
+    "fonte": "Semanas em que a soma dos percentuais de dedicação é zero."
+  },
+  {
+    "termo": "Ocupação média",
+    "sinonimos": [
+      "Utilização média",
+      "Média",
+      "Média do período",
+      "Ocupação média da equipe"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Média do percentual de dedicação de uma pessoa — ou de toda a equipe — ao longo das semanas analisadas. Resume a carga típica e evita que um pico isolado domine a leitura.",
+    "como_ler": "Acompanha a mesma escala das células do mapa: verde abaixo de 85%, âmbar entre 85% e 100% e vermelho acima de 100%. Cuidado com a armadilha da média: quatro semanas de 50%, 100%, 120% e 30% dão média de 75% mesmo com uma semana superalocada.",
+    "o_que_fazer": "Se a média passar de 85%, a pessoa não tem folga para imprevistos; se ficar muito baixa, sobra capacidade a realocar. Olhe sempre a média junto com o **Pico de ocupação**.",
+    "formula": "Ocupação média = soma dos percentuais de todas as semanas ÷ número de semanas analisadas",
+    "exemplo": "Semanas de 50%, 100%, 120% e 30% resultam em média de 75%.",
+    "fonte": "Média das semanas do mapa de ocupação, que considera alocações confirmadas e em execução."
+  },
+  {
+    "termo": "Ocupação atual",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Percentual de dedicação da pessoa na semana corrente, exibido com a etiqueta da situação daquela semana.",
+    "como_ler": "É o retrato de agora, não do planejado: uma pessoa pode estar **Ocioso** nesta semana e **Superalocado** na seguinte. O número vem sempre da primeira semana do horizonte analisado, que começa na segunda-feira da semana atual.",
+    "o_que_fazer": "Use junto com o gráfico de semanas para separar o alívio momentâneo do risco futuro.",
+    "fonte": "Dedicação somada da semana atual, com a classificação automática da carga."
+  },
+  {
+    "termo": "Capacidade semanal",
+    "sinonimos": [
+      "Capacidade semanal de horas"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de horas por semana que a pessoa pode dedicar ao trabalho. É a base do cálculo de horas e de custo de qualquer alocação.",
+    "como_ler": "O padrão do sistema é 40 horas. O percentual de dedicação é sempre relativo a essa capacidade: 50% de uma pessoa de 20 horas semanais equivale a 10 horas, não a 20. Se o número estiver errado, toda a ocupação e todo o custo da pessoa ficam errados.",
+    "o_que_fazer": "Peça o ajuste quando houver contrato de meio período, afastamento parcial ou jornada reduzida.",
+    "formula": "Horas da alocação = capacidade semanal ÷ 5 × dias úteis do período × percentual de dedicação",
+    "fonte": "Cadastro do colaborador, com padrão de 40 horas semanais."
+  },
+  {
+    "termo": "Custo estimado",
+    "sinonimos": [
+      "Custo da alocação",
+      "Custo estimado no período"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quanto a alocação custa no período, multiplicando o custo por hora da pessoa ou do recurso pelas horas previstas. É o que transforma a decisão de alocar em uma decisão também financeira.",
+    "como_ler": "As horas vêm do campo de horas planejadas quando ele está preenchido; caso contrário, são calculadas pela capacidade da pessoa no período vezes o percentual de dedicação, contando apenas dias úteis. Custo por hora zerado resulta em custo estimado zerado — vale conferir o cadastro antes de tirar conclusões.",
+    "o_que_fazer": "Ao escolher entre dois candidatos com score parecido, compare o custo estimado no período. Valores aparecem como **Restrito** quando seu perfil não tem permissão de ver custos.",
+    "formula": "Custo estimado = custo por hora × horas da alocação",
+    "exemplo": "Custo de R$ 120/h por 22 dias úteis a 50% de dedicação em jornada de 40h gera 88 horas e cerca de R$ 10.560.",
+    "fonte": "Custo por hora da pessoa ou do recurso multiplicado pelas horas da alocação no período."
+  },
+  {
+    "termo": "Alocação vigente",
+    "sinonimos": [
+      "vigente",
+      "vigentes hoje",
+      "vigente hoje"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Alocação que está valendo neste momento: a data de início já passou, a data de fim ainda não chegou e o status é **Confirmada** ou **Em execução**.",
+    "como_ler": "É o compromisso que a pessoa realmente tem hoje. Propostas, concluídas e canceladas não entram nessa contagem. No card do pool, o número de alocações vigentes mostra quantas frentes a pessoa está tocando ao mesmo tempo.",
+    "o_que_fazer": "Muitas alocações vigentes com percentuais pequenos indicam troca de contexto excessiva; considere consolidar em menos frentes.",
+    "fonte": "Alocações que cobrem a data de hoje com status Confirmada ou Em execução."
+  },
+  {
+    "termo": "Semanas superalocadas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de semanas, dentro do horizonte analisado, em que a pessoa passou de 100% de dedicação.",
+    "como_ler": "Quanto maior, mais longa é a sobrecarga — e sobrecarga prolongada é o caminho mais curto para atraso e desgaste. Zero significa carga dentro do limite em todas as semanas do horizonte.",
+    "o_que_fazer": "Redistribua alocações ou reduza a dedicação nas semanas apontadas para evitar sobrecarga e risco de atraso.",
+    "fonte": "Contagem de semanas com soma de dedicação acima de 100%."
+  },
+  {
+    "termo": "Pico de ocupação",
+    "sinonimos": [
+      "maior semana"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Maior percentual de dedicação da pessoa em uma única semana no horizonte analisado — a semana mais carregada do período.",
+    "como_ler": "Acima de 100% indica sobrealocação em pelo menos uma semana; acima de 130% a semana entra como conflito crítico na tela de alocação. Uma média tranquila com pico alto é sinal de que a carga está concentrada em um período específico.",
+    "o_que_fazer": "Localize a semana no gráfico e verifique se o pico é um esforço pontual aceitável ou um problema de planejamento a redistribuir.",
+    "fonte": "Maior valor entre as semanas de ocupação calculadas para o colaborador."
+  },
+  {
+    "termo": "Menor ocupação",
+    "sinonimos": [
+      "semana mais livre"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Menor percentual de dedicação da pessoa em uma única semana no horizonte — a semana com mais folga.",
+    "como_ler": "Serve para encontrar a janela natural de encaixe de uma nova demanda. Se até a semana mais livre estiver acima de 85%, a pessoa não tem espaço real para assumir mais nada no período.",
+    "o_que_fazer": "Use a semana mais livre como ponto de partida ao negociar prazos de novas tarefas com essa pessoa.",
+    "fonte": "Menor valor entre as semanas de ocupação calculadas para o colaborador."
+  },
+  {
+    "termo": "Horas apontadas",
+    "sinonimos": [
+      "Timesheet registrado"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Total de horas que a pessoa registrou no apontamento de horas. É o esforço efetivamente reportado, e não o que foi planejado.",
+    "como_ler": "Compare com a ocupação planejada: se as horas apontadas ficam bem abaixo do previsto para a dedicação registrada, o esforço real não está sendo reportado — e tanto o XP quanto a leitura de capacidade ficam subestimados. Este total considera todo o histórico de apontamentos da pessoa, sem recorte de período.",
+    "o_que_fazer": "Cobre os apontamentos em atraso: sem eles o sistema não credita XP nas capacidades nem mostra o esforço real das tarefas.",
+    "fonte": "Soma das horas lançadas no apontamento de horas da pessoa."
+  },
+  {
+    "termo": "Alocações futuras",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Alocações da pessoa que terminam hoje ou depois, ordenadas pela data de início. O subtítulo mostra quantas estão vigentes hoje e o custo estimado total do conjunto.",
+    "como_ler": "É o compromisso já assumido daqui para a frente. Quanto maior o custo total, maior o comprometimento orçamentário; quanto mais sobrepostas no tempo, maior o risco de conflito nas próximas semanas.",
+    "o_que_fazer": "Confira esta lista antes de aceitar uma demanda nova com a pessoa, e use **Alocar no planejamento** quando precisar criar ou ajustar um compromisso.",
+    "fonte": "Alocações com data de fim igual ou posterior a hoje."
+  },
+  {
+    "termo": "Ocupação ao longo das semanas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Gráfico com o percentual de dedicação da pessoa semana a semana, a linha do que está livre e a linha de referência em 100%.",
+    "como_ler": "Onde a linha de ocupação cruza ou ultrapassa a referência de 100%, há sobrecarga; onde ela se afasta da linha de disponível, há folga. O controle **Horizonte** ajusta a janela de 4 a 26 semanas (padrão 12), começando na semana atual.",
+    "o_que_fazer": "Use o horizonte curto para resolver a sobrecarga imediata e o horizonte longo para planejar férias, picos de entrega e novas alocações.",
+    "fonte": "Série semanal de ocupação do colaborador, com alocações confirmadas e em execução."
+  },
+  {
+    "termo": "Situação semana a semana",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Cartões que classificam cada semana do horizonte em Superalocado, Ocupado, Disponível ou Ocioso, com o percentual de dedicação e o quanto está livre.",
+    "como_ler": "Cada cartão traz a cor e o ícone da situação, o percentual alocado, a folga e a data de início da semana. A legenda no topo lembra as faixas: acima de 100% superalocado, de 85% a 100% ocupado, com folga disponível e sem alocação ocioso.",
+    "o_que_fazer": "Percorra a sequência para identificar padrões — semanas superalocadas seguidas de semanas ociosas indicam planejamento irregular, não falta de capacidade.",
+    "fonte": "Classificação automática da carga alocada em cada semana do horizonte."
+  },
+  {
+    "termo": "Distribuição da carga",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantas semanas do horizonte caíram em cada situação — Superalocado, Ocupado, Disponível e Ocioso, com a proporção sobre o total analisado.",
+    "como_ler": "Muitas semanas em Superalocado indicam sobrecarga crônica; muitas em Ocioso indicam capacidade parada; o equilíbrio saudável concentra as semanas em Disponível e Ocupado.",
+    "o_que_fazer": "Se a maior fatia for Superalocado, redistribua alocações; se for Ocioso, antecipe demandas ou reveja a necessidade de manter essa capacidade.",
+    "fonte": "Contagem das semanas classificadas em cada situação."
+  },
+  {
+    "termo": "Tendência de ocupação",
+    "sinonimos": [
+      "Variação"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Evolução da carga semanal da pessoa, com a média do horizonte e a variação em pontos percentuais entre a semana mais cheia e a mais vazia.",
+    "como_ler": "Uma variação alta significa carga irregular: a pessoa alterna entre sobrecarga e ociosidade, o que costuma gerar retrabalho e dificuldade de foco. O alerta abaixo do gráfico avisa quando existe alguma semana acima de 100% no horizonte.",
+    "o_que_fazer": "Quando houver semanas acima de 100%, redistribua alocações ou reduza a dedicação para evitar sobrecarga e risco de atraso.",
+    "formula": "Variação = pico de ocupação − menor ocupação, em pontos percentuais",
+    "fonte": "Série semanal de ocupação do colaborador e sua média no horizonte."
+  },
+  {
+    "termo": "Contexto do colaborador",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Dados cadastrais que pesam na hora de alocar: gestor, data de admissão, se a pessoa aceita receber recomendações do motor, se está disponível como mentor e seus interesses declarados.",
+    "como_ler": "Quem não aceita recomendações fica fora do pool do motor de matching — não por inadequação técnica, mas por consentimento. A disponibilidade para mentoria habilita a pessoa como apoio em alocações no modo Desenvolvimento, e os interesses ajudam a entender a afinidade com a demanda.",
+    "o_que_fazer": "Se alguém deveria aparecer no motor e não aparece, verifique aqui o campo **Aceita recomendações do motor** antes de investigar outras causas.",
+    "fonte": "Cadastro do colaborador e preferências de participação em recomendações."
+  },
+  {
+    "termo": "Score",
+    "sinonimos": [
+      "score",
+      "Nota do candidato",
+      "Pontuação do candidato"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Nota de 0 a 100 pontos que o motor de alocação dá a cada candidato para um projeto ou tarefa. Combina seis fatores ponderados e desconta as penalidades.",
+    "como_ler": "Quanto maior, melhor a combinação entre o que o alvo exige e o que a pessoa oferece no período. A nota é limitada entre 0 e 1 antes de virar pontos, então penalidades fortes podem zerar um candidato. Comparações só fazem sentido dentro da mesma execução e do mesmo modo: trocar o modo muda os pesos e o ranking.",
+    "o_que_fazer": "Use o score para ordenar, não para decidir sozinho: leia os componentes que mais pesaram e as penalidades antes de escolher.",
+    "formula": "Score = peso_skill×Skill + peso_disponibilidade×Disponibilidade + peso_custo×Custo + peso_preferência×Preferência + peso_experiência×Experiência + peso_proximidade×Proximidade − penalidades",
+    "exemplo": "No modo Performance, um candidato com skill 0,90, disponibilidade 0,60, custo 0,80, preferência 1,00, experiência 0,50 e proximidade 1,00 chega a 0,78 — 78 pontos — antes de descontar penalidades.",
+    "fonte": "Cálculo do motor de alocação sobre o pool de candidatos elegíveis."
+  },
+  {
+    "termo": "Avaliados",
+    "sinonimos": [
+      "Candidatos avaliados"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantos colaboradores o motor colocou no ranking nesta execução. O pool é formado por pessoas ativas que aceitaram participar das recomendações — e, quando o alvo é uma tarefa, exclui quem já está alocado nela.",
+    "como_ler": "É o tamanho da base avaliada, não o número de cartões exibidos. Se o valor vier muito baixo, provavelmente há poucas pessoas marcadas para aceitar recomendações ou quase todo mundo já está na tarefa.",
+    "o_que_fazer": "Compare com o total de pessoas ativas: pool pequeno demais costuma indicar cadastro de consentimento incompleto.",
+    "fonte": "Colaboradores ativos que aceitam recomendações e ainda não estão alocados no alvo."
+  },
+  {
+    "termo": "Exibidos",
+    "sinonimos": [
+      "Candidatos exibidos"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de cartões de candidatos mostrados na tela: os primeiros colocados do ranking, até o limite escolhido, que vai de 3 a 30.",
+    "como_ler": "Se **Exibidos** for igual a **Avaliados**, o ranking inteiro está visível. Se for menor, há candidatos com nota menor que ficaram de fora — e é por isso que **Score médio**, **Melhor score** e **Com penalidade** falam apenas do que está na tela.",
+    "o_que_fazer": "Aumente o limite de resultados quando precisar de alternativas além das primeiras posições.",
+    "fonte": "Recorte do ranking do motor conforme o limite de resultados definido."
+  },
+  {
+    "termo": "Elegíveis",
+    "sinonimos": [
+      "Candidatos elegíveis"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantos dos candidatos exibidos podem ser alocados sem impedimento: nenhuma capacidade obrigatória em falta e alguma disponibilidade no período do alvo.",
+    "como_ler": "Quem tem nível abaixo do mínimo em uma capacidade obrigatória, ou está 100% ocupado no período, aparece marcado como não elegível — o motor ainda mostra a nota, mas a alocação contraria um requisito do alvo.",
+    "o_que_fazer": "Prefira alocar entre os elegíveis. Se ninguém for elegível, o caminho é rever o requisito obrigatório, antecipar a contratação ou planejar desenvolvimento com mentoria.",
+    "fonte": "Candidatos sem bloqueio de capacidade obrigatória e com disponibilidade maior que zero."
+  },
+  {
+    "termo": "Score médio",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Média das notas dos candidatos exibidos nesta execução do motor.",
+    "como_ler": "Serve para calibrar a expectativa: em 85 pontos, quase todo o pool atende bem ao alvo; em 40, faltam capacidades ou disponibilidade no grupo avaliado. Não é uma meta — depende de quantos requisitos o alvo tem e de quão raro é o perfil procurado.",
+    "o_que_fazer": "Se a média ficar baixa e o melhor score também, o problema não é a escolha e sim a base de talentos: reavalie prazo, escopo ou nível mínimo exigido.",
+    "fonte": "Média das notas dos candidatos exibidos no ranking."
+  },
+  {
+    "termo": "Melhor score",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "A maior nota entre os candidatos exibidos: o primeiro colocado do ranking do motor.",
+    "como_ler": "Se nem o melhor colocado passar de 60 pontos, o problema não é a escolha e sim a base: faltam pessoas com as capacidades exigidas ou todas estão ocupadas no período. Aí a decisão deixa de ser alocar e passa a ser contratar, treinar ou rever o prazo.",
+    "o_que_fazer": "Quando o melhor score for baixo, avalie o modo **Desenvolvimento** — que aceita lacuna controlada com apoio de mentor — ou renegocie escopo e prazo.",
+    "fonte": "Maior nota entre os candidatos exibidos."
+  },
+  {
+    "termo": "Com penalidade",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantos candidatos exibidos receberam pelo menos um desconto na nota: sobrecarga no período, capacidade obrigatória em falta, histórico de atrasos no projeto ou conflito com tarefa crítica.",
+    "como_ler": "É a contagem de cartões com o bloco vermelho **Penalidades aplicadas**. Não impede a alocação, mas explica por que alguém tecnicamente forte caiu no ranking — e sinaliza risco que a nota sozinha esconde.",
+    "o_que_fazer": "Antes de alocar alguém penalizado, leia o motivo no cartão: sobrecarga pede redistribuição, capacidade obrigatória em falta pede plano de desenvolvimento e conflito de agenda pede renegociação de prazo.",
+    "fonte": "Candidatos exibidos com pelo menos uma penalidade aplicada."
+  },
+  {
+    "termo": "Explicabilidade do score",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Painel que abre o cálculo do motor: a fórmula aplicada com os pesos do modo escolhido, a lista de requisitos de capacidade do alvo e os indicadores da execução. É o que torna a recomendação auditável em vez de caixa-preta.",
+    "como_ler": "Confira primeiro os requisitos do alvo: se estiverem vazios, o componente de skill usa um valor neutro de 0,60 e o ranking fica menos confiável. Depois compare os pesos usados com o que a organização quer priorizar — se o modo não reflete a intenção, os nomes do topo mudam.",
+    "o_que_fazer": "Antes de contestar o ranking, verifique se os requisitos de capacidade do projeto ou da tarefa estão cadastrados e com o nível mínimo correto.",
+    "fonte": "Resultado da execução do motor, com pesos, requisitos do alvo e indicadores dos candidatos."
+  },
+  {
+    "termo": "Pesos utilizados",
+    "sinonimos": [
+      "Pesos",
+      "Pesos ajustados"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quanto cada um dos seis componentes influencia a nota final, no modo de alocação escolhido. Os pesos somam 100% e mudam conforme o modo.",
+    "como_ler": "**Performance** concentra em skill 45%, disponibilidade 20%, experiência 15%, custo 10%, preferência 5% e proximidade 5%. **Desenvolvimento** reduz skill para 25% e sobe preferência para 20%, com disponibilidade 15%, custo 10%, proximidade 10% e experiência 5%. **Misto** equilibra skill 35%, disponibilidade 18%, experiência 13%, custo 12%, preferência 12% e proximidade 10%. Componente com peso alto domina o ranking: com custo em 10%, escolher o mais barato não é o que o motor faz.",
+    "o_que_fazer": "Se o ranking não corresponde à prioridade do momento, teste outros pesos na **Simulação what-if de pesos** antes de mudar o modo.",
+    "formula": "Performance: skill 0,45 · disponibilidade 0,20 · custo 0,10 · preferência 0,05 · experiência 0,15 · proximidade 0,05",
+    "fonte": "Pesos definidos para o modo de alocação e aplicados no cálculo do score."
+  },
+  {
+    "termo": "Penalidades aplicadas",
+    "sinonimos": [
+      "Penalidades",
+      "Penalidade"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Descontos que o motor tirou da nota do candidato, cada um com o motivo e quantos pontos retirou.",
+    "como_ler": "São quatro: sobrecarga no período desconta 35 pontos; capacidade obrigatória abaixo do mínimo desconta 50; conflito de agenda com tarefa crítica, quando a pessoa já está com 80% ou mais de carga, desconta 15; e três ou mais tarefas atrasadas no projeto descontam 10. Como a nota final fica entre 0 e 100, uma capacidade obrigatória em falta derruba mais da metade do score sozinha.",
+    "o_que_fazer": "Trate cada motivo como um risco concreto: sobrecarga pede redistribuição, capacidade obrigatória em falta pede mentoria ou treinamento, conflito de agenda pede renegociação de prazo e histórico de atrasos pede acompanhamento mais próximo.",
+    "formula": "Score final = soma ponderada dos componentes − penalidades, limitado entre 0 e 1",
+    "fonte": "Penalidades calculadas pelo motor para cada candidato."
+  },
+  {
+    "termo": "Skill",
+    "sinonimos": [
+      "Componente Skill",
+      "Aderência técnica"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Componente do score que mede a aderência técnica da pessoa ao que o alvo exige, considerando o nível mínimo de cada capacidade requerida e o peso de cada requisito.",
+    "como_ler": "Vale de 0 a 1. Quem atende o nível mínimo recebe 1,00 mais um bônus de até 0,10 quando excede o pedido em até dois níveis — ser muito mais sênior que o necessário ajuda, mas pouco. Quem não atende recebe a proporção entre o próprio nível e o exigido: nível 2 para um requisito 4 vale 0,50. No modo **Desenvolvimento** o alvo é um nível abaixo do pedido, para privilegiar quem tem espaço para crescer. Alvo sem requisitos cadastrados usa o valor neutro de 0,60.",
+    "o_que_fazer": "Se o componente vier baixo em todos os candidatos, revise os níveis mínimos dos requisitos: exigência acima do que existe internamente trava o motor.",
+    "formula": "Skill = média dos fatores de cada requisito, ponderada pelo peso do requisito",
+    "fonte": "Nível efetivo do colaborador em cada capacidade exigida pelo alvo, comparado ao nível mínimo do requisito."
+  },
+  {
+    "termo": "Disponibilidade",
+    "sinonimos": [
+      "Componente Disponibilidade",
+      "Disponibilidade do recurso"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Percentual de capacidade que ainda está livre. No motor de alocação é o componente do score que impede recomendar quem já está comprometido; no catálogo de recursos é o campo que informa quanto do item está disponível para novos projetos.",
+    "como_ler": "No score vale de 0 a 1 e corresponde ao percentual livre dividido por 100 — 60% livre vira 0,60. O cálculo subtrai da capacidade total a média de dedicação das semanas do período, contando propostas, confirmadas e em execução. No cartão do candidato o mesmo número aparece na etiqueta, em verde a partir de 50% livre, âmbar com alguma folga e vermelho quando não há disponibilidade. Nos recursos, a cor do cartão é verde a partir de 80% livre, azul a partir de 50%, âmbar a partir de 20% e vermelha abaixo disso.",
+    "o_que_fazer": "Disponibilidade zero torna o candidato não elegível. Se os melhores nomes estiverem comprometidos, negocie a redistribuição da carga deles ou desloque o início do trabalho; nos recursos, mantenha o percentual atualizado a cada uso.",
+    "formula": "Disponibilidade = 100 − média do percentual já alocado nas semanas do período, dividida por 100",
+    "exemplo": "60% livre no período resulta em fator 0,60; com 0% livre o candidato fica não elegível.",
+    "fonte": "Alocações de proposta, confirmada e em execução que cruzam o período do alvo, ou o percentual informado no cadastro do recurso."
+  },
+  {
+    "termo": "Custo",
+    "sinonimos": [
+      "Componente Custo"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Componente do score que favorece as pessoas mais baratas do pool avaliado, comparando o custo por hora dentro da própria faixa do grupo.",
+    "como_ler": "Vale de 0 a 1: o mais barato do pool recebe 1,00 e o mais caro recebe 0,00, com os demais distribuídos proporcionalmente. É uma medida relativa — se todos custam parecido, o componente deixa de diferenciar. Com peso de 10% a 12%, custo nunca decide sozinho o ranking.",
+    "o_que_fazer": "Se a restrição de orçamento for o critério principal, aumente o peso de custo na simulação what-if e confirme se a economia não compromete a aderência técnica.",
+    "formula": "Custo = 1 − posição do custo/hora do candidato dentro da faixa do pool",
+    "fonte": "Custo por hora cadastrado para cada colaborador do pool avaliado."
+  },
+  {
+    "termo": "Preferência",
+    "sinonimos": [
+      "Componente Preferência"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Componente do score que mede afinidade: se a pessoa declarou interesse nas capacidades que o alvo exige e se tem capacidades marcadas como destaque no próprio perfil.",
+    "como_ler": "O valor neutro é 0,50. Sobe para 1,00 quando algum interesse declarado coincide com o nome de uma capacidade exigida; no modo **Desenvolvimento**, quem aceita ser mentor e não tem coincidência de interesse fica em 0,75. Ter alguma capacidade em destaque no perfil soma 0,10, até o limite de 1,00.",
+    "o_que_fazer": "Como o peso chega a 20% no modo Desenvolvimento, vale manter os interesses atualizados no perfil: eles são o que revela quem quer crescer naquela direção.",
+    "formula": "Preferência = 0,50 neutro · 1,00 com interesse coincidente · 0,75 para mentor no modo Desenvolvimento · +0,10 por capacidade em destaque",
+    "fonte": "Interesses declarados, marcação de destaque no perfil de capacidades e disponibilidade para mentoria."
+  },
+  {
+    "termo": "Experiência",
+    "sinonimos": [
+      "Componente Experiência"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Componente do score que combina tempo de casa e experiência acumulada nas capacidades, medida pelo XP registrado no perfil.",
+    "como_ler": "São 60% para o tempo de casa normalizado pelo colega mais antigo do pool e 40% para o XP acumulado normalizado até 2.000 pontos. Vale de 0 a 1: quem acabou de entrar e não tem XP registrado fica próximo de zero, e quem tem mais tempo e mais XP se aproxima de 1,00. No modo **Performance** esse componente pesa 15%.",
+    "o_que_fazer": "Se o time precisa de alguém pronto para assumir riscos técnicos, prefira os candidatos com experiência alta; se a prioridade é desenvolver, use o modo Desenvolvimento, que reduz esse peso a 5%.",
+    "formula": "Experiência = 0,60 × (tempo de casa ÷ maior tempo do pool) + 0,40 × (XP acumulado ÷ 2.000)",
+    "fonte": "Data de admissão e XP acumulado nas capacidades do colaborador."
+  },
+  {
+    "termo": "Proximidade",
+    "sinonimos": [
+      "Componente Proximidade"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Componente do score que favorece quem está perto do contexto do projeto, em área ou localização.",
+    "como_ler": "Vale 1,00 quando a área da pessoa é a mesma do projeto, 0,70 quando a área do projeto aparece na localização da pessoa e 0,45 no caso geral. O peso é de 5% a 10%, então proximidade desempata, mas não reverte uma diferença grande de skill.",
+    "o_que_fazer": "Se o projeto exige convivência presencial ou conhecimento de área específica, aumente esse peso na simulação what-if antes de decidir.",
+    "formula": "Proximidade = 1,00 mesma área · 0,70 área do projeto na localização · 0,45 caso geral",
+    "fonte": "Área e localização do colaborador comparadas às do projeto do alvo."
+  },
+  {
+    "termo": "Simulação what-if de pesos",
+    "sinonimos": [
+      "Simulação what-if",
+      "Simular cenário"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Recálculo do ranking com pesos ajustados por você, sem alterar nenhum dado real e sem gravar recomendações. Serve para responder “e se custo pesasse mais?” antes de decidir.",
+    "como_ler": "Os pesos informados são normalizados pela soma antes do cálculo, então o que importa é a proporção entre eles. O comparativo mostra, lado a lado, a nota e a posição antes e depois, com seta para quem subiu ou caiu. O interruptor **Somente disponíveis** remove do pool quem já tem alocação confirmada no período, e o limite de resultados vai de 3 a 30.",
+    "o_que_fazer": "Use **Restaurar pesos do modo** para voltar ao ponto de partida e teste um fator por vez: mudanças simultâneas dificultam enxergar a causa da troca de posições.",
+    "fonte": "Nova execução do motor com os pesos informados, comparada à execução original."
+  },
+  {
+    "termo": "Histórico de recomendações da tarefa",
+    "sinonimos": [
+      "Histórico de recomendações"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Recomendações que o motor já gerou para esta tarefa, com a nota, a posição e a situação da decisão: sugerida, aceita, recusada ou substituída.",
+    "como_ler": "É a memória da decisão. Quando o motor roda novamente para a mesma tarefa, as recomendações que ainda estavam pendentes passam a substituídas — por isso o histórico mostra tentativas anteriores, e não uma lista paralela. O histórico só existe quando o alvo é uma tarefa.",
+    "o_que_fazer": "Consulte antes de reexecutar o motor, para não repetir uma análise já feita, e registre a decisão de cada recomendação.",
+    "fonte": "Recomendações persistidas pelo motor para a tarefa, com o status de cada decisão."
+  },
+  {
+    "termo": "Override manual com justificativa",
+    "sinonimos": [
+      "Override manual",
+      "Registrar override"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Caminho para alocar alguém diferente do recomendado pelo motor, com justificativa obrigatória. Registra a pessoa escolhida, a recomendação original, quem decidiu e o motivo.",
+    "como_ler": "O override não é proibido nem silencioso: ele entra na **Taxa de override** do painel de alocação e fica na auditoria. É o mecanismo correto para decisões que o motor não consegue capturar, como desenvolvimento de carreira ou acordo com o cliente. Permite escolher dedicação de 1% a 100% e o período, e exige uma tarefa como alvo.",
+    "o_que_fazer": "Escreva a justificativa pensando em quem vai ler depois: “contexto que o motor não vê”, sem detalhe, não sustenta a decisão.",
+    "fonte": "Decisão registrada sobre uma recomendação do motor, com a justificativa informada."
+  },
+  {
+    "termo": "Recursos",
+    "sinonimos": [
+      "Total de recursos",
+      "Catálogo de recursos"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de itens no catálogo de recursos materiais — equipamentos, licenças, instalações, serviços terceirizados e materiais — respeitando os filtros aplicados.",
+    "como_ler": "O subrótulo diz quantos estão ativos. Itens inativos continuam no histórico dos projetos, mas não contam como disponíveis. Um catálogo desatualizado contamina os indicadores de disponibilidade e o custo estimado das alocações.",
+    "o_que_fazer": "Marque como inativo, em vez de excluir, o que saiu de circulação mas tem histórico: excluir remove também as alocações vinculadas.",
+    "fonte": "Recursos do catálogo conforme os filtros de busca, tipo, fornecedor e situação."
+  },
+  {
+    "termo": "Custo médio/hora",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Média do custo por hora dos recursos do catálogo, considerando apenas os que têm custo informado.",
+    "como_ler": "Itens com custo zerado ficam fora da média, para não puxar o valor para baixo artificialmente. É esse custo por hora que entra no custo estimado quando o recurso é usado em uma alocação: se estiver errado, todo orçamento que usa o recurso fica errado.",
+    "o_que_fazer": "Revise primeiro os itens de maior custo e maior utilização — são os que mais influenciam o orçamento dos projetos.",
+    "formula": "Custo médio/hora = soma dos custos por hora informados ÷ quantidade de recursos com custo",
+    "fonte": "Custo por hora cadastrado em cada recurso do catálogo, excluindo os zerados."
+  },
+  {
+    "termo": "Disponibilidade média",
+    "sinonimos": [
+      "Disponibilidade do catálogo"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Média do percentual de disponibilidade informado para os recursos do catálogo: quanto da capacidade de cada item ainda está livre.",
+    "como_ler": "É a capacidade livre declarada no cadastro, não um controle automático de uso — o sistema não desconta sozinho o que já está alocado. A cor acompanha a escala do catálogo: verde a partir de 80% livre, azul a partir de 50%, âmbar a partir de 20% e vermelho abaixo disso.",
+    "o_que_fazer": "Atualize a disponibilidade sempre que um recurso entrar em uso ou for liberado; sem isso a média vira uma promessa otimista e o alerta de disponibilidade perde valor.",
+    "formula": "Disponibilidade média = soma das disponibilidades informadas ÷ quantidade de recursos",
+    "fonte": "Percentual de disponibilidade cadastrado em cada recurso."
+  },
+  {
+    "termo": "Baixa disponibilidade",
+    "sinonimos": [
+      "Recursos restritos"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de recursos com menos de 50% de disponibilidade — os que têm pouca capacidade livre para novos projetos.",
+    "como_ler": "É o mesmo recorte da lista **Alertas de disponibilidade**. Quanto maior o número, mais o catálogo está comprometido e maior o risco de um projeto novo não encontrar recurso na hora certa.",
+    "o_que_fazer": "Antes de prometer prazo em um projeto que depende desses itens, verifique a data em que o recurso fica livre ou planeje uma alternativa.",
+    "fonte": "Recursos com disponibilidade informada abaixo de 50%."
+  },
+  {
+    "termo": "Quantidade total",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Somatório das unidades disponíveis de todos os recursos do catálogo, na unidade de cada item — unidades, licenças, metros quadrados ou dias.",
+    "como_ler": "É um número de volume, não de capacidade: como cada recurso tem a própria unidade, a soma só serve como tamanho do catálogo. Para saber se há capacidade suficiente, olhe item a item ou a disponibilidade média.",
+    "fonte": "Soma da quantidade disponível cadastrada em cada recurso."
+  },
+  {
+    "termo": "Quantidade",
+    "sinonimos": [
+      "Quantidade disponível"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quanto existe disponível daquele recurso específico, na unidade informada no cadastro — unidade, licença, metro quadrado ou dia. É a quantidade do item, e não o total do catálogo.",
+    "como_ler": "Quando o recurso é compartilhado entre projetos, este número precisa refletir a realidade: quantidade 1 em um item já usado por dois projetos indica cadastro desatualizado. A quantidade entra no indicador **Quantidade total** e serve de base para saber se há saldo suficiente antes de assumir um novo compromisso.",
+    "o_que_fazer": "Atualize a quantidade sempre que houver compra, devolução ou perda, e confirme a unidade para que o número não seja lido na escala errada.",
+    "fonte": "Quantidade disponível e unidade cadastradas no recurso."
+  },
+  {
+    "termo": "Fornecedores",
+    "sinonimos": [
+      "Parceiros cadastrados"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de fornecedores distintos cadastrados no catálogo de recursos.",
+    "como_ler": "Recursos sem fornecedor informado não entram na contagem. Concentração em poucos fornecedores é risco de dependência: se um deles falhar, vários itens ficam sem origem.",
+    "o_que_fazer": "Ao revisar contratações, procure no filtro de fornecedor quais itens dependem do mesmo parceiro e avalie uma segunda fonte.",
+    "fonte": "Fornecedores informados nos recursos do catálogo, sem repetição."
+  },
+  {
+    "termo": "Recursos por tipo",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Distribuição do catálogo entre os tipos: Humano, Equipamento, Software / Licença, Instalação, Serviço terceirizado e Material.",
+    "como_ler": "Cada fatia é a quantidade de itens daquele tipo, com a cor do tipo. Um tipo vazio pode significar que aquela categoria de consumo não está sendo registrada — e, portanto, não aparece em nenhum custo de projeto.",
+    "o_que_fazer": "Se serviços terceirizados ou instalações aparecerem zerados, confirme se esses gastos estão sendo lançados em outro lugar antes de concluir que não existem.",
+    "fonte": "Contagem de recursos agrupados por tipo."
+  },
+  {
+    "termo": "Ocupação do catálogo",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Utilização média de cada tipo de recurso, calculada como o complemento da disponibilidade: 100% menos a disponibilidade informada dos itens daquele tipo.",
+    "como_ler": "Cada barra mostra quanto do tipo está comprometido, com o total de itens e o percentual livre ao lado. Tipo com barra cheia indica capacidade quase toda consumida; barra vazia indica catálogo parado.",
+    "o_que_fazer": "Cruze a ocupação com o volume de projetos que usam aquele tipo: ocupação alta com demanda crescente é sinal antecipado de compra ou contratação.",
+    "formula": "Utilização do tipo = 100 − média da disponibilidade informada dos itens do tipo",
+    "fonte": "Disponibilidade cadastrada nos recursos, agrupada por tipo."
+  },
+  {
+    "termo": "Alertas de disponibilidade",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Lista dos recursos com menos de 50% de disponibilidade, ou seja, com pouca capacidade livre. Mostra os seis primeiros, com nome e fornecedor.",
+    "como_ler": "A etiqueta fica âmbar abaixo de 50% e vermelha abaixo de 20% de disponibilidade. Quando não há nenhum item restrito, o cartão informa que todos os recursos têm 50% ou mais livres.",
+    "o_que_fazer": "Resolva os itens em vermelho primeiro: são os que podem inviabilizar o início de um projeto. Se o gargalo for recorrente, planeje aquisição ou uma fonte alternativa.",
+    "fonte": "Recursos do catálogo com disponibilidade abaixo de 50%."
+  },
+  {
+    "termo": "Utilização",
+    "sinonimos": [
+      "Utilização do recurso"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quanto da capacidade de um recurso está comprometida: o complemento da disponibilidade informada — 100% menos a disponibilidade.",
+    "como_ler": "É o inverso da disponibilidade: 80% de disponibilidade significa 20% de utilização. No cartão do recurso a cor da barra segue a disponibilidade — verde a partir de 80% livre, azul a partir de 50%, âmbar a partir de 20% e vermelha abaixo disso — então barra curta e verde significa recurso com muita folga, e barra longa e vermelha significa recurso quase esgotado.",
+    "o_que_fazer": "Ao vincular um recurso a uma alocação, confira a utilização antes: um item já em 90% de utilização não comporta um segundo projeto sem revisão.",
+    "formula": "Utilização = 100% − disponibilidade informada",
+    "fonte": "Disponibilidade cadastrada no recurso."
+  },
+  {
+    "termo": "Skills em escassez",
+    "sinonimos": [
+      "Capacidades em escassez"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de capacidades cuja demanda projetada supera a oferta interna ao longo de todo o horizonte analisado, somando mais de uma unidade de desequilíbrio.",
+    "como_ler": "O critério é o gap acumulado: a soma dos gaps mensais precisa passar de 1 FTE para entrar na conta, em que uma pessoa em tempo integral equivale a 1. Escassez significa que faltam pessoas, não horas — o caminho é contratar, formar ou reduzir escopo.",
+    "o_que_fazer": "Priorize contratação, mentoria ou redistribuição de escopo nas capacidades do topo do cartão **Top gaps acumulados**.",
+    "formula": "Skills em escassez = capacidades cuja soma dos gaps mensais (demanda − oferta) é maior que 1 FTE",
+    "fonte": "Projeção mensal de demanda dos projetos ativos comparada à oferta interna ponderada pelo nível."
+  },
+  {
+    "termo": "Skills ociosas",
+    "sinonimos": [
+      "Capacidades ociosas"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de capacidades em que a oferta interna supera a demanda projetada ao longo do horizonte, somando mais de uma unidade de folga.",
+    "como_ler": "Também pelo gap acumulado: a soma dos gaps mensais precisa ficar abaixo de −1 FTE. Ociosidade não é desperdício automaticamente — pode ser uma capacidade estratégica mantida para o próximo ciclo —, mas é a melhor reserva para realocar pessoas e desenvolver novas skills.",
+    "o_que_fazer": "Use as capacidades ociosas como moeda de troca: é nelas que se pode liberar gente para reforçar as capacidades em escassez, via realocação ou trilha de desenvolvimento.",
+    "formula": "Skills ociosas = capacidades cuja soma dos gaps mensais (demanda − oferta) é menor que −1 FTE",
+    "fonte": "Projeção mensal de demanda comparada à oferta interna por capacidade."
+  },
+  {
+    "termo": "Maior gap",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Nome da capacidade com o maior desequilíbrio acumulado no horizonte — normalmente a mais crítica do portfólio no período.",
+    "como_ler": "Aparece como o primeiro item do ranking de gaps acumulados. É a capacidade que mais rapidamente vira gargalo de entrega se nada for feito, e onde cada real investido em formação ou contratação tem o maior retorno.",
+    "o_que_fazer": "Abra o detalhe dessa capacidade no heatmap para ver em que meses o gap se concentra e decida se a resposta é contratação, mentoria ou revisão do escopo do projeto que a consome.",
+    "fonte": "Capacidade com maior soma de gaps mensais entre demanda e oferta no horizonte."
+  },
+  {
+    "termo": "Skills analisadas",
+    "sinonimos": [
+      "Capacidades analisadas"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de capacidades que entraram na projeção: as exigidas pelos projetos ativos, as que têm oferta interna registrada e as de criticidade alta ou estratégica.",
+    "como_ler": "É o tamanho da base da análise. Se o número for pequeno, provavelmente poucos projetos têm requisitos de capacidade cadastrados — e sem requisitos não há demanda projetada, por mais gente que exista na empresa. Só entram na lista capacidades com algum valor de demanda ou oferta no período.",
+    "o_que_fazer": "Se o número estiver abaixo do esperado, cadastre os requisitos de capacidade nos projetos ativos: é o que faz a projeção enxergar a demanda real.",
+    "fonte": "Capacidades com demanda projetada ou oferta registrada no horizonte, mais as de criticidade alta e estratégica."
+  },
+  {
+    "termo": "Horizonte",
+    "sinonimos": [
+      "Horizonte de análise"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de meses à frente que a projeção de demanda e oferta cobre. O controle **Horizonte de análise** permite ajustar de 3 a 18 meses, com padrão de 9.",
+    "como_ler": "Horizonte curto mostra o que já está contratado e quase não dá margem de reação; horizonte longo antecipa movimentos de formação e contratação, mas acumula incerteza porque depende dos projetos permanecerem ativos. Os gaps são somados em todos os meses, então ampliar a janela tende a aumentar os totais. Na tela de ocupação individual, o mesmo tipo de controle ajusta a janela em semanas, de 4 a 26.",
+    "o_que_fazer": "Use de 3 a 6 meses para decisões de alocação e de 12 a 18 meses para decisões de contratação e trilhas de desenvolvimento.",
+    "fonte": "Janela de meses usada no cálculo da projeção de demanda e oferta."
+  },
+  {
+    "termo": "Pico de demanda",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Maior demanda mensal registrada entre todas as capacidades no horizonte analisado, em FTE — equivalente a tempo integral.",
+    "como_ler": "Mostra o tamanho do maior aperto pontual do portfólio. Um pico muito acima da oferta indica mês crítico de entrega, mesmo que a média do período pareça confortável. O cartão **Detalhe por capacidade** mostra o mesmo valor capacidade por capacidade.",
+    "o_que_fazer": "Localize o mês do pico no heatmap de gap e antecipe a capacidade: contratar em cima da hora raramente resolve dentro do prazo.",
+    "fonte": "Maior valor mensal de demanda projetada entre as capacidades analisadas."
+  },
+  {
+    "termo": "Heatmap de gap por capacidade",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Grade de capacidades por meses em que cada célula mostra a diferença entre demanda e oferta projetadas, em FTE. Vermelho indica escassez, azul ociosidade e verde equilíbrio entre demanda e oferta.",
+    "como_ler": "A intensidade da cor acompanha o tamanho do gap. Há escassez quando a demanda supera a oferta em mais de 1 FTE, ociosidade quando a oferta supera a demanda em mais de 1 FTE, e equilíbrio na faixa intermediária. Passe o mouse ou clique na célula para ver os valores em FTE e a ação recomendada.",
+    "o_que_fazer": "Procure linhas com vermelho em vários meses seguidos: escassez prolongada é o sinal mais forte para contratar ou formar; vermelho isolado costuma se resolver com realocação temporária.",
+    "fonte": "Projeção mensal de demanda e oferta por capacidade."
+  },
+  {
+    "termo": "Gap (demanda − oferta)",
+    "sinonimos": [
+      "Gap"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Diferença entre a demanda projetada e a oferta interna de uma capacidade em um mês, medida em FTE.",
+    "como_ler": "▲ escassez em vermelho quando a demanda supera a oferta em mais de 1 FTE; = equilíbrio em verde quando os dois lados praticamente se igualam; ▼ ociosidade em azul quando sobra mais de 1 FTE de oferta. A intensidade da cor acompanha o tamanho do gap.",
+    "o_que_fazer": "Leia o sinal antes do número: escassez pede mais capacidade, ociosidade pede realocação ou desenvolvimento de novas skills.",
+    "formula": "Gap = demanda projetada − oferta interna, em FTE",
+    "fonte": "Demanda dos requisitos de capacidade dos projetos ativos e oferta das pessoas com capacidade ativa."
+  },
+  {
+    "termo": "Projeção das capacidades mais críticas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Gráfico de linhas das quatro capacidades com maior gap acumulado no horizonte. Cada capacidade aparece com a demanda em linha cheia e a oferta em linha tracejada.",
+    "como_ler": "Onde a linha cheia cruza por cima da tracejada, a demanda passou a oferta naquele mês — é o ponto de virada da capacidade. Onde a tracejada fica acima, há folga. Use o conjunto para decidir o momento da ação, não só a existência do problema.",
+    "o_que_fazer": "Antecipe a resposta ao mês do cruzamento: contratação e trilhas de desenvolvimento levam meses para produzir efeito.",
+    "fonte": "Série mensal de demanda e oferta das capacidades com maior gap acumulado."
+  },
+  {
+    "termo": "Resumo da projeção",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Leitura em três frases do resultado da projeção: quantas capacidades estão em escassez, quantas estão ociosas e qual é a maior delas.",
+    "como_ler": "Os dois primeiros avisos são contagens de capacidades, e não de pessoas ou horas. Escassez pede contratação, mentoria ou redistribuição de escopo; ociosidade é oportunidade de realocar gente e desenvolver novas skills; o terceiro aviso nomeia a capacidade com maior desequilíbrio acumulado.",
+    "o_que_fazer": "Use este cartão como ponto de partida da conversa mensal de capacidade e vá ao heatmap para saber em que meses o gap aparece.",
+    "fonte": "Resumo calculado a partir da projeção de demanda e oferta por capacidade."
+  },
+  {
+    "termo": "Top gaps acumulados",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "As oito capacidades com maior soma de gap no horizonte, ordenadas da maior escassez para a maior ociosidade.",
+    "como_ler": "Valores positivos em vermelho são escassez acumulada; negativos em azul são ociosidade; entre −1 e 1 aparece em verde como equilíbrio. Como é a soma de todos os meses, uma capacidade pode ter total próximo de zero com meses de escassez e meses de sobra — vale abrir a linha no heatmap.",
+    "o_que_fazer": "Trate os positivos como fila de contratação e formação, e os negativos como estoque de gente a remanejar.",
+    "fonte": "Somatório dos gaps mensais de demanda menos oferta no horizonte analisado."
+  },
+  {
+    "termo": "Detalhe por capacidade",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Lista das doze capacidades mais críticas com a criticidade cadastrada, o pico de demanda em FTE e o bus factor — quantas pessoas de nível 4 ou superior sustentam aquela capacidade.",
+    "como_ler": "O pico de demanda mostra o mês mais exigente; o bus factor mostra a fragilidade do outro lado. Uma capacidade com pico alto e bus factor N1 é o pior cenário: muita demanda concentrada em uma única pessoa. A criticidade — baixa, média, alta ou estratégica — indica o impacto da ausência.",
+    "o_que_fazer": "Cruze pico alto com bus factor baixo e trate esses casos primeiro, combinando reforço de capacidade com formação de sucessores.",
+    "fonte": "Projeção por capacidade e contagem de pessoas com nível 4 ou superior naquela capacidade."
+  },
+  {
+    "termo": "Bus factor",
+    "sinonimos": [
+      "Risco de bus factor",
+      "Risco de dependência"
+    ],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de pessoas com nível 4 ou superior aptas a sustentar uma capacidade crítica. Quanto menor, maior o risco de a operação parar se essa pessoa sair, adoecer ou for remanejada.",
+    "como_ler": "O sistema considera risco quando a capacidade tem dois ou menos detentores de nível 4 ou 5 e é de criticidade alta ou estratégica, ou tem projetos dependentes. Nível 4 significa referência técnica que atua como mentor; nível 5, autoridade reconhecida. O cartão **Detalhe por capacidade** mostra o bus factor de cada linha da projeção.",
+    "o_que_fazer": "Forme ao menos dois sucessores por capacidade crítica, usando mentoria, documentação, rotação de tarefas ou reforço externo enquanto a capacidade interna amadurece.",
+    "fonte": "Contagem de perfis de capacidade com nível atual 4 ou superior."
+  },
+  {
+    "termo": "Alertas ativos",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de capacidades críticas sustentadas por duas ou menos pessoas de nível 4 ou superior — os casos em que existe risco de dependência de uma única pessoa.",
+    "como_ler": "Entram na lista as capacidades ativas ou emergentes com até dois detentores de nível 4 ou 5 que sejam de criticidade alta ou estratégica ou que tenham ao menos um projeto dependente. As demais capacidades, mesmo com poucos especialistas, não geram alerta.",
+    "o_que_fazer": "Comece pelos alertas com zero ou um detentor: são os que param uma entrega inteira se a pessoa não estiver disponível.",
+    "fonte": "Capacidades ativas ou emergentes com até dois especialistas de nível 4 ou superior."
+  },
+  {
+    "termo": "Sem detentor",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de capacidades em risco que não têm nenhuma pessoa de nível 4 ou superior. Não existe, hoje, especialista interno reconhecido naquela capacidade.",
+    "como_ler": "É o caso mais grave: qualquer projeto que exija a capacidade depende de contratação, consultoria externa ou de alguém assumindo a lacuna sem a proficiência esperada.",
+    "o_que_fazer": "Trate como prioridade de contratação ou de formação acelerada, com apoio externo temporário enquanto o nível interno não sobe.",
+    "fonte": "Alertas de dependência em que a contagem de especialistas de nível 4 ou superior é zero."
+  },
+  {
+    "termo": "Um único detentor",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de capacidades em risco sustentadas por exatamente uma pessoa de nível 4 ou superior.",
+    "como_ler": "É risco de parada: férias, afastamento, saída ou simples sobrecarga dessa pessoa travam tudo que depende da capacidade. Compare com **Projetos dependentes** para dimensionar o impacto.",
+    "o_que_fazer": "Monte um plano de sucessão com ao menos dois sucessores em formação, combinando mentoria, documentação e exposição prática em tarefas críticas.",
+    "fonte": "Alertas de dependência em que a contagem de especialistas de nível 4 ou superior é um."
+  },
+  {
+    "termo": "Detentores mapeados",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Soma dos especialistas de nível 4 ou superior em todas as capacidades que estão em alerta. É o total de pessoas que hoje sustentam as capacidades frágeis.",
+    "como_ler": "Mostra o tamanho do grupo sob pressão: poucos detentores para muitas capacidades críticas significa que as mesmas pessoas aparecem em vários alertas e viram gargalo e ponto único de falha ao mesmo tempo.",
+    "o_que_fazer": "Se poucos nomes se repetem em muitos alertas, priorize ampliar a base — a concentração de conhecimento é o risco real, não a capacidade isolada.",
+    "fonte": "Soma dos detentores de nível 4 ou superior nas capacidades em alerta."
+  },
+  {
+    "termo": "Projetos dependentes",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Soma da quantidade de projetos em execução, aprovados ou planejados que exigem as capacidades em alerta. Mede quanta entrega está exposta ao risco de dependência.",
+    "como_ler": "É o impacto potencial: uma capacidade frágil usada por um projeto é um problema; usada por oito projetos é um risco de portfólio. O cartão de cada alerta mostra o número por capacidade.",
+    "o_que_fazer": "Trate primeiro as capacidades que combinam poucos detentores com muitos projetos dependentes, e comunique o risco aos gerentes desses projetos.",
+    "fonte": "Requisitos de capacidade dos projetos em execução, aprovados e planejados."
+  },
+  {
+    "termo": "Ações sugeridas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Soma das ações de mitigação propostas pelo sistema para as capacidades em alerta: mentoria, documentação, rotação de função e reforço externo.",
+    "como_ler": "Capacidades com nenhum ou um detentor recebem as quatro ações; as demais recebem uma ação de ampliação de detentores. Cada ação vem com o detalhe do que fazer — vincular nível 2–3 a um mentor, criar base de conhecimento e runbooks, alocar outra pessoa nas tarefas críticas ou contratar enquanto a capacidade interna é desenvolvida.",
+    "o_que_fazer": "Transforme as ações em itens de PDI com prazo e responsável: sem isso o alerta continua no painel mês após mês.",
+    "fonte": "Ações de mitigação geradas pelo sistema para cada capacidade em alerta de dependência."
+  },
+  {
+    "termo": "Grafo de dependência",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Desenho das ligações entre uma capacidade, as pessoas que a detêm e os projetos que dependem dela — é a visão de rede do risco de dependência.",
+    "como_ler": "Ajuda a enxergar a concentração: quando um único nó de pessoa se liga a muitos projetos, aquele é o ponto de falha. Selecione outra capacidade para redesenhar o grafo e comparar os riscos.",
+    "o_que_fazer": "Use o grafo na conversa com a liderança do projeto para mostrar, com nomes, onde o conhecimento está concentrado.",
+    "fonte": "Detentores de nível 4 ou superior e projetos que exigem a capacidade selecionada."
+  },
+  {
+    "termo": "Pessoas no mapa",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de colaboradores que aparecem no mapa de ocupação — ou seja, que têm alguma alocação confirmada ou em execução nas próximas 12 semanas.",
+    "como_ler": "Não é o total de pessoas ativas: quem não tem nenhuma alocação no período fica fora das linhas. Um número muito menor que o quadro da empresa indica alocação não registrada no sistema, e não necessariamente gente sem trabalho.",
+    "o_que_fazer": "Se faltar gente conhecida no mapa, verifique se as alocações dessas pessoas estão com status Confirmada ou Em execução — propostas não aparecem aqui.",
+    "fonte": "Pessoas ativas com pelo menos uma alocação confirmada ou em execução no período do mapa."
+  },
+  {
+    "termo": "Sobrealocados",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de pessoas com pelo menos uma semana acima de 100% de dedicação no período analisado.",
+    "como_ler": "É uma contagem de pessoas, não de semanas: quem aparece aqui tem pelo menos um pico de sobrecarga, mesmo que a média esteja baixa. O indicador **Semanas críticas** mostra o volume total de células acima de 100% e ajuda a distinguir um caso isolado de um problema espalhado.",
+    "o_que_fazer": "Abra o heatmap e localize as semanas vermelhas dessas pessoas: realoque a carga antes do início do período crítico.",
+    "fonte": "Pessoas cuja ocupação ultrapassa 100% em ao menos uma semana do mapa."
+  },
+  {
+    "termo": "Ociosos",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de pessoas sem nenhuma alocação em todas as semanas analisadas — média de ocupação igual a zero.",
+    "como_ler": "Como o cálculo é a média do período, basta uma semana alocada para a pessoa sair desta lista. Ociosidade pode ser capacidade disponível de verdade ou apenas falta de registro de trabalho que existe.",
+    "o_que_fazer": "Confirme com a liderança antes de tratar como capacidade livre: se for real, é onde estão os reforços para as capacidades em escassez.",
+    "fonte": "Pessoas com média de ocupação igual a zero em todas as semanas do mapa."
+  },
+  {
+    "termo": "Semanas críticas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Total de células acima de 100% no mapa de ocupação — a soma, pessoa por semana, de todas as semanas sobrealocadas do período.",
+    "como_ler": "É o volume do problema, enquanto **Sobrealocados** mede quantas pessoas estão afetadas. Muitas semanas críticas concentradas em poucas pessoas indicam sobrecarga crônica de um grupo; espalhadas por muitos nomes indicam planejamento apertado em toda a equipe.",
+    "o_que_fazer": "Compare com o número de pessoas: se houver muitas células críticas em poucas pessoas, redistribua; se estiver espalhado, revise prazos e dimensionamento do portfólio.",
+    "fonte": "Contagem das semanas com dedicação acima de 100% em todas as pessoas do mapa."
+  },
+  {
+    "termo": "Semanas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantidade de semanas que o mapa de ocupação cobre — 12 por padrão, contadas a partir da segunda-feira da semana atual.",
+    "como_ler": "Define o alcance da leitura: tudo o que está além da última coluna não entra em nenhum indicador desta aba. Alocações marcadas para depois desse horizonte não aparecem aqui.",
+    "o_que_fazer": "Para planejamento de prazo mais longo, use a aba **Demanda × Oferta**, que projeta de 3 a 18 meses.",
+    "fonte": "Número de colunas de semana geradas no mapa de ocupação da equipe."
+  },
+  {
+    "termo": "Ocupação por pessoa e semana",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Grade em que cada linha é uma pessoa e cada coluna é uma semana, com o percentual de dedicação somado na célula. Clicar em uma célula mostra os projetos daquela semana.",
+    "como_ler": "A escala é 0% sem alocação, de 1% a 84% azul, de 85% a 100% âmbar e acima de 100% vermelho. Todos os números vêm de alocações confirmadas e em execução — propostas não entram. A utilização média da equipe aparece no topo do cartão.",
+    "o_que_fazer": "Clique nas células vermelhas para ver quais projetos estão competindo pela mesma pessoa e decida o que ceder.",
+    "fonte": "Soma dos percentuais das alocações confirmadas e em execução por pessoa e por semana."
+  },
+  {
+    "termo": "Ranking de utilização",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Pessoas do mapa ordenadas da maior para a menor ocupação média no período, com uma barra na cor da faixa de carga.",
+    "como_ler": "Quem está no topo concentra a carga; quem está na base tem folga. A barra fica azul até 84%, âmbar de 85% a 100% e vermelha acima de 100%, com o preenchimento limitado a 100% para manter a legibilidade.",
+    "o_que_fazer": "Use o ranking como ponto de partida para redistribuir: as primeiras posições cedem trabalho, as últimas recebem.",
+    "fonte": "Média de ocupação das semanas do mapa, por pessoa, em ordem decrescente."
+  }
+]

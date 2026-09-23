@@ -1,0 +1,368 @@
+[
+  {
+    "rota": "/riscos",
+    "titulo": "Matriz de riscos",
+    "grupo": "Riscos e qualidade",
+    "icone": "shield-alert",
+    "resumo": "Posiciona o que pode dar errado na grade probabilidade × impacto e guarda o plano de resposta, o risco residual e o histórico.",
+    "para_que_serve": "A tela **Gestão de riscos** mostra o que ainda pode dar errado no projeto e transforma essa incerteza em prioridade: cada risco é posicionado na grade 5 × 5 conforme a chance de acontecer e o tamanho do estrago, e a severidade resultante diz o que tratar primeiro. No detalhe de cada risco você escreve o plano de resposta, o plano de contingência e os gatilhos de monitoramento, informa o risco residual, o prazo e o valor monetário esperado. As abas **Heatmap por projeto** e **Painel** comparam os projetos entre si e consolidam a exposição do portfólio. É o lugar de acompanhar risco antes que ele vire problema.",
+    "quando_usar": [
+      "Na revisão semanal, para conferir se a posição de cada risco ainda reflete a realidade",
+      "Quando um fornecedor, um prazo ou um custo muda e a avaliação precisa ser refeita",
+      "Antes do comitê, para comparar o índice de risco entre os projetos do portfólio",
+      "Quando um risco se materializa, para marcá-lo como **Ocorrido** e abrir a issue correspondente",
+      "Para cobrar os planos de resposta que passaram do prazo"
+    ],
+    "passos": [
+      {
+        "titulo": "Abrir a matriz",
+        "detalhe": "Abra **Riscos e qualidade › Matriz de riscos**. A tela abre na aba **Matriz interativa**, com a grade 5 × 5: a probabilidade vai de 5, no topo, a 1, e o impacto de 1 a 5, da esquerda para a direita. Cada célula mostra a severidade e quantos riscos estão posicionados ali.",
+        "icone": "grid-3x3"
+      },
+      {
+        "titulo": "Registrar um risco",
+        "detalhe": "Clique em **Novo risco**. Escolha o **Projeto** e escreva a **Descrição do risco** — os dois são obrigatórios. Informe a **Categoria**, a **Causa raiz** e o **Efeito potencial**, ajuste os controles **Probabilidade** e **Impacto** e confira o quadro **Severidade calculada**. Complete **Estratégia**, **Responsável**, **Status**, **Prazo da resposta** e clique em **Registrar risco**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Reposicionar o risco arrastando",
+        "detalhe": "Na matriz, arraste o card do risco e solte-o na célula que representa a nova avaliação. A janela **Reposicionar risco na matriz** abre com a **Severidade anterior**, a **Nova severidade** e o **Comentário da movimentação** já preenchido. Ajuste o comentário, se quiser, e clique em **Confirmar movimento** — ou em **Cancelar** para devolver o risco à posição original.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Ler o detalhe do risco",
+        "detalhe": "Clique em um card para abrir o painel da direita com os três números — probabilidade, impacto e severidade —, a **Causa raiz**, o **Efeito potencial**, a **Estratégia**, o **Status**, o **Responsável**, a data de **Identificado em**, o **Prazo da resposta**, o **Custo de mitigação**, o **Valor monetário esperado** e a **Exposição**. A lista **Status** no próprio painel muda a situação do risco na hora.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Escrever o plano e o risco residual",
+        "detalhe": "Abra a seção **Plano de resposta**, escolha a **Estratégia**, descreva o **Plano de resposta** e o **Plano de contingência** e ajuste **Probabilidade residual** e **Impacto residual**, de 0 a 5. O quadro **Severidade residual** mostra o novo valor, o novo nível, a redução em pontos e em percentual. Termine em **Salvar plano de resposta**.",
+        "icone": "clipboard-check"
+      },
+      {
+        "titulo": "Comparar projetos no heatmap",
+        "detalhe": "Na aba **Heatmap por projeto**, o gráfico **Índice de risco por projeto** ranqueia os projetos e a tabela **Detalhamento por projeto** traz **Riscos**, **Severidade média**, **Distribuição por nível** e **Índice**. Clique em **ver** para abrir o detalhamento por nível e categoria e em **Filtrar na matriz** para voltar à matriz já filtrada.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Ler o painel consolidado",
+        "detalhe": "Na aba **Painel**, acompanhe **Riscos ativos**, **Exposição total**, **Custo de mitigação**, **Riscos extremos**, **Issues abertas** e **Issues atrasadas**, os gráficos **Riscos por nível**, **Riscos por categoria** e **Estratégias adotadas**, as listas **Top riscos por severidade** e **Respostas atrasadas**, as tabelas **Riscos por projeto** e **Riscos no filtro atual** e a **Matriz consolidada**.",
+        "icone": "file-bar-chart"
+      },
+      {
+        "titulo": "Consultar o histórico",
+        "detalhe": "Abra a seção **Histórico do risco**, no detalhe. Cada registro traz data e hora, o comentário, a etiqueta com **P × I = severidade**, o status e quem registrou. O número ao lado do título indica quantos registros existem.",
+        "icone": "history"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Matriz 5 × 5",
+        "descricao": "Grade com a probabilidade nas linhas, de 5 a 1, e o impacto nas colunas, de 1 a 5. O número maior da célula é a severidade daquela combinação; a etiqueta menor mostra quantos riscos estão ali."
+      },
+      {
+        "nome": "Escala de severidade",
+        "descricao": "Legenda com as quatro cores: verde para **Baixo**, amarelo para **Médio**, laranja para **Alto** e vermelho para **Extremo**."
+      },
+      {
+        "nome": "Rodapé da matriz",
+        "descricao": "Mostra quantos riscos estão distribuídos, quantos estão com resposta atrasada e os totais por nível: extremos, altos, médios e baixos."
+      },
+      {
+        "nome": "Painel de detalhe do risco",
+        "descricao": "Coluna da direita com os dados do risco selecionado, as seções recolhíveis **Plano de resposta** e **Histórico do risco**. O card escolhido ganha um contorno destacado."
+      },
+      {
+        "nome": "Gatilhos de monitoramento",
+        "descricao": "Etiquetas laranja com o ícone de raio, uma para cada sinal cadastrado no risco."
+      },
+      {
+        "nome": "Heatmap por projeto",
+        "descricao": "Barras com o índice de risco de cada projeto: verdes abaixo de 45%, laranjas de 45% a 70% e vermelhas a partir de 70%."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Probabilidade",
+        "descricao": "Chance de o risco acontecer, de 1 a 5.",
+        "dica": "Reserve o 5 para o que é praticamente certo dentro do horizonte do projeto."
+      },
+      {
+        "nome": "Impacto",
+        "descricao": "Gravidade do efeito se o risco acontecer, de 1 a 5.",
+        "dica": "Avalie o efeito no prazo, no custo e na qualidade — não a facilidade de resolver."
+      },
+      {
+        "nome": "Severidade",
+        "descricao": "Probabilidade × impacto, de 1 a 25. Calculada pelo sistema.",
+        "dica": "Não há como digitar a severidade: mude a probabilidade ou o impacto e ela se recalcula."
+      },
+      {
+        "nome": "Estratégia",
+        "descricao": "Abordagem de resposta: **Evitar**, **Mitigar**, **Transferir**, **Aceitar**, **Explorar (oportunidade)**, **Elevar (oportunidade)** ou **Compartilhar**."
+      },
+      {
+        "nome": "Plano de resposta e Plano de contingência",
+        "descricao": "O que será feito antes do risco acontecer e o que será feito se ele acontecer mesmo assim."
+      },
+      {
+        "nome": "Gatilhos de monitoramento",
+        "descricao": "Sinais concretos de que o risco está se aproximando.",
+        "dica": "Separe por vírgula, ponto e vírgula ou linha. Escreva sinais que qualquer pessoa do time consiga verificar sozinha."
+      },
+      {
+        "nome": "Probabilidade residual e Impacto residual",
+        "descricao": "O que resta depois de aplicar o plano de resposta, de 0 a 5.",
+        "dica": "Use 0 quando a resposta eliminar o risco por completo."
+      },
+      {
+        "nome": "Custo de mitigação (R$)",
+        "descricao": "Quanto custa executar o plano de resposta.",
+        "dica": "Quando informado, ele entra no cálculo da exposição do risco."
+      },
+      {
+        "nome": "Valor monetário esperado (R$)",
+        "descricao": "Quanto o risco representa em dinheiro, na avaliação do time.",
+        "dica": "É este valor que a aba **Riscos** do projeto soma no cartão **Exposição**."
+      },
+      {
+        "nome": "Prazo da resposta",
+        "descricao": "Até quando o plano de resposta deve estar pronto. Fica em vermelho com a marca “· atrasado” quando vence."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Riscos ativos",
+        "descricao": "Riscos com status diferente de **Encerrado**.",
+        "leitura": "Compare o volume entre projetos de porte parecido; não existe número ideal isolado."
+      },
+      {
+        "nome": "Riscos extremos",
+        "descricao": "Riscos de severidade 17 a 25.",
+        "leitura": "A meta é zero: risco extremo pede ação imediata e visibilidade na governança."
+      },
+      {
+        "nome": "Exposição total",
+        "descricao": "Soma da exposição dos riscos ativos do portfólio.",
+        "leitura": "Quanto menor, melhor. Compare com o orçamento do portfólio."
+      },
+      {
+        "nome": "Custo de mitigação",
+        "descricao": "Soma do que se pretende investir nos planos de resposta.",
+        "leitura": "Deve ficar abaixo da exposição total; se ficar acima, tratar custa mais que o próprio risco."
+      },
+      {
+        "nome": "Índice de risco",
+        "descricao": "Severidade média do projeto convertida em percentual, de 0 a 100%.",
+        "leitura": "Abaixo de 45% a barra fica verde; de 45% a 70%, laranja; a partir de 70%, vermelha."
+      },
+      {
+        "nome": "Respostas atrasadas",
+        "descricao": "Riscos com prazo de resposta vencido e status diferente de **Encerrado**.",
+        "leitura": "A meta é zero: plano vencido é promessa não cumprida."
+      }
+    ],
+    "dicas": [
+      "Escreva o risco como evento, não como preocupação: “indisponibilidade do fornecedor durante a migração” em vez de “o fornecedor é ruim”.",
+      "Preencha sempre a **Causa raiz**: é ela que o plano de resposta precisa atacar.",
+      "Reserve meia hora por semana para revisar a matriz. Risco sem revisão dá falsa sensação de segurança.",
+      "Ao escolher **Aceitar**, registre no plano o motivo da decisão e como o risco será monitorado — aceitar é uma escolha consciente, não esquecimento.",
+      "Não deixe risco **Alto** ou **Extremo** sem responsável, e abra a issue do risco no mesmo dia em que ele for marcado como **Ocorrido**."
+    ],
+    "limitacoes": [
+      "O sistema não identifica riscos sozinho e não transforma um risco marcado como **Ocorrido** em issue automaticamente.",
+      "Os gatilhos são textos de monitoramento: o sistema não observa os indicadores citados nem avisa quando eles são atingidos.",
+      "O **Valor monetário esperado** é informado pelo time; o sistema não calcula esse número, apenas soma e exibe."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia de ajuda da tela em que você está"
+      },
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para outra página"
+      }
+    ],
+    "doc": "07-riscos-e-issues.md",
+    "permissoes": [
+      "risco.ver"
+    ],
+    "ordem": 10
+  },
+  {
+    "rota": "/issues",
+    "titulo": "Issues e ações",
+    "grupo": "Riscos e qualidade",
+    "icone": "alert-triangle",
+    "resumo": "Trata o que já aconteceu — issues, ações corretivas, mudanças, impedimentos e decisões — em um quadro de oito colunas.",
+    "para_que_serve": "A tela **Issues, ações e impedimentos** cuida do problema que já apareceu, e não mais da possibilidade. Aqui cada registro ganha tipo, prioridade, responsável, prazo e um lugar no quadro, para que nada fique só na conversa informal. O tipo deixa claro o que está em jogo: um problema, uma correção, uma mudança de escopo, um impedimento ou uma decisão pendente. Na aba **Resumo** você mede a qualidade do tratamento e na aba **Tabela** compara prazo, esforço e custo entre muitos registros.",
+    "quando_usar": [
+      "Quando um risco se materializa e deixa de ser possibilidade",
+      "Quando alguém está bloqueado e o trabalho não anda — registre um **Impedimento**",
+      "Quando surge uma mudança de escopo, prazo ou custo que precisa de decisão",
+      "Na reunião de acompanhamento, para revisar o que está parado em **Aguardando terceiros**",
+      "Antes de encerrar o projeto, para conferir se as issues críticas foram resolvidas"
+    ],
+    "passos": [
+      {
+        "titulo": "Registrar a issue",
+        "detalhe": "Clique em **Nova issue**, escolha o **Projeto** e o **Tipo** — **Issue**, **Ação corretiva**, **Solicitação de mudança**, **Impedimento** ou **Decisão pendente** — e escreva o **Título**, que é obrigatório junto com o projeto. Complete **Descrição**, **Prioridade**, **Status**, **Responsável**, **Impacto**, **Aberta em**, **Prazo**, **Esforço estimado (h)** e **Custo estimado (R$)** e clique em **Registrar issue**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Acompanhar o quadro",
+        "detalhe": "Na aba **Kanban**, cada coluna é um status, na ordem do fluxo: **Aberta**, **Em triagem**, **Em análise**, **Em andamento**, **Aguardando terceiros**, **Resolvida**, **Fechada** e **Cancelada**. Os chips acima do quadro mostram quantas issues estão atrasadas e quantas existem de cada tipo no filtro atual.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Mover o card pelo fluxo",
+        "detalhe": "Arraste o card e solte-o na coluna de destino. O status muda na hora e o card assume a última posição da nova coluna. Ao entrar em **Resolvida** ou **Fechada**, a data de resolução é gravada automaticamente.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Editar e registrar a solução",
+        "detalhe": "Clique no card — ou na linha, na aba **Tabela** — para abrir o painel **Editar issue**, com os três números do topo: **dias em aberto**, se está **atrasada** e quantos dias levou **até resolver**. Ajuste os campos, preencha **Solução aplicada** e clique em **Salvar issue**.",
+        "icone": "clipboard-check"
+      },
+      {
+        "titulo": "Analisar o resumo",
+        "detalhe": "Na aba **Resumo**, leia **Total de issues**, **Abertas**, **Atrasadas**, **Tempo médio de resolução**, **Tipos distintos** e **Críticas abertas**, com os gráficos **Por tipo**, **Por prioridade (abertas)** e **Por status**.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Trabalhar na tabela",
+        "detalhe": "Na aba **Tabela**, ordene por **Código**, **Issue**, **Tipo**, **Prioridade**, **Idade**, **Prazo**, **Esforço** ou **Custo** clicando no cabeçalho da coluna. As linhas com prazo vencido aparecem destacadas em vermelho, e um clique em qualquer linha abre a edição.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Excluir um registro criado por engano",
+        "detalhe": "No painel de edição, clique em **Excluir** e leia a confirmação, que mostra o código e o título da issue. Confirme em **Excluir**. A ação não pode ser desfeita."
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Quadro Kanban",
+        "descricao": "Oito colunas, uma por status, na ordem do fluxo. A coluna vazia mostra o aviso “Arraste um card para cá”."
+      },
+      {
+        "nome": "Card da issue",
+        "descricao": "Traz o código, o título, a prioridade, o projeto, o responsável e a data de prazo. As atrasadas recebem o selo **atrasada**."
+      },
+      {
+        "nome": "Painel de edição",
+        "descricao": "Abre à direita ao clicar no card, com todos os campos da issue e os três números de acompanhamento no topo."
+      },
+      {
+        "nome": "Chips do quadro",
+        "descricao": "Acima das colunas, resumem o total de atrasadas e a quantidade de registros de cada tipo."
+      },
+      {
+        "nome": "Destaque de atraso na tabela",
+        "descricao": "Linhas com prazo vencido aparecem com fundo vermelho claro, para localizar o problema de relance."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Tipo",
+        "descricao": "**Issue**, **Ação corretiva**, **Solicitação de mudança**, **Impedimento** ou **Decisão pendente**.",
+        "dica": "O tipo define o prefixo do código: I, AC, M, IM ou D."
+      },
+      {
+        "nome": "Prioridade",
+        "descricao": "**Baixa**, **Média**, **Alta** ou **Crítica**."
+      },
+      {
+        "nome": "Status",
+        "descricao": "A coluna do quadro em que a issue está.",
+        "dica": "Trocar o status pelo painel de edição tem o mesmo efeito de arrastar o card."
+      },
+      {
+        "nome": "Responsável",
+        "descricao": "Quem trata a issue. O sistema avisa essa pessoa quando ela é definida no registro."
+      },
+      {
+        "nome": "Aberta em e Resolvida em",
+        "descricao": "Quando a issue foi registrada e quando foi resolvida.",
+        "dica": "A data de resolução é preenchida sozinha ao mover o card para **Resolvida** ou **Fechada**."
+      },
+      {
+        "nome": "Prazo",
+        "descricao": "Data limite para resolver. A issue fica atrasada quando o prazo passa e o status não é **Resolvida**, **Fechada** nem **Cancelada**."
+      },
+      {
+        "nome": "Impacto",
+        "descricao": "O que acontece se a issue não for tratada."
+      },
+      {
+        "nome": "Solução aplicada",
+        "descricao": "O que resolveu o problema.",
+        "dica": "Preencher aqui é o que permite reaproveitar a resposta quando o mesmo problema aparecer em outro projeto."
+      },
+      {
+        "nome": "Esforço estimado (h) e Custo estimado (R$)",
+        "descricao": "Horas previstas e custo previsto para tratar a issue.",
+        "dica": "São estimativas de planejamento; a tela não recebe apontamento de horas realizadas."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Total de issues",
+        "descricao": "Todos os registros do filtro atual, em qualquer situação.",
+        "leitura": "Serve de base para comparar volume entre projetos."
+      },
+      {
+        "nome": "Abertas",
+        "descricao": "Issues ainda em tratamento, sem resolução, fechamento ou cancelamento.",
+        "leitura": "O esperado é que o número fique estável ou em queda."
+      },
+      {
+        "nome": "Atrasadas",
+        "descricao": "Issues com prazo vencido e ainda abertas.",
+        "leitura": "A meta é zero. Acima disso, revise prioridades e responsáveis."
+      },
+      {
+        "nome": "Tempo médio de resolução",
+        "descricao": "Média de dias entre a abertura e a resolução das issues já resolvidas.",
+        "leitura": "Quanto menor, melhor; compare com o prazo que o time costuma prometer."
+      },
+      {
+        "nome": "Críticas abertas",
+        "descricao": "Issues de prioridade **Crítica** ainda abertas.",
+        "leitura": "A meta é zero: são as que pedem atenção hoje."
+      },
+      {
+        "nome": "Idade",
+        "descricao": "Dias que a issue está aberta, da abertura até hoje ou até a resolução.",
+        "leitura": "Registros muito antigos costumam indicar problema sem dono ou decisão pendente."
+      }
+    ],
+    "dicas": [
+      "Antes de registrar, procure pelo assunto: o sistema não bloqueia issues parecidas, e duplicidade polui o quadro.",
+      "Quando o time decidir não tratar, prefira mover o card para **Cancelada** em vez de excluir — assim a decisão fica registrada.",
+      "Registre o **Impedimento** sempre que alguém estiver bloqueado: é o tipo que expõe o que trava a execução.",
+      "Confirme a correção antes de arrastar para **Resolvida**: a data de resolução é gravada na hora, mesmo que você devolva o card depois.",
+      "Use os filtros **Tipo** e **Prioridade** antes da reunião para montar o recorte que será discutido."
+    ],
+    "limitacoes": [
+      "O sistema não transforma sozinho um risco marcado como **Ocorrido** em issue: o registro aqui é sempre manual.",
+      "Não há aviso automático de prazo vencido nem alerta de card parado em uma coluna — o acompanhamento é visual.",
+      "A tela guarda apenas **Esforço estimado (h)** e **Custo estimado (R$)**; não existe apontamento de horas ou de custo realizado na issue."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia de ajuda da tela em que você está"
+      },
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para outra página"
+      }
+    ],
+    "doc": "07-riscos-e-issues.md",
+    "permissoes": [
+      "risco.ver"
+    ],
+    "ordem": 20
+  }
+]

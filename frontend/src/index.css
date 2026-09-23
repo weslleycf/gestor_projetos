@@ -1,0 +1,315 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Design System SGP — especificação §2.5
+   Grid 8px · Tipografia Inter 12–32px · Primária azul · Estados semânticos
+   Cantos 8px · 3 níveis de sombra · Modo escuro · 3 densidades
+   ========================================================================== */
+
+:root {
+  --sgp-bg: #f3f5f9;
+  --sgp-bg-alt: #e9edf4;
+  --sgp-surface: #ffffff;
+  --sgp-surface-2: #f8fafc;
+  --sgp-surface-3: #eef2f7;
+  --sgp-border: #e2e8f0;
+  --sgp-border-strong: #cbd5e1;
+  --sgp-fg: #0f172a;
+  --sgp-fg-muted: #5b6b82;
+  --sgp-fg-subtle: #94a3b8;
+  --sgp-overlay: rgba(15, 23, 42, 0.45);
+
+  --sgp-brand: #2563eb;
+  --sgp-brand-hover: #1d4ed8;
+  --sgp-brand-soft: #dbeafe;
+  --sgp-brand-fg: #ffffff;
+
+  --sgp-success: #059669;
+  --sgp-success-soft: #d1fae5;
+  --sgp-warning: #d97706;
+  --sgp-warning-soft: #fef3c7;
+  --sgp-danger: #dc2626;
+  --sgp-danger-soft: #fee2e2;
+  --sgp-info: #0891b2;
+  --sgp-info-soft: #cffafe;
+  --sgp-neutral: #64748b;
+  --sgp-neutral-soft: #e2e8f0;
+
+  --sgp-shadow-1: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+  --sgp-shadow-2: 0 4px 8px rgba(15, 23, 42, 0.07), 0 2px 4px rgba(15, 23, 42, 0.06);
+  --sgp-shadow-3: 0 16px 32px rgba(15, 23, 42, 0.14), 0 4px 12px rgba(15, 23, 42, 0.08);
+
+  --sgp-density-y: 0.75rem;
+  --sgp-density-x: 1rem;
+  --sgp-row-h: 2.5rem;
+}
+
+.dark {
+  --sgp-bg: #080d18;
+  --sgp-bg-alt: #0c1322;
+  --sgp-surface: #111a2c;
+  --sgp-surface-2: #162034;
+  --sgp-surface-3: #1c2740;
+  --sgp-border: #24314b;
+  --sgp-border-strong: #33415c;
+  --sgp-fg: #e8edf7;
+  --sgp-fg-muted: #9aa9c0;
+  --sgp-fg-subtle: #64748b;
+  --sgp-overlay: rgba(2, 6, 16, 0.68);
+
+  --sgp-brand: #3b82f6;
+  --sgp-brand-hover: #60a5fa;
+  --sgp-brand-soft: #1e3a8a;
+  --sgp-brand-fg: #ffffff;
+
+  --sgp-success: #10b981;
+  --sgp-success-soft: #064e3b;
+  --sgp-warning: #f59e0b;
+  --sgp-warning-soft: #78350f;
+  --sgp-danger: #f87171;
+  --sgp-danger-soft: #7f1d1d;
+  --sgp-info: #22d3ee;
+  --sgp-info-soft: #164e63;
+  --sgp-neutral: #94a3b8;
+  --sgp-neutral-soft: #1e293b;
+
+  --sgp-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --sgp-shadow-2: 0 4px 10px rgba(0, 0, 0, 0.45);
+  --sgp-shadow-3: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   Densidade
+   --------------------------------------------------------------------------
+   A densidade atua na própria escala de espaçamento do Tailwind (--spacing).
+   Todos os utilitários de padding, margin, gap e tamanho são compilados como
+   calc(var(--spacing) * N), portanto redefinir essa variável reflui a
+   interface inteira de uma só vez — sem tocar em nenhum componente.
+
+   Os valores das classes são declarados fora de @layer de propósito: regras
+   sem camada têm precedência sobre as camadas do Tailwind (@layer theme), o
+   que garante a sobrescrita do --spacing padrão de 0,25rem.
+
+   Escala: padrão 100% · compacta 85% · confortável 115%.
+   -------------------------------------------------------------------------- */
+
+.density-compacta {
+  --spacing: 0.2125rem;
+  --sgp-density-y: 0.4rem;
+  --sgp-density-x: 0.6rem;
+  --sgp-row-h: 2rem;
+}
+.density-confortavel {
+  --spacing: 0.2875rem;
+  --sgp-density-y: 1rem;
+  --sgp-density-x: 1.35rem;
+  --sgp-row-h: 3rem;
+}
+
+/* A densidade reduz o "ar" entre os elementos, não o conteúdo.
+   Ícones são fixados no tamanho original para preservar a legibilidade e o
+   alinhamento com o texto (que também não escala). */
+.density-compacta svg.lucide.size-3,
+.density-confortavel svg.lucide.size-3 { width: 0.75rem; height: 0.75rem; }
+.density-compacta svg.lucide.size-3\.5,
+.density-confortavel svg.lucide.size-3\.5 { width: 0.875rem; height: 0.875rem; }
+.density-compacta svg.lucide.size-4,
+.density-confortavel svg.lucide.size-4 { width: 1rem; height: 1rem; }
+.density-compacta svg.lucide.size-4\.5,
+.density-confortavel svg.lucide.size-4\.5 { width: 1.125rem; height: 1.125rem; }
+.density-compacta svg.lucide.size-5,
+.density-confortavel svg.lucide.size-5 { width: 1.25rem; height: 1.25rem; }
+.density-compacta svg.lucide.size-6,
+.density-confortavel svg.lucide.size-6 { width: 1.5rem; height: 1.5rem; }
+.density-compacta svg.lucide.size-7,
+.density-confortavel svg.lucide.size-7 { width: 1.75rem; height: 1.75rem; }
+.density-compacta svg.lucide.size-8,
+.density-confortavel svg.lucide.size-8 { width: 2rem; height: 2rem; }
+.density-compacta svg.lucide.size-10,
+.density-confortavel svg.lucide.size-10 { width: 2.5rem; height: 2.5rem; }
+
+@theme inline {
+  --font-sans: "Inter", "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Code", monospace;
+
+  --color-bg: var(--sgp-bg);
+  --color-bg-alt: var(--sgp-bg-alt);
+  --color-surface: var(--sgp-surface);
+  --color-surface-2: var(--sgp-surface-2);
+  --color-surface-3: var(--sgp-surface-3);
+  --color-border: var(--sgp-border);
+  --color-border-strong: var(--sgp-border-strong);
+  --color-fg: var(--sgp-fg);
+  --color-fg-muted: var(--sgp-fg-muted);
+  --color-fg-subtle: var(--sgp-fg-subtle);
+  --color-overlay: var(--sgp-overlay);
+
+  --color-brand: var(--sgp-brand);
+  --color-brand-hover: var(--sgp-brand-hover);
+  --color-brand-soft: var(--sgp-brand-soft);
+  --color-brand-fg: var(--sgp-brand-fg);
+
+  --color-success: var(--sgp-success);
+  --color-success-soft: var(--sgp-success-soft);
+  --color-warning: var(--sgp-warning);
+  --color-warning-soft: var(--sgp-warning-soft);
+  --color-danger: var(--sgp-danger);
+  --color-danger-soft: var(--sgp-danger-soft);
+  --color-info: var(--sgp-info);
+  --color-info-soft: var(--sgp-info-soft);
+  --color-neutral: var(--sgp-neutral);
+  --color-neutral-soft: var(--sgp-neutral-soft);
+
+  --radius-sgp: 8px;
+  --radius-sgp-lg: 12px;
+  --radius-sgp-xl: 16px;
+
+  --shadow-n1: var(--sgp-shadow-1);
+  --shadow-n2: var(--sgp-shadow-2);
+  --shadow-n3: var(--sgp-shadow-3);
+
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--sgp-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--sgp-bg);
+    color: var(--sgp-fg);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em; }
+  h3 { font-size: 1rem; font-weight: 600; }
+
+  :focus-visible {
+    outline: 2px solid var(--sgp-brand);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: var(--sgp-brand);
+    color: var(--sgp-brand-fg);
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--sgp-border-strong);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--sgp-fg-subtle); background-clip: content-box; }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--sgp-surface-3);
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--sgp-brand);
+    border: 2px solid var(--sgp-surface);
+    box-shadow: var(--sgp-shadow-1);
+    transition: transform 120ms ease;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  input[type="range"]::-moz-range-thumb {
+    width: 16px; height: 16px; border-radius: 999px;
+    background: var(--sgp-brand); border: 2px solid var(--sgp-surface);
+  }
+}
+
+@layer utilities {
+  .sgp-pad {
+    padding-block: var(--sgp-density-y);
+    padding-inline: var(--sgp-density-x);
+  }
+
+  .scroll-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--sgp-border-strong) transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .drag-ghost {
+    opacity: 0.4;
+    filter: grayscale(0.3);
+  }
+
+  .animate-entrada {
+    animation: sgp-entrada 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-level-up {
+    animation: sgp-level-up 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-pulso-alerta {
+    animation: sgp-pulso 1.8s ease-in-out infinite;
+  }
+
+  .animate-desliza {
+    animation: sgp-desliza 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@keyframes sgp-entrada {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sgp-level-up {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.6); }
+  40% { transform: scale(1.08); box-shadow: 0 0 0 14px rgba(59, 130, 246, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+@keyframes sgp-pulso {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@keyframes sgp-desliza {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

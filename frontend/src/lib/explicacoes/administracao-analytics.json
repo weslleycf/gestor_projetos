@@ -1,0 +1,1277 @@
+[
+  {
+    "termo": "Integrações",
+    "sinonimos": [
+      "Integrações configuradas",
+      "Conexões",
+      "Conexões externas"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas conexões com sistemas externos estão cadastradas no SGP. Cada conexão reúne tipo, direção, frequência, responsável e a situação atual.",
+    "como_ler": "O número abaixo do valor mostra quantas estão ligadas. Conexão desligada não é executada pelo agendador nem pelo botão de sincronizar as vencidas, mesmo estando cadastrada.",
+    "o_que_fazer": "Se o número ficar abaixo dos sistemas que a organização realmente usa, abra o Catálogo e configure as conexões que faltam — sempre começando em modo simulação.",
+    "fonte": "Contagem das conexões cadastradas na Central de integrações."
+  },
+  {
+    "termo": "Com erro",
+    "sinonimos": [
+      "Integrações com erro",
+      "Conexões com erro",
+      "Status Com erro"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Conexões cuja última sincronização falhou. Quando isso acontece, o SGP muda a situação da conexão para Com erro e mantém a mensagem da falha visível no próprio card.",
+    "como_ler": "O esperado é zero. Qualquer valor acima de zero indica que dados deixaram de entrar ou de sair sem que ninguém tenha percebido; não existe faixa amarela aqui: ou está zerado, ou exige ação.",
+    "o_que_fazer": "Abra a conexão, leia o último erro, use Testar conexão e corrija endereço, credencial ou mapeamento antes de sincronizar novamente. Se o erro se repetir, o problema tende a estar no sistema de destino.",
+    "fonte": "Contagem das conexões cujo último resultado de sincronização foi uma falha."
+  },
+  {
+    "termo": "Em simulação",
+    "sinonimos": [
+      "Modo simulação",
+      "simulação",
+      "Conexões em simulação"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Conexões que montam a requisição e registram exatamente o que seria enviado ou importado, mas não chamam o sistema externo. É o estado seguro para validar endereço, autenticação e mapeamento de campos.",
+    "como_ler": "É normal o número ser alto durante a implantação e cair perto de zero quando as conexões já foram validadas. Conexão em simulação não altera dados no SGP nem no sistema de destino e as execuções ficam registradas como Simulado.",
+    "o_que_fazer": "Faça um teste de conexão, revise os mapeamentos e só então desligue a simulação — uma conexão por vez, acompanhando as primeiras execuções em modo real.",
+    "fonte": "Contagem das conexões marcadas em modo simulação."
+  },
+  {
+    "termo": "Itens sincronizados",
+    "sinonimos": [
+      "Registros sincronizados",
+      "Itens processados"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Total de registros criados e atualizados pelas conexões desde o início. Registros apenas consultados ou descartados não entram nessa conta.",
+    "como_ler": "É um acumulado: cresce a cada execução que grava algo. Serve para medir o volume realmente trocado — uma conexão ativa com o número parado indica que nada novo chegou ou que tudo está sendo ignorado.",
+    "o_que_fazer": "Se o número estagnar em uma conexão ativa, abra a aba Execuções e verifique se os itens estão sendo lidos e ignorados: muitos ignorados com poucos erros costumam indicar mapeamento frouxo.",
+    "formula": "Itens sincronizados = soma dos registros criados + atualizados em todas as execuções da conexão",
+    "exemplo": "Uma conexão de RH que criou 120 pessoas e atualizou 380 cadastros aparece com 500 itens sincronizados.",
+    "fonte": "Soma, por conexão, dos registros criados e atualizados em cada rodada de sincronização."
+  },
+  {
+    "termo": "Taxa de sucesso",
+    "sinonimos": [
+      "Taxa de sucesso da conexão",
+      "Sucesso da conexão"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "A fatia das execuções da conexão que terminou sem falha total. Execuções concluídas com erros parciais e execuções em modo simulação contam como bem-sucedidas.",
+    "como_ler": "A barra fica verde a partir de 90%, amarela entre 60% e 90% e vermelha abaixo de 60%. O manual trata abaixo de 90% como sinal para investigar e acima de 95% como saudável. Conexão que nunca executou aparece com 0%.",
+    "o_que_fazer": "Abaixo de 90%, abra o histórico da conexão e olhe as últimas falhas: normalmente são credencial vencida, endereço errado ou campo obrigatório ausente no mapeamento.",
+    "formula": "Taxa de sucesso = execuções sem falha total ÷ total de execuções × 100",
+    "exemplo": "17 execuções bem-sucedidas em 20 rodadas resultam em 85% — faixa amarela, que pede investigação.",
+    "fonte": "Histórico de execuções registradas para a conexão."
+  },
+  {
+    "termo": "Taxa de sucesso média",
+    "sinonimos": [
+      "Sucesso médio",
+      "Média de sucesso"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Média simples das taxas de sucesso de todas as conexões cadastradas. Mostra a saúde do parque de integrações como um todo, e não de uma conexão isolada.",
+    "como_ler": "Leia junto das conexões individuais: uma única conexão vermelha derruba bastante a média. O manual considera a faixa saudável acima de 95% e pede investigação abaixo de 90%. Conexão sem nenhuma execução entra como 0% e puxa o número para baixo.",
+    "o_que_fazer": "Se a média estiver baixa, ataque primeiro as conexões em vermelho e as que nunca executaram — em geral são poucas e explicam quase toda a queda.",
+    "formula": "Taxa de sucesso média = soma das taxas de sucesso das conexões ÷ número de conexões",
+    "exemplo": "Duas conexões em 100% e uma em 40% resultam em média de 80% — amarelo, ainda que a maior parte da operação esteja saudável.",
+    "fonte": "Média das taxas de sucesso calculadas a partir do histórico de execuções de cada conexão."
+  },
+  {
+    "termo": "Eventos pendentes",
+    "sinonimos": [
+      "Pendentes",
+      "Fila de eventos",
+      "Eventos na fila"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Avisos de mudança do sistema — projeto criado, tarefa concluída, risco identificado, promoção aprovada, alocação criada — que ainda não foram entregues a todos os webhooks interessados.",
+    "como_ler": "O número abaixo do valor mostra o total de eventos e quantos ocorreram nas últimas 24 horas. O saudável é ficar próximo de zero: fila crescendo significa que algum destino está fora do ar ou recusando as chamadas. Evento sem webhook interessado é marcado como processado automaticamente e não aparece como pendente.",
+    "o_que_fazer": "Use Despachar pendentes e acompanhe as Entregas de webhook. Se as falhas se repetirem no mesmo destino, o ajuste é no sistema receptor, não no SGP.",
+    "fonte": "Contagem dos eventos registrados que ainda não foram entregues com sucesso a todos os destinos."
+  },
+  {
+    "termo": "Entregas de webhook",
+    "sinonimos": [
+      "Entregas",
+      "Tentativas de entrega"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas tentativas de entrega de eventos já foram feitas aos webhooks. Cada tentativa é registrada com o código devolvido pelo destino, o tempo de resposta e o erro, quando houver.",
+    "como_ler": "O número abaixo do valor separa sucessos, falhas e o tempo médio de resposta. O total de entregas é maior que o de eventos, porque um mesmo evento pode ir para vários webhooks e ser reenviado até três vezes quando o destino não responde com sucesso. O esperado é predomínio de sucessos.",
+    "o_que_fazer": "Filtre as falhas, confira o código devolvido e o erro e acione o responsável pelo endereço de destino. Depois da correção, use Reprocessar no evento para reenviar.",
+    "fonte": "Registro de cada tentativa de entrega, com resultado, tempo de resposta e código devolvido."
+  },
+  {
+    "termo": "Webhooks",
+    "sinonimos": [
+      "Webhooks configurados",
+      "Endpoints de webhook",
+      "Endereços de webhook"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos endereços externos estão cadastrados para receber um aviso automático sempre que um evento assinado acontece no SGP.",
+    "como_ler": "O número abaixo do valor mostra quantos estão ativos. Webhook inativo continua cadastrado, mas não recebe nada. Webhook sem nenhum evento assinado recebe todos os eventos.",
+    "o_que_fazer": "Desligue os webhooks que não são mais usados e confirme o segredo de assinatura dos que permanecem.",
+    "fonte": "Contagem dos webhooks cadastrados na Central de integrações."
+  },
+  {
+    "termo": "Webhooks ativos",
+    "sinonimos": [
+      "Webhooks ligados",
+      "Webhooks em operação"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos webhooks estão ligados e, portanto, recebem os eventos assinados. Webhook desligado permanece cadastrado, mas é ignorado na hora de entregar os avisos.",
+    "como_ler": "Compare com o total de webhooks: uma diferença grande indica cadastros antigos que ninguém desligou ou conexões preparadas e nunca ativadas.",
+    "o_que_fazer": "Revise os desligados: se ainda fazem sentido, ligue e valide com um evento de teste; se não, exclua para não confundir a operação.",
+    "fonte": "Contagem dos webhooks marcados como ativos."
+  },
+  {
+    "termo": "Integrações previstas",
+    "sinonimos": [
+      "Catálogo de integrações",
+      "Integrações do catálogo",
+      "Catálogo"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos tipos de conexão a especificação do SGP prevê: ERP, CRM, RH, LMS, Jira, Azure DevOps, Teams, Slack, Power BI, agendas, GitHub, GitLab, ESCO/SFIA e certificadoras. No catálogo, cada card informa o que a integração troca e em que sentido.",
+    "como_ler": "A etiqueta de cada card diz se ele está configurado e se o conector já está disponível ou é apenas configuração. Direção bidirecional troca dados nos dois sentidos; unidirecional envia ou recebe em um único sentido. No catálogo de referência, nenhuma conexão está ativa.",
+    "o_que_fazer": "Use o catálogo como roteiro de implantação: escolha por impacto de negócio e configure em modo simulação antes de ligar o modo real.",
+    "fonte": "Lista de tipos de integração previstos, comparada com o que já está configurado."
+  },
+  {
+    "termo": "Tokens emitidos",
+    "sinonimos": [
+      "Tokens de API",
+      "Credenciais de API",
+      "Credenciais emitidas",
+      "Token de API"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas credenciais de acesso foram criadas para que outros sistemas consultem ou gravem no SGP sem usar a senha de uma pessoa. Cada credencial tem escopos, origem autorizada e validade.",
+    "como_ler": "É o total histórico, incluindo credenciais já revogadas e vencidas. O valor do token só é exibido uma vez, na criação; depois disso, apenas a versão mascarada fica disponível para conferência.",
+    "o_que_fazer": "Mantenha o menor número possível de credenciais e revise a lista periodicamente, revogando o que não estiver em uso.",
+    "fonte": "Contagem das credenciais de API cadastradas."
+  },
+  {
+    "termo": "Tokens ativos",
+    "sinonimos": [
+      "Credenciais ativas",
+      "Tokens válidos"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Credenciais que estão ligadas e ainda dentro do prazo de validade — ou seja, que realmente conseguem autenticar hoje.",
+    "como_ler": "É o número que importa para a segurança: quanto menor o conjunto de credenciais válidas, menor a superfície de exposição. Credencial sem data de validade nunca expira e conta como ativa enquanto estiver ligada.",
+    "o_que_fazer": "Dê prazo de validade às credenciais permanentes e revogue as que não têm uso previsto.",
+    "fonte": "Contagem das credenciais ligadas e não vencidas."
+  },
+  {
+    "termo": "Tokens expirados",
+    "sinonimos": [
+      "Credenciais expiradas",
+      "Tokens vencidos",
+      "Tokens revogados"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Credenciais cujo prazo de validade já passou. Elas continuam visíveis para rastreabilidade, mas não autenticam mais nenhuma chamada.",
+    "como_ler": "Um número alto normalmente indica integrações que pararam de funcionar sem que ninguém percebesse. Se um sistema externo reclamar de acesso negado, esta é a primeira lista a conferir.",
+    "o_que_fazer": "Confirme com o time responsável se a credencial deve ser renovada; em caso positivo, emita uma nova com os mesmos escopos e revogue a antiga.",
+    "fonte": "Contagem das credenciais com data de validade já ultrapassada."
+  },
+  {
+    "termo": "Escopos",
+    "sinonimos": [
+      "Escopos da credencial",
+      "Permissões do token"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "A lista de operações que uma credencial de API pode executar, como consultar projetos, editar tarefas ou registrar alocações. Escopo é o limite de dano de uma credencial vazada.",
+    "como_ler": "Quanto menor a lista, mais segura a credencial. Credencial de leitura não deve ter escopo de escrita; se uma integração só consulta, ela não precisa de permissão de edição.",
+    "o_que_fazer": "Ao criar uma credencial, conceda apenas o que o sistema externo realmente usa e revise os escopos quando a finalidade mudar.",
+    "fonte": "Escopos escolhidos no cadastro da credencial."
+  },
+  {
+    "termo": "Expira em",
+    "sinonimos": [
+      "Validade da credencial",
+      "Data de expiração"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "A data em que a credencial de API deixa de funcionar. Sem data informada, a credencial não expira.",
+    "como_ler": "Credenciais com prazo curto reduzem o risco de um vazamento passar despercebido. Uma data próxima do vencimento é um aviso para já programar a troca, evitando que a integração pare de repente.",
+    "o_que_fazer": "Antes do vencimento, emita uma nova credencial, atualize o sistema externo e revogue a antiga.",
+    "fonte": "Data de validade informada no cadastro da credencial."
+  },
+  {
+    "termo": "Último uso",
+    "sinonimos": [
+      "Última utilização",
+      "Última chamada"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quando a credencial foi usada pela última vez. Credencial nunca usada aparece sem data.",
+    "como_ler": "É o melhor indicador de credencial esquecida: sem uso registrado, ela é risco puro, sem benefício. Uso muito antigo em uma integração que deveria rodar todos os dias indica que a conexão parou.",
+    "o_que_fazer": "Revogue credenciais sem uso e investigue as que deixaram de ser usadas de repente.",
+    "fonte": "Registro de uso da credencial pela API pública."
+  },
+  {
+    "termo": "Última sincronização",
+    "sinonimos": [
+      "Última execução da conexão"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quando a conexão sincronizou pela última vez. Quando nunca rodou, o card mostra a palavra nunca.",
+    "como_ler": "Compare com a frequência configurada, exibida no rodapé do card em minutos. Uma conexão ativa com última sincronização muito antiga está atrasada: ou o agendador não rodou, ou todas as tentativas falharam.",
+    "o_que_fazer": "Se estiver atrasada, teste a conexão e use Sincronizar agora para confirmar se o problema é pontual ou recorrente.",
+    "fonte": "Momento da última execução concluída da conexão."
+  },
+  {
+    "termo": "Próxima",
+    "sinonimos": [
+      "Próxima sincronização",
+      "Próxima execução"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quando a conexão deve rodar novamente. A data é recalculada a cada execução bem-sucedida, somando a frequência configurada ao horário da última rodada.",
+    "como_ler": "Conexão sem agendamento aparece como não agendada, normalmente porque está desligada. Se a data já passou e nada aconteceu, o agendador não conseguiu executar a fila.",
+    "o_que_fazer": "Use Sincronizar todas as vencidas para colocar a fila em dia e verifique se a conexão continua ativa.",
+    "fonte": "Agendamento calculado a partir da última sincronização e da frequência da conexão."
+  },
+  {
+    "termo": "Execuções",
+    "sinonimos": [
+      "Rodadas de sincronização",
+      "Histórico de execuções",
+      "Execução"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas rodadas de sincronização ocorreram no filtro atual. Cada rodada registra operação, situação, contadores de itens e duração.",
+    "como_ler": "O total deve ser compatível com a frequência configurada: uma conexão de hora em hora gera cerca de 24 execuções por dia. O card da conexão mostra o total acumulado com o número de falhas entre parênteses.",
+    "o_que_fazer": "Se o volume estiver muito abaixo do esperado, verifique se a conexão está ativa e se o agendador está rodando.",
+    "fonte": "Contagem das execuções registradas para as conexões, respeitando os filtros da tela."
+  },
+  {
+    "termo": "Itens criados",
+    "sinonimos": [
+      "Criados",
+      "Registros criados"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos registros novos as execuções do filtro geraram no SGP ou no sistema de destino.",
+    "como_ler": "Picos acontecem na primeira carga ou quando a origem passa por uma reorganização; depois disso, o esperado é cair e ficar próximo de zero. Número alto e constante sugere duplicidade ou chave de identificação mal mapeada.",
+    "o_que_fazer": "Confirme se os registros criados são realmente novos e revise o campo usado para reconhecer um item já existente.",
+    "fonte": "Soma dos itens criados nas execuções do período filtrado."
+  },
+  {
+    "termo": "Itens atualizados",
+    "sinonimos": [
+      "Atualizados",
+      "Registros atualizados"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos registros já existentes foram alterados pelas execuções do filtro. É o ritmo normal de uma integração madura: mudanças chegam, o registro é reconhecido e ganha os valores novos.",
+    "como_ler": "O esperado é um volume estável ao longo do tempo. Queda brusca indica origem parada ou mapeamento que deixou de reconhecer os registros; alta repentina pode indicar alteração em massa na origem.",
+    "o_que_fazer": "Se o número zerar em uma conexão ativa, confira na origem se houve mudanças e revise o mapeamento de identificação.",
+    "fonte": "Soma dos itens atualizados nas execuções do período filtrado."
+  },
+  {
+    "termo": "Itens com erro",
+    "sinonimos": [
+      "Com erro na execução",
+      "Registros com erro",
+      "Com erro (execução)"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos registros a sincronização não conseguiu gravar, por campo obrigatório ausente, formato inválido ou referência inexistente. Cada erro fica detalhado na própria execução.",
+    "como_ler": "A faixa saudável é zero. Quando há erros mas a execução continua, a rodada é classificada como sucesso parcial — os registros bons entram e os problemáticos ficam registrados para correção.",
+    "o_que_fazer": "Abra a execução, leia a lista de erros e ajuste o mapeamento ou a origem. Um mesmo erro repetido em várias rodadas costuma ter uma única causa.",
+    "fonte": "Soma dos registros com erro nas execuções do período filtrado."
+  },
+  {
+    "termo": "Duração média",
+    "sinonimos": [
+      "Tempo médio das execuções"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Tempo médio que cada rodada de sincronização levou para concluir, considerando as execuções do filtro.",
+    "como_ler": "O esperado é estabilidade. Aumento súbito indica volume maior do que o normal ou lentidão no sistema de destino; redução costuma acompanhar cargas menores.",
+    "o_que_fazer": "Se a duração crescer sem aumento de itens, verifique a resposta do sistema externo e a frequência configurada — rodadas longas demais podem se sobrepor.",
+    "fonte": "Média da duração registrada em cada execução do período filtrado."
+  },
+  {
+    "termo": "Execuções com falha",
+    "sinonimos": [
+      "Falhas",
+      "Rodadas com falha"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas rodadas do filtro terminaram em falha total, sem gravar nenhum item. Falha total é diferente de sucesso parcial: aqui, nada foi processado.",
+    "como_ler": "A faixa saudável é zero. Falhas marcadas repetidamente na mesma conexão indicam problema estrutural — credencial, endereço ou indisponibilidade do destino — e não um caso isolado.",
+    "o_que_fazer": "Abra a execução com falha, leia a mensagem e o erro do conector, corrija a causa e rode uma nova sincronização para confirmar.",
+    "fonte": "Contagem das execuções com situação Falha no período filtrado."
+  },
+  {
+    "termo": "Grupos avaliados",
+    "sinonimos": [
+      "Grupos na comparação"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos grupos de colaboradores entraram na comparação — por exemplo, cada área, cada faixa de tempo de casa, cada faixa de custo por hora e cada perfil que recebeu ao menos uma recomendação no período.",
+    "como_ler": "É a base da leitura: uma cobertura estreita significa que muitas pessoas não aparecem na análise. O número abaixo do valor mostra quantas dimensões foram auditadas.",
+    "o_que_fazer": "Se poucos grupos aparecerem, amplie o período ou verifique se o motor de alocação está gerando recomendações para todas as áreas.",
+    "fonte": "Contagem dos grupos distintos formados pelas recomendações do período auditado."
+  },
+  {
+    "termo": "Registros críticos",
+    "sinonimos": [
+      "Comparações críticas",
+      "Críticos"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas comparações entre grupo e média geral ficaram acima de 30% de disparidade. Cada grupo é comparado em três indicadores: taxa de seleção, score médio recebido e taxa de override.",
+    "como_ler": "Acima de 30% a classificação é Crítico, a faixa mais grave do sistema. O esperado é zero; qualquer valor acima disso exige apuração com revisão humana antes de qualquer decisão sobre pessoas.",
+    "o_que_fazer": "Abra as dimensões marcadas em vermelho, leia a recomendação registrada para cada grupo e leve o caso para a reunião de alocação com o contexto de disponibilidade e especialização.",
+    "fonte": "Contagem das comparações classificadas como Crítico na apuração do período."
+  },
+  {
+    "termo": "Registros em atenção",
+    "sinonimos": [
+      "Comparações em atenção",
+      "Em atenção"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas comparações ficaram entre 15% e 30% de disparidade — a faixa intermediária, em que a diferença já é relevante mas ainda não é crítica.",
+    "como_ler": "É a faixa que antecede o problema: acompanhar agora evita que o grupo caia para Crítico na próxima auditoria. Exatamente 30% ainda é Atenção; acima disso passa a Crítico.",
+    "o_que_fazer": "Compare estes grupos com o score médio recebido: score parecido com seleção menor é o sinal mais forte de que o motor está desfavorecendo o grupo.",
+    "fonte": "Contagem das comparações com disparidade entre 15% e 30% na apuração do período."
+  },
+  {
+    "termo": "Sem disparidade",
+    "sinonimos": [
+      "Registros OK",
+      "Registros sem disparidade"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas comparações ficaram abaixo de 15% de diferença em relação à média geral — ou seja, o grupo está equilibrado com o restante da organização.",
+    "como_ler": "O ideal é que este seja o maior número da linha de indicadores. Ele dá o contraste necessário para ler os críticos: sem essa referência, qualquer diferença pareceria alarmante.",
+    "fonte": "Contagem das comparações com disparidade abaixo de 15% na apuração do período."
+  },
+  {
+    "termo": "Grupos críticos",
+    "sinonimos": [
+      "Grupos com disparidade crítica"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos grupos distintos têm pelo menos uma comparação em nível Crítico. É diferente de Registros críticos: aqui cada grupo conta uma vez, mesmo que apareça em mais de um indicador.",
+    "como_ler": "O número abaixo do valor mostra quantos grupos estão em Atenção. O esperado é zero, e o painel lista os cinco casos mais graves com a dimensão, o grupo e o percentual de disparidade.",
+    "o_que_fazer": "Trate cada grupo listado como pauta de governança: revise os pesos do modo Performance, incentive o modo Desenvolvimento e registre a justificativa das substituições manuais.",
+    "fonte": "Grupos distintos com ao menos uma comparação classificada como Crítico na apuração."
+  },
+  {
+    "termo": "Taxa de seleção geral",
+    "sinonimos": [
+      "Taxa de seleção",
+      "Seleção geral"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quanto das recomendações geradas pelo motor de alocação foi efetivamente aceito no período. Mede a aderência dos gestores às sugestões do sistema.",
+    "como_ler": "O número abaixo do valor mostra quantas recomendações foram aceitas sobre o total analisado. Taxa muito baixa indica que a decisão humana está seguindo outro caminho; é justamente essa diferença que a auditoria investiga grupo a grupo.",
+    "o_que_fazer": "Se a taxa estiver baixa, verifique se os pesos do motor refletem a realidade das equipes e registre o motivo das recusas.",
+    "formula": "Taxa de seleção geral = recomendações aceitas ÷ total de recomendações do período",
+    "exemplo": "142 recomendações aceitas em 300 analisadas resultam em taxa de seleção de 47,3%.",
+    "fonte": "Recomendações geradas pelo motor de alocação e o status de cada uma no período auditado."
+  },
+  {
+    "termo": "Score médio recebido",
+    "sinonimos": [
+      "Score médio",
+      "Média de score"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Média da pontuação de aderência técnica das recomendações do período. Quanto maior, melhor a combinação entre a pessoa sugerida e a necessidade da tarefa.",
+    "como_ler": "Serve de régua para comparar grupos: um grupo com taxa de seleção baixa mas score parecido com a média é o sinal mais consistente de disparidade. O valor é um índice, não um percentual.",
+    "o_que_fazer": "Se a média cair, revise os critérios de capacidade e disponibilidade usados na recomendação antes de concluir qualquer coisa sobre pessoas.",
+    "fonte": "Pontuação calculada pelo motor de alocação para cada recomendação do período."
+  },
+  {
+    "termo": "Taxa de override",
+    "sinonimos": [
+      "Override",
+      "Substituições do gestor",
+      "Taxa de override do gestor"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Com que frequência a decisão humana substituiu a indicação do motor de alocação — escolhendo outra pessoa ou trocando o responsável depois da recomendação.",
+    "como_ler": "O número abaixo do valor mostra quantas decisões foram substituídas. Override alto e sem justificativa registrada enfraquece o motor e é uma das causas mais comuns de disparidade entre grupos. O cálculo é limitado a 100%.",
+    "o_que_fazer": "Exija justificativa em cada substituição e leia os motivos registrados: eles explicam se o motor está errado ou se a decisão está sendo tomada por critérios informais.",
+    "formula": "Taxa de override = decisões substituídas ÷ total de recomendações do período",
+    "exemplo": "45 substituições em 300 recomendações resultam em taxa de override de 15%.",
+    "fonte": "Recomendações marcadas como substituídas e alocações registradas com override manual no período."
+  },
+  {
+    "termo": "Posição média no ranking",
+    "sinonimos": [
+      "Posição média",
+      "Colocação média"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Em que posição média o grupo aparece na lista ordenada de candidatos das recomendações recebidas. Quanto menor o número, melhor colocado o grupo costuma estar.",
+    "como_ler": "É uma leitura complementar: um grupo pode ter taxa de seleção próxima da média e ainda assim aparecer sempre no fim do ranking. Posição consistentemente alta (número grande) em todos os grupos indica que o critério de ordenação precisa ser revisto.",
+    "o_que_fazer": "Cruze com a taxa de seleção: ranking ruim somado a seleção baixa aponta para os pesos do motor, não para a decisão do gestor.",
+    "fonte": "Posição de cada recomendação na lista de candidatos, calculada pelo motor de alocação."
+  },
+  {
+    "termo": "Recomendações analisadas",
+    "sinonimos": [
+      "Total de recomendações",
+      "Recomendações no período"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantas recomendações de alocação foram geradas no período auditado e entraram na comparação entre grupos. É o tamanho da amostra da auditoria.",
+    "como_ler": "Abaixo de 10 recomendações no período, o próprio sistema avisa que a amostra é insuficiente e que conclusões são frágeis. Grupos com menos de 10 recomendações recebem o alerta de amostra pequena linha a linha.",
+    "o_que_fazer": "Se o volume for baixo, amplie o período da auditoria antes de tirar conclusões ou de levar o resultado para uma decisão de gestão.",
+    "fonte": "Recomendações de alocação geradas pelo motor no período escolhido."
+  },
+  {
+    "termo": "Período analisado",
+    "sinonimos": [
+      "Período da auditoria",
+      "Janela analisada"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "Quantos dias a auditoria cobriu e entre quais datas. O período é escolhido antes de executar a apuração, entre 30, 90, 180 e 365 dias — o padrão é 180 dias.",
+    "como_ler": "Compare sempre períodos equivalentes. Janelas curtas oscilam muito com poucas recomendações; janelas longas diluem mudanças recentes. Um período maior também aumenta o tamanho da amostra e reduz o risco de conclusão precipitada.",
+    "o_que_fazer": "Se o resultado de 90 dias divergir muito do de 365 dias, investigue o que mudou no motor ou na composição das equipes no intervalo.",
+    "fonte": "Intervalo de datas escolhido para a apuração da auditoria de viés."
+  },
+  {
+    "termo": "Amostra mínima",
+    "sinonimos": [
+      "Mínimo confiável",
+      "Amostra suficiente",
+      "Amostra insuficiente"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "O piso de recomendações que o sistema considera confiável para a auditoria: 10 recomendações no período. Abaixo disso, o resultado é apenas indicativo.",
+    "como_ler": "O número abaixo do valor diz se o período tem amostra suficiente. Quando não tem, o sistema exibe um aviso e cada linha de grupo com menos de 10 recomendações é marcada como amostra pequena — leia esses casos como pista, nunca como conclusão.",
+    "o_que_fazer": "Amplie o período da auditoria até atingir a amostra mínima antes de levar qualquer resultado para decisão sobre pessoas.",
+    "exemplo": "Um período com 7 recomendações fica abaixo do mínimo de 10: o resultado aparece, mas não sustenta conclusão.",
+    "fonte": "Mínimo de recomendações definido na metodologia da auditoria de viés."
+  },
+  {
+    "termo": "Disparidade",
+    "sinonimos": [
+      "Disparidade percentual",
+      "Diferença em relação à média"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "A diferença percentual entre o valor do grupo e a média geral do período, no indicador comparado. Valor positivo significa que o grupo está acima da média; negativo, abaixo.",
+    "como_ler": "As faixas do sistema são: até 15% sem disparidade relevante, de 15% a 30% atenção e acima de 30% crítico — os mesmos limites do medidor, sempre em módulo. Barras à direita indicam seleção acima da média; à esquerda, abaixo.",
+    "o_que_fazer": "Priorize as disparidades negativas críticas: são as que indicam um grupo recebendo menos oportunidades do que a média sugere.",
+    "formula": "Disparidade = (valor do grupo − média geral) ÷ média geral",
+    "exemplo": "Taxa de seleção de 40% em um grupo com média geral de 80% resulta em disparidade de −50% — faixa crítica.",
+    "fonte": "Comparação entre o valor de cada grupo e a média geral do período, nos indicadores de seleção, score e override."
+  },
+  {
+    "termo": "Disparidade na taxa de seleção por grupo",
+    "sinonimos": [
+      "Gráfico de disparidade",
+      "Barras divergentes da disparidade"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "O gráfico que coloca todos os grupos da dimensão lado a lado, mostrando o quanto cada um está acima ou abaixo da média geral na taxa de seleção.",
+    "como_ler": "Barras à direita indicam seleção acima da média geral; à esquerda, abaixo. A cor acompanha a severidade e o destaque vermelho marca disparidade negativa relevante. A escala se ajusta ao maior desvio da dimensão, então compare barras dentro do mesmo gráfico.",
+    "o_que_fazer": "Olhe primeiro os grupos deslocados para a esquerda: são os candidatos naturais à apuração com revisão humana.",
+    "fonte": "Taxa de seleção de cada grupo comparada com a média geral do período."
+  },
+  {
+    "termo": "Valor do grupo",
+    "sinonimos": [
+      "Valor observado no grupo"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "O número que o grupo apresentou no indicador comparado — taxa de seleção, score médio recebido ou taxa de override. É o dado bruto antes da comparação com a média.",
+    "como_ler": "Leia sempre em par com a média geral, que aparece na coluna ao lado. Um valor alto ou baixo isolado não diz nada; o que importa é a distância até a média do período.",
+    "fonte": "Apuração dos indicadores de cada grupo no período auditado."
+  },
+  {
+    "termo": "Média geral",
+    "sinonimos": [
+      "Valor de referência",
+      "Média do período"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "O valor de referência do período: a média do indicador considerando todas as recomendações analisadas, sem separar por grupo.",
+    "como_ler": "Todos os grupos são comparados com esta linha. Quando a média geral é zero, não há base de comparação e a disparidade do indicador aparece como zero — vale checar se a métrica faz sentido para o período.",
+    "fonte": "Média do indicador em todas as recomendações do período auditado."
+  },
+  {
+    "termo": "Severidade",
+    "sinonimos": [
+      "Severidade da disparidade",
+      "Sem disparidade relevante",
+      "Crítico",
+      "Crítica",
+      "Atenção"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "A classificação da disparidade em três níveis, para separar o que é ruído do que exige apuração: sem disparidade relevante, atenção e crítico.",
+    "como_ler": "Até 15% é sem disparidade relevante; de 15% a 30% é atenção; acima de 30% é crítico. A etiqueta colorida da tabela e o destaque da linha seguem exatamente essas faixas, iguais às do medidor de severidade da disparidade.",
+    "o_que_fazer": "Trate atenção como acompanhamento e crítico como pauta obrigatória de revisão humana.",
+    "fonte": "Classificação aplicada a cada comparação entre grupo e média geral."
+  },
+  {
+    "termo": "Amostra pequena",
+    "sinonimos": [
+      "Amostra",
+      "Amostra do grupo"
+    ],
+    "categoria": "Integrações e análises",
+    "o_que_e": "O aviso de que o grupo tem menos de 10 recomendações no período. Aparece em cada linha da tabela e no histórico de auditorias.",
+    "como_ler": "Grupos pequenos oscilam muito: uma ou duas recomendações mudam o percentual inteiro. Um caso crítico em grupo com amostra pequena é pista para investigar, não conclusão para agir.",
+    "o_que_fazer": "Confirme a leitura com mais dados antes de qualquer decisão: amplie o período ou aguarde mais recomendações para o grupo.",
+    "fonte": "Contagem de recomendações recebidas pelo grupo no período auditado."
+  },
+  {
+    "termo": "Registros no filtro",
+    "sinonimos": [
+      "Registros de auditoria",
+      "Lançamentos na trilha",
+      "Total de registros"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos lançamentos da trilha de auditoria atendem aos filtros aplicados na tela. A trilha registra quem fez o quê, quando, em qual registro e a partir de qual endereço.",
+    "como_ler": "É o total encontrado, não apenas os 50 exibidos por página. Registros antigos indicam tempo de casa do sistema; picos em um período costumam acompanhar cargas, importações ou mudanças de configuração.",
+    "o_que_fazer": "Use os filtros de ação, entidade e usuário para reduzir o volume e exporte em CSV quando precisar analisar fora do sistema.",
+    "fonte": "Contagem dos lançamentos da trilha de auditoria que atendem aos filtros da tela."
+  },
+  {
+    "termo": "Criações",
+    "sinonimos": [
+      "Registros de criação",
+      "Criação"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos registros novos foram criados no período filtrado — projetos, tarefas, riscos, usuários, campos, entre outros.",
+    "como_ler": "Serve para dimensionar o ritmo de entrada de trabalho no sistema. Um pico isolado normalmente é carga inicial ou importação; crescimento contínuo indica ampliação real do uso.",
+    "o_que_fazer": "Cruze com a distribuição por usuário para identificar de onde vem o volume e se ele corresponde ao planejado.",
+    "fonte": "Lançamentos da trilha classificados como criação no período filtrado."
+  },
+  {
+    "termo": "Exclusões",
+    "sinonimos": [
+      "Registros de exclusão",
+      "Exclusão"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos registros foram excluídos no período filtrado. A trilha guarda o que existia antes da exclusão, então nada desaparece sem rastro.",
+    "como_ler": "Exclusões são irreversíveis pela interface e merecem atenção: o esperado é um volume baixo e explicado. Blocos de exclusões no mesmo dia ou pelo mesmo usuário pedem conferência.",
+    "o_que_fazer": "Abra os registros de exclusão, leia a justificativa e confirme com a área se a remoção era esperada.",
+    "fonte": "Lançamentos da trilha classificados como exclusão no período filtrado."
+  },
+  {
+    "termo": "Logins",
+    "sinonimos": [
+      "Acessos registrados",
+      "Login"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas entradas no sistema foram registradas no período filtrado. Entradas e saídas também são auditadas, o que garante rastreabilidade de acesso.",
+    "como_ler": "Compare com o número de pessoas da equipe: um volume muito acima do padrão pode indicar acessos repetidos por sessão expirada; muito abaixo, uso concentrado em poucas pessoas. É também a base para investigar acessos fora de horário.",
+    "o_que_fazer": "Filtre por usuário e período quando precisar apurar um acesso específico, e exporte o resultado para anexar a uma investigação.",
+    "fonte": "Lançamentos da trilha classificados como login no período filtrado."
+  },
+  {
+    "termo": "Entidades distintas",
+    "sinonimos": [
+      "Entidade auditada",
+      "Tipos de registro auditados",
+      "Entidades auditadas"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos tipos diferentes de registro aparecem na trilha do período: projetos, tarefas, riscos, alocações, capacidades, usuários, campos personalizados e outros.",
+    "como_ler": "Mostra a amplitude da auditoria — quanto mais tipos, mais completa a cobertura. O painel de apoio lista os tipos mais frequentes, então tipos com pouco movimento podem não aparecer na lista mesmo estando contabilizados aqui.",
+    "o_que_fazer": "Se um módulo importante não aparecer, verifique se as operações dele estão sendo registradas e se o filtro de período não está restringindo demais.",
+    "fonte": "Tipos de registro identificados nos lançamentos da trilha no período filtrado."
+  },
+  {
+    "termo": "Usuários ativos na trilha",
+    "sinonimos": [
+      "Usuários na trilha",
+      "Autores dos registros"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas pessoas diferentes aparecem como autoras de operações no período filtrado. Ações automáticas do próprio sistema aparecem agrupadas como sistema.",
+    "como_ler": "É uma medida de rastro por pessoa: um número muito menor que o time indica que boa parte das equipes não opera diretamente no SGP. O painel de apoio lista os autores mais frequentes, então autores com pouco volume podem não aparecer na lista.",
+    "o_que_fazer": "Se uma área inteira não aparece, verifique se as pessoas estão usando o sistema ou se o trabalho está sendo registrado por outra pessoa.",
+    "fonte": "Autores distintos identificados nos lançamentos da trilha no período filtrado."
+  },
+  {
+    "termo": "Distribuição por ação",
+    "sinonimos": [
+      "Gráfico por ação",
+      "Ações na trilha"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O gráfico que reparte os lançamentos da trilha pelas nove ações auditadas: criação, atualização, exclusão, login, logout, exportação, aprovação, alocação e validação de capacidade.",
+    "como_ler": "A leitura natural é por contraste: atualizações costumam dominar, enquanto exclusões, aprovações e exportações devem ser minorias visíveis. Uma fatia de exportação crescendo merece atenção, porque saída de dados é operação sensível.",
+    "o_que_fazer": "Use os filtros de ação para investigar a fatia que chamou atenção e confira autor, data e justificativa de cada caso.",
+    "fonte": "Contagem dos lançamentos da trilha agrupados por tipo de ação."
+  },
+  {
+    "termo": "Entidades mais auditadas",
+    "sinonimos": [
+      "Gráfico por entidade",
+      "Tipos mais auditados"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O gráfico com os tipos de registro que mais geraram lançamentos na trilha no período filtrado.",
+    "como_ler": "Volume alto indica onde o sistema é mais usado e, por consequência, onde uma alteração indevida teria mais impacto. Projetos e tarefas normalmente lideram; riscos e alocações aparecem em seguida.",
+    "o_que_fazer": "Use este gráfico para priorizar a revisão: comece pelos tipos com mais movimento quando precisar apurar um período.",
+    "fonte": "Contagem dos lançamentos da trilha agrupados por tipo de registro."
+  },
+  {
+    "termo": "Volume por usuário",
+    "sinonimos": [
+      "Gráfico por usuário",
+      "Autores mais ativos"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O gráfico com as pessoas que mais geraram lançamentos na trilha no período filtrado. Ações automáticas do sistema aparecem agrupadas como sistema.",
+    "como_ler": "Ajuda a separar uso normal de concentração indevida: um único autor responsável por quase tudo pode indicar ausência de segregação de funções. Volume alto também é esperado em perfis administrativos e de PMO.",
+    "o_que_fazer": "Ao investigar um período, filtre pelo autor para ver a sequência completa de operações dele.",
+    "fonte": "Contagem dos lançamentos da trilha agrupados por autor."
+  },
+  {
+    "termo": "Comparativo antes × depois",
+    "sinonimos": [
+      "Antes e depois",
+      "Diferenças do registro"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "A leitura campo a campo do que mudou em um registro: o valor anterior e o valor novo de cada campo, com a marcação de adicionado, removido, alterado ou igual.",
+    "como_ler": "Campos em verde foram adicionados ou alterados; em vermelho, removidos. Registros sem comparativo são eventos como login e logout, que não alteram campos. O total de campos e o número de alterados aparecem no topo do comparativo.",
+    "o_que_fazer": "Use este bloco como prova documental ao responder de onde veio determinado valor e quem o alterou.",
+    "fonte": "Valores anteriores e novos gravados no próprio lançamento da trilha."
+  },
+  {
+    "termo": "Exportar CSV",
+    "sinonimos": [
+      "Exportação da trilha",
+      "Baixar auditoria"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Gera um arquivo com os lançamentos da trilha exatamente como estão filtrados na tela, para análise fora do sistema ou anexo em auditorias.",
+    "como_ler": "O arquivo respeita os filtros aplicados — inclusive o período e o usuário —, e a própria exportação fica registrada na trilha como operação de exportação.",
+    "o_que_fazer": "Antes de exportar, ajuste os filtros ao recorte exato que você precisa: um arquivo amplo demais expõe dados desnecessários.",
+    "fonte": "Lançamentos da trilha de auditoria que atendem aos filtros da tela."
+  },
+  {
+    "termo": "Política de retenção",
+    "sinonimos": [
+      "Retenção de 5 anos",
+      "Imutabilidade dos registros"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "A regra que sustenta a trilha: os lançamentos não podem ser alterados nem excluídos pela aplicação e permanecem disponíveis por no mínimo cinco anos.",
+    "como_ler": "É o que dá valor probatório ao registro. Como não há edição, um lançamento incorreto não é corrigido: a correção do dado gera um novo lançamento, e os dois ficam visíveis.",
+    "o_que_fazer": "Ao responder a uma auditoria interna ou a um pedido de compliance, cite o período coberto e o caráter imutável dos registros.",
+    "fonte": "Política de segurança da informação aplicada à trilha de auditoria do SGP."
+  },
+  {
+    "termo": "Justificativa",
+    "sinonimos": [
+      "Motivo registrado",
+      "Justificativa da operação"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O texto que explica por que uma operação sensível foi feita — uma exclusão, uma aprovação, uma validação de capacidade, uma sincronização ou a mudança de visibilidade de um custo.",
+    "como_ler": "Quando aparece como não informada, a operação continua válida, mas perde contexto para quem audita depois. É a diferença entre saber o que mudou e entender por quê.",
+    "o_que_fazer": "Padronize o hábito de justificar operações sensíveis: um registro com motivo claro evita uma apuração demorada meses depois.",
+    "fonte": "Texto informado pelo autor no momento da operação."
+  },
+  {
+    "termo": "Usuários listados",
+    "sinonimos": [
+      "Usuários na lista",
+      "Pessoas listadas"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas pessoas aparecem na lista de usuários considerando a busca e os filtros aplicados — perfil, área e situação.",
+    "como_ler": "É o retrato do recorte atual, não o total da organização. Com a lista sem filtro, o número corresponde ao total de cadastros ativos e inativos.",
+    "o_que_fazer": "Limpe os filtros para conferir o tamanho real da base antes de concluir qualquer coisa sobre a composição do time.",
+    "fonte": "Contagem das pessoas que atendem aos filtros aplicados na tela de usuários."
+  },
+  {
+    "termo": "Ativos",
+    "sinonimos": [
+      "Usuários ativos",
+      "Usuário ativo",
+      "Inativos"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas pessoas do recorte atual conseguem entrar no sistema. O número abaixo do valor mostra quantas estão inativas.",
+    "como_ler": "Usuário inativo não autentica, mas continua existindo no histórico — ele mantém tarefas, alocações e registros de auditoria vinculados. Por isso o correto ao desligar alguém é inativar, não excluir.",
+    "o_que_fazer": "Revise periodicamente os inativos: se a pessoa voltou, reative a mesma conta em vez de criar outra, para não dividir o histórico dela em dois cadastros.",
+    "fonte": "Contagem das pessoas marcadas como ativas na lista de usuários."
+  },
+  {
+    "termo": "Mentores",
+    "sinonimos": [
+      "Disponíveis para mentoria",
+      "Mentores disponíveis"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas pessoas do recorte atual se colocaram à disposição para mentoria. Elas passam a aparecer nas sugestões de mentor para as capacidades em que são referência.",
+    "como_ler": "É um indicador de cobertura de desenvolvimento, não de desempenho: número baixo limita as opções de mentoria e sobrecarrega poucos nomes. Vale olhar a distribuição por área e por capacidade.",
+    "o_que_fazer": "Se a cobertura estiver baixa, converse com as referências técnicas para que se habilitem e garanta que as capacidades delas estejam registradas no catálogo.",
+    "fonte": "Contagem das pessoas marcadas como disponíveis para mentoria."
+  },
+  {
+    "termo": "Acesso ao admin",
+    "sinonimos": [
+      "Acesso administrativo",
+      "Contas de administração"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas pessoas têm acesso administrativo técnico direto ao sistema, além das permissões normais de uso. É um acesso de manutenção, não um perfil funcional de trabalho.",
+    "como_ler": "O esperado é um número muito pequeno, restrito a contas técnicas nominadas. Cada acesso a mais amplia o risco de alteração sem trilha e de exposição de dados sensíveis como custo por hora.",
+    "o_que_fazer": "Revise a lista e desligue o acesso de quem não precisa dele para a função atual; contas compartilhadas devem ser substituídas por contas individuais.",
+    "fonte": "Contagem das pessoas marcadas com acesso administrativo técnico."
+  },
+  {
+    "termo": "Áreas",
+    "sinonimos": [
+      "Áreas distintas",
+      "Quantidade de áreas"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas áreas diferentes aparecem entre as pessoas listadas. A área é o campo que organiza relatórios, filtros e a própria auditoria de viés das recomendações.",
+    "como_ler": "O indicador serve para medir a qualidade do cadastro: muitas pessoas sem área reduzem este número e enfraquecem os cortes por área. Áreas escritas de formas diferentes contam como áreas distintas.",
+    "o_que_fazer": "Padronize os nomes de área no cadastro das pessoas — o campo sugere valores já usados justamente para evitar duplicidade.",
+    "fonte": "Contagem de áreas distintas preenchidas no cadastro das pessoas listadas."
+  },
+  {
+    "termo": "Papéis",
+    "sinonimos": [
+      "Papéis cadastrados",
+      "Papéis customizados",
+      "Papel"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos papéis de permissão estão cadastrados na organização. Papel é um conjunto de permissões criado sob medida, como Auditor ou Coordenador de PMO, que se soma ao perfil funcional da pessoa.",
+    "como_ler": "Cada card informa quantas permissões o papel concede, quantos vínculos ativos ele tem e se é um papel de sistema, que vem com o SGP e não pode ser excluído. Papel sem vínculo não afeta ninguém.",
+    "o_que_fazer": "Revise papéis sem vínculo e mantenha poucos papéis com finalidades claras: muitos papéis parecidos tornam a revisão de acessos inviável.",
+    "fonte": "Contagem dos papéis cadastrados na administração do sistema."
+  },
+  {
+    "termo": "Matriz de permissões",
+    "sinonimos": [
+      "Grade de permissões",
+      "Permissões por perfil",
+      "Matriz RBAC",
+      "Permissões concedidas",
+      "Administrador",
+      "Executivo (C-Level)",
+      "PMO",
+      "Gerente de Projetos",
+      "Líder Técnico",
+      "Membro de Equipe",
+      "RH / DHO",
+      "Stakeholder"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "A grade que cruza todas as permissões do sistema com os oito perfis funcionais, mostrando o que cada perfil concede. Os cartões acima da grade mostram, para cada perfil, quantas permissões do catálogo ele concede. Cada linha da grade é uma permissão no formato recurso.ação, como projeto.editar.",
+    "como_ler": "Marca verde significa concedida; cinza, não concedida. O perfil Administrador recebe o curinga, que concede tudo e por isso aparece com o total de permissões do catálogo. Os demais perfis somam apenas as permissões listadas, e papéis customizados acrescentam itens a esse conjunto.",
+    "o_que_fazer": "Antes de criar um papel novo, confira se o perfil já não cobre a necessidade — permissão a mais é acesso a mais.",
+    "fonte": "Catálogo de permissões do sistema e o que cada perfil funcional concede."
+  },
+  {
+    "termo": "Custo/hora",
+    "sinonimos": [
+      "Custo por hora (R$)",
+      "Custo por hora",
+      "Valor da hora"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O valor da hora da pessoa, usado para custear alocações e analisar o custo real do trabalho. É dado sensível de RH, com visibilidade controlada.",
+    "como_ler": "Na lista, o campo mostra restrito quando quem está vendo não tem autorização — apenas administradores, RH, PMO, gerentes, executivos e o próprio interessado veem o valor. Custo zerado significa que o dado não foi informado, e não que a hora é gratuita.",
+    "o_que_fazer": "Mantenha os valores atualizados pelo RH e evite liberar a visibilidade ampla sem justificativa de negócio: toda alteração fica registrada na trilha de auditoria.",
+    "fonte": "Valor de custo por hora cadastrado no perfil da pessoa."
+  },
+  {
+    "termo": "Capacidade semanal (horas)",
+    "sinonimos": [
+      "Capacidade semanal",
+      "Horas semanais",
+      "Disponibilidade semanal"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas horas por semana a pessoa está disponível para o trabalho no SGP. É a base para calcular a capacidade disponível em qualquer período e para dimensionar a demanda de pessoas.",
+    "como_ler": "O padrão é 40 horas; use menos para quem tem jornada reduzida ou dividiu o tempo com outras frentes. A capacidade de um período é a semanal dividida por cinco, multiplicada pelos dias úteis do intervalo — capacidade zerada distorce alocação e previsão de demanda.",
+    "o_que_fazer": "Confirme o valor com o RH no cadastro e revise quando a pessoa mudar de jornada ou acumular funções.",
+    "formula": "Capacidade do período = capacidade semanal ÷ 5 × dias úteis do intervalo",
+    "exemplo": "Com 30 horas semanais, um mês com 20 dias úteis rende 120 horas de capacidade.",
+    "fonte": "Campo de capacidade semanal do cadastro da pessoa, usado nos cálculos de alocação e demanda."
+  },
+  {
+    "termo": "Custo visível para todos",
+    "sinonimos": [
+      "Visibilidade do custo",
+      "Custo visível"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Define se o custo por hora da pessoa pode ser visto por qualquer usuário do sistema. Desligado, o valor fica restrito a administradores, RH, PMO, gerentes, executivos e ao próprio interessado.",
+    "como_ler": "Ligado, o dado circula por toda a organização, inclusive em telas de times e relatórios. Desligado, quem não tem autorização vê a palavra restrito no lugar do valor.",
+    "o_que_fazer": "Deixe desligado por padrão e só libere com justificativa de negócio registrada, já que a mudança é auditada.",
+    "fonte": "Preferência de visibilidade do custo por hora no cadastro da pessoa."
+  },
+  {
+    "termo": "Perfil",
+    "sinonimos": [
+      "Perfil funcional",
+      "Perfil do usuário"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O perfil funcional da pessoa no sistema, entre os oito previstos: Administrador, Executivo, PMO, Gerente de Projetos, Líder Técnico, Membro de Equipe, RH/DHO e Stakeholder. É o perfil que define o menu e as ações permitidas.",
+    "como_ler": "A coluna mostra o nome amigável do perfil. Permissões de papéis customizados somam-se a ele, mas nunca retiram o que o perfil concede. Perfil trocado muda o acesso imediatamente.",
+    "o_que_fazer": "Ao mudar o perfil de alguém, confira antes se os papéis vinculados continuam fazendo sentido e revise o acesso resultante.",
+    "fonte": "Perfil funcional cadastrado na pessoa."
+  },
+  {
+    "termo": "Vínculos",
+    "sinonimos": [
+      "Vínculo de papel",
+      "Vínculos de usuários",
+      "Vínculos de papéis"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas pessoas estão ligadas a um papel. O vínculo é o que dá efeito prático ao papel, e cada vínculo tem um escopo: global, portfólio, programa, projeto ou pessoal.",
+    "como_ler": "Papel com zero vínculos não afeta ninguém e pode ser removido. Papel com muitos vínculos globais merece revisão, porque concentra poder de alteração em muita gente.",
+    "o_que_fazer": "Ao revisar acessos, comece pelos papéis com mais vínculos: são os que mais impactam a segurança do sistema.",
+    "fonte": "Relação entre pessoas e papéis cadastrada na administração."
+  },
+  {
+    "termo": "Estados",
+    "sinonimos": [
+      "Estados do workflow",
+      "Etapas do fluxo"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas etapas o fluxo tem. Cada estado é uma etapa por onde os itens passam, com nome, chave, cor, ícone e ordem.",
+    "como_ler": "O número abaixo do valor separa quantos são inicial e quantos são final. Um fluxo precisa de exatamente um estado inicial, onde todo item novo nasce, e de pelo menos um estado final, que encerra o ciclo de vida do item.",
+    "o_que_fazer": "Se faltar estado inicial ou final, o sistema avisa: ajuste antes de usar o fluxo, porque o board não consegue posicionar itens novos sem ponto de entrada.",
+    "fonte": "Contagem dos estados cadastrados no workflow selecionado."
+  },
+  {
+    "termo": "Transições",
+    "sinonimos": [
+      "Transições configuradas",
+      "Caminhos do fluxo"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos caminhos permitidos existem entre os estados do fluxo. Cada transição liga uma origem a um destino, com rótulo opcional e marcação de aprovação obrigatória.",
+    "como_ler": "O número abaixo do valor mostra quantas transições exigem aprovação. Poucas transições deixam o fluxo rígido; muitas tornam o caminho ambíguo. Um par de estados só pode ter uma transição entre eles.",
+    "o_que_fazer": "Use o modo conexão para criar os caminhos que faltam e revise as transições com aprovação obrigatória: elas travam a passagem até alguém aprovar.",
+    "fonte": "Contagem das transições cadastradas no workflow selecionado."
+  },
+  {
+    "termo": "Limites de WIP",
+    "sinonimos": [
+      "WIP",
+      "Limite de WIP",
+      "Colunas com limite"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos estados do fluxo têm limite de trabalho em andamento configurado. O limite é o número máximo de itens que podem ficar parados naquela etapa ao mesmo tempo.",
+    "como_ler": "O número abaixo do valor mostra quantas colunas têm limite. Zero significa sem limite: a etapa aceita quantos itens chegarem. No board, cada coluna exibe o limite ao lado do nome, e o aviso aparece quando a quantidade de itens passa do teto.",
+    "o_que_fazer": "Comece com limites generosos e aperte conforme o time ganha ritmo: limite apertado demais vira gargalo e empurra o trabalho para fora do board.",
+    "exemplo": "Um limite de WIP 3 na etapa Em revisão significa que a quarta tarefa não deveria entrar antes de uma sair.",
+    "fonte": "Limite de trabalho em andamento configurado em cada estado do workflow."
+  },
+  {
+    "termo": "Entidade",
+    "sinonimos": [
+      "Entidade do workflow",
+      "Fluxo aplicado a"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O tipo de registro ao qual o fluxo se aplica: tarefa, projeto, risco ou issue. Um mesmo sistema pode ter fluxos diferentes para tipos diferentes.",
+    "como_ler": "Confirme a entidade antes de editar o desenho: mudar estados de um fluxo de tarefas não afeta projetos. Fluxos marcados como padrão são os usados quando nenhum outro é escolhido.",
+    "o_que_fazer": "Se a entidade estiver errada, crie um novo fluxo em vez de reaproveitar o existente, para não alterar o comportamento de itens já em andamento.",
+    "fonte": "Tipo de registro associado ao workflow selecionado."
+  },
+  {
+    "termo": "Canvas do workflow",
+    "sinonimos": [
+      "Desenho do fluxo",
+      "Diagrama do workflow"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "A área em que o fluxo é desenhado: cada nó é um estado e cada seta é uma transição permitida. Os nós podem ser arrastados e a posição é salva automaticamente.",
+    "como_ler": "O cabeçalho mostra quantos estados e quantas transições o fluxo tem. Estados marcados como inicial e final, e estados com limite de WIP, aparecem sinalizados dentro do próprio nó, junto com a ordem.",
+    "o_que_fazer": "Use Organizar grade para alinhar os nós quando o desenho ficar confuso e o modo conexão para ligar origem e destino com dois cliques.",
+    "fonte": "Estados, transições e posições cadastrados no workflow."
+  },
+  {
+    "termo": "Pré-visualização do board Kanban",
+    "sinonimos": [
+      "Board Kanban",
+      "Colunas do board"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "A simulação de como o fluxo vai aparecer no board: cada estado vira uma coluna, na ordem definida, com a cor e o ícone escolhidos.",
+    "como_ler": "Cada coluna mostra o nome, a chave usada pelo board e o limite de WIP, ou a palavra sem WIP quando não há limite. Colunas marcadas como inicial e final indicam onde os itens entram e onde o ciclo termina.",
+    "o_que_fazer": "Confira a ordem das colunas aqui antes de publicar o fluxo: ela é o que as equipes vão ver no dia a dia.",
+    "fonte": "Estados do workflow ordenados pela ordem cadastrada."
+  },
+  {
+    "termo": "Estado inicial",
+    "sinonimos": [
+      "inicial",
+      "Estado de entrada"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Marca o estado em que todo item novo nasce. Deve existir exatamente um estado inicial por fluxo.",
+    "como_ler": "Sem estado inicial, o sistema não sabe onde colocar um item recém-criado e emite um aviso no próprio desenho. Com mais de um, a entrada fica ambígua.",
+    "o_que_fazer": "Ajuste para que apenas um estado seja inicial e confirme que ele representa a etapa real de entrada do trabalho.",
+    "fonte": "Marcação de estado inicial cadastrada no workflow."
+  },
+  {
+    "termo": "Estado final",
+    "sinonimos": [
+      "final",
+      "Estado de encerramento"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Marca o estado que encerra o ciclo de vida do item — concluído, cancelado ou equivalente.",
+    "como_ler": "Um fluxo sem estado final nunca fecha nada: os itens continuam contando como trabalho em andamento e distorcem os indicadores de progresso.",
+    "o_que_fazer": "Defina pelo menos um estado final e revise se itens concluídos estão realmente sendo movidos para ele.",
+    "fonte": "Marcação de estado final cadastrada no workflow."
+  },
+  {
+    "termo": "requer aprovação",
+    "sinonimos": [
+      "com aprovação obrigatória",
+      "Fluxo com aprovação",
+      "Aprovação obrigatória"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Indica que a passagem de um estado para outro só se completa com a aprovação de alguém autorizado. Sem a aprovação, o item permanece na etapa de origem.",
+    "como_ler": "Transições com aprovação são pontos de controle, e não gargalos por definição: use-as em passagens que envolvem custo, escopo ou risco. Muitas transições com aprovação tornam o fluxo lento e empurram o trabalho para fora do sistema.",
+    "o_que_fazer": "Revise periodicamente se cada aprovação obrigatória ainda protege algo relevante; se não, remova a exigência.",
+    "fonte": "Marcação de aprovação obrigatória cadastrada em cada transição."
+  },
+  {
+    "termo": "chave",
+    "sinonimos": [
+      "Chave do estado"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O identificador curto do estado, sem espaços, usado pelo board e pelas regras do fluxo. Aparece em letras menores abaixo do nome do estado.",
+    "como_ler": "A chave não pode repetir dentro do mesmo workflow e é o que liga os itens existentes ao estado — trocar a chave de um estado em uso pode desconectar itens já posicionados.",
+    "o_que_fazer": "Batize a chave uma vez, com um nome estável, e evite renomeá-la depois que o fluxo entrar em uso.",
+    "fonte": "Chave cadastrada em cada estado do workflow."
+  },
+  {
+    "termo": "Campos da entidade",
+    "sinonimos": [
+      "Campos customizados",
+      "Campos personalizados"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos campos personalizados existem para a entidade selecionada — projeto, tarefa ou risco. São campos criados pela organização para guardar informação que o sistema não traz de fábrica, como centro de custo ou número de contrato.",
+    "como_ler": "O indicador muda conforme a entidade escolhida no topo da tela: cada entidade tem a sua própria lista. Campos inativos continuam cadastrados e com valores guardados, mas não aparecem no formulário.",
+    "o_que_fazer": "Prefira inativar a excluir: o campo inativo sai do formulário sem apagar os valores já registrados nos itens.",
+    "fonte": "Contagem dos campos personalizados cadastrados para a entidade selecionada."
+  },
+  {
+    "termo": "Campos ativos",
+    "sinonimos": [
+      "Ativos (campos)",
+      "Campos em uso"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos campos personalizados da entidade estão ligados e, portanto, aparecem no formulário e na estrutura da entidade.",
+    "como_ler": "Só campo ativo entra no formulário. Campo inativo permanece na lista com a marcação correspondente, para consulta e reativação.",
+    "o_que_fazer": "Se um campo não é mais usado, inative-o para reduzir o tamanho do formulário sem perder os valores já preenchidos.",
+    "fonte": "Contagem dos campos personalizados marcados como ativos na entidade selecionada."
+  },
+  {
+    "termo": "Obrigatórios",
+    "sinonimos": [
+      "Campos obrigatórios"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos campos personalizados da entidade precisam ser preenchidos para que o registro possa ser salvo.",
+    "como_ler": "Campo obrigatório sem valor bloqueia a gravação. Muitos obrigatórios deixam o formulário pesado e aumentam a chance de as pessoas preencherem qualquer coisa só para conseguir salvar.",
+    "o_que_fazer": "Reserve a obrigatoriedade para o que realmente não pode faltar e use o campo de ajuda para explicar o que se espera.",
+    "fonte": "Contagem dos campos personalizados marcados como obrigatórios na entidade selecionada."
+  },
+  {
+    "termo": "Seções",
+    "sinonimos": [
+      "Seções do formulário",
+      "Blocos do formulário"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos blocos o formulário da entidade tem. Cada campo personalizado declara em qual seção ele aparece, e o formulário é montado seção por seção.",
+    "como_ler": "O indicador acompanha o editor visual: seções são a forma de agrupar campos por assunto, como Contrato, Centro de custo ou Conformidade. Campo sem seção cai no bloco Geral.",
+    "o_que_fazer": "Agrupe campos relacionados na mesma seção e mantenha poucos blocos bem nomeados — formulários longos e sem agrupamento são abandonados.",
+    "fonte": "Seções declaradas nos campos personalizados da entidade selecionada."
+  },
+  {
+    "termo": "Seleções",
+    "sinonimos": [
+      "Campos de seleção"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos campos personalizados da entidade são do tipo Seleção, ou seja, oferecem uma lista fechada de opções cadastradas.",
+    "como_ler": "É o tipo mais indicado para classificação: garante que todos usem os mesmos valores e permite agrupar e filtrar depois. Campo de texto livre no lugar de uma seleção gera variações como Urgente, urgente e URGENTE.",
+    "o_que_fazer": "Ao criar o campo, defina a lista de opções completa e mantenha a mesma lista para toda a organização.",
+    "fonte": "Contagem dos campos do tipo Seleção na entidade selecionada."
+  },
+  {
+    "termo": "Moeda",
+    "sinonimos": [
+      "Campos de moeda"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos campos personalizados da entidade são do tipo Moeda, com formatação de valor monetário.",
+    "como_ler": "Campos de moeda têm formatação própria, o que evita erro de digitação e permite somar valores. Usar texto livre para dinheiro impede qualquer totalização.",
+    "o_que_fazer": "Se valores financeiros da organização precisam ser acompanhados, prefira o tipo Moeda ao tipo Texto.",
+    "fonte": "Contagem dos campos do tipo Moeda na entidade selecionada."
+  },
+  {
+    "termo": "Schema",
+    "sinonimos": [
+      "Schema da entidade",
+      "JSON do schema",
+      "Estrutura do formulário"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "A descrição da entidade com os campos ativos e as seções do formulário, na ordem em que aparecem. É o que a tela mostra lado a lado com a pré-visualização do formulário.",
+    "como_ler": "Somente campos ativos entram na estrutura, o que faz dela o retrato do que o usuário realmente vê. A pré-visualização ao lado respeita largura, ordem, seção, obrigatoriedade e texto de ajuda de cada campo.",
+    "o_que_fazer": "Use esta aba para conferir o resultado final depois de reorganizar o formulário no editor visual.",
+    "fonte": "Campos ativos e seções cadastrados para a entidade selecionada."
+  },
+  {
+    "termo": "Largura",
+    "sinonimos": [
+      "Largura do campo",
+      "Colunas do campo"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas colunas da grade o campo ocupa no formulário, de 1 a 12. Largura 12 equivale à linha inteira; larguras menores permitem colocar campos lado a lado.",
+    "como_ler": "A largura define o ritmo visual do formulário: campos curtos como data e seleção ficam melhor estreitos; observações e justificativas pedem a linha inteira. A pré-visualização mostra o efeito imediatamente.",
+    "o_que_fazer": "Agrupe campos curtos na mesma linha e dê linha inteira ao que exige leitura ou digitação longa.",
+    "fonte": "Largura em colunas definida em cada campo personalizado."
+  },
+  {
+    "termo": "Editor visual",
+    "sinonimos": [
+      "Editor do formulário",
+      "Montagem do formulário"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O ambiente em que o formulário da entidade é montado arrastando os campos entre as seções, sem depender de desenvolvimento.",
+    "como_ler": "A ordem em que os campos aparecem no editor é a ordem do formulário final, e a contagem da aba mostra quantas seções existem. Um formulário sem campos aparece como vazio.",
+    "o_que_fazer": "Monte o formulário na ordem em que as pessoas pensam o trabalho e confira o resultado na aba Schema antes de liberar para a equipe.",
+    "fonte": "Campos personalizados e suas seções na entidade selecionada."
+  },
+  {
+    "termo": "Temas predefinidos",
+    "sinonimos": [
+      "Temas",
+      "Galeria de temas",
+      "Paletas"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos temas de cores vêm prontos no sistema: SGP, Bradesco 2026, Esmeralda, Oceano, Violeta, Âmbar, Grafite e Alto contraste. Cada tema define as cores de fundo, texto, marca e estados.",
+    "como_ler": "A prévia de cada cartão é renderizada com componentes reais do sistema usando as cores daquele tema, então o que aparece é exatamente o resultado final. O tema Alto contraste é o indicado para quem tem baixa visão.",
+    "o_que_fazer": "Aplique o tema e navegue por duas ou três telas do seu dia a dia antes de decidir: a leitura de tabelas e gráficos muda bastante entre paletas.",
+    "fonte": "Temas de cores distribuídos com o sistema."
+  },
+  {
+    "termo": "Aplicar tema",
+    "sinonimos": [
+      "Em uso",
+      "Aplicar paleta"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "A ação que passa a usar o tema escolhido em toda a interface. O cartão do tema em uso exibe a marcação Em uso no lugar do botão.",
+    "como_ler": "A troca é imediata e vale em qualquer navegador, porque a escolha fica gravada na sua conta, e não apenas neste computador.",
+    "o_que_fazer": "Se a organização padronizou um tema institucional, mantenha-o aplicado e use o tema personalizado apenas para ajustes aprovados.",
+    "fonte": "Preferência de paleta gravada no seu usuário."
+  },
+  {
+    "termo": "Conformidade",
+    "sinonimos": [
+      "Escala de conformidade",
+      "Contraste WCAG",
+      "Contraste",
+      "AA",
+      "AAA",
+      "Insuficiente"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O selo que informa se o contraste entre o texto principal e o fundo do tema atende aos critérios de acessibilidade WCAG 2.1. Aparece em cada tema e na tabela comparativa, sempre com a razão de contraste.",
+    "como_ler": "A partir de 7:1 o selo é AAA; de 4,5:1 a 7:1 é AA; de 3:1 a 4,5:1 é AA apenas para texto grande; abaixo de 3:1 é insuficiente. A especificação exige nível AA (4,5:1). A tabela mostra o pior caso entre o modo claro e o escuro.",
+    "o_que_fazer": "Ao criar um tema personalizado, acompanhe a razão exibida no editor: se cair abaixo de 4,5:1, ajuste a cor de texto ou o fundo antes de salvar.",
+    "formula": "Razão de contraste = (luminância mais clara + 0,05) ÷ (luminância mais escura + 0,05)",
+    "exemplo": "Uma razão de 8,2:1 recebe selo AAA; 3,9:1 recebe AA apenas para texto grande.",
+    "fonte": "Cálculo de contraste entre a cor do texto principal e a cor de fundo de cada tema."
+  },
+  {
+    "termo": "Densidade",
+    "sinonimos": [
+      "Compacta",
+      "Confortável",
+      "Escala de espaçamento"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Controla o espaço entre os elementos de toda a interface. Não muda o tamanho de textos nem de ícones: muda quanto respiro existe entre eles.",
+    "como_ler": "São três opções — Compacta, Padrão e Confortável — e a mudança vale para todas as telas na hora. A Compacta cabe mais informação por tela, indicada para matrizes, heatmaps e listas longas; a Confortável reduz a fadiga visual em uso prolongado e em telas sensíveis ao toque.",
+    "o_que_fazer": "Use Compacta para analisar muitos dados e Confortável para apresentações; mantenha Padrão no dia a dia.",
+    "fonte": "Preferência de densidade gravada no seu usuário."
+  },
+  {
+    "termo": "Tema personalizado ativo",
+    "sinonimos": [
+      "Tema personalizado",
+      "Criar meu tema"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Aviso de que existe um tema criado por você e que ele está aplicado no momento. O tema parte de uma paleta base e tem cores ajustadas uma a uma.",
+    "como_ler": "Enquanto o tema personalizado está ativo, o nome exibido no topo é o que você deu a ele, e não o de um tema predefinido. As alterações só passam a valer de forma definitiva depois de salvar; antes disso, a aplicação é apenas uma prévia.",
+    "o_que_fazer": "Exporte o tema em arquivo para guardar uma cópia e poder reaplicá-lo em outro momento ou compartilhar com a equipe.",
+    "fonte": "Tema personalizado gravado no seu usuário."
+  },
+  {
+    "termo": "Perfil de acesso",
+    "sinonimos": [
+      "Seu perfil",
+      "Papel de acesso"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O perfil funcional com que você está conectado. É ele que determina quais módulos aparecem no menu e quais ações ficam disponíveis.",
+    "como_ler": "Se um item de menu não aparece, quase sempre é porque o seu perfil não tem a permissão correspondente — o menu é montado a partir das suas permissões efetivas, não de uma lista fixa.",
+    "o_que_fazer": "Se você precisa de um acesso e ele não aparece, peça ao administrador para revisar o seu perfil ou um papel complementar.",
+    "fonte": "Perfil funcional do seu usuário."
+  },
+  {
+    "termo": "Permissões",
+    "sinonimos": [
+      "Suas permissões",
+      "Permissões efetivas"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas permissões o seu usuário tem hoje, somando o que o perfil concede e o que os papéis customizados acrescentam.",
+    "como_ler": "É o conjunto que realmente vale para você, independentemente de como foi montado. Contas com autorização total aparecem com um único item curinga, então o número pode parecer pequeno mesmo dando acesso a tudo.",
+    "o_que_fazer": "Se precisar de uma operação que não está disponível, informe ao administrador qual permissão falta, em vez de pedir um perfil mais amplo.",
+    "fonte": "Soma das permissões do seu perfil com as dos papéis vinculados ao seu usuário."
+  },
+  {
+    "termo": "Notificações não lidas",
+    "sinonimos": [
+      "Não lidas",
+      "Avisos não lidos"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantos avisos dirigidos a você ainda não foram abertos. Inclui alertas de risco, marcos, aprovações, alocações e menções.",
+    "como_ler": "É um indicador de pendência de atenção, não de pendência de trabalho. Muitos avisos acumulados normalmente significam que os canais escolhidos não estão adequados ao seu dia.",
+    "o_que_fazer": "Ajuste os canais das regras de notificação para receber no lugar certo o que é crítico e silenciar o que é apenas informativo.",
+    "fonte": "Contagem das notificações dirigidas a você que ainda não foram marcadas como lidas."
+  },
+  {
+    "termo": "Filtros salvos",
+    "sinonimos": [
+      "Meus filtros",
+      "Filtros salvos por módulo"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Quantas combinações de filtros você guardou para reaplicar com um clique. Cada filtro pertence a um módulo e combina critérios como status, área, responsável e período.",
+    "como_ler": "Os filtros marcados como compartilhados ficam disponíveis para a equipe; os demais são só seus. Filtros acumulados sem uso costumam indicar critérios que já não refletem o trabalho atual.",
+    "o_que_fazer": "Exclua os filtros que não usa mais e compartilhe os que viraram padrão de acompanhamento do time.",
+    "fonte": "Combinações de filtros gravadas por você, por módulo do sistema."
+  },
+  {
+    "termo": "Visibilidade padrão das capacidades",
+    "sinonimos": [
+      "Visibilidade das capacidades",
+      "Público, Restrito ou Privado"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Define quem pode ver os seus registros de capacidade — suas habilidades, níveis e avaliações. A escolha vale como padrão para os registros que você criar.",
+    "como_ler": "São três níveis: Público, visível para qualquer pessoa autenticada; Restrito, visível apenas para você, seu gestor e o RH; e Privado, visível apenas para você. O nível mais fechado reduz sua participação nas recomendações de alocação e nas sugestões de mentoria.",
+    "o_que_fazer": "Use Restrito como equilíbrio padrão e reserve o Privado para informações que você não quer que influenciem decisões de alocação.",
+    "fonte": "Preferência de visibilidade aplicada aos seus registros de capacidade."
+  },
+  {
+    "termo": "Aceito ser recomendado em alocações",
+    "sinonimos": [
+      "Consentimento para recomendações",
+      "Aceita recomendações"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "O seu consentimento para que o motor de alocação considere o seu perfil ao sugerir responsáveis para tarefas e projetos.",
+    "como_ler": "Desligado, você deixa de aparecer nas recomendações, o que reduz suas oportunidades de participar de novos trabalhos. A escolha é registrada e pode ser revista a qualquer momento.",
+    "o_que_fazer": "Se você desligou por discordar de uma sugestão específica, vale registrar o motivo junto ao seu gestor em vez de sair do motor por completo.",
+    "fonte": "Consentimento registrado no seu perfil de uso do motor de recomendações."
+  },
+  {
+    "termo": "Disponível para mentoria",
+    "sinonimos": [
+      "Mentoria",
+      "Disponibilidade para mentoria"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Indica que você aceita aparecer nas sugestões de mentor para as capacidades em que é referência.",
+    "como_ler": "Ligado, você passa a ser sugerido em programas de desenvolvimento e planos de desenvolvimento individual de outras pessoas. Desligado, continua com as capacidades registradas, mas fora das sugestões de mentoria.",
+    "o_que_fazer": "Antes de se habilitar, confirme que as suas capacidades e níveis estão atualizados: é por eles que as pessoas vão encontrá-lo.",
+    "fonte": "Preferência de mentoria registrada no seu usuário."
+  },
+  {
+    "termo": "Token da sessão (JWT)",
+    "sinonimos": [
+      "Sessão atual",
+      "Token de sessão"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "A credencial temporária que mantém você conectado neste navegador. Ela é exibida mascarada e tem prazo de validade.",
+    "como_ler": "A data ao lado mostra quando a sessão expira: ao passar desse momento, você precisará entrar novamente. Uma sessão sem expiração informada só termina quando você sai ou o sistema é reiniciado.",
+    "o_que_fazer": "Em computador compartilhado, saia da sessão ao terminar o uso em vez de apenas fechar a aba.",
+    "fonte": "Credencial de sessão emitida no seu acesso ao sistema."
+  },
+  {
+    "termo": "Sair de todos os dispositivos",
+    "sinonimos": [
+      "Encerrar sessões",
+      "Encerrar sessão"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Remove as credenciais de acesso guardadas neste navegador e encerra a sessão atual, exigindo nova entrada.",
+    "como_ler": "É a ação indicada quando você usou um computador compartilhado ou desconfia que alguém teve acesso à sua conta. A operação é registrada na trilha de auditoria.",
+    "o_que_fazer": "Depois de encerrar, troque a senha se houver suspeita de uso indevido e avise o administrador para conferir os acessos registrados.",
+    "fonte": "Credenciais de sessão armazenadas no navegador."
+  },
+  {
+    "termo": "Tema (paleta de cores)",
+    "sinonimos": [
+      "Modo de cor",
+      "Aparência",
+      "Claro",
+      "Escuro",
+      "Sistema"
+    ],
+    "categoria": "Projetos e portfólio",
+    "o_que_e": "Reúne a escolha do modo de cor — Claro, Escuro ou seguir o Sistema — e a paleta aplicada na interface. As duas definições formam o visual que você vê.",
+    "como_ler": "A mudança é aplicada na hora e também gravada no seu usuário, valendo nos próximos acessos e em qualquer navegador. O modo Sistema acompanha a preferência do seu sistema operacional.",
+    "o_que_fazer": "Para trabalhar à noite, prefira o modo Escuro; para apresentações em projetor, o modo Claro costuma ter melhor leitura.",
+    "fonte": "Preferências de tema e modo de cor gravadas no seu usuário."
+  }
+]

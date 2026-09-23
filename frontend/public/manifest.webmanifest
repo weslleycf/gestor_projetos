@@ -1,0 +1,41 @@
+{
+  "name": "SGP · Gestão de Projetos, Portfólio e Capacidades",
+  "short_name": "SGP",
+  "description": "Sistema visual de gestão de projetos, portfólio, riscos, finanças e capacidades organizacionais.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F3F5F9",
+  "theme_color": "#2563EB",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/icone-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icone-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icone-maskable.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Dashboard executivo", "url": "/" },
+    { "name": "Meus projetos", "url": "/projetos" },
+    { "name": "Minhas tarefas", "url": "/minhas-tarefas" },
+    { "name": "Timesheet", "url": "/timesheet" },
+    { "name": "Matriz de riscos", "url": "/riscos" }
+  ]
+}

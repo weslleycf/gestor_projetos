@@ -1,0 +1,1203 @@
+[
+  {
+    "termo": "Capacidades",
+    "sinonimos": [
+      "Total de capacidades"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades do catálogo entram no recorte que você está vendo agora. O número acompanha os filtros de categoria, tipo, criticidade e status, além da busca.",
+    "como_ler": "Um catálogo muito maior do que a organização consegue manter indica cadastro sem curadoria: capacidades duplicadas ou obsoletas inflam o total e diluem o nível médio. Compare este número com o de detentores: catálogo que cresce sem detentores é catálogo que ninguém usa.",
+    "o_que_fazer": "Revise capacidades sem nenhum perfil associado e capacidades com status Obsoleta ou Em descontinuação antes de cadastrar novas.",
+    "fonte": "Contagem das capacidades cadastradas que atendem aos filtros da tela."
+  },
+  {
+    "termo": "Detentores (nível ≥ 3)",
+    "sinonimos": [
+      "Detentores",
+      "Detentores nível 3 ou mais"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas pessoas já executam a capacidade sozinhas, ou seja, têm nível 3 ou superior. É a medida de quanta gente consegue trabalhar com aquele conhecimento sem supervisão.",
+    "como_ler": "Zero significa que ninguém executa sem apoio; um ou dois significam dependência de poucas pessoas. Nível 3 é o mínimo para autonomia em tarefas típicas; níveis 4 e 5 são quem sustenta a capacidade e forma os demais.",
+    "o_que_fazer": "Se a capacidade é exigida por projetos e tem poucos detentores, priorize formar gente: mentoria, rotação nas tarefas críticas e prática em projeto elevam quem já está no nível 2.",
+    "formula": "Detentores = quantidade de pessoas com nível atual maior ou igual a 3 na capacidade.",
+    "fonte": "Perfis de capacidade registrados na matriz de skills."
+  },
+  {
+    "termo": "Nível médio",
+    "sinonimos": [
+      "Nível médio da capacidade",
+      "Nível médio do catálogo",
+      "Nível médio do perfil"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Média dos níveis registrados na escala de 1 a 5. Mostra o patamar típico de um conjunto: do catálogo filtrado, de uma capacidade específica ou do perfil de uma pessoa.",
+    "como_ler": "No catálogo, é a média das médias das capacidades filtradas; na capacidade, é a média de todos os detentores; no perfil da pessoa, é a média do nível consolidado das capacidades dela. Perto de 2 a equipe executa tarefas simples com apoio; perto de 4 existem referências técnicas; acima de 4,5 é sinal de concentração em poucos especialistas.",
+    "o_que_fazer": "Compare a média com o nível mínimo exigido pelos projetos: média abaixo do exigido vira gap e atraso se ninguém for desenvolvido a tempo.",
+    "formula": "Soma dos níveis registrados dividida pela quantidade de registros.",
+    "exemplo": "Três pessoas com níveis 2, 3 e 4 na mesma capacidade resultam em nível médio 3,00.",
+    "fonte": "Níveis atuais dos perfis de capacidade ou níveis consolidados, quando o número é do perfil de uma pessoa."
+  },
+  {
+    "termo": "Em risco",
+    "sinonimos": [
+      "Capacidade em risco"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades são importantes para o negócio e, ao mesmo tempo, dependem de uma pessoa só ou de nenhuma. É o retrato da dependência perigosa.",
+    "como_ler": "Entram apenas capacidades de criticidade Alta ou Estratégica com bus factor 0 ou 1, isto é, no máximo uma pessoa de nível 4 ou 5. Capacidade de criticidade baixa com a mesma concentração não entra nesta conta, mas continua aparecendo nos alertas de bus factor.",
+    "o_que_fazer": "Trate cada item como risco de parada: abra o bus factor, escolha candidatos de nível 2 ou 3 e registre um plano de mitigação com mentor responsável e prazo.",
+    "formula": "Capacidades com criticidade Alta ou Estratégica e bus factor menor ou igual a 1.",
+    "fonte": "Criticidade cadastrada na capacidade cruzada com a quantidade de detentores de nível 4 ou 5."
+  },
+  {
+    "termo": "Sem especialista",
+    "sinonimos": [
+      "Sem especialista (N4+)",
+      "Sem nível 4 ou superior",
+      "Sem especialista (bus factor zero)"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades não têm ninguém de nível 4 ou 5. Sem especialista não existe quem defina padrão, revise o trabalho dos outros ou forme substitutos.",
+    "como_ler": "É diferente de não ter detentor: pode haver várias pessoas de nível 3 e nenhuma referência. Cada tela usa o mesmo critério no seu recorte — no catálogo e na matriz conta as capacidades filtradas, no bus factor conta os alertas sem nenhum especialista, e na aba de cobertura conta as capacidades do recorte com zero pessoas no nível 4 ou superior. Quando há projeto dependente, é o caso mais grave, com risco de parada total.",
+    "o_que_fazer": "Programe mentoria externa, contratação pontual ou um plano de aceleração para quem já está no nível 3: é o caminho mais curto para criar a primeira referência interna.",
+    "formula": "Capacidades com bus factor igual a zero.",
+    "fonte": "Perfis de capacidade: nenhuma pessoa com nível 4 ou 5 na capacidade."
+  },
+  {
+    "termo": "Bus factor",
+    "sinonimos": [
+      "Bus factor da capacidade",
+      "Especialistas N4+"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas pessoas de nível 4 ou 5 sustentam a capacidade. O nome vem da pergunta clássica: quantas pessoas precisam sair de cena para o trabalho parar.",
+    "como_ler": "0 significa que não existe especialista interno; 1 significa que uma única pessoa sustenta o conhecimento; a partir de 2 o risco cai bastante. O sistema destaca em vermelho o valor menor ou igual a 1 e, na detecção de alertas, sinaliza capacidades com até 2 especialistas quando elas são críticas para o negócio ou exigidas por projetos em andamento. O limiar de segurança usado pelo sistema é maior que 2.",
+    "o_que_fazer": "Para bus factor 0 ou 1, forme novos especialistas: mentoria com metas trimestrais, documentação do conhecimento e rotação nas tarefas críticas.",
+    "formula": "Bus factor = quantidade de pessoas com nível atual maior ou igual a 4 na capacidade.",
+    "exemplo": "Uma capacidade com uma pessoa nível 5 e três pessoas nível 3 tem bus factor 1, mesmo somando quatro detentores.",
+    "fonte": "Perfis de capacidade e níveis registrados na matriz de skills."
+  },
+  {
+    "termo": "Criticidade",
+    "sinonimos": [
+      "Criticidade da capacidade"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "A importância estratégica da capacidade para o negócio, em quatro faixas: Baixa, Média, Alta e Estratégica. Ela não mede o quanto a equipe domina, e sim o quanto a organização depende daquele conhecimento.",
+    "como_ler": "A criticidade entra em vários cálculos. Capacidade Alta ou Estratégica com bus factor até 1 aparece como Em risco. Na análise de gap, criticidade Alta ou Estratégica transforma déficit pequeno em severidade Alta e déficit de 2 pessoas ou mais em severidade Crítica. Na detecção de bus factor, uma capacidade crítica gera alerta mesmo sem nenhum projeto dependente.",
+    "o_que_fazer": "Revise a classificação a cada ciclo: capacidade marcada como Estratégica deveria ter pelo menos dois especialistas de nível 4 ou 5.",
+    "fonte": "Cadastro da capacidade no catálogo organizacional."
+  },
+  {
+    "termo": "Possível decay",
+    "sinonimos": [
+      "Decay",
+      "Enferrujamento",
+      "Dias sem uso"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos detentores estão há mais de um ano sem usar a capacidade. Conhecimento parado perde atualidade mesmo quando o nível registrado continua alto.",
+    "como_ler": "A marcação é feita por dias sem uso: passando de 365 dias, o perfil de nível 2 ou superior fica elegível ao enferrujamento e recebe a marca Enferrujada. Na tabela de detentores, os dias sem uso aparecem em vermelho quando passam desse limite.",
+    "o_que_fazer": "A ação sugerida muda com o nível: mentoria com especialista para nível 4 ou 5, treinamento de reciclagem para nível 3 e prática supervisionada para nível 2. Qualquer XP creditado na capacidade reativa o perfil.",
+    "formula": "Detentores com mais de 365 dias desde a última utilização.",
+    "fonte": "Data da última utilização registrada em cada perfil de capacidade."
+  },
+  {
+    "termo": "Com nível validado",
+    "sinonimos": [
+      "Validados"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos detentores têm o nível chancelado por validação formal — promoção aprovada ou avaliação de banca — e não apenas um nível registrado.",
+    "como_ler": "O nível validado é a parte mais confiável do perfil: quando existe, entra na média que forma o nível consolidado. Poucos validados em uma capacidade estratégica significam que o nível usado nas análises depende de autoavaliação.",
+    "o_que_fazer": "Priorize a fila de validações das capacidades críticas para dar lastro ao nível usado no gap e no motor de alocação.",
+    "fonte": "Perfis de capacidade com nível validado maior que zero."
+  },
+  {
+    "termo": "XP",
+    "sinonimos": [
+      "XP acumulado",
+      "XP total",
+      "Pontos de experiência"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Pontos de experiência acumulados na capacidade. É a moeda que mede prática real e alimenta os critérios objetivos de promoção de nível.",
+    "como_ler": "Pela regra geral, o próximo nível pede 100 pontos multiplicados pelo nível em que a pessoa está. O XP cresce ao concluir tarefa, ao registrar horas aprovadas no timesheet, ao concluir treinamento, ao realizar mentoria e ao obter certificação, e também pode ser creditado manualmente com motivo registrado. No detalhe da capacidade, o XP acumulado soma o XP de todos os detentores; no perfil da pessoa, o XP total soma o XP de todas as capacidades dela.",
+    "o_que_fazer": "XP alto sem evidências válidas não promove ninguém: registre as evidências e a avaliação do gestor para que a sugestão de promoção seja criada.",
+    "formula": "XP para o próximo nível = 100 × nível atual. Faltam = esse valor menos o XP acumulado.",
+    "exemplo": "Nível 3 com 250 XP precisa de 300 pontos para subir, ou seja, faltam 50 XP.",
+    "fonte": "Histórico de XP do perfil de capacidade, alimentado por tarefas, horas apontadas, treinamentos, mentorias, certificações e ajustes manuais."
+  },
+  {
+    "termo": "Projetos que exigem",
+    "sinonimos": [
+      "Projetos dependentes"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos projetos declararam precisar desta capacidade, em qualquer nível, e quantos a marcaram como obrigatória.",
+    "como_ler": "Quanto mais projetos dependem da capacidade, maior o impacto de uma saída ou de um afastamento. Requisito obrigatório é eliminatório: quando ele não é atendido, a alocação recomendada pelo motor de matching fica bloqueada.",
+    "o_que_fazer": "Cruze este número com o bus factor: capacidade exigida por vários projetos e sustentada por uma pessoa é o cenário de risco mais alto do módulo.",
+    "fonte": "Requisitos de capacidade declarados nos projetos."
+  },
+  {
+    "termo": "Gap para o desejado",
+    "sinonimos": [
+      "Gap",
+      "Faltam n níveis"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Distância entre o nível que a pessoa quer alcançar e o nível que ela tem hoje naquela capacidade. Zero quer dizer meta atingida.",
+    "como_ler": "No perfil da pessoa e nas trilhas o gap é contado em níveis inteiros, de 0 a 4. Na análise de gap por projeto, a distância aparece pessoa a pessoa com casas decimais, porque usa o nível consolidado. Na previsão de demanda o mesmo nome aparece em FTE, isto é, em quantidade de pessoas, e não em níveis.",
+    "o_que_fazer": "Gap de 1 nível se resolve com prática deliberada e mentoria; a partir de 2 níveis, combine treinamento formal com atuação em projeto.",
+    "formula": "Gap = maior valor entre zero e (nível desejado menos nível atual).",
+    "exemplo": "Quem está no nível 2 e quer chegar ao 4 tem gap 2.",
+    "fonte": "Comparação entre nível desejado e nível atual do perfil de capacidade."
+  },
+  {
+    "termo": "Nível consolidado",
+    "sinonimos": [
+      "Consolidado × validado",
+      "Consolidado",
+      "Nível efetivo"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Média ponderada de todas as avaliações recebidas naquela capacidade, já combinada com o nível validado. É o valor usado nas análises de gap, de aderência a oportunidades e de alocação.",
+    "como_ler": "Cada fonte de avaliação tem um peso: banca 1,8; gestor 1,5; mentor 1,3; cliente 1,2; par 1,0; sistema 0,8; autoavaliação 0,5. Quando existe nível validado, o consolidado passa a ser a média entre ele e a média ponderada — uma autoavaliação muito alta não sustenta sozinha um nível alto. Sem nenhuma avaliação registrada, o consolidado assume o nível atual.",
+    "o_que_fazer": "Se o consolidado estiver bem abaixo do nível atual, há avaliações puxando para baixo: verifique quem avaliou e converse antes de propor uma promoção.",
+    "formula": "Consolidado = média ponderada das avaliações; havendo nível validado, (média ponderada + nível validado) ÷ 2.",
+    "fonte": "Avaliações de autoavaliação, gestor, pares, mentor, banca, cliente e as inferidas pelo sistema."
+  },
+  {
+    "termo": "Nível validado",
+    "sinonimos": [
+      "Validado",
+      "Nível chancelado"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Nível reconhecido por validação formal, como promoção aprovada ou avaliação de banca. Não é a mesma coisa que o nível atual, que pode ter sido apenas registrado.",
+    "como_ler": "Quando aparece um traço no lugar do número, a capacidade ainda não passou por validação. O nível validado entra na conta do consolidado e é gravado junto com o nível atual no momento em que uma promoção é aprovada.",
+    "fonte": "Perfil de capacidade e histórico de promoções validadas."
+  },
+  {
+    "termo": "Nível atual",
+    "sinonimos": [
+      "Atual"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "O nível reconhecido hoje para a pessoa naquela capacidade, de 1 a 5. É a base dos cálculos de gap, de bus factor e de cobertura.",
+    "como_ler": "Só do nível 3 para cima a pessoa conta como detentora; do nível 4 para cima ela conta como especialista e entra no bus factor. Nível 2 indica execução com apoio e nível 1, conhecimento ainda teórico.",
+    "o_que_fazer": "Ao revisar níveis, lembre que a mudança altera bus factor, cobertura, análise de gap e aderência a oportunidades: ela deve estar sustentada por evidências.",
+    "fonte": "Perfil de capacidade do colaborador."
+  },
+  {
+    "termo": "Nível desejado",
+    "sinonimos": [
+      "Desejado"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Onde a pessoa, ou o gestor, quer chegar naquela capacidade. É a referência do gap individual e das trilhas recomendadas.",
+    "como_ler": "Sem nível desejado informado, o sistema assume o nível seguinte ao atual ao montar a trilha. Na análise de gap no modo geral, a comparação é exatamente esta: desejado contra atual, pessoa a pessoa.",
+    "fonte": "Perfil de capacidade do colaborador."
+  },
+  {
+    "termo": "Nível de proficiência",
+    "sinonimos": [
+      "Nível",
+      "Escala de nível",
+      "Níveis 1 a 5"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "A régua única de proficiência do sistema, de 1 a 5: Iniciante, Básico, Intermediário, Avançado e Especialista. Ela padroniza a conversa sobre quem sabe o quê.",
+    "como_ler": "1 — conhecimento teórico, executa com supervisão. 2 — executa tarefas simples com apoio pontual. 3 — autônomo em tarefas típicas. 4 — referência técnica, atua como mentor. 5 — autoridade reconhecida, define padrões. As cores da escala vão do azul-escuro no nível 1 ao roxo no nível 5.",
+    "o_que_fazer": "Use a descrição cadastrada na capacidade para calibrar o nível entre avaliadores: é ela que torna o 3 de uma pessoa comparável ao 3 de outra.",
+    "fonte": "Escala de proficiência definida para todo o catálogo de capacidades."
+  },
+  {
+    "termo": "Nível alvo",
+    "sinonimos": [
+      "Nível alvo da ação"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "O nível que a ação de desenvolvimento pretende alcançar na capacidade. Em ações criadas a partir de um gap, o alvo é o nível mínimo exigido pelo projeto; em ações vindas de trilha, é o nível desejado pela pessoa.",
+    "como_ler": "A trilha mostra o caminho do nível atual para o nível alvo, e o gap é a diferença entre os dois. Um treinamento do catálogo só entra na sugestão quando o nível alvo dele é menor ou igual ao alvo da trilha.",
+    "fonte": "Ação do PDI ou requisito de capacidade que originou a ação."
+  },
+  {
+    "termo": "Nível mínimo",
+    "sinonimos": [
+      "Mínimo"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "O nível a partir do qual a pessoa atende ao requisito daquela capacidade. É o corte usado para dizer quem serve para o projeto, para a vaga interna ou para a posição-chave.",
+    "como_ler": "No requisito do projeto, a comparação usa o nível consolidado da pessoa; quem fica abaixo entra na lista de quem precisa evoluir, com o déficit em níveis. Na vaga interna, todas as capacidades exigidas usam o mesmo nível mínimo da oportunidade. Quem tem nível igual ou maior atende; quem tem menos, não.",
+    "o_que_fazer": "Antes de abrir uma vaga ou um requisito com nível mínimo 4, confirme que existe mais de um especialista na capacidade — caso contrário o requisito nasce impossível de atender.",
+    "fonte": "Requisito de capacidade do projeto, nível mínimo da oportunidade ou exigência da posição-chave."
+  },
+  {
+    "termo": "Necessário a partir de",
+    "sinonimos": [
+      "Data de necessidade"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "A data a partir da qual o projeto precisa daquela capacidade. Permite comparar o prazo do plano de desenvolvimento com a data em que a pessoa tem de estar pronta.",
+    "como_ler": "Um traço significa que o projeto exige a capacidade, mas não informou data. Quando a data é anterior ao fim do plano de desenvolvimento, o risco de começar o projeto com o requisito em aberto é real.",
+    "o_que_fazer": "Ao registrar um plano a partir do gap, use um prazo anterior a esta data: requisito obrigatório sem atendimento bloqueia a alocação recomendada.",
+    "fonte": "Data de necessidade informada no requisito de capacidade do projeto."
+  },
+  {
+    "termo": "índice de cobertura",
+    "sinonimos": [
+      "Índice de cobertura de capacidades"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "O quanto da necessidade de capacidade do escopo já está atendida. É a média, requisito por requisito, da proporção de pessoas que atingem o nível mínimo exigido.",
+    "como_ler": "Cada requisito contribui no máximo com 100%: pedir 3 pessoas e ter 5 não melhora a média, mas pedir 3 e ter 1 derruba. Sem nenhum requisito no escopo, o indicador mostra 100%. O anel fica verde a partir de 80%, amarelo entre 45% e 60% e vermelho abaixo de 30%.",
+    "o_que_fazer": "Cobertura baixa com poucos requisitos críticos é pior do que cobertura baixa espalhada: ataque primeiro os obrigatórios pendentes.",
+    "formula": "Média de (menor valor entre 1 e atendem ÷ quantidade) em todos os requisitos × 100.",
+    "exemplo": "Dois requisitos, um atendido por 3 de 3 pessoas e outro por 0 de 2, resultam em cobertura de 50%.",
+    "fonte": "Comparação entre os requisitos de capacidade do escopo e o nível consolidado das pessoas disponíveis."
+  },
+  {
+    "termo": "Requisitos analisados",
+    "sinonimos": [
+      "Requisitos"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas necessidades de capacidade entraram na análise. No modo por projeto, são os requisitos declarados naquele projeto; no modo geral, são as capacidades em que alguém quer evoluir.",
+    "como_ler": "O subtítulo mostra quantas pessoas foram avaliadas nesse escopo. Poucas pessoas em um projeto com muitos requisitos é sinal de que a análise está comparando demanda grande com oferta pequena.",
+    "fonte": "Requisitos de capacidade do projeto ou perfis de capacidade das pessoas do escopo."
+  },
+  {
+    "termo": "Severidade crítica",
+    "sinonimos": [
+      "Críticos"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos requisitos têm risco imediato de entrega: o déficit existe e o requisito é obrigatório, ou a capacidade é crítica para o negócio e falta mais de uma pessoa.",
+    "como_ler": "É a faixa mais grave da análise de gap. Requisito marcado como obrigatório entra aqui com qualquer déficit, mesmo de uma pessoa. Capacidade de criticidade Alta ou Estratégica entra aqui quando o déficit é de 2 pessoas ou mais.",
+    "o_que_fazer": "Resolva os críticos com combinação de alocação de quem já atende, mentoria interna e, se o déficit persistir, reforço externo temporário.",
+    "fonte": "Cálculo de severidade sobre o déficit de cada requisito."
+  },
+  {
+    "termo": "Severidade alta",
+    "sinonimos": [
+      "Altos"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos requisitos têm déficit relevante, mas não obrigatório: falta mais de uma pessoa ou a capacidade é crítica para o negócio.",
+    "como_ler": "Requisito com déficit de 2 pessoas ou mais entra aqui, assim como capacidade de criticidade Alta ou Estratégica com qualquer déficit que não tenha virado crítico. É uma fila de atenção para o próximo ciclo, não uma emergência.",
+    "o_que_fazer": "Trate com plano de desenvolvimento coletivo: treinamento e mentoria para elevar quem está logo abaixo do nível mínimo.",
+    "fonte": "Cálculo de severidade sobre o déficit de cada requisito."
+  },
+  {
+    "termo": "Severidade média",
+    "sinonimos": [
+      "Médios"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos requisitos têm déficit pequeno, de uma pessoa, em capacidade que não é crítica para o negócio.",
+    "como_ler": "É o caso mais fácil de resolver: geralmente basta alocar alguém que já atende no nível mínimo ou desenvolver uma única pessoa por um nível.",
+    "fonte": "Cálculo de severidade sobre o déficit de cada requisito."
+  },
+  {
+    "termo": "Sem déficit",
+    "sinonimos": [
+      "Requisitos sob controle"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos requisitos analisados não estão nas faixas crítica, alta ou média — ou seja, já estão atendidos ou exigem apenas acompanhamento.",
+    "como_ler": "O número é o total de requisitos menos os críticos, altos e médios. Também entram aqui as faixas menos graves, como OK. No modo geral, em que a comparação é entre nível desejado e atual de cada pessoa, praticamente tudo cai nesta conta.",
+    "fonte": "Total de requisitos analisados menos os classificados como crítico, alto e médio."
+  },
+  {
+    "termo": "Obrigatórios pendentes",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos requisitos marcados como obrigatórios não estão totalmente atendidos. Requisito obrigatório é eliminatório: sem ele, o projeto não pode contar com aquela capacidade.",
+    "como_ler": "Diferente dos demais indicadores, este olha só os obrigatórios e considera pendente qualquer déficit, mesmo de uma pessoa. Enquanto houver pendência, a alocação recomendada para as tarefas que dependem dessa capacidade fica bloqueada.",
+    "o_que_fazer": "Trate como bloqueio formal: ou aloque quem já atende, ou registre plano de desenvolvimento com prazo anterior à data em que o projeto precisa da capacidade.",
+    "fonte": "Requisitos de capacidade marcados como obrigatórios que ainda têm déficit."
+  },
+  {
+    "termo": "Severidade",
+    "sinonimos": [
+      "Severidade do gap"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Classificação da urgência de cada gap, mostrada no cartão e usada para ordenar a lista. Vai de OK, quando não falta ninguém, até Crítico.",
+    "como_ler": "As regras são: sem déficit, OK. Com requisito obrigatório ou capacidade crítica e déficit de 2 pessoas ou mais, Crítico. Déficit de 2 pessoas ou mais, ou capacidade crítica com déficit, Alto. Qualquer outro déficit, Médio. A legenda prevê também a faixa Baixo, que o cálculo atual não gera. A lista é ordenada por severidade e, dentro dela, pelo tamanho do déficit.",
+    "o_que_fazer": "Comece pelos cartões Críticos e Alvos que também são obrigatórios: são os que travam a entrega.",
+    "fonte": "Déficit do requisito, criticidade da capacidade e marcação de obrigatório."
+  },
+  {
+    "termo": "Déficit",
+    "sinonimos": [
+      "Déficit de pessoas"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas pessoas faltam para atender ao requisito, considerando quantas já atingem o nível mínimo exigido. Zero significa que a necessidade já está coberta.",
+    "como_ler": "No modo por projeto, é a quantidade pedida menos quantas pessoas atendem, nunca abaixo de zero: pedir 3 e ter 5 continua dando déficit zero. No modo geral, o déficit não é somado, porque a comparação é entre o nível desejado e o atual de cada pessoa — o que importa ali é a lista de quem precisa evoluir e a distância em níveis.",
+    "o_que_fazer": "Para cada pessoa com déficit maior que 1 nível, vale mais um plano de desenvolvimento do que uma troca de alocação.",
+    "formula": "Déficit = maior valor entre zero e (quantidade necessária menos pessoas que atendem).",
+    "exemplo": "Um requisito pede 2 pessoas no nível 4; só uma pessoa atende, então o déficit é 1.",
+    "fonte": "Requisito de capacidade comparado ao nível consolidado das pessoas do escopo."
+  },
+  {
+    "termo": "Atendem",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas pessoas do escopo já atingem o nível mínimo exigido pelo requisito, considerando o nível consolidado de cada uma.",
+    "como_ler": "Compare com o cartão Necessário ao lado: a diferença entre os dois é o déficit. A barra do cartão mostra essa proporção e muda de cor conforme a severidade.",
+    "fonte": "Nível consolidado das pessoas do escopo comparado ao nível mínimo do requisito."
+  },
+  {
+    "termo": "Necessário",
+    "sinonimos": [
+      "Quantidade necessária"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas pessoas o requisito pede naquele nível mínimo. É a demanda declarada do projeto, não o tamanho da equipe disponível.",
+    "como_ler": "Se o necessário for maior do que o número de pessoas do escopo, o déficit nunca chega a zero — nesse caso o caminho é reforço externo ou revisão do requisito.",
+    "fonte": "Quantidade de pessoas informada no requisito de capacidade do projeto."
+  },
+  {
+    "termo": "Pessoas que precisam evoluir",
+    "sinonimos": [
+      "Pessoas com gap"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quem está abaixo do nível mínimo exigido naquela capacidade, com o nível atual e a distância em níveis até o exigido.",
+    "como_ler": "Esta lista é a origem natural de um plano de desenvolvimento: cada pessoa aqui precisa subir de nível, não apenas ser alocada de outra forma. Quem tem déficit alto aparece primeiro.",
+    "o_que_fazer": "Selecione as pessoas e registre o plano: o sistema reaproveita o PDI ativo de cada uma, ou cria um novo, com o nível alvo igual ao mínimo exigido.",
+    "formula": "Déficit por pessoa = nível mínimo exigido menos o nível consolidado da pessoa.",
+    "fonte": "Comparação pessoa a pessoa entre nível consolidado e nível mínimo do requisito."
+  },
+  {
+    "termo": "Pessoas que já atendem",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quem já atinge o nível mínimo exigido na capacidade, ordenado do maior nível para o menor.",
+    "como_ler": "É a lista de alocação imediata. Se ela estiver vazia mas existirem pessoas com gap pequeno, o caminho é desenvolver; se estiver vazia e ninguém tiver a capacidade, o caminho é contratar ou terceirizar.",
+    "fonte": "Pessoas do escopo com nível consolidado maior ou igual ao nível mínimo."
+  },
+  {
+    "termo": "Ações sugeridas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Recomendações automáticas de como fechar aquele gap, com o motivo de cada uma. Aparecem alocar quem já atende, treinar e mentorar, contratar ou terceirizar e formar novos detentores.",
+    "como_ler": "As ações mudam com o cenário: alocar aparece quando já existe alguém no nível; treinar aparece quando há pessoas com gap; contratar aparece quando o déficit é de 2 pessoas ou mais ou a capacidade é crítica; formar novos detentores aparece sempre que há déficit, porque reduz também o bus factor.",
+    "o_que_fazer": "Use as ações como roteiro da conversa com o gestor: cada uma tem o número que a justifica, o que facilita decidir entre desenvolver e contratar.",
+    "fonte": "Déficit, quantidade de pessoas com gap, criticidade da capacidade e existência de pessoas já qualificadas."
+  },
+  {
+    "termo": "Capacidades em alerta",
+    "sinonimos": [
+      "Alertas"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades entraram na detecção de concentração de conhecimento. São capacidades ativas ou emergentes sustentadas por no máximo duas pessoas de nível 4 ou 5.",
+    "como_ler": "Uma capacidade entra na lista quando tem até 2 especialistas e, além disso, é crítica para o negócio ou é exigida por algum projeto em execução, aprovado ou planejado. Capacidade comum, sem projeto dependente e com dois especialistas, não gera alerta.",
+    "o_que_fazer": "Comece pelas de criticidade Estratégica e pelas que aparecem com zero especialistas: nelas o risco é de parada, não de lentidão.",
+    "fonte": "Detecção automática sobre o catálogo, os perfis de capacidade e os requisitos dos projetos."
+  },
+  {
+    "termo": "Com um especialista",
+    "sinonimos": [
+      "Bus factor 1",
+      "Com apenas um especialista"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades em alerta são sustentadas por exatamente uma pessoa de nível 4 ou 5. Se essa pessoa sair de férias ou do time, ninguém assume.",
+    "como_ler": "É o caso clássico de bus factor 1, destacado em laranja. Na aba de cobertura da matriz, o mesmo número aparece como capacidades com apenas um especialista dentro do recorte filtrado.",
+    "o_que_fazer": "A recomendação do sistema é formar ao menos dois sucessores em seis meses, vinculando pessoas de nível 2 ou 3 a um mentor de nível 4 ou 5.",
+    "formula": "Capacidades com exatamente um detentor de nível 4 ou superior.",
+    "fonte": "Perfis de capacidade com nível 4 ou 5."
+  },
+  {
+    "termo": "Projetos expostos",
+    "sinonimos": [
+      "Exposição"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Soma de quantos projetos dependem das capacidades que estão em alerta. Mede o tamanho do estrago se a concentração de conhecimento virar ausência.",
+    "como_ler": "O número conta requisitos de capacidade em projetos em execução, aprovados ou planejados. Uma capacidade em alerta com vários projetos expostos é prioridade acima de outra com a mesma quantidade de especialistas e nenhum projeto dependente.",
+    "fonte": "Requisitos de capacidade de projetos em execução, aprovados ou planejados, somados sobre as capacidades em alerta."
+  },
+  {
+    "termo": "Índice de risco",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Um resumo, em percentual, de quão concentrado está o conhecimento nas capacidades em alerta. Capacidades sem nenhum especialista pesam o dobro das que têm apenas um.",
+    "como_ler": "O cálculo atribui peso 2 a cada capacidade sem especialista e peso 1 a cada capacidade com um especialista, dividindo pelo máximo possível do conjunto. Zero por cento significa que nenhuma capacidade em alerta está descoberta; 100% significaria que todas estão sem especialista. A cor acompanha o valor: verde quando o risco é baixo, vermelho quando é alto.",
+    "o_que_fazer": "Use como termômetro de gestão: se o índice não cai entre dois ciclos de avaliação, o programa de mentoria não está formando especialistas.",
+    "formula": "Índice = (capacidades sem especialista × 2 + capacidades com um especialista) ÷ (total de alertas × 2) × 100.",
+    "exemplo": "Dez alertas, dois sem especialista e três com um especialista, resultam em índice de 35%.",
+    "fonte": "Alertas de concentração de conhecimento detectados pelo sistema."
+  },
+  {
+    "termo": "Detentores N4+",
+    "sinonimos": [
+      "Especialistas atuais"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas pessoas de nível 4 ou 5 sustentam aquela capacidade, com o nível de cada uma. É o bus factor da capacidade, mostrado dentro do alerta.",
+    "como_ler": "Zero especialistas significa que não há ninguém capaz de sustentar a capacidade internamente; um significa dependência de uma única pessoa. Nesses casos o cartão é destacado em vermelho e recebe a marca Sem especialista ou Bus factor 1.",
+    "o_que_fazer": "Para mitigar, selecione candidatos de nível 2 ou 3 e registre o plano com mentor, tipo de ação, prazo e carga horária.",
+    "fonte": "Perfis de capacidade com nível atual 4 ou 5."
+  },
+  {
+    "termo": "Aguardando validação",
+    "sinonimos": [
+      "Pendentes"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas sugestões de promoção esperam decisão humana. Nenhuma mudança de nível acontece de forma automática no sistema.",
+    "como_ler": "Uma sugestão é criada quando a pessoa atende a todos os critérios objetivos do próximo nível e não existe outra sugestão pendente para a mesma capacidade. Fila grande significa decisões represadas, e não colaboradores prontos demais.",
+    "o_que_fazer": "Decida em lote: aprovar atualiza o nível atual e o validado de uma vez; rejeitar exige justificativa e notifica o colaborador com o motivo.",
+    "fonte": "Sugestões de promoção criadas pela verificação automática de critérios."
+  },
+  {
+    "termo": "Elegíveis a todos os critérios",
+    "sinonimos": [
+      "Critérios 100% atendidos"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas sugestões pendentes têm todos os critérios objetivos atendidos no momento da consulta. É a parte da fila que está pronta para aprovação.",
+    "como_ler": "Critério que deixou de ser atendido depois da criação da sugestão — por exemplo, tempo no nível reiniciado por uma regressão — faz o item sair desta contagem sem sair da fila. Compare com o total de pendentes para saber se há casos a revisar.",
+    "fonte": "Situação atual dos critérios objetivos de cada sugestão pendente."
+  },
+  {
+    "termo": "Aprovadas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas promoções já foram aprovadas. Cada aprovação atualiza o nível atual e o nível validado da pessoa e registra a movimentação no histórico de evolução.",
+    "como_ler": "A aprovação pode ser feita em um nível diferente do proposto: o aprovador ajusta o nível final antes de confirmar. Todas as decisões ficam registradas na auditoria, com autor e comentário.",
+    "fonte": "Sugestões de promoção com decisão de aprovação."
+  },
+  {
+    "termo": "Rejeitadas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas sugestões de promoção foram recusadas. A rejeição exige justificativa com pelo menos cinco caracteres e notifica o colaborador.",
+    "como_ler": "Rejeição não impede nova sugestão no futuro: assim que os critérios voltarem a ser atendidos e não houver pendência aberta, o sistema cria uma nova sugestão. Muitas rejeições na mesma capacidade costumam indicar critérios mal calibrados para ela.",
+    "o_que_fazer": "Se a mesma capacidade acumular rejeições, ajuste os critérios objetivos daquele nível em vez de insistir na fila.",
+    "fonte": "Sugestões de promoção com decisão de rejeição."
+  },
+  {
+    "termo": "Nível proposto",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "O nível que a pessoa alcançaria ao ser aprovada, sempre um passo acima do nível atual. É o que a verificação automática de critérios considerou atingido.",
+    "como_ler": "Na janela de decisão é possível aprovar um nível diferente do proposto. Aprovar o nível proposto grava, além do nível, a data em que a pessoa passou a ocupá-lo — é essa data que conta no critério de tempo mínimo para o próximo passo.",
+    "fonte": "Verificação automática dos critérios objetivos do nível seguinte."
+  },
+  {
+    "termo": "Critérios objetivos",
+    "sinonimos": [
+      "Critérios"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "A lista do que é exigido para o próximo nível, comparando o valor atual da pessoa com o valor exigido em cada item.",
+    "como_ler": "Pela regra geral do catálogo são cinco verificações: XP mínimo, tempo mínimo no nível, evidências válidas, avaliação do gestor no nível proposto e validação por mentor ou banca. Cada capacidade pode ter critérios próprios, ajustados por nível. A exigência de banca ou mentor é aplicada automaticamente a partir do nível 4, mesmo que o interruptor esteja desmarcado.",
+    "o_que_fazer": "Use a lista como devolutiva para o colaborador: cada item não atendido é uma ação concreta de desenvolvimento, não uma avaliação subjetiva.",
+    "formula": "Pela regra geral: XP igual a 100 × nível proposto, 6 meses no nível, 2 evidências válidas, avaliação do gestor no nível e 2 avaliações registradas quando há exigência de banca ou mentor.",
+    "fonte": "Critérios objetivos cadastrados por nível, específicos da capacidade ou da regra geral do catálogo."
+  },
+  {
+    "termo": "Critérios atendidos",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos dos critérios objetivos já estão cumpridos, sobre o total avaliado naquela sugestão. A barra fica verde quando todos são atendidos.",
+    "como_ler": "O número é recalculado sempre que o perfil muda: uma nova avaliação, uma evidência validada ou um XP creditado podem fazer a contagem subir. A pessoa só é considerada elegível quando todos os critérios estão atendidos e o nível atual é menor que 5.",
+    "o_que_fazer": "Um critério isolado em falta costuma ser o gargalo — normalmente evidências válidas ou avaliação do gestor. Resolva esse item em vez de creditar mais XP.",
+    "fonte": "Verificação dos critérios objetivos de promoção sobre o perfil de capacidade."
+  },
+  {
+    "termo": "Oportunidades abertas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas oportunidades internas estão ativas para candidatura — vagas em projeto, mentorias, trilhas, movimentações e comunidades de prática.",
+    "como_ler": "O número considera as oportunidades ativas na listagem, mesmo que a data limite de candidatura já tenha passado. Oportunidade encerrada continua visível para consulta, mas não aceita nova candidatura.",
+    "fonte": "Oportunidades internas publicadas e marcadas como ativas."
+  },
+  {
+    "termo": "Aderência média",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Média do quanto você atende às capacidades exigidas pelas oportunidades recomendadas para o seu perfil. Resume o encaixe entre o seu momento e o que está aberto.",
+    "como_ler": "É calculada apenas sobre as oportunidades recomendadas, ou seja, as ativas comparadas com o seu perfil. Média alta indica que há vagas compatíveis com o que você já domina; média baixa indica que as vagas pedem níveis acima dos seus.",
+    "o_que_fazer": "Aderência média baixa com várias oportunidades abertas é um bom insumo para escolher o próximo alvo de desenvolvimento no PDI.",
+    "formula": "Média das aderências das oportunidades recomendadas.",
+    "fonte": "Comparação entre as capacidades exigidas por cada oportunidade e o seu nível consolidado."
+  },
+  {
+    "termo": "Forte aderência",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas oportunidades recomendadas têm aderência de 80% ou mais ao seu perfil. São as candidaturas com maior chance de avançar.",
+    "como_ler": "O corte de 80% é o mesmo que classifica a oportunidade como forte candidato. Abaixo disso, o sistema distingue candidato viável com plano de desenvolvimento, a partir de 50%, de quem precisa de capacitação antes de se candidatar.",
+    "fonte": "Cálculo de aderência das oportunidades recomendadas."
+  },
+  {
+    "termo": "Candidaturas aprovadas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas das suas candidaturas a oportunidades internas foram aprovadas. O subtítulo mostra o total de candidaturas enviadas.",
+    "como_ler": "Os status possíveis são candidatado, em análise, aprovado, recusado e desistiu. Aprovado indica que a movimentação, a vaga ou a mentoria foi confirmada pelo responsável.",
+    "fonte": "Candidaturas registradas nas oportunidades internas."
+  },
+  {
+    "termo": "Aderência",
+    "sinonimos": [
+      "Aderência calculada"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Percentual das capacidades exigidas pela oportunidade que você já atende no nível mínimo pedido. Diz o quanto falta para a vaga, a mentoria ou a movimentação combinar com o seu perfil.",
+    "como_ler": "Cada capacidade exigida atende ou não atende, sem meio termo: quem está meio nível abaixo conta como gap. A leitura do sistema é: 80% ou mais é forte candidato; de 50% a 79% é candidato viável com plano de desenvolvimento; abaixo de 50% exige capacitação antes da candidatura. Quando a oportunidade não exige nenhuma capacidade específica, o percentual não representa preparo — não há o que comparar.",
+    "o_que_fazer": "Antes de se candidatar com aderência baixa, use o PDI para fechar os gaps listados no cartão e volte quando eles estiverem resolvidos.",
+    "formula": "Aderência = capacidades atendidas ÷ total de capacidades exigidas × 100. Cada capacidade atende quando o nível consolidado é maior ou igual ao nível mínimo da oportunidade.",
+    "exemplo": "Uma vaga exige 4 capacidades no nível 3 e você atende 3 delas: aderência de 75%, ou seja, candidato viável com plano de desenvolvimento.",
+    "fonte": "Comparação entre as capacidades exigidas pela oportunidade e o nível consolidado do seu perfil."
+  },
+  {
+    "termo": "Atendidas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "As capacidades exigidas pela oportunidade em que você já está no nível mínimo ou acima, mostradas com o seu nível e o nível requerido.",
+    "como_ler": "Esta lista é o seu argumento na candidatura. Quando ela está vazia, nenhuma exigência foi cumprida e o cartão mostra a aderência mais baixa possível.",
+    "fonte": "Capacidades da oportunidade em que o seu nível consolidado alcança o mínimo."
+  },
+  {
+    "termo": "Gaps",
+    "sinonimos": [
+      "Skills com gap"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "As capacidades exigidas pela oportunidade em que você ainda está abaixo do nível mínimo, com o seu nível e o nível requerido.",
+    "como_ler": "Cada item aqui é uma lacuna concreta a fechar antes de assumir a vaga. Diferença de um nível costuma ser resolvida com prática e mentoria; de dois ou mais, com treinamento formal combinado com atuação em projeto.",
+    "o_que_fazer": "Registre essas capacidades como ações no PDI com o nível alvo igual ao requerido pela oportunidade.",
+    "fonte": "Capacidades da oportunidade em que o seu nível consolidado fica abaixo do mínimo."
+  },
+  {
+    "termo": "Vagas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas pessoas a oportunidade pretende admitir. Não é o número de candidaturas recebidas.",
+    "como_ler": "Vagas maior que 1 indica movimentação coletiva, como formar uma célula ou reforçar uma frente. O total de candidaturas aparece no rodapé do cartão, com o nome do responsável.",
+    "fonte": "Cadastro da oportunidade interna."
+  },
+  {
+    "termo": "Carga semanal",
+    "sinonimos": [
+      "Carga horária semanal"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas horas por semana a oportunidade consome. Serve para negociar a alocação antes de se candidatar.",
+    "como_ler": "Vaga em projeto com carga alta compete diretamente com as suas alocações atuais. Um traço no lugar do número significa que a carga não foi informada.",
+    "o_que_fazer": "Confira a sua ocupação semanal antes de aceitar: carga somada acima de 100% gera superalocação e atrasa as entregas de todos os projetos envolvidos.",
+    "fonte": "Cadastro da oportunidade interna."
+  },
+  {
+    "termo": "Candidaturas até",
+    "sinonimos": [
+      "Data limite"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "A data limite para se candidatar àquela oportunidade. Depois dela a oportunidade pode continuar visível, mas o prazo de candidatura terminou.",
+    "como_ler": "Um traço significa prazo aberto, sem data definida. Como o indicador de oportunidades abertas não considera a data, vale olhar o cartão antes de contar com a vaga.",
+    "fonte": "Cadastro da oportunidade interna."
+  },
+  {
+    "termo": "Posições críticas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas posições-chave do mapa têm criticidade Alta ou Estratégica. São os cargos em que uma vacância trava decisões ou entrega.",
+    "como_ler": "Criticidade Baixa e Média ficam fora desta contagem, mesmo que a posição tenha risco de sucessão alto. O indicador serve para dimensionar o esforço de sucessão no que realmente importa.",
+    "fonte": "Criticidade cadastrada em cada posição-chave."
+  },
+  {
+    "termo": "Sem sucessor mapeado",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas posições-chave não têm nenhum candidato mapeado. Não há plano de desenvolvimento em andamento para assumir aquela posição.",
+    "como_ler": "É diferente de ter sucessor sem prontidão: aqui o trabalho de sucessão nem começou. Posição vaga, sem ocupante atual, agrava o quadro porque o risco de descontinuidade é imediato.",
+    "o_que_fazer": "Mapeie ao menos dois candidatos por posição crítica, com prontidão, aderência e plano de desenvolvimento registrados.",
+    "fonte": "Posições-chave sem nenhum sucessor cadastrado."
+  },
+  {
+    "termo": "Risco alto de sucessão",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas posições-chave foram avaliadas com risco de sucessão Alto ou Crítico. Traduz a dificuldade de repor aquela posição no mercado ou internamente.",
+    "como_ler": "O risco é uma avaliação registrada na posição, com quatro faixas: Baixo, Médio, Alto e Crítico. O indicador soma as duas piores, independentemente da criticidade da posição — uma posição de criticidade média pode ter risco alto de reposição.",
+    "o_que_fazer": "Para cada posição nessa faixa, garanta pelo menos um candidato com prontidão Pronto agora ou Pronto em 1–2 anos e um plano de desenvolvimento ativo.",
+    "fonte": "Campo de risco de sucessão cadastrado em cada posição-chave."
+  },
+  {
+    "termo": "Cobertura de sucessão",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Percentual de posições-chave que já têm pelo menos um sucessor mapeado. Mede o quanto o mapa está preenchido, e não o quanto os candidatos estão prontos.",
+    "como_ler": "Posição com sucessor ainda em desenvolvimento já conta como coberta. Por isso, cobertura alta convive com prontidão baixa: leia sempre os dois números juntos. A cor acompanha o percentual, do vermelho ao verde a partir de 80%.",
+    "o_que_fazer": "Se a cobertura estiver alta mas a maioria dos sucessores estiver em A desenvolver, o próximo passo é transformar os planos em ações com prazo, e não mapear mais gente.",
+    "formula": "Cobertura = posições com ao menos um sucessor ÷ total de posições-chave × 100.",
+    "exemplo": "Nove posições-chave com sucessor mapeado em seis delas resultam em cobertura de 67%.",
+    "fonte": "Planos de sucessão cadastrados por posição-chave."
+  },
+  {
+    "termo": "Risco de sucessão",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Avaliação da dificuldade de repor aquela posição específica, em quatro faixas: Baixo, Médio, Alto e Crítico. É uma leitura de mercado e de contexto, registrada por quem conhece a posição.",
+    "como_ler": "Risco Alto ou Crítico indica que encontrar alguém no mercado é difícil ou demorado, o que torna o desenvolvimento interno a rota mais confiável. As cores vão do verde no risco baixo ao vinho no crítico.",
+    "o_que_fazer": "Combine risco alto com criticidade alta para definir a prioridade de sucessão: é a interseção mais perigosa do mapa.",
+    "fonte": "Cadastro da posição-chave."
+  },
+  {
+    "termo": "Sucessores mapeados",
+    "sinonimos": [
+      "Sucessores"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos candidatos estão vinculados àquela posição-chave, cada um com prontidão, aderência e plano de desenvolvimento próprios.",
+    "como_ler": "Ter mais de um candidato reduz o risco de a sucessão depender de uma única pessoa. A ordem de preferência é dada pela prioridade de cada plano.",
+    "o_que_fazer": "Mapeie no mínimo dois candidatos por posição crítica e revise a prontidão a cada ciclo de avaliação de capacidades.",
+    "fonte": "Planos de sucessão vinculados à posição."
+  },
+  {
+    "termo": "Prontidão",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quão perto o sucessor está de assumir a posição, em quatro faixas: Pronto agora, Pronto em 1–2 anos, Pronto em 3–5 anos e A desenvolver.",
+    "como_ler": "A prontidão é uma avaliação qualitativa registrada por quem mapeia o sucessor; a aderência, ao lado dela, mostra o quanto ele já atende às capacidades críticas da posição. As duas juntas contam a história: pronto agora com aderência baixa merece revisão.",
+    "o_que_fazer": "Para sucessores em A desenvolver ou Pronto em 3–5 anos, registre o plano de desenvolvimento com ações vinculadas às capacidades críticas da posição.",
+    "fonte": "Avaliação registrada no plano de sucessão."
+  },
+  {
+    "termo": "Prioridade",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "A ordem de preferência do sucessor dentro da posição. Prioridade 1 é o candidato que assume primeiro se a posição vagar.",
+    "como_ler": "A lista de sucessores de cada posição é ordenada por prioridade. Vale manter prioridades distintas por posição: dois candidatos com a mesma prioridade não deixam claro quem é acionado primeiro.",
+    "fonte": "Plano de sucessão do candidato."
+  },
+  {
+    "termo": "Pessoas no recorte",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos colaboradores ativos estão nas linhas da matriz. O subtítulo mostra quantas capacidades estão registradas nas células desse recorte.",
+    "como_ler": "O recorte respeita os filtros de área, categoria e tipo e o limite de pessoas escolhido no topo. Aumentar o limite traz mais linhas; não muda os níveis já registrados.",
+    "fonte": "Colaboradores ativos na matriz de capacidades."
+  },
+  {
+    "termo": "Nível médio da equipe",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Média do nível médio de cada colaborador do recorte. É a leitura coletiva da matriz, na escala de 1 a 5.",
+    "como_ler": "O cálculo dá o mesmo peso a cada pessoa, e não a cada capacidade: quem tem poucas capacidades registradas pesa igual a quem tem muitas. Média baixa com muitos registros significa equipe júnior ou pouco desenvolvida naquele conjunto; média alta com poucos registros pode ser só meia dúzia de perfis completos.",
+    "o_que_fazer": "Cruze com o indicador de capacidades sem especialista: média alta não garante referência técnica em todas as capacidades do recorte.",
+    "formula": "Média dos níveis médios individuais das pessoas listadas.",
+    "fonte": "Níveis consolidados das capacidades registradas em cada perfil."
+  },
+  {
+    "termo": "Capacidades no recorte",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades aparecem nas colunas da matriz. O subtítulo mostra quantas existem no catálogo inteiro, para você ver o tamanho do recorte.",
+    "como_ler": "Entram apenas capacidades com status Ativa ou Emergente, filtradas por categoria e tipo, e limitadas ao número escolhido no filtro de capacidades. As colunas são ordenadas pelas mais registradas nos perfis, então o que ficou de fora tende a ser o menos usado.",
+    "o_que_fazer": "Se uma capacidade importante não aparece, aumente o limite de capacidades ou refine os filtros — ela pode estar fora do recorte, e não ausente do catálogo.",
+    "fonte": "Catálogo de capacidades filtrado e ordenado pela quantidade de registros nos perfis."
+  },
+  {
+    "termo": "Pessoas com nível ≥ 3",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico de cobertura que compara, capacidade por capacidade, quantas pessoas já são autônomas (nível 3 ou mais) contra o total de pessoas com aquela capacidade registrada.",
+    "como_ler": "A barra colorida é o número de pessoas no nível 3 ou mais e o fundo cinza é o total com registro. Vermelho quando não há ninguém no nível 3; laranja quando há apenas uma pessoa; na cor da capacidade nos demais casos.",
+    "o_que_fazer": "Barra curta sobre um fundo longo indica muita gente começando e pouca gente autônoma: é onde mentoria rende mais rápido.",
+    "formula": "Contagem de pessoas com nível maior ou igual a 3 na capacidade, dentro do recorte.",
+    "fonte": "Níveis atuais registrados nos perfis de capacidade."
+  },
+  {
+    "termo": "Pessoas com nível ≥ 4",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico de cobertura que mostra quantas pessoas têm nível 4 ou 5 em cada capacidade do recorte — ou seja, o bus factor de cada uma.",
+    "como_ler": "Vermelho quando não há nenhum especialista e laranja quando existe apenas um. A partir de dois, a barra fica roxa. Capacidades com zero ou um especialista também aparecem listadas no alerta de cobertura crítica logo acima.",
+    "o_que_fazer": "Trate as capacidades da lista de cobertura crítica como pauta de mentoria: são elas que sustentam os projetos com risco de parada.",
+    "formula": "Contagem de pessoas com nível maior ou igual a 4 na capacidade, dentro do recorte.",
+    "fonte": "Níveis atuais registrados nos perfis de capacidade."
+  },
+  {
+    "termo": "Colaboradores ativos",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas pessoas ativas aparecem no diretório com os filtros aplicados. É a base de comparação dos demais indicadores da tela.",
+    "como_ler": "Colaboradores inativos ficam fora da contagem. Se o número cair de um mês para o outro, verifique desligamentos e também filtros de perfil ou área aplicados na tela.",
+    "fonte": "Cadastro de colaboradores ativos."
+  },
+  {
+    "termo": "Com capacidades mapeadas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos colaboradores ativos têm pelo menos uma capacidade registrada no perfil. Mostra a cobertura real do catálogo sobre as pessoas.",
+    "como_ler": "Comparado ao total de colaboradores ativos, indica o quanto do quadro já foi mapeado. Cobertura baixa significa que o bus factor, a matriz e a análise de gap estão olhando apenas parte da organização.",
+    "o_que_fazer": "Priorize o mapeamento das áreas com maior dependência de conhecimento: perfil incompleto esconde risco de concentração.",
+    "fonte": "Perfis de capacidade registrados por colaborador ativo."
+  },
+  {
+    "termo": "Nível médio geral",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Média do nível médio dos colaboradores que têm capacidades mapeadas. Dá a fotografia de maturidade do quadro mapeado, na escala de 1 a 5.",
+    "como_ler": "Só entram na média as pessoas com pelo menos uma capacidade registrada — quem não tem perfil não puxa o número para baixo. Uma média perto de 3 indica equipe autônoma em tarefas típicas; abaixo de 2, quadro em formação.",
+    "fonte": "Níveis médios individuais calculados a partir dos perfis de capacidade."
+  },
+  {
+    "termo": "Mentores disponíveis",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos colaboradores aceitam atuar como mentores. São as pessoas que aparecem nas sugestões de mentoria das capacidades em que têm nível 4 ou 5.",
+    "como_ler": "A disponibilidade é uma marcação do perfil da pessoa, independente de ela ter especialidade: quem não tem nível 4 ou 5 em nenhuma capacidade não entra nas sugestões, mesmo estando disponível. O sistema também considera a ocupação e a quantidade de mentorias ativas ao ordenar os candidatos.",
+    "o_que_fazer": "Se uma capacidade em risco não tem mentor sugerido, o gargalo é a falta de especialistas disponíveis — vale revisar a marcação de disponibilidade de quem já é nível 4 ou 5.",
+    "fonte": "Perfis de colaboradores marcados como disponíveis para mentoria."
+  },
+  {
+    "termo": "Capacidades mapeadas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades estão registradas no perfil desta pessoa. Todas entram no radar e na média de nível, exceto as marcadas como privadas para quem não é o próprio dono do perfil.",
+    "como_ler": "Perfil com poucas capacidades registradas dá um radar incompleto — a própria tela avisa que são necessárias ao menos três para desenhar o gráfico. Quantidade não é qualidade: poucas capacidades com nível alto valem mais do que muitas com nível 1.",
+    "o_que_fazer": "Complete o perfil antes de usar a análise de gap e a aderência a oportunidades: elas comparam exatamente o que está registrado.",
+    "fonte": "Perfis de capacidade vinculados ao colaborador."
+  },
+  {
+    "termo": "Em desenvolvimento",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades do perfil estão marcadas como em desenvolvimento ou em reciclagem. Indica onde a pessoa está investindo esforço agora.",
+    "como_ler": "A marca Em desenvolvimento é atribuída a capacidades que a pessoa está construindo; Em reciclagem, às que precisam recuperar atualidade. Nenhuma das duas altera o nível, mas ambas alimentam as trilhas recomendadas.",
+    "o_que_fazer": "Se o número estiver alto e as enferrujadas também, priorize reciclagem: recuperar o que já existe custa menos do que começar do zero.",
+    "fonte": "Status registrado em cada perfil de capacidade da pessoa."
+  },
+  {
+    "termo": "Enferrujadas",
+    "sinonimos": [
+      "Enferrujada (decay)"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades do perfil estão marcadas como enferrujadas, isto é, sem uso recente. O nível registrado continua no perfil, mas o conhecimento perdeu atualidade.",
+    "como_ler": "A marcação acontece quando a capacidade fica mais de 365 dias sem utilização, considerando apenas perfis de nível 2 ou superior e que ainda não estejam marcados. No perfil, a data da última utilização e os dias sem uso aparecem em vermelho quando passam desse limite. Qualquer XP creditado na capacidade devolve o status para ativa.",
+    "o_que_fazer": "Inclua uma ação de reciclagem no PDI: mentoria com especialista para níveis 4 e 5, treinamento para nível 3 e prática supervisionada para nível 2.",
+    "formula": "Capacidades do perfil com status Enferrujada.",
+    "fonte": "Status do perfil de capacidade, atualizado pela detecção de enferrujamento."
+  },
+  {
+    "termo": "Ocupação média",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Média das próximas semanas de alocação confirmada desta pessoa, em percentual da jornada. Acima de 100% significa mais trabalho alocado do que capacidade disponível.",
+    "como_ler": "Cada semana soma o percentual das alocações confirmadas ou em execução que cobrem aqueles dias. O indicador fica verde até 85%, amarelo entre 85% e 100% e vermelho acima de 100%. Ocupação de 100% sem folga é frágil: qualquer imprevisto vira atraso.",
+    "o_que_fazer": "Se a média passar de 100%, revise as alocações que se sobrepõem no mesmo período antes de aceitar novo trabalho para a pessoa.",
+    "formula": "Média da ocupação semanal das semanas analisadas; ocupação da semana = soma dos percentuais das alocações confirmadas que cobrem a semana.",
+    "fonte": "Alocações confirmadas e em execução nos próximos períodos."
+  },
+  {
+    "termo": "Pico de ocupação",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "A maior ocupação semanal do período analisado. Mostra o pior momento da agenda, que costuma ser o que trava entregas.",
+    "como_ler": "Um pico muito acima da média indica sobreposição pontual de projetos, mesmo quando a média parece confortável. Se o pico passa de 100%, existe superalocação em pelo menos uma semana.",
+    "o_que_fazer": "Localize a semana do pico na lista de ocupação semanal e redistribua as alocações que se sobrepõem.",
+    "fonte": "Maior valor de ocupação entre as semanas analisadas."
+  },
+  {
+    "termo": "Semanas superalocadas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantas semanas do período têm mais de 100% da jornada alocada. É trabalho comprometido além do tempo disponível.",
+    "como_ler": "Cada semana nessa condição aparece marcada como superalocada na lista. Superalocação crônica costuma se converter em atraso de cronograma e em risco de sobrecarga da pessoa.",
+    "o_que_fazer": "Negocie prazo ou divida a entrega: o sistema também penaliza a sobrecarga no motor de alocação, justamente para evitar esse cenário.",
+    "formula": "Semanas com ocupação acima de 100%.",
+    "fonte": "Soma dos percentuais de alocação confirmada em cada semana."
+  },
+  {
+    "termo": "Semanas ociosas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Quantas semanas do período estão sem nenhuma alocação confirmada. É capacidade parada, que poderia estar absorvendo trabalho.",
+    "como_ler": "Semana ociosa é diferente de semana com folga: folga é ocupação abaixo de 85% mas acima de zero. Muitas semanas ociosas seguidas indicam previsão de demanda fraca ou alocação não registrada.",
+    "o_que_fazer": "Use as semanas livres para desenvolvimento dirigido — prática em projeto, mentoria ou job rotation — em vez de deixar a capacidade sem uso.",
+    "formula": "Semanas com ocupação igual a zero.",
+    "fonte": "Alocações confirmadas e em execução no período."
+  },
+  {
+    "termo": "Horas apontadas",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Total de horas que a pessoa registrou no timesheet no período analisado, somando apontamentos aprovados e pendentes de aprovação.",
+    "como_ler": "É a única medida de esforço real, diferente da ocupação planejada. Horas apontadas muito abaixo da ocupação indicam que o time não está registrando o trabalho; horas bem acima, que a estimativa de capacidade está otimista.",
+    "o_que_fazer": "Cobre o registro das horas: é ele que credita XP nas capacidades e alimenta os indicadores de esforço dos projetos.",
+    "fonte": "Apontamentos de horas registrados pela pessoa."
+  },
+  {
+    "termo": "Radar de capacidades (atual × desejado)",
+    "sinonimos": [
+      "Radar de capacidades"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico que coloca, no mesmo desenho, o nível consolidado de cada capacidade e o nível desejado. A distância entre as duas linhas é o esforço de desenvolvimento da pessoa.",
+    "como_ler": "Cada eixo é uma capacidade, até dez, ordenadas das maiores para as menores. A área azul é o nível atual; a linha laranja, o desejado. Eixos em que a linha laranja está muito acima da azul são as prioridades; eixos em que ela está praticamente sobreposta já estão resolvidos. São necessárias ao menos três capacidades registradas para o desenho aparecer.",
+    "o_que_fazer": "Leve as maiores distâncias do radar para a conversa de PDI: são elas que a análise de gap também vai cobrar.",
+    "fonte": "Perfis de capacidade do colaborador, com nível consolidado e nível desejado."
+  },
+  {
+    "termo": "Distribuição por categoria",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quanto do perfil da pessoa está em cada categoria do catálogo, com a quantidade de capacidades e o nível médio daquele grupo.",
+    "como_ler": "A barra mostra o nível médio da categoria na escala de 1 a 5 e o número ao lado indica quantas capacidades entraram nela. Categorias com muitas capacidades e nível médio baixo são as mais trabalhosas para evoluir.",
+    "fonte": "Perfis de capacidade agrupados pela categoria da capacidade."
+  },
+  {
+    "termo": "Evolução dos níveis ao longo do tempo",
+    "sinonimos": [
+      "Evolução"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico com a trajetória de nível das capacidades que tiveram mais movimentações, com base no histórico de evolução.",
+    "como_ler": "Cada linha é uma capacidade e o degrau acontece na data em que houve promoção, regressão ou ajuste. Linha parada há muitos meses indica capacidade sem desenvolvimento; queda indica regressão registrada com justificativa.",
+    "o_que_fazer": "Compare com as trilhas recomendadas: se uma capacidade prioritária não se move há dois ciclos, revise as ações de desenvolvimento dela.",
+    "fonte": "Histórico de evolução das capacidades do colaborador."
+  },
+  {
+    "termo": "Trilhas recomendadas",
+    "sinonimos": [
+      "Trilha recomendada"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas capacidades entraram na sua recomendação de desenvolvimento. A lista prioriza capacidades com gap, capacidades enferrujadas e capacidades exigidas por projetos ativos.",
+    "como_ler": "Sem nenhum gap cadastrado, o sistema recomenda as capacidades de menor nível do perfil, para manter a evolução em andamento. A ordem coloca primeiro as trilhas de urgência alta e, dentro dela, as mais demandadas por projetos.",
+    "o_que_fazer": "Gere o PDI a partir das trilhas: ele cria as ações com prazo padrão de 90 dias, carga horária e nível alvo já preenchidos.",
+    "fonte": "Perfis de capacidade, nível desejado e requisitos de capacidade dos projetos ativos."
+  },
+  {
+    "termo": "Urgência",
+    "sinonimos": [
+      "Urgência da trilha"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Prioridade da trilha de desenvolvimento: Alta, Média ou Baixa. Define o que atacar primeiro.",
+    "como_ler": "Alta quando a capacidade está enferrujada — o conhecimento existe, mas perdeu atualidade. Média quando o gap é de dois níveis ou mais. Baixa nos demais casos. Dentro da mesma urgência, entram primeiro as capacidades mais exigidas por projetos ativos.",
+    "fonte": "Status do perfil de capacidade, gap de níveis e demanda dos projetos ativos."
+  },
+  {
+    "termo": "Gap total",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Soma dos níveis que você precisa evoluir em todas as trilhas recomendadas. Dá a dimensão do esforço de desenvolvimento do momento.",
+    "como_ler": "Cada trilha contribui com a diferença entre o nível alvo e o nível atual. Gap total alto com poucas trilhas indica saltos grandes de nível, que normalmente levam mais de um ciclo de avaliação; gap total alto com muitas trilhas indica frente de desenvolvimento ampla demais para um plano só.",
+    "o_que_fazer": "Limite o PDI às trilhas de urgência alta: plano com muitas frentes abertas costuma terminar com ações atrasadas.",
+    "fonte": "Soma dos gaps das trilhas recomendadas."
+  },
+  {
+    "termo": "Demanda em projetos",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos requisitos de projetos ativos pedem as capacidades das suas trilhas. Mostra se o desenvolvimento recomendado também interessa ao portfólio.",
+    "como_ler": "O número soma, para cada trilha, quantos projetos em execução, aprovados ou planejados exigem aquela capacidade. Demanda alta em uma trilha de urgência alta é o cenário mais forte para justificar investimento em treinamento.",
+    "o_que_fazer": "Ao negociar orçamento de capacitação, comece pelas trilhas que combinam urgência alta e demanda em projetos.",
+    "fonte": "Requisitos de capacidade de projetos em execução, aprovados ou planejados."
+  },
+  {
+    "termo": "Progresso médio",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Média do avanço do que está na tela. No seu PDI, é a média do progresso das trilhas recomendadas; na visão da equipe, é a média do percentual concluído de cada plano.",
+    "como_ler": "O progresso de um plano é a proporção de ações concluídas sobre o total de ações dele. O progresso de uma trilha é o XP acumulado sobre o XP necessário para o próximo nível, limitado a 100%. Média baixa com muitas ações concluídas indica plano com ações demais; média baixa com poucas concluídas indica execução travada.",
+    "o_que_fazer": "Revise os planos com progresso abaixo de 40%: normalmente o problema é prazo vencido ou ação grande demais para o tempo disponível.",
+    "formula": "Média simples dos progressos individuais dos planos ou das trilhas listadas.",
+    "fonte": "Progresso das ações concluídas nos PDIs e XP acumulado sobre o necessário nas trilhas recomendadas."
+  },
+  {
+    "termo": "Progresso do PDI",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Percentual de ações concluídas no seu plano de desenvolvimento. É a proporção de ações marcadas como concluídas sobre o total de ações do plano.",
+    "como_ler": "A barra fica verde a partir de 70%, azul a partir de 40% e laranja abaixo disso. Ações canceladas continuam no denominador, então planos com muitos cancelamentos dificilmente chegam perto de 100%.",
+    "o_que_fazer": "Se o percentual estagnou, renegocie os prazos das ações atrasadas em vez de acumular pendências.",
+    "formula": "Progresso = ações concluídas ÷ total de ações do plano × 100.",
+    "fonte": "Ações do plano de desenvolvimento individual."
+  },
+  {
+    "termo": "Planos",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos planos de desenvolvimento aparecem com os filtros aplicados, de todos os colaboradores ou de um só.",
+    "como_ler": "A contagem inclui planos em qualquer situação: rascunho, ativo, concluído ou cancelado. Os indicadores de ações ao lado somam tudo o que está dentro desses planos.",
+    "fonte": "Planos de desenvolvimento cadastrados."
+  },
+  {
+    "termo": "Ações totais",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Soma das ações de desenvolvimento de todos os planos listados. É o volume de trabalho de desenvolvimento em andamento na equipe.",
+    "como_ler": "Cada plano traz as próprias ações e o total soma tudo, independentemente do status. Muitas ações por pessoa costumam indicar plano pouco priorizado.",
+    "fonte": "Ações dos planos de desenvolvimento listados."
+  },
+  {
+    "termo": "Concluídas",
+    "sinonimos": [
+      "Ações concluídas"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas ações de desenvolvimento já foram marcadas como concluídas. Ao concluir uma ação vinculada a uma capacidade, o XP correspondente é creditado no perfil.",
+    "como_ler": "Comparar concluídas com ações totais mostra o ritmo real do desenvolvimento. Muitas ações concluídas sem mudança de nível indicam que falta a outra parte dos critérios: evidências válidas, tempo mínimo no nível ou avaliação do gestor.",
+    "o_que_fazer": "Ao concluir uma ação, registre a evidência correspondente: é ela que sustenta o próximo passo na fila de validação.",
+    "fonte": "Ações do PDI com status concluída."
+  },
+  {
+    "termo": "Atrasadas",
+    "sinonimos": [
+      "Ações atrasadas"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Ações de desenvolvimento com prazo vencido e ainda abertas. Não entram as concluídas nem as canceladas.",
+    "como_ler": "Quando existe pelo menos uma, a tela destaca a lista com descrição, prazo e capacidade. Ação atrasada não tira XP nem nível, mas atrasa a elegibilidade à promoção, porque tempo mínimo e evidências continuam pendentes.",
+    "o_que_fazer": "Renegocie o prazo ou divida a ação em etapas menores: ação parada há muito tempo geralmente indica falta de carga horária reservada na agenda.",
+    "formula": "Ações com prazo anterior a hoje e status diferente de concluída ou cancelada.",
+    "fonte": "Ações dos planos de desenvolvimento listados."
+  },
+  {
+    "termo": "Mentorias",
+    "sinonimos": [
+      "Mentoria"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas mentorias estão registradas com os filtros aplicados. A mentoria conecta quem já é referência, nível 4 ou 5, a quem precisa evoluir.",
+    "como_ler": "A contagem inclui mentorias propostas, ativas, concluídas e canceladas. Ela é o principal instrumento para reduzir bus factor sem contratar: formar detentores internos costuma ser mais rápido do que repor no mercado.",
+    "o_que_fazer": "Abra uma mentoria para cada capacidade com bus factor 0 ou 1 e defina objetivo, frequência e prazo.",
+    "fonte": "Mentorias cadastradas no módulo de capacidades."
+  },
+  {
+    "termo": "Ativas",
+    "sinonimos": [
+      "Mentorias ativas"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Mentorias em andamento neste momento. Só elas entram nas contas de horas realizadas e avaliação média ao lado.",
+    "como_ler": "Mentoria proposta ainda não começou e concluída já encerrou. O sistema também usa a quantidade de mentorias ativas de cada mentor para ordenar as sugestões — quem já acompanha quatro ou mais perde prioridade.",
+    "o_que_fazer": "Feche ou ative as mentorias propostas paradas: elas ocupam a agenda sem gerar desenvolvimento.",
+    "fonte": "Mentorias com status ativa."
+  },
+  {
+    "termo": "Horas realizadas",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Soma das horas já realizadas nas mentorias ativas. Mede o esforço efetivo de transferência de conhecimento, e não o combinado.",
+    "como_ler": "Mentoria ativa sem horas lançadas contribui com zero, mesmo que os encontros estejam acontecendo. Compare com a frequência combinada para saber se a agenda está sendo cumprida.",
+    "o_que_fazer": "Registre as horas após cada encontro: sem esse dado o acompanhamento do programa de mentoria fica sem base.",
+    "fonte": "Horas realizadas lançadas nas mentorias ativas."
+  },
+  {
+    "termo": "Avaliação média",
+    "sinonimos": [
+      "Nota da mentoria"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Média das notas de 1 a 5 das mentorias ativas que já foram avaliadas. Indica a qualidade percebida do acompanhamento.",
+    "como_ler": "Mentorias sem nota ficam fora da média, então o número pode representar poucos casos. Nota baixa recorrente com o mesmo mentor pede conversa sobre método e frequência, não sobre conteúdo.",
+    "fonte": "Avaliação registrada nas mentorias ativas."
+  },
+  {
+    "termo": "Treinamentos",
+    "sinonimos": [
+      "Treinamento"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos treinamentos existem no catálogo, com carga horária, custo, fornecedor, nível alvo e XP concedido.",
+    "como_ler": "Só treinamentos ativos entram nas sugestões das trilhas, e apenas quando o nível alvo do treinamento é menor ou igual ao alvo da trilha. Catálogo grande sem participações registradas indica oferta que ninguém está usando.",
+    "o_que_fazer": "Vincule cada treinamento a uma capacidade: sem esse vínculo ele não aparece nas recomendações de desenvolvimento.",
+    "fonte": "Treinamentos cadastrados no catálogo."
+  },
+  {
+    "termo": "Carga horária total",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Soma da carga horária de todos os treinamentos do catálogo listado. Dá a dimensão do esforço de formação disponível.",
+    "como_ler": "É uma medida da oferta, não do realizado. Compare com as horas das mentorias e com as ações concluídas dos planos para ver o quanto dessa oferta está sendo consumida.",
+    "fonte": "Carga horária cadastrada em cada treinamento."
+  },
+  {
+    "termo": "Participações",
+    "sinonimos": [
+      "Participação em treinamento"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas inscrições de colaboradores em treinamentos existem, com o subtítulo mostrando quantas já foram concluídas.",
+    "como_ler": "Cada participação tem status: inscrito, em andamento, concluído, reprovado ou cancelado. Conclusão de treinamento vinculado a uma capacidade gera XP no perfil; treinamento que gera certificação também alimenta os indicadores de certificação do painel de capacidades.",
+    "o_que_fazer": "Acompanhe as inscrições em andamento: participação sem conclusão consome orçamento sem gerar XP nem evidência.",
+    "fonte": "Inscrições de colaboradores em treinamentos."
+  },
+  {
+    "termo": "Investimento",
+    "sinonimos": [
+      "Custo do catálogo"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Soma do custo cadastrado nos treinamentos do catálogo. É o valor da oferta de formação disponível, não o valor já gasto.",
+    "como_ler": "O custo é do catálogo, independentemente de haver inscrições. Para avaliar retorno, cruze com as participações concluídas e com as ações de PDI que geraram mudança de nível.",
+    "o_que_fazer": "Antes de renovar um treinamento caro sem conclusões registradas, verifique se o problema é o conteúdo ou a liberação de carga horária.",
+    "fonte": "Custo cadastrado em cada treinamento do catálogo."
+  },
+  {
+    "termo": "Gap acumulado",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Soma da diferença entre demanda e oferta da capacidade ao longo de todos os períodos previstos, em FTE. Positivo significa falta de gente; negativo, sobra.",
+    "como_ler": "O gap de cada mês é a demanda estimada menos a oferta estimada. Acima de 1 FTE o mês é classificado como escassez; abaixo de menos 1 FTE, como ociosidade; entre os dois, equilíbrio. Gap acumulado positivo e crescente indica que a capacidade vai faltar de forma sustentada, não pontual.",
+    "o_que_fazer": "Para gap acumulado positivo em capacidade crítica, antecipe mentoria e contratação; para gap negativo persistente, realoque quem está ocioso para capacidades em escassez.",
+    "formula": "Gap acumulado = soma, mês a mês, de (demanda estimada menos oferta estimada), em FTE.",
+    "fonte": "Previsão de demanda e oferta por capacidade e período."
+  },
+  {
+    "termo": "Meses em escassez",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantos períodos da previsão foram classificados como escassez, ou seja, com demanda superando a oferta em mais de 1 FTE. O subtítulo mostra o total de períodos analisados.",
+    "como_ler": "Escassez concentrada em poucos meses pode ser resolvida com alocação temporária; escassez espalhada ao longo do horizonte exige formar ou contratar gente.",
+    "o_que_fazer": "Cruze os meses em escassez com as datas em que os projetos precisam da capacidade para decidir entre antecipar desenvolvimento e reforço externo.",
+    "formula": "Períodos com gap maior que 1 FTE.",
+    "fonte": "Previsão de demanda e oferta por capacidade e período."
+  },
+  {
+    "termo": "Pico de demanda",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "A maior demanda mensal prevista para a capacidade, em FTE. Mostra o mês mais pressionado do horizonte.",
+    "como_ler": "A demanda vem dos requisitos dos projetos ativos, distribuída pelos meses de duração de cada um. Comparar o pico com a oferta atual mostra o tamanho do esforço necessário no pior momento.",
+    "o_que_fazer": "Se o pico estiver muito acima da oferta, negocie a distribuição do escopo no tempo antes de aceitar o cronograma.",
+    "fonte": "Requisitos de capacidade dos projetos ativos, distribuídos mês a mês."
+  },
+  {
+    "termo": "Oferta atual",
+    "sinonimos": [
+      "Oferta (FTE)"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quanta capacidade interna existe hoje para aquela competência, em FTE. Cada pessoa contribui na proporção do nível que tem.",
+    "como_ler": "Quem está no nível 5 contribui com 1 FTE, no nível 3 com 0,6 e no nível 1 com 0,2. Por isso uma equipe grande e júnior pode ter menos oferta do que duas pessoas experientes. O gráfico mostra a mesma oferta ao longo dos períodos, considerando apenas perfis ativos.",
+    "o_que_fazer": "Elevar o nível de quem já está na capacidade é a forma mais rápida de aumentar a oferta: cada nível a mais soma 0,2 FTE por pessoa.",
+    "formula": "Oferta = soma de (nível atual ÷ 5) sobre os perfis ativos na capacidade.",
+    "exemplo": "Três pessoas de nível 3 somam 1,8 FTE de oferta, quase o mesmo que duas pessoas de nível 5.",
+    "fonte": "Perfis de capacidade ativos com nível registrado."
+  },
+  {
+    "termo": "Demanda (FTE)",
+    "sinonimos": [
+      "Demanda estimada"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quanta gente o portfólio vai precisar daquela capacidade em cada mês, em FTE. É a projeção que sustenta a leitura de escassez.",
+    "como_ler": "A demanda de cada projeto é distribuída pelos meses de duração dele, proporcionalmente, e multiplicada pela quantidade de pessoas pedida e pelo peso do requisito. Projeto com prazo indefinido é projetado por três meses a partir do início.",
+    "o_que_fazer": "Compare a curva de demanda com a oferta atual: onde a primeira cruza a segunda, começa a escassez.",
+    "formula": "Demanda do mês = soma, por projeto, de quantidade × peso × (1 ÷ duração em meses) × 3.",
+    "fonte": "Requisitos de capacidade dos projetos ativos e respectivos períodos."
+  },
+  {
+    "termo": "Demanda × oferta por período",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico com a curva de demanda, a curva de oferta e a linha do gap mês a mês para a capacidade analisada.",
+    "como_ler": "Demanda em vermelho, oferta em verde e gap em laranja tracejado. Onde a demanda fica acima da oferta, há escassez; onde fica abaixo, há ociosidade. A oferta é praticamente constante, porque considera as pessoas atuais — quem muda a curva é a demanda dos projetos.",
+    "o_que_fazer": "Use o cruzamento das curvas para escolher o momento de iniciar um plano de formação: ele precisa produzir especialistas antes do pico.",
+    "fonte": "Previsão de demanda e oferta de capacidade calculada sobre o portfólio ativo."
+  },
+  {
+    "termo": "Comparativo por período (barra = demanda, fundo = oferta)",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico de barras que mostra, período a período, a demanda prevista sobre o fundo da oferta disponível naquela capacidade.",
+    "como_ler": "A barra fica vermelha nos meses de escassez, azul nos de ociosidade e verde quando demanda e oferta estão equilibradas. É a leitura rápida para achar o mês crítico sem percorrer a tabela.",
+    "fonte": "Previsão de demanda e oferta por capacidade e período."
+  },
+  {
+    "termo": "Déficit de pessoas por capacidade",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico com as capacidades que mais precisam de gente, ordenadas pelo tamanho do déficit. A barra colorida é o déficit e o fundo mostra quantas pessoas o requisito pede.",
+    "como_ler": "A cor segue a severidade do gap: vermelho nos críticos, laranja nos altos, amarelo nos médios. Capacidades com déficit zero não aparecem no gráfico.",
+    "o_que_fazer": "Comece pelas barras mais longas em vermelho: são as que travam requisito obrigatório ou capacidade crítica.",
+    "fonte": "Déficit calculado para cada requisito de capacidade do escopo."
+  },
+  {
+    "termo": "Distribuição por severidade",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico de rosca que mostra quantos requisitos estão em cada faixa de severidade do gap. O centro indica que a contagem é de requisitos.",
+    "como_ler": "Fatias vermelhas representam risco imediato de entrega e devem concentrar a atenção; fatias verdes indicam requisitos sob controle. Muitos requisitos em severidade média com poucos críticos é um cenário administrável no ciclo.",
+    "fonte": "Classificação de severidade dos requisitos analisados."
+  },
+  {
+    "termo": "Aderência ao seu perfil",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico de barras com o percentual de aderência das oportunidades recomendadas para você, da maior para a menor.",
+    "como_ler": "A cor acompanha o percentual: verde a partir de 80%, amarelo na faixa intermediária e vermelho quando a aderência é baixa. As barras longas são as candidaturas que exigem menos esforço de preparação.",
+    "o_que_fazer": "Candidate-se primeiro às de aderência alta e use as de aderência baixa como pauta de desenvolvimento no PDI.",
+    "fonte": "Comparação entre as capacidades exigidas por cada oportunidade e o seu nível consolidado."
+  },
+  {
+    "termo": "Progresso por colaborador",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico com o percentual de conclusão do plano de desenvolvimento de cada colaborador listado.",
+    "como_ler": "Verde a partir de 70%, azul a partir de 40% e laranja abaixo disso. Barras curtas agrupadas em uma mesma área costumam indicar falta de tempo protegido para desenvolvimento, e não falta de interesse.",
+    "o_que_fazer": "Converse com quem está abaixo de 40% e verifique se as ações precisam de carga horária reservada na alocação.",
+    "formula": "Progresso do plano = ações concluídas ÷ total de ações do plano × 100.",
+    "fonte": "Planos de desenvolvimento dos colaboradores listados."
+  },
+  {
+    "termo": "Ações por status",
+    "sinonimos": [],
+    "categoria": "Capacidades",
+    "o_que_e": "Gráfico de rosca com a distribuição das ações de desenvolvimento entre planejada, em andamento, concluída, atrasada e cancelada.",
+    "como_ler": "É o retrato do pipeline de desenvolvimento da equipe. Muitas ações planejadas e poucas em andamento indicam plano parado no papel; muitas atrasadas indicam plano irreal para a carga horária disponível.",
+    "o_que_fazer": "Se a maior fatia for de ações planejadas, escolha poucas para começar nesta semana em vez de tentar rodar todas ao mesmo tempo.",
+    "fonte": "Ações dos planos de desenvolvimento listados."
+  },
+  {
+    "termo": "Ocupação semanal",
+    "sinonimos": [],
+    "categoria": "Recursos e alocação",
+    "o_que_e": "Gráfico com a ocupação de cada semana do período, considerando as alocações confirmadas e em execução da pessoa, e o percentual livre correspondente.",
+    "como_ler": "Cada barra traz a situação da semana: superalocada acima de 100%, ocupada a partir de 85%, disponível acima de zero e ociosa quando não há nada alocado. Semanas muito diferentes entre si mostram agenda em dente de serra, que costuma indicar alocação lançada sem visão de continuidade.",
+    "o_que_fazer": "Use as semanas disponíveis para o desenvolvimento combinado no PDI e proteja as semanas superalocadas de novas demandas.",
+    "formula": "Ocupação da semana = soma dos percentuais das alocações confirmadas que cobrem aquela semana.",
+    "fonte": "Alocações confirmadas e em execução da pessoa."
+  },
+  {
+    "termo": "Evidências",
+    "sinonimos": [
+      "Evidências válidas",
+      "Evidência"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas provas concretas de prática estão registradas naquela capacidade: entrega de projeto, certificação, treinamento concluído, publicação, palestra, mentoria realizada, badge digital e avaliação formal.",
+    "como_ler": "O número mostrado na lista de detentores conta todas as evidências; o critério de promoção usa apenas as validadas. Evidência registrada e não validada não conta para subir de nível — é trabalho parado esperando conferência.",
+    "o_que_fazer": "Valide as evidências pendentes de quem está perto do próximo nível: a quantidade mínima exigida pela regra geral é de 2 evidências válidas.",
+    "fonte": "Evidências de capacidade registradas no perfil, com a marcação de validação."
+  },
+  {
+    "termo": "Avaliações",
+    "sinonimos": [
+      "Avaliação de capacidade"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Quantas notas de nível foram atribuídas àquela capacidade, vindas de autoavaliação, gestor, pares, mentor, banca, cliente ou inferência do sistema.",
+    "como_ler": "As avaliações formam a média ponderada que gera o nível consolidado. Uma capacidade com uma única autoavaliação tem consolidado frágil; com avaliações de gestor e banca, o nível passa a ser confiável para decisões de alocação e promoção.",
+    "o_que_fazer": "Peça avaliação do gestor para as capacidades que sustentam projetos críticos: duas avaliações registradas também atendem ao critério de validação por mentor ou banca nos níveis mais altos.",
+    "fonte": "Avaliações registradas no perfil de capacidade."
+  }
+]

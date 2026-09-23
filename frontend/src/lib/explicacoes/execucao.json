@@ -1,0 +1,481 @@
+[
+  {
+    "termo": "Tarefas abertas",
+    "sinonimos": [
+      "Abertas",
+      "Tarefas abertas atribuídas a você"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas tarefas estão sob a sua responsabilidade agora: tudo o que não foi concluído nem cancelado, incluindo o que está em backlog, em revisão ou bloqueado.",
+    "como_ler": "É o tamanho da sua fila. Compare com as tarefas que você conclui no mês: se a fila cresce mês a mês, você está recebendo trabalho mais rápido do que entrega. O confortável é uma fila compatível com a sua capacidade semanal.",
+    "o_que_fazer": "Se a fila estiver longa, negocie prazo ou devolva o que não é seu antes de aceitar tarefa nova.",
+    "fonte": "Contagem das tarefas em que você é o responsável e cujo status não é Concluída nem Cancelada."
+  },
+  {
+    "termo": "Atrasadas",
+    "sinonimos": [
+      "Tarefas atrasadas",
+      "Atrasadas (Minhas tarefas)"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Suas tarefas abertas cuja data de fim planejada já passou.",
+    "como_ler": "Cada item aqui é um compromisso vencido: a data combinada passou e a tarefa continua aberta. Tarefa sem data de fim não entra na conta. O aceitável é zero.",
+    "o_que_fazer": "Trate uma por uma: reagende com justificativa, reduza o escopo ou peça apoio. Atraso seu costuma virar atraso de outra pessoa na corrente.",
+    "formula": "Atrasada = data de fim anterior a hoje e status diferente de Concluída e Cancelada",
+    "fonte": "Contagem das suas tarefas abertas com a data de fim planejada anterior a hoje."
+  },
+  {
+    "termo": "Concluídas no mês",
+    "sinonimos": [
+      "Concluídas no mês corrente"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas tarefas suas foram concluídas no mês que está correndo, pela data real de término.",
+    "como_ler": "É o seu ritmo de entrega do mês. Comparado com o número de tarefas abertas, mostra se a fila está diminuindo ou aumentando.",
+    "o_que_fazer": "Se o número estiver baixo e a fila alta, procure o que está travando: tarefas grandes demais, bloqueios repetidos ou trabalho demais em paralelo.",
+    "fonte": "Contagem das suas tarefas com status Concluída e data real de término dentro do mês corrente."
+  },
+  {
+    "termo": "Horas estimadas",
+    "sinonimos": [
+      "Horas estimadas (próximos 7 dias)",
+      "Esforço previsto para a semana"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Soma do esforço previsto das suas tarefas abertas que já começaram ou começam nos próximos sete dias.",
+    "como_ler": "Serve para comparar o trabalho previsto com a sua meta semanal de horas. Quando as horas estimadas passam da sua capacidade da semana, o prazo já não fecha.",
+    "o_que_fazer": "Antecipe a conversa: redistribua tarefas, renegocie datas ou reduza o escopo antes de estourar a semana.",
+    "formula": "Horas estimadas = soma do esforço estimado das tarefas abertas com início até 7 dias à frente",
+    "exemplo": "Três tarefas abertas de 8 h, 12 h e 6 h, todas com início nesta semana, somam 26 h estimadas — em uma meta de 40 h, sobra pouco espaço para imprevisto.",
+    "fonte": "Soma do esforço estimado das suas tarefas abertas cujo início já chegou ou está a até sete dias de distância. Tarefas sem data de início não são consideradas."
+  },
+  {
+    "termo": "Alta prioridade",
+    "sinonimos": [
+      "Alta ou crítica",
+      "Prioridade alta ou crítica"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas das tarefas carregadas na sua lista estão marcadas como prioridade Alta ou Crítica.",
+    "como_ler": "Separa o urgente do volume total. Se a maior parte da fila é de alta prioridade, a priorização perdeu o sentido: quando tudo é urgente, nada é. A conta considera as tarefas já carregadas na tela (até 50) e respeita o filtro de prioridade escolhido — se você filtra por Baixa, este número vai a zero.",
+    "o_que_fazer": "Reveja a prioridade das tarefas infladas e reserve as Críticas para o começo do dia.",
+    "fonte": "Contagem das suas tarefas abertas com prioridade Alta ou Crítica entre as que estão carregadas na lista."
+  },
+  {
+    "termo": "Progresso médio",
+    "sinonimos": [
+      "Progresso médio das tarefas"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Média do percentual de conclusão das tarefas em exibição: das suas tarefas abertas, em Minhas tarefas, e das tarefas do período, no Calendário.",
+    "como_ler": "Muito baixo com muitas tarefas em andamento indica dispersão: você começou muita coisa e não está terminando. Progresso alto com poucas tarefas em andamento costuma indicar foco.",
+    "o_que_fazer": "Se o número estiver baixo, escolha duas ou três tarefas e leve até o fim antes de puxar novas.",
+    "formula": "Progresso médio = soma dos percentuais de conclusão ÷ quantidade de tarefas",
+    "exemplo": "Três tarefas com 100%, 50% e 0% resultam em progresso médio de 50%.",
+    "fonte": "Média simples do percentual de conclusão das tarefas listadas na tela."
+  },
+  {
+    "termo": "Tarefas por status",
+    "sinonimos": [
+      "Tarefas por status (gráfico)"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Reparte as suas tarefas abertas pelas etapas do fluxo: backlog, a fazer, em andamento, em revisão e bloqueada. O centro do gráfico mostra o total de tarefas abertas.",
+    "como_ler": "Muitas tarefas em Backlog ou A fazer com poucas em andamento indica fila que ainda não começou a andar. Muitas em andamento ao mesmo tempo indica dispersão. Bloqueadas pedem ação imediata.",
+    "o_que_fazer": "Use o gráfico para decidir o próximo movimento: puxar trabalho do backlog ou concluir o que já está em andamento.",
+    "fonte": "Distribuição das suas tarefas abertas por status, sem contar concluídas e canceladas."
+  },
+  {
+    "termo": "Timesheet da semana",
+    "sinonimos": [
+      "Timesheet da semana (Minhas tarefas)"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Resumo das horas que você apontou na semana corrente, dia a dia, com o total comparado à sua meta semanal.",
+    "como_ler": "A etiqueta no topo mostra apontado ÷ meta e fica verde quando o total alcança a meta. Abaixo disso, costuma indicar sub-registro de horas, não ociosidade.",
+    "o_que_fazer": "Se faltar apontamento, registre as horas da semana antes que o detalhe do dia se perca: registro tardio distorce custo, esforço real e XP.",
+    "fonte": "Soma dos seus apontamentos da semana (segunda a domingo) comparada à sua capacidade semanal de horas."
+  },
+  {
+    "termo": "Progresso da meta semanal",
+    "sinonimos": [
+      "Progresso da meta"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quanto da sua meta de horas da semana já foi apontado, em percentual.",
+    "como_ler": "A barra para em 100% mesmo quando você aponta mais do que a meta. Ela fica azul enquanto o total está dentro da meta e âmbar quando passa: hora acima da capacidade da semana costuma indicar sobrecarga, não produtividade.",
+    "o_que_fazer": "Abaixo da meta, confira se há dias sem apontamento. Acima dela de forma recorrente, revise a sua capacidade semanal com o gestor.",
+    "formula": "Progresso da meta = horas apontadas na semana ÷ meta semanal",
+    "exemplo": "32 h apontadas em uma meta de 40 h mostram 80% da meta; 44 h mostram a barra cheia, com o excedente destacado em âmbar.",
+    "fonte": "Relação entre as horas apontadas na semana e a sua meta semanal de horas."
+  },
+  {
+    "termo": "Apontamentos recentes",
+    "sinonimos": [
+      "Apontamentos recentes (Minhas tarefas)"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Os últimos lançamentos de horas da semana, com a tarefa, a quantidade de horas e a situação de cada um: aprovado ou pendente.",
+    "como_ler": "Pendente significa que o lançamento ainda não foi validado pelo gestor, pelo PMO ou pelo RH. Nessa condição ele já soma no esforço real e no custo, mas ainda não liberou XP de capacidade.",
+    "o_que_fazer": "Se houver muitos pendentes acumulados, envie a semana para aprovação e cobre a validação.",
+    "fonte": "Até oito lançamentos da semana corrente, do mais recente para o mais antigo."
+  },
+  {
+    "termo": "Por prazo",
+    "sinonimos": [
+      "Agrupar por urgência",
+      "Agrupamento por prazo"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Organiza as suas tarefas em cinco faixas de urgência: Atrasadas, Hoje, Esta semana, Próximas e Sem prazo. O número ao lado do título de cada faixa é a quantidade de tarefas nela.",
+    "como_ler": "A ordem das faixas é a ordem de ataque: comece pelas Atrasadas e depois pelas de Hoje. As tarefas em Sem prazo são as que não têm data de fim definida — sem prazo, ninguém cobra e nada acontece.",
+    "o_que_fazer": "Percorra as faixas de cima para baixo. Se Sem prazo estiver cheio, defina datas: tarefa sem data não entra em nenhuma negociação de prazo.",
+    "fonte": "Classificação das suas tarefas pela data de fim em relação a hoje e ao fim da semana corrente."
+  },
+  {
+    "termo": "Por projeto",
+    "sinonimos": [
+      "Agrupar por projeto"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Organiza as suas tarefas por projeto, mostrando o código e o nome de cada um e quantas tarefas abertas você tem nele.",
+    "como_ler": "Ajuda a enxergar em quais projetos o seu tempo está comprometido e onde você troca de contexto mais vezes.",
+    "o_que_fazer": "Se você estiver espalhado por muitos projetos com poucas tarefas em cada, negocie prioridades: troca de contexto frequente derruba a vazão.",
+    "fonte": "Agrupamento das suas tarefas abertas pelo projeto ao qual pertencem."
+  },
+  {
+    "termo": "Progresso",
+    "sinonimos": [
+      "Percentual de conclusão",
+      "Progresso da tarefa"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quanto da tarefa está pronto, de 0% a 100%, informado por quem executa.",
+    "como_ler": "Chegar a 100% conclui a tarefa e grava a data real de término. Sair de 0% em uma tarefa em Backlog ou A fazer a coloca em andamento e registra o início real. Marcar a tarefa como Concluída também leva o percentual a 100%.",
+    "o_que_fazer": "Atualize o percentual sempre que houver avanço real: é ele que move o progresso do projeto e a comparação com o que estava planejado para a data.",
+    "fonte": "Valor informado no controle de progresso do card ou do painel da tarefa."
+  },
+  {
+    "termo": "Cards no quadro",
+    "sinonimos": [
+      "Cards visíveis",
+      "Cards no quadro (Kanban)"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantidade de cards que estão aparecendo no quadro depois dos filtros de projeto, responsável, prioridade, etiqueta e busca. Tarefas concluídas e canceladas só entram quando a opção Mostrar encerradas está ligada.",
+    "como_ler": "É o volume de trabalho em trânsito. Quadro muito cheio costuma vir acompanhado de colunas acima do limite de WIP e de mais tarefas bloqueadas.",
+    "o_que_fazer": "Se o quadro estiver grande demais para o time, limite o trabalho em progresso antes de puxar cards novos.",
+    "fonte": "Contagem das tarefas exibidas nas colunas do quadro, já filtradas."
+  },
+  {
+    "termo": "Atrasados",
+    "sinonimos": [
+      "Com prazo vencido",
+      "Atrasados (Kanban)",
+      "Atrasados (Calendário)"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas tarefas em exibição já passaram da data de fim planejada e continuam abertas. No Kanban são os cards visíveis no quadro; no Calendário, as tarefas do período mostrado.",
+    "como_ler": "É o indicador de prazo que não admite interpretação: prazo vencido é compromisso quebrado, e cada um deles já empurrou ou vai empurrar alguém. O esperado é zero.",
+    "o_que_fazer": "Reagende, reduza o escopo ou escale o impedimento. Se a tarefa estiver no caminho crítico, o atraso chega direto na data final do projeto.",
+    "formula": "Atrasada = data de fim anterior a hoje e status diferente de Concluída e Cancelada",
+    "fonte": "Contagem das tarefas com prazo vencido entre as que estão em exibição na tela."
+  },
+  {
+    "termo": "Bloqueados",
+    "sinonimos": [
+      "Bloqueados (Kanban)",
+      "Tarefas bloqueadas"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantos cards em exibição estão na etapa Bloqueada, parados à espera de algo externo: uma decisão, uma dependência, um acesso, uma pessoa.",
+    "como_ler": "Bloqueio é o único tipo de trabalho que não anda sozinho: o tempo passa e a tarefa não avança. Volume alto de bloqueados é fila de escalação, não de execução. O esperado é zero, ou poucos com prazo definido para resolver.",
+    "o_que_fazer": "Leve os bloqueados para a reunião diária, nomeie quem destrava e defina data. Enquanto o bloqueio existir, o card não deve contar como trabalho em andamento.",
+    "fonte": "Contagem das tarefas em exibição cujo status é Bloqueada."
+  },
+  {
+    "termo": "Colunas no limite",
+    "sinonimos": [
+      "Colunas acima do limite",
+      "Colunas com WIP excedido"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas colunas do quadro passaram do limite de trabalho em progresso combinado. Os limites são 5 cards em Em andamento, 3 em Em revisão e 3 em Bloqueada; Backlog, A fazer, Concluída e Cancelada não têm limite.",
+    "como_ler": "Passar do limite é alerta de gestão, não bloqueio: o sistema continua deixando arrastar. Muitos cards ao mesmo tempo em uma etapa reduzem a vazão, porque trabalho em paralelo gera fila e retrabalho. O esperado é zero.",
+    "o_que_fazer": "Antes de puxar um card novo, conclua ou devolva o que já está na etapa. Se a coluna vive estourada, o limite está irreal ou falta gente.",
+    "fonte": "Contagem das colunas cujo número de cards passa do limite definido para a etapa."
+  },
+  {
+    "termo": "Esforço estimado",
+    "sinonimos": [
+      "Esforço estimado (Kanban)",
+      "Horas previstas no quadro"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Soma das horas previstas das tarefas que estão visíveis no quadro.",
+    "como_ler": "Serve para saber se o quadro está carregado demais para a semana. Compare com a capacidade da equipe: 200 horas previstas em um time de 5 pessoas é mais de uma semana de trabalho.",
+    "o_que_fazer": "Se o quadro pesar mais do que a equipe consegue entregar no período, corte escopo ou adie cards antes que o atraso apareça.",
+    "formula": "Esforço estimado = soma do esforço estimado das tarefas visíveis",
+    "fonte": "Soma do campo de esforço estimado das tarefas exibidas no quadro."
+  },
+  {
+    "termo": "Projeto",
+    "sinonimos": [
+      "Projeto (filtro)",
+      "Projeto selecionado"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Indica o recorte atual da tela: o código do projeto escolhido no filtro ou Todos, quando a visão é consolidada.",
+    "como_ler": "No Kanban, o subtítulo mostra a situação do projeto escolhido; no Calendário, confirma o filtro aplicado. Confira este cartão antes de comparar números, para não misturar o projeto com a carteira inteira.",
+    "fonte": "Projeto escolhido no filtro da tela."
+  },
+  {
+    "termo": "Cards na coluna",
+    "sinonimos": [
+      "Quantidade de cards na coluna",
+      "Contagem da coluna",
+      "Cards na etapa"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "O número no alto de cada coluna do Kanban é quantos cards estão naquela etapa agora, já considerando os filtros aplicados.",
+    "como_ler": "Compare com o limite da etapa: 5 cards em Em andamento, 3 em Em revisão e 3 em Bloqueada. Quando passa do limite, o rótulo de WIP fica vermelho e a coluna recebe um aviso.",
+    "o_que_fazer": "Coluna cheia no meio do fluxo é gargalo: reforce a etapa seguinte ou reduza o que entra nela.",
+    "fonte": "Contagem das tarefas exibidas na coluna."
+  },
+  {
+    "termo": "Horas na coluna",
+    "sinonimos": [
+      "Esforço da coluna",
+      "Horas da etapa",
+      "Total de horas da coluna"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "A soma do esforço estimado das tarefas daquela coluna: quanto trabalho, em horas previstas, está parado naquela etapa.",
+    "como_ler": "Separa coluna cheia de coluna pesada: dez cards de 1 hora não são o mesmo problema que três cards de 80 horas. Esforço alto em Em revisão costuma indicar fila de validação.",
+    "o_que_fazer": "Priorize destravar as etapas com mais horas acumuladas — é ali que o cronograma está sendo consumido.",
+    "formula": "Horas da coluna = soma do esforço estimado das tarefas da coluna",
+    "fonte": "Soma do esforço estimado das tarefas exibidas na coluna."
+  },
+  {
+    "termo": "WIP",
+    "sinonimos": [
+      "Limite de WIP",
+      "WIP 5/3",
+      "Trabalho em progresso"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Mostra quantos cards estão na etapa em relação ao limite combinado para ela, no formato atual/limite. WIP é o trabalho em progresso: tudo o que foi começado e ainda não terminou.",
+    "como_ler": "Os limites são 5 cards em Em andamento, 3 em Em revisão e 3 em Bloqueada. Até o limite, o número aparece discreto; acima dele, fica em vermelho e a coluna recebe o aviso de limite excedido. Backlog, A fazer, Concluída e Cancelada não têm limite.",
+    "o_que_fazer": "Ao bater o limite, pare de puxar cards novos e conclua o que já está em andamento. Começar mais trabalho não acelera a entrega.",
+    "formula": "WIP da etapa = cards na coluna ÷ limite da etapa",
+    "exemplo": "Uma coluna Em revisão com 4 cards aparece como WIP 4/3, em vermelho, e mostra o aviso de limite excedido.",
+    "fonte": "Contagem de cards da coluna comparada ao limite definido para a etapa."
+  },
+  {
+    "termo": "Limite de WIP excedido",
+    "sinonimos": [
+      "Limite de WIP excedido nesta etapa",
+      "Aviso de WIP excedido"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Aviso que aparece no topo de uma coluna quando ela passou do limite de cards combinado para a etapa.",
+    "como_ler": "É um alerta de gestão, não um bloqueio: o sistema continua permitindo arrastar cards. Mas cada card a mais na etapa aumenta a fila, o tempo de troca de contexto e o risco de nada terminar.",
+    "o_que_fazer": "Conclua itens antes de puxar novos, como diz o próprio aviso. Se a etapa vive acima do limite, reveja o limite ou a capacidade de quem executa.",
+    "fonte": "Comparação entre o número de cards da coluna e o limite definido para a etapa."
+  },
+  {
+    "termo": "Eventos no período",
+    "sinonimos": [
+      "Eventos do período",
+      "Eventos no calendário"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Tudo o que aparece na grade do período escolhido: as tarefas com datas dentro do intervalo e os marcos previstos para ele.",
+    "como_ler": "Volume alto concentrado em poucos dias indica frentes sobrepostas e risco de choque de agenda. Período vazio não significa time ocioso: pode ser falta de datas nas tarefas.",
+    "o_que_fazer": "Se a grade estiver vazia com trabalho em execução, cadastre início e fim nas tarefas — sem datas, o calendário não consegue ajudar.",
+    "fonte": "Tarefas com datas sobrepostas ao período exibido e marcos com data prevista dentro dele."
+  },
+  {
+    "termo": "Tarefas",
+    "sinonimos": [
+      "Tarefas no calendário",
+      "Barras de execução"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas tarefas estão representadas como barras no período do calendário.",
+    "como_ler": "Mostra quanto do trabalho tem data marcada. Comparado com o total de tarefas em execução, revela se o cronograma está detalhado ou se boa parte do trabalho está sem prazo.",
+    "o_que_fazer": "Complete as datas das tarefas que ainda estão sem início e fim: elas não aparecem em nenhuma negociação de prazo.",
+    "fonte": "Contagem das tarefas com datas dentro do período exibido."
+  },
+  {
+    "termo": "Marcos",
+    "sinonimos": [
+      "Marcos do período",
+      "Entregas-chave"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas entregas-chave estão previstas para o período exibido, considerando o projeto filtrado.",
+    "como_ler": "Marco é compromisso de entrega, não trabalho: ele não tem duração. Marcos próximos uns dos outros alertam para semanas de validação e aceite. O andamento de cada um (pendente, em andamento, concluído ou atrasado) aparece no painel do dia.",
+    "o_que_fazer": "Antes de um marco, confirme as tarefas que o sustentam. Marco atrasado costuma ser a ponta visível de tarefas que escorregaram antes.",
+    "fonte": "Contagem dos marcos com data prevista dentro do período exibido."
+  },
+  {
+    "termo": "Horas apontadas",
+    "sinonimos": [
+      "Horas apontadas na semana"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Total de horas registradas na semana exibida, de segunda a domingo.",
+    "como_ler": "É o retrato do esforço lançado, não da jornada: o sistema não é relógio de ponto. Ficar muito abaixo da meta semanal costuma indicar sub-registro, e não ociosidade.",
+    "o_que_fazer": "Confira os dias sem apontamento e registre as horas enquanto a lembrança do dia está fresca.",
+    "fonte": "Soma das horas dos apontamentos da semana. Perfis com visão de custo — administrador, PMO, gestor e RH — enxergam a semana de toda a equipe; os demais perfis veem apenas os próprios lançamentos."
+  },
+  {
+    "termo": "Meta semanal",
+    "sinonimos": [
+      "Meta de horas da semana",
+      "Capacidade semanal de horas"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas horas você deveria apontar na semana, segundo a sua capacidade semanal cadastrada.",
+    "como_ler": "É a régua do Saldo da meta e do Progresso da meta semanal. O padrão é 40 horas; quem trabalha em regime parcial ou tem acordo diferente precisa da capacidade ajustada, senão a meta fica fora da realidade.",
+    "o_que_fazer": "Se a sua meta estiver errada, peça o ajuste da capacidade semanal ao RH ou ao administrador.",
+    "fonte": "Capacidade semanal de horas definida no seu cadastro de usuário."
+  },
+  {
+    "termo": "Saldo da meta",
+    "sinonimos": [
+      "Saldo de horas",
+      "Horas restantes para a meta"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "A diferença entre as horas apontadas na semana e a sua meta. Saldo positivo quer dizer meta alcançada; negativo, que ainda faltam horas.",
+    "como_ler": "O cartão fica verde quando o saldo é zero ou positivo, com o aviso de meta atingida, e âmbar quando ainda faltam horas na semana.",
+    "o_que_fazer": "Saldo negativo perto do fim da semana indica apontamento atrasado: registre antes que o detalhe do dia se perca.",
+    "formula": "Saldo da meta = horas apontadas − meta semanal",
+    "exemplo": "34 h apontadas com meta de 40 h mostram saldo de −6 h; 42 h mostram +2 h, com a meta batida.",
+    "fonte": "Diferença entre o total de horas da semana e a sua meta semanal."
+  },
+  {
+    "termo": "Aprovadas",
+    "sinonimos": [
+      "Horas aprovadas"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas das horas da semana já foram validadas pelo gestor, pelo PMO ou pelo RH.",
+    "como_ler": "Hora aprovada é hora conferida: ela já entrou no esforço real da tarefa e liberou XP de capacidade. Hora pendente soma no custo, mas ainda não passou por validação.",
+    "o_que_fazer": "Acompanhe para que a aprovação não acumule: semana fechada sem validação atrasa custo, indicadores e evolução de capacidade.",
+    "fonte": "Soma das horas dos apontamentos da semana já aprovados."
+  },
+  {
+    "termo": "Pendentes",
+    "sinonimos": [
+      "Horas pendentes",
+      "Aguardando aprovação",
+      "Aguardando validação"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas horas da semana ainda aguardam aprovação.",
+    "como_ler": "Todo lançamento nasce pendente e só sai dessa condição quando alguém com permissão de aprovação o valida. Nesse estado ele já conta no esforço real e no custo, mas ainda não gera XP.",
+    "o_que_fazer": "Use Enviar para aprovação ao fechar a semana e, se você aprova, limpe a fila na aba Aprovações.",
+    "fonte": "Soma das horas dos apontamentos da semana ainda não aprovados."
+  },
+  {
+    "termo": "Apontamentos",
+    "sinonimos": [
+      "Apontamentos na semana",
+      "Lançamentos de horas"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantos lançamentos de horas você fez na semana; o subtítulo mostra em quantos projetos diferentes essas horas foram distribuídas.",
+    "como_ler": "Poucos lançamentos com muitas horas cada costuma indicar registro no fim do período, com menos precisão. Muitos lançamentos espalhados por vários projetos mostram troca de contexto frequente.",
+    "o_que_fazer": "Prefira registrar todos os dias, um lançamento por bloco de trabalho, com a tarefa e a atividade corretas.",
+    "fonte": "Contagem dos apontamentos da semana e dos projetos distintos entre eles."
+  },
+  {
+    "termo": "Horas por dia",
+    "sinonimos": [
+      "Horas por dia (gráfico)"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Horas apontadas em cada dia da semana, com uma linha de referência na meta diária — a meta semanal dividida por sete.",
+    "como_ler": "Ajuda a ver concentração: dias vazios seguidos de um dia muito alto indicam lançamento acumulado. O dia de hoje aparece destacado.",
+    "o_que_fazer": "Se houver dias sem apontamento, preencha-os. Se a concentração for real, o trabalho está mal distribuído ao longo da semana.",
+    "formula": "Referência diária = meta semanal ÷ 7",
+    "fonte": "Soma das horas apontadas em cada dia da semana exibida."
+  },
+  {
+    "termo": "Horas por projeto",
+    "sinonimos": [
+      "Horas por projeto (gráfico)"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Reparte as horas da semana entre os projetos em que você apontou. Lançamentos sem projeto aparecem como Sem projeto.",
+    "como_ler": "Mostra para onde o seu tempo foi de fato, e não para onde deveria ir. É a forma mais rápida de perceber se a dedicação está no que foi combinado.",
+    "o_que_fazer": "Compare com a alocação prevista; se um projeto consome muito mais do que o planejado, avise antes que o custo estoure.",
+    "fonte": "Soma das horas da semana agrupadas pelo projeto de cada apontamento."
+  },
+  {
+    "termo": "XP por hora aprovada",
+    "sinonimos": [
+      "XP de horas aprovadas",
+      "XP por hora",
+      "Ganho de XP na aprovação"
+    ],
+    "categoria": "Capacidades",
+    "o_que_e": "Cada hora aprovada em uma tarefa rende pontos de XP nas capacidades que essa tarefa exige. É o que transforma trabalho registrado em evidência de evolução profissional.",
+    "como_ler": "A regra é 0,5 ponto de XP por hora aprovada, arredondado para baixo, com mínimo de 1 ponto por lançamento — um lançamento de 1 hora também vale 1 ponto. O XP vai para cada capacidade exigida pela tarefa; se a tarefa não tiver requisitos próprios, valem os requisitos do projeto. Apontamentos sem tarefa vinculada e lançamentos ainda não aprovados não geram XP.",
+    "o_que_fazer": "Aprovar horas é o que libera o XP: a hora registrada entra no custo, mas só a aprovada credita pontos. Mantenha a fila de aprovação em dia para não travar a evolução do time.",
+    "formula": "XP por lançamento = máximo(1; horas aprovadas ÷ 2)",
+    "exemplo": "Um lançamento de 6 horas aprovado em uma tarefa que exige duas capacidades gera 3 pontos de XP em cada uma delas.",
+    "fonte": "Cálculo feito no momento da aprovação do apontamento, para quem registrou as horas, nas capacidades exigidas pela tarefa."
+  },
+  {
+    "termo": "Salas",
+    "sinonimos": [
+      "Salas e chat",
+      "Salas disponíveis"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas salas de conversa estão disponíveis para você: salas de projeto, de equipe, de área e mensagens diretas.",
+    "como_ler": "O número reflete as salas que o seu perfil enxerga. Muitas salas com pouca conversa indicam comunicação fragmentada; poucas salas para muitos assuntos misturam decisões de projetos diferentes.",
+    "o_que_fazer": "Prefira uma sala por projeto ou por equipe e use a busca para achar a conversa certa em vez de criar salas paralelas.",
+    "fonte": "Contagem das salas visíveis para o seu usuário."
+  },
+  {
+    "termo": "Mensagens no total",
+    "sinonimos": [
+      "mensagem(ns) no total",
+      "Mensagens da sala"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Soma das mensagens de todas as salas visíveis para você. No cabeçalho da sala aberta, o mesmo número se refere apenas àquela sala.",
+    "como_ler": "Mostra se a comunicação está migrando para dentro do sistema ou continuando em ferramentas paralelas. O esperado é crescer ao longo do projeto; parado, é sinal de que as decisões estão sendo tomadas fora.",
+    "o_que_fazer": "Leve as decisões para a sala do projeto: assim o histórico fica no lugar onde o trabalho acontece.",
+    "fonte": "Soma da quantidade de mensagens de cada sala visível."
+  },
+  {
+    "termo": "Feed de atividades",
+    "sinonimos": [
+      "Feed de atividades (aba)",
+      "Atividades recentes"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Linha do tempo automática do que a equipe fez no sistema: tarefas criadas, cards movidos no Kanban, riscos registrados, alocações, apontamentos e lançamentos. Ninguém digita nada nele. A etiqueta ao lado do filtro mostra quantos eventos estão carregados — até 100, do mais recente para o mais antigo.",
+    "como_ler": "Volume alto em um projeto pequeno costuma indicar muita correção de rota; feed vazio é sinal de que a equipe não está usando o sistema. O filtro por entidade deixa visível só um tipo de registro, como tarefa, risco ou alocação.",
+    "o_que_fazer": "Use o feed para abrir a reunião de status: ele mostra o que mudou desde o último encontro.",
+    "fonte": "Registro automático das ações feitas no sistema, do mais recente para o mais antigo."
+  },
+  {
+    "termo": "Participantes",
+    "sinonimos": [
+      "Participantes da sala",
+      "Pessoas na sala"
+    ],
+    "categoria": "Prazos e progresso",
+    "o_que_e": "Quantas pessoas acompanham a sala, mostradas nos avatares do cabeçalho.",
+    "como_ler": "Sala com poucos participantes costuma gerar dependência de uma pessoa: a informação circula, mas a decisão fica com quem já estava lá.",
+    "o_que_fazer": "Inclua quem executa o trabalho e quem decide, não apenas quem pediu a sala.",
+    "fonte": "Pessoas cadastradas como participantes da sala."
+  }
+]

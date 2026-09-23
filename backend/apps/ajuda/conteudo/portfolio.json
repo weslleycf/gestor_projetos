@@ -1,0 +1,1048 @@
+[
+  {
+    "rota": "/projetos",
+    "titulo": "Projetos",
+    "grupo": "Portfólio",
+    "icone": "folder-kanban",
+    "resumo": "Lista todos os projetos do portfólio nas visões Cards, Lista e Timeline, com os indicadores da carteira e filtros por status, saúde, área, programa e gerente.",
+    "para_que_serve": "É o ponto de partida para acompanhar a carteira de projetos. Aqui você compara prazo, orçamento e progresso em uma única tela, identifica o que está atrasado ou em risco e entra no detalhe de cada projeto. A visão escolhida fica gravada no seu usuário e volta na próxima visita.",
+    "quando_usar": [
+      "Para saber quais projetos estão atrasados ou em risco antes de uma reunião de comitê",
+      "Para localizar um projeto pelo nome, código ou área e abrir o cronograma dele",
+      "Para comparar orçamento e progresso de um recorte por área, programa ou gerente",
+      "Para levar a lista de projetos do filtro atual para uma planilha"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher a visão",
+        "detalhe": "No canto direito da barra de ferramentas, use o seletor **Cards**, **Lista** ou **Timeline**. Os cartões mostram o semáforo e a barra Executado × planejado; a lista é melhor para ordenar e comparar números; a timeline dá a visão macro dos prazos, agrupada por programa.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Montar o recorte",
+        "detalhe": "Use a busca por nome, código ou área e escolha **Status**, **Saúde**, **Prioridade**, **Criticidade**, **Área**, **Programa** e **Gerente**. Os filtros aplicados aparecem como etiquetas removíveis logo abaixo da barra.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler os indicadores do topo",
+        "detalhe": "A faixa superior resume o recorte filtrado em **Projetos**, **Em execução**, **Atrasados**, **Em risco**, **Orçamento** e **Progresso médio**.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Abrir um projeto",
+        "detalhe": "Clique em um cartão, em uma linha da lista ou em uma barra da timeline. O detalhe do projeto abre na aba **Dashboard**.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Compactar a lista",
+        "detalhe": "Na visão **Lista**, ligue o interruptor **Compacta** para reduzir a altura das linhas e ver mais projetos na mesma tela.",
+        "icone": "list"
+      },
+      {
+        "titulo": "Exportar o recorte",
+        "detalhe": "Clique em **Exportar** para baixar os projetos do filtro atual com Código, Nome, Status, Saúde, Prioridade, Gerente, Início, Fim, Progresso e Orçamento. Sem resultados, o sistema avisa **Nada para exportar**.",
+        "icone": "table"
+      },
+      {
+        "titulo": "Criar um projeto",
+        "detalhe": "Clique em **Novo projeto** para abrir o assistente de criação em quatro passos.",
+        "icone": "plus"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Semáforo de saúde",
+        "descricao": "Verde é **No prazo**, amarelo é **Atenção**, vermelho é **Crítico** e cinza é **Não avaliado**. A cor é calculada pelo sistema a partir de prazo, progresso, riscos e custo — não é digitada."
+      },
+      {
+        "nome": "Barra Executado × planejado",
+        "descricao": "A parte escura é o executado; a faixa clara atrás é o progresso planejado para hoje."
+      },
+      {
+        "nome": "Cartão do projeto",
+        "descricao": "Traz código, nome, semáforo, status, prioridade, a etiqueta **Atrasado** quando for o caso, programa, gerente, orçamento, prazo e número de tarefas."
+      },
+      {
+        "nome": "Nome do programa no cartão",
+        "descricao": "Clique nele para filtrar na hora todos os projetos daquele programa. Projetos sem programa aparecem com a indicação **Sem programa**."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Prazo",
+        "descricao": "Data de fim planejada e a distância até ela, em dias restantes ou em dias de atraso.",
+        "dica": "Quando aparece em vermelho, o prazo já venceu e o projeto continua aberto."
+      },
+      {
+        "nome": "Progresso",
+        "descricao": "Percentual concluído, calculado pelo esforço das tarefas do projeto.",
+        "dica": "Compare sempre com o progresso planejado, na faixa clara da mesma barra."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Projetos",
+        "descricao": "Quantidade de projetos no filtro atual.",
+        "leitura": "É a base dos demais números e mostra o tamanho da carteira analisada."
+      },
+      {
+        "nome": "Em execução",
+        "descricao": "Projetos com status Em execução.",
+        "leitura": "Muitos projetos em execução ao mesmo tempo indicam dispersão de recursos."
+      },
+      {
+        "nome": "Atrasados",
+        "descricao": "Projetos com data de fim vencida e ainda abertos.",
+        "leitura": "Qualquer valor acima de zero pede ação imediata."
+      },
+      {
+        "nome": "Em risco",
+        "descricao": "Projetos com saúde amarela ou vermelha.",
+        "leitura": "Antecipe a conversa com esses gerentes antes que o risco vire atraso."
+      },
+      {
+        "nome": "Orçamento",
+        "descricao": "Soma do orçamento dos projetos filtrados.",
+        "leitura": "Compare com o orçamento anual do portfólio para saber se o investimento cabe na carteira."
+      },
+      {
+        "nome": "Progresso médio",
+        "descricao": "Média simples do percentual de conclusão dos projetos filtrados.",
+        "leitura": "Só faz sentido junto do progresso planejado: 50% executado com 40% de prazo decorrido é bom sinal."
+      }
+    ],
+    "dicas": [
+      "Projetos arquivados não aparecem nas visões **Cards** e **Timeline**. Se um projeto sumiu da tela, verifique primeiro se ele foi arquivado no encerramento.",
+      "Na visão **Timeline** só aparecem projetos que tenham data de início e de fim definidas.",
+      "Os filtros ficam registrados no endereço da página, o que permite salvar o recorte nos favoritos ou compartilhar o link com a equipe.",
+      "A busca só refaz a lista depois que você para de digitar — não é preciso confirmar nem clicar em nada."
+    ],
+    "limitacoes": [
+      "A tela não se atualiza sozinha: os números refletem a última consulta feita ao abrir ou filtrar a página.",
+      "Não é possível alterar os dados de um projeto pela lista; abra o projeto e use **Editar** no cabeçalho.",
+      "A exportação gera sempre as mesmas colunas da lista e não inclui as tarefas do cronograma."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para um projeto, tarefa ou pessoa"
+      },
+      {
+        "tecla": "Ctrl+B",
+        "acao": "Recolher ou expandir o menu lateral"
+      }
+    ],
+    "doc": "03-projetos-e-cronograma.md",
+    "permissoes": [
+      "projeto.ver"
+    ],
+    "ordem": 10
+  },
+  {
+    "rota": "/projetos/novo",
+    "titulo": "Novo projeto",
+    "grupo": "Portfólio",
+    "icone": "plus",
+    "resumo": "Assistente visual em quatro passos que cria o projeto já com marcos, requisitos de capacidade e uma proposta de equipe sugerida pelo motor de alocação.",
+    "para_que_serve": "É o caminho recomendado para tirar um projeto do papel. Em vez de um formulário longo, o assistente conduz você por quatro decisões em sequência: identidade, prazo, capacidades necessárias e pessoas. Ao final, o projeto nasce com marcos, requisitos de capacidade e alocações propostas para aprovação do gerente.",
+    "quando_usar": [
+      "Ao abrir uma nova frente de trabalho que precisa de prazo, orçamento e responsável definidos",
+      "Quando você já sabe quais competências o projeto exige e quer uma sugestão de equipe",
+      "Para registrar desde a criação os marcos que a organização vai cobrar",
+      "Para padronizar o cadastro de projetos e evitar formulários preenchidos pela metade"
+    ],
+    "passos": [
+      {
+        "titulo": "Passo 1 — Cartão do projeto",
+        "detalhe": "Preencha **Nome do projeto** (mínimo de 3 caracteres), **Descrição** e **Objetivo**; escolha **Categoria**, **Área**, **Ícone** e **Cor**; defina **Patrocinador** e **Gerente**; ajuste **Prioridade** e **Criticidade**; e informe **Orçamento total (R$)**, **Receita prevista (R$)** e a **Divisão CAPEX / OPEX**. À direita, a **Pré-visualização do cartão** mostra como o projeto vai aparecer.",
+        "icone": "clipboard-list"
+      },
+      {
+        "titulo": "Passo 2 — Timeline arrastável",
+        "detalhe": "Ajuste **Início** e **Fim** — os campos não aceitam data final anterior à inicial. Arraste a barra do período para mover o projeto inteiro ou use as alças das bordas para esticar e encolher o prazo, e confira os quadros **Duração** e **Posição em ANO**. Em **Marcos do projeto**, informe o nome e a **Data prevista** e clique em **Adicionar marco**.",
+        "icone": "calendar-range"
+      },
+      {
+        "titulo": "Passo 3 — Capacidades requeridas",
+        "detalhe": "Use **Buscar capacidade...** e os filtros de categoria e tipo, e clique nos chips para incluir ou remover capacidades. Em **Requisitos selecionados**, ajuste de cada uma o **Nível mínimo**, o **Nível desejado**, a **Quantidade**, o **Peso** e o interruptor **Obrigatório**.",
+        "icone": "sparkles"
+      },
+      {
+        "titulo": "Atenção: é agora que o projeto é gravado",
+        "detalhe": "O projeto só passa a existir quando você clica em **Próximo** no passo 3 para ir ao passo 4. Nesse momento o sistema grava o projeto, os marcos e os requisitos, e só então executa o motor de alocação. Antes disso, tudo o que você digitou está apenas na tela.",
+        "icone": "alert-triangle"
+      },
+      {
+        "titulo": "Passo 4 — Equipe sugerida",
+        "detalhe": "Escolha o **Modo de alocação** — **Performance imediata**, **Desenvolvimento** ou **Mista** — e leia as etiquetas **N requisito(s) enviados ao motor** e **N pessoa(s) avaliada(s)**. Analise o anel de score, a etiqueta **Elegível** ou **Com restrições**, o percentual disponível, o custo estimado, as **Skills atendidas** e os **Gaps**.",
+        "icone": "users"
+      },
+      {
+        "titulo": "Selecionar as pessoas",
+        "detalhe": "Clique em **Selecionar** nos cartões que devem entrar no time. O botão muda para **Selecionado** e o **Custo estimado da seleção** é somado no topo da tela.",
+        "icone": "user-plus"
+      },
+      {
+        "titulo": "Finalizar",
+        "detalhe": "Clique em **Finalizar e criar projeto**. As pessoas escolhidas entram como alocações com status de proposta, aguardando aprovação do gerente, e você é levado para o detalhe do projeto.",
+        "icone": "save"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Faixa dos quatro passos",
+        "descricao": "Mostra **Cartão do projeto**, **Timeline arrastável**, **Capacidades requeridas** e **Equipe sugerida**, com a barra **Passo N de 4**. Passos já visitados podem ser clicados para voltar; para avançar, use **Próximo**."
+      },
+      {
+        "nome": "Pré-visualização do cartão",
+        "descricao": "Painel fixo à direita do passo 1 que mostra como o projeto vai aparecer na lista, incluindo o código provisório no formato PRJ-ANO-NNN."
+      },
+      {
+        "nome": "Trilho do ano",
+        "descricao": "Retângulo com os doze meses do ano de início. A barra colorida é o período do projeto e as bandeirinhas amarelas são os marcos."
+      },
+      {
+        "nome": "Requisitos selecionados",
+        "descricao": "Painel à direita do passo 3 com um cartão por capacidade, contendo os controles de nível, quantidade, peso e obrigatoriedade."
+      },
+      {
+        "nome": "Cartão de recomendação",
+        "descricao": "No passo 4 reúne o anel de score, os dados da pessoa, as skills atendidas, os gaps e o botão de seleção."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Nome do projeto",
+        "descricao": "Como o projeto será reconhecido na organização.",
+        "dica": "Use um nome curto e específico; o mínimo aceito são 3 caracteres."
+      },
+      {
+        "nome": "Categoria e Área",
+        "descricao": "Classificação temática e área da empresa que responde pelo projeto.",
+        "dica": "As duas alimentam os filtros da carteira, por isso são obrigatórias no assistente."
+      },
+      {
+        "nome": "Gerente",
+        "descricao": "Quem conduz o dia a dia do projeto.",
+        "dica": "Sem gerente definido o assistente bloqueia o avanço para o passo 2."
+      },
+      {
+        "nome": "Divisão CAPEX / OPEX",
+        "descricao": "Separa quanto do orçamento é investimento e quanto é despesa.",
+        "dica": "Os valores de **CAPEX** e **OPEX** são recalculados na hora, conforme você desliza o controle."
+      },
+      {
+        "nome": "Nível mínimo e Nível desejado",
+        "descricao": "O piso aceitável e o alvo ideal de proficiência, de 1 a 5.",
+        "dica": "O nível desejado nunca fica abaixo do mínimo."
+      },
+      {
+        "nome": "Obrigatório",
+        "descricao": "Quando ligado, quem não atinge o nível mínimo fica marcado como restrição no passo 4.",
+        "dica": "Use com parcimônia: cada capacidade obrigatória reduz o número de pessoas elegíveis."
+      }
+    ],
+    "dicas": [
+      "A armadilha mais comum do assistente é fechar a tela achando que nada foi salvo: se você já avançou do passo 3 para o passo 4, o projeto existe — apenas sem as alocações propostas.",
+      "O assistente sempre cria o projeto com status Planejado. Mude o status depois, na tela de detalhe do projeto, em **Editar**.",
+      "Marcos criados aqui nascem sem a marcação de crítico. Ligue a marcação depois, na tela **Marcos**.",
+      "Escolha o **Modo de alocação** antes de selecionar as pessoas: ele muda o ranqueamento das recomendações.",
+      "Confira a **Pré-visualização do cartão** enquanto preenche: ela mostra o efeito do ícone, da cor e do orçamento antes de gravar."
+    ],
+    "limitacoes": [
+      "Não há salvamento automático nem rascunho: sair da tela antes do passo 4 descarta o que foi digitado, e cancelar depois do passo 4 deixa o projeto criado sem as alocações.",
+      "O assistente não importa cronograma nem planilha — as tarefas são criadas depois, na aba **Gantt** do projeto.",
+      "É obrigatório selecionar ao menos uma capacidade no passo 3; sem requisitos o motor não tem como sugerir equipe."
+    ],
+    "doc": "03-projetos-e-cronograma.md",
+    "permissoes": [
+      "projeto.editar"
+    ],
+    "ordem": 20
+  },
+  {
+    "rota": "/projetos/:id",
+    "titulo": "Detalhe do projeto",
+    "grupo": "Portfólio",
+    "icone": "folder-kanban",
+    "resumo": "Tela completa de um projeto: cabeçalho com as ações de governança e onze abas que vão do acompanhamento no Dashboard à execução no Gantt, Kanban, Lista, Calendário e Timeline.",
+    "para_que_serve": "É onde o projeto deixa de ser um cartão e passa a ser acompanhado de perto. O cabeçalho resume a situação e concentra as ações de controle; as abas cobrem planejamento, execução, riscos, dinheiro, pessoas, capacidades e histórico. Todas leem os mesmos dados, então o número que aparece no painel é o mesmo que você vê no cronograma e no financeiro.",
+    "quando_usar": [
+      "No acompanhamento diário do cronograma e das tarefas do projeto",
+      "Antes de uma reunião de status, para conferir progresso, riscos e orçamento em um só lugar",
+      "Ao congelar o plano aprovado em comitê, com **Criar baseline**",
+      "Ao revisar quem está alocado e se as capacidades exigidas estão cobertas",
+      "No fechamento do projeto, para registrar as lições aprendidas em **Encerrar**"
+    ],
+    "passos": [
+      {
+        "titulo": "Ler o cabeçalho",
+        "detalhe": "O topo traz o nome do projeto, o código, o semáforo de saúde, o status, a prioridade, a etiqueta **Atrasado** quando o prazo venceu e o programa. Logo abaixo ficam gerente, patrocinador, período, orçamento, custo realizado, número de tarefas e de marcos e a barra de progresso executado × planejado.",
+        "icone": "clipboard-list"
+      },
+      {
+        "titulo": "Usar as ações do cabeçalho",
+        "detalhe": "**Recalcular** refaz o percentual de conclusão, o semáforo e o caminho crítico. **Criar baseline** congela datas, esforço, progresso e orçamento do plano atual. **Encerrar** conclui o projeto com as lições aprendidas. **Editar** abre o painel lateral com os dados do projeto.",
+        "icone": "settings"
+      },
+      {
+        "titulo": "Escolher a aba",
+        "detalhe": "São onze: **Dashboard**, **Gantt**, **Kanban**, **Lista**, **Calendário**, **Timeline**, **Riscos**, **Financeiro**, **Equipe**, **Capacidades** e **Atividade**. Comece pelo **Dashboard** para a leitura geral e desça para a aba do assunto que precisa de ação.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Planejar e reagendar no Gantt",
+        "detalhe": "Use **Nova tarefa** para criar, **Atualizar** para recarregar, os botões **−** e **+** para o zoom e os interruptores **Caminho crítico** e **Dependências**. Arraste o corpo da barra para mover a tarefa mantendo a duração, e as bordas para redimensionar. As sucessoras ligadas por Término → Início são empurradas automaticamente.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Abrir o painel lateral da tarefa",
+        "detalhe": "Clique em uma tarefa em qualquer aba de execução. O painel **Editar tarefa** — ou **Nova tarefa** — reúne nome, descrição, responsável, tarefa pai, início, fim, esforço estimado, prioridade, status e progresso, além das seções **Checklist**, **Requisitos de capacidade** e **Dependências**. Confirme em **Salvar**.",
+        "icone": "clipboard-list"
+      },
+      {
+        "titulo": "Executar no Kanban e na Lista",
+        "detalhe": "No **Kanban**, arraste os cards entre as colunas: o status é salvo automaticamente e cada coluna mostra o total sobre o limite de 6 cards. Na **Lista**, arraste pelo ícone à esquerda para reordenar, clique na linha para abrir o painel de detalhes e use **Expandir tudo** e **Recolher tudo** para navegar na estrutura.",
+        "icone": "square-kanban"
+      },
+      {
+        "titulo": "Conferir prazos no Calendário e na Timeline",
+        "detalhe": "O **Calendário** mostra tarefas e marcos do mês, com **Anterior**, **Próximo** e **Hoje**. A **Timeline** desenha uma linha por tarefa, agrupada pelo nível superior, e também abre o painel da tarefa ao clicar.",
+        "icone": "calendar-days"
+      },
+      {
+        "titulo": "Fechar a leitura nas demais abas",
+        "detalhe": "**Riscos** traz a matriz probabilidade × impacto, em que você arrasta um risco entre as células para reavaliar a severidade, e o painel **Plano de resposta**. **Financeiro** mostra BAC, AC, EV, EAC, VAC e saldo projetado, o orçado × realizado por categoria, o fluxo de caixa e os lançamentos. **Equipe** lista as alocações, os conflitos e o botão **Alocar pessoa**. **Capacidades** reúne os requisitos e o gap analysis. **Atividade** guarda o histórico e os comentários.",
+        "icone": "layers"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Abas de execução",
+        "descricao": "**Gantt**, **Kanban**, **Lista**, **Calendário** e **Timeline** mostram as mesmas tarefas em formatos diferentes. Todas abrem o painel lateral da tarefa ao clicar."
+      },
+      {
+        "nome": "Abas de controle",
+        "descricao": "**Dashboard** consolida os indicadores; **Riscos** e **Financeiro** tratam ameaças e dinheiro; **Equipe** e **Capacidades** tratam pessoas; **Atividade** registra o histórico e os comentários."
+      },
+      {
+        "nome": "Coluna do Kanban",
+        "descricao": "Cada coluna mostra o rótulo do status e o contador de cards sobre o limite de 6. Acima do limite, o contador fica destacado em âmbar."
+      },
+      {
+        "nome": "Menu de ações do cabeçalho",
+        "descricao": "Reúne **Recalcular**, **Criar baseline**, **Encerrar** e **Editar** — as quatro decisões de governança do projeto."
+      },
+      {
+        "nome": "Painel lateral",
+        "descricao": "Desliza da direita e é usado para editar a tarefa, alocar uma pessoa pelo motor de matching e preencher o plano de resposta de um risco."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Nome, Descrição e Objetivo",
+        "descricao": "Identificação e propósito do projeto.",
+        "dica": "O nome precisa de pelo menos 3 caracteres para ser salvo."
+      },
+      {
+        "nome": "Status",
+        "descricao": "Fase do projeto: Ideia, Planejado, Em análise, Aprovado, Em execução, Pausado, Concluído, Cancelado ou Arquivado.",
+        "dica": "Projetos Concluídos, Cancelados ou Arquivados ficam com o semáforo **Não avaliado**."
+      },
+      {
+        "nome": "Gerente e Patrocinador",
+        "descricao": "Quem conduz o dia a dia e quem responde politicamente pelo projeto.",
+        "dica": "Os dois recebem a notificação de encerramento do projeto."
+      },
+      {
+        "nome": "Início e Fim",
+        "descricao": "Período planejado do projeto.",
+        "dica": "A data final não pode ser anterior à inicial — o sistema recusa com **Datas inconsistentes**."
+      },
+      {
+        "nome": "Orçamento (R$)",
+        "descricao": "Quanto o projeto pode gastar.",
+        "dica": "Custo real acima do orçamento deixa o semáforo vermelho automaticamente."
+      },
+      {
+        "nome": "Nome da baseline",
+        "descricao": "Como você vai reconhecer o congelamento do plano.",
+        "dica": "Se deixar em branco, o sistema nomeia com a data do dia."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Executado × planejado",
+        "descricao": "Percentual de conclusão do projeto comparado ao quanto do prazo já passou.",
+        "leitura": "Executado igual ou acima do planejado é saudável; abaixo, o desvio é a sua dívida de prazo."
+      },
+      {
+        "nome": "CPI e SPI",
+        "descricao": "Índices de desempenho de custo e de prazo do valor agregado.",
+        "leitura": "Acima de 1,00 é bom nos dois: você gasta menos do que agrega e entrega mais rápido do que o previsto."
+      },
+      {
+        "nome": "Tarefas críticas",
+        "descricao": "Tarefas com folga zero no caminho crítico.",
+        "leitura": "Atraso em qualquer uma delas atrasa o fim do projeto no mesmo número de dias."
+      },
+      {
+        "nome": "Desvio de prazo da baseline",
+        "descricao": "Diferença entre o fim planejado atual e o fim congelado na linha de base.",
+        "leitura": "Desvio positivo significa que o projeto escorregou e pede justificativa ou nova aprovação."
+      },
+      {
+        "nome": "Conflitos de recursos",
+        "descricao": "Pessoas com mais de 100% de alocação na mesma semana.",
+        "leitura": "Cada conflito é uma entrega em risco: resolva antes de cobrar prazo."
+      },
+      {
+        "nome": "Riscos abertos",
+        "descricao": "Riscos ainda não encerrados, distribuídos por severidade.",
+        "leitura": "Três ou mais riscos de severidade alta deixam o projeto vermelho no semáforo."
+      }
+    ],
+    "dicas": [
+      "Crie a baseline antes de começar a executar: sem congelamento não existe comparação honesta de desvio de prazo e de orçamento.",
+      "Se só puder olhar uma coisa por dia no cronograma, olhe as barras vermelhas do caminho crítico.",
+      "Peça **Recalcular** depois de rodadas de ajuste de datas ou de carga de tarefas feita por várias pessoas.",
+      "Tarefas marcadas como marco não podem ser arrastadas no Gantt; ajuste a data pela tela **Marcos** ou pelo painel da tarefa.",
+      "O progresso é ponderado pelo esforço: concluir uma tarefa de poucas horas quase não move o ponteiro do projeto — e isso é intencional."
+    ],
+    "limitacoes": [
+      "O Gantt reorganiza datas por dependência, mas não redistribui pessoas nem resolve sobrecarga — isso é papel da tela **Alocação**.",
+      "Se existir um ciclo nas dependências, o caminho crítico e as folgas não são atualizados até a correção.",
+      "O encerramento é irreversível pela interface: o status vai para Concluído, a data real de término é gravada e o progresso vai a 100%."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para outra tarefa, pessoa ou projeto"
+      },
+      {
+        "tecla": "Ctrl+B",
+        "acao": "Recolher ou expandir o menu lateral"
+      }
+    ],
+    "doc": "03-projetos-e-cronograma.md",
+    "permissoes": [
+      "projeto.ver"
+    ],
+    "ordem": 30
+  },
+  {
+    "rota": "/programas",
+    "titulo": "Programas",
+    "grupo": "Portfólio",
+    "icone": "layers",
+    "resumo": "Reúne os programas em cartões que somam o orçamento dos projetos vinculados, mostram o progresso médio e os atrasos, e abrem a lista de projetos de cada agrupador.",
+    "para_que_serve": "Programa é o agrupador dos projetos que, juntos, entregam um resultado maior. Esta tela dá a visão consolidada de cada agrupador: quantos projetos tem, quanto custa, como está o progresso médio e quantos estão atrasados ou em risco. É o recorte intermediário entre a carteira e o projeto, útil para quem responde por um conjunto de entregas relacionadas.",
+    "quando_usar": [
+      "Para comparar tamanho e saúde dos programas antes de uma reunião de portfólio",
+      "Para identificar programas sem gerente designado",
+      "Para abrir rapidamente os projetos de um programa e investigar um atraso",
+      "Para criar ou reorganizar um agrupador de projetos relacionados"
+    ],
+    "passos": [
+      {
+        "titulo": "Filtrar os programas",
+        "detalhe": "Use a busca por nome ou descrição e os filtros **Status** e **Portfólio**. Quando houver qualquer filtro ativo, aparece o botão **Limpar filtros** na barra.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler os indicadores",
+        "detalhe": "A faixa do topo mostra **Programas**, **Ativos**, **Projetos**, **Orçamento**, **Progresso médio** e **Sem gerente**.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Interpretar o cartão do programa",
+        "detalhe": "Cada cartão traz o ícone e a cor, o nome, o portfólio — ou **Sem portfólio** —, a etiqueta de status, a contagem de projetos, o orçamento agregado, os alertas de atraso e de risco, a barra de progresso médio e um gráfico com os primeiros projetos.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Abrir o programa",
+        "detalhe": "Clique no cartão ou em **Ver projetos**. A seção **Projetos de ...** abre logo abaixo da grade, com os cartões dos projetos vinculados e o semáforo de cada um.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Navegar para os projetos",
+        "detalhe": "Na seção aberta, clique em um projeto para abrir o detalhe dele, ou em **Abrir na lista de projetos** para ver todos os projetos daquele programa já filtrados na tela **Projetos**. Use **Fechar** para recolher a seção.",
+        "icone": "arrow-right"
+      },
+      {
+        "titulo": "Criar ou editar um programa",
+        "detalhe": "Clique em **Novo programa** ou em **Editar** no cartão. No painel lateral preencha **Nome** (obrigatório), **Descrição**, **Portfólio**, **Gerente**, **Status**, **Início**, **Fim**, **Cor** e **Ícone**, e confirme em **Criar programa** ou **Salvar alterações**.",
+        "icone": "settings"
+      },
+      {
+        "titulo": "Excluir um programa",
+        "detalhe": "Clique em **Excluir** no cartão e confirme na janela **Excluir programa**. Os projetos vinculados permanecem no portfólio, mas ficam sem programa.",
+        "icone": "alert-circle"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Cartão do programa",
+        "descricao": "Mostra ícone, nome, portfólio, status, projetos vinculados, orçamento agregado, atrasados, em risco, progresso médio, gerente, os avatares dos gerentes dos projetos e o período do programa."
+      },
+      {
+        "nome": "Mini gráfico de projetos",
+        "descricao": "Barras com o código dos primeiros projetos do programa: a barra colorida é o executado e a clara é o planejado."
+      },
+      {
+        "nome": "Seção de drill-down",
+        "descricao": "Área que se abre abaixo da grade com os cartões dos projetos do programa selecionado, cada um com semáforo, progresso, status, orçamento e prazo."
+      },
+      {
+        "nome": "Painel lateral",
+        "descricao": "Formulário de criação e edição do programa, com os campos de identificação, vínculo, período, cor e ícone."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Nome",
+        "descricao": "Como o programa é conhecido na organização.",
+        "dica": "É o único campo obrigatório: sem ele o sistema avisa **Informe o nome do programa**."
+      },
+      {
+        "nome": "Descrição",
+        "descricao": "Objetivo do programa e resultado esperado.",
+        "dica": "Aparece na busca, então vale descrever com as palavras que a equipe usa."
+      },
+      {
+        "nome": "Portfólio",
+        "descricao": "Carteira à qual o programa pertence.",
+        "dica": "Sem carteira o programa aparece no cartão como **Sem portfólio**."
+      },
+      {
+        "nome": "Status",
+        "descricao": "Planejado, Ativo, Pausado, Concluído ou Cancelado.",
+        "dica": "Só programas **Ativos** entram no indicador **Ativos** do topo."
+      },
+      {
+        "nome": "Gerente",
+        "descricao": "Quem responde pelo programa.",
+        "dica": "Programas sem gerente alimentam o indicador **Sem gerente** — o mais fácil de zerar."
+      },
+      {
+        "nome": "Início e Fim",
+        "descricao": "Período do programa.",
+        "dica": "A data final não pode ser anterior à inicial."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Programas",
+        "descricao": "Quantidade de programas cadastrados.",
+        "leitura": "Serve de base para os demais números da tela."
+      },
+      {
+        "nome": "Ativos",
+        "descricao": "Programas com status Ativo.",
+        "leitura": "Muitos programas ativos ao mesmo tempo podem indicar frentes concorrendo pelas mesmas pessoas."
+      },
+      {
+        "nome": "Projetos",
+        "descricao": "Projetos existentes no portfólio.",
+        "leitura": "Compare com a quantidade de programas: poucos programas com muitos projetos pedem subdivisão."
+      },
+      {
+        "nome": "Orçamento",
+        "descricao": "Soma do orçamento de todos os projetos.",
+        "leitura": "É o total comprometido, não o limite aprovado da carteira."
+      },
+      {
+        "nome": "Progresso médio",
+        "descricao": "Média simples do percentual de conclusão dos projetos.",
+        "leitura": "Acompanhe junto da contagem de atrasados: a média esconde um projeto vermelho entre vários verdes."
+      },
+      {
+        "nome": "Sem gerente",
+        "descricao": "Programas sem responsável designado.",
+        "leitura": "Qualquer valor acima de zero é uma lacuna de governança."
+      }
+    ],
+    "dicas": [
+      "O orçamento do programa é a soma do orçamento dos projetos vinculados e o progresso é a média do percentual de conclusão deles — nada disso é digitado à mão.",
+      "Programas sem projetos aparecem com a mensagem **Nenhum projeto vinculado a este programa**; use o drill-down para confirmar antes de excluir.",
+      "Se um projeto aparece como **Sem programa** na tela **Projetos**, vincule-o editando o projeto ou o programa.",
+      "**Abrir na lista de projetos** leva o recorte do programa para a tela **Projetos**, onde há exportação e mais filtros."
+    ],
+    "limitacoes": [
+      "A tela não cria nem edita projetos: ela apenas agrupa e consolida o que já existe.",
+      "Excluir um programa não exclui os projetos — eles ficam sem vínculo, e o agrupamento precisa ser revisto depois.",
+      "Cada projeto pertence a um único programa por vez."
+    ],
+    "doc": "03-projetos-e-cronograma.md",
+    "permissoes": [
+      "programa.ver"
+    ],
+    "ordem": 40
+  },
+  {
+    "rota": "/portfolios",
+    "titulo": "Portfólios",
+    "grupo": "Portfólio",
+    "icone": "briefcase",
+    "resumo": "Consolida as carteiras de investimento, com orçamento anual, consumo do orçamento, saúde agregada dos projetos e os programas de cada portfólio.",
+    "para_que_serve": "O portfólio é o nível mais alto de agrupamento: reúne programas e projetos sob um mesmo objetivo estratégico e um orçamento anual. Esta tela mostra, para cada carteira, quanto foi planejado e quanto já foi realizado, como está a distribuição de saúde dos projetos e quais programas a compõem. É a leitura que o executivo usa para decidir onde colocar dinheiro no próximo ciclo.",
+    "quando_usar": [
+      "Para comparar o orçamento planejado com o realizado de cada carteira",
+      "Para verificar a distribuição de saúde dos projetos de um portfólio",
+      "Para saber quais programas compõem uma carteira",
+      "Ao criar uma nova carteira ou revisar o responsável e o orçamento anual"
+    ],
+    "passos": [
+      {
+        "titulo": "Filtrar as carteiras",
+        "detalhe": "Use a busca por nome, descrição ou objetivo estratégico e o filtro **Status**. Com qualquer filtro ativo aparece o botão **Limpar filtros**.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler os indicadores",
+        "detalhe": "A faixa do topo traz **Portfólios**, **Programas**, **Projetos**, **Orçamento anual**, **Realizado** e **Progresso médio**.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Ler o cartão do portfólio",
+        "detalhe": "O cartão mostra o nome, o objetivo estratégico — ou **Sem objetivo estratégico definido** —, a etiqueta de status, a contagem de programas e de projetos, o orçamento anual, os atrasados e, quando houver, o responsável com o cargo.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Interpretar a rosca e as barras",
+        "detalhe": "A rosca distribui os projetos pelas cores do semáforo — **No prazo**, **Atenção**, **Crítico** e **Não avaliado**. Ao lado, a barra **Progresso médio** resume a conclusão e a barra **Consumo do orçamento** compara o realizado com o planejado: verde até 90%, âmbar acima disso e vermelho acima de 100%.",
+        "icone": "pie-chart"
+      },
+      {
+        "titulo": "Abrir os programas",
+        "detalhe": "Clique em **Ver programas** para listar os programas da carteira. Cada linha mostra o nome, a quantidade de projetos e o período; clique para abrir a tela **Programas** já no programa escolhido. O botão vira **Ocultar programas**.",
+        "icone": "layers"
+      },
+      {
+        "titulo": "Criar, editar ou excluir",
+        "detalhe": "Use **Novo portfólio** ou **Editar** e preencha **Nome** (obrigatório), **Descrição**, **Objetivo estratégico**, **Responsável**, **Status**, **Orçamento anual (R$)** e **Cor**. Para remover, clique em **Excluir** e confirme na janela **Excluir portfólio**.",
+        "icone": "settings"
+      },
+      {
+        "titulo": "Conferir o comparativo",
+        "detalhe": "No fim da tela, o bloco **Orçamento planejado × realizado por portfólio** compara todas as carteiras em barras: a barra clara é o orçamento planejado dos projetos e a colorida é o realizado.",
+        "icone": "bar-chart-3"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Cartão do portfólio",
+        "descricao": "Reúne nome, objetivo estratégico, status, contagem de programas e projetos, orçamento anual, atrasados e o responsável da carteira com avatar e cargo."
+      },
+      {
+        "nome": "Rosca de saúde",
+        "descricao": "Mostra quantos projetos da carteira estão em cada cor do semáforo. O número do centro é o total de projetos vinculados."
+      },
+      {
+        "nome": "Bloco comparativo",
+        "descricao": "Gráfico de barras horizontais com o planejado e o realizado de todas as carteiras, na mesma escala, para comparação direta."
+      },
+      {
+        "nome": "Painel lateral",
+        "descricao": "Formulário de criação e edição da carteira, com identificação, objetivo estratégico, responsável, status, orçamento anual e cor."
+      },
+      {
+        "nome": "Rodapé explicativo",
+        "descricao": "Lembra que a saúde agregada considera o semáforo de cada projeto vinculado ao portfólio."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Nome",
+        "descricao": "Como a carteira é conhecida na organização.",
+        "dica": "É o único campo obrigatório para salvar."
+      },
+      {
+        "nome": "Objetivo estratégico",
+        "descricao": "Como este portfólio apoia a estratégia da organização.",
+        "dica": "Uma a três linhas bastam; ajuda a defender a carteira em comitê."
+      },
+      {
+        "nome": "Responsável",
+        "descricao": "Quem responde pela carteira.",
+        "dica": "O nome e o cargo aparecem no cartão, dando dono visível ao portfólio."
+      },
+      {
+        "nome": "Status",
+        "descricao": "Ativo, Suspenso ou Encerrado.",
+        "dica": "Use **Suspenso** para carteiras paradas por decisão, e não para carteiras sem projeto."
+      },
+      {
+        "nome": "Orçamento anual (R$)",
+        "descricao": "Quanto a carteira pode investir no ano.",
+        "dica": "É um limite aprovado, diferente da soma do orçamento dos projetos."
+      },
+      {
+        "nome": "Cor",
+        "descricao": "Cor da carteira nos cartões e no gráfico comparativo.",
+        "dica": "Cores distintas entre carteiras deixam o comparativo final muito mais legível."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Portfólios",
+        "descricao": "Quantidade de carteiras cadastradas.",
+        "leitura": "Poucas carteiras com muitos projetos indicam necessidade de subdividir a estratégia."
+      },
+      {
+        "nome": "Programas",
+        "descricao": "Programas existentes na organização.",
+        "leitura": "Programas sem carteira ficam fora do consolidado por portfólio."
+      },
+      {
+        "nome": "Projetos",
+        "descricao": "Projetos existentes em todos os portfólios.",
+        "leitura": "Projetos sem portfólio não entram em nenhuma rosca de saúde."
+      },
+      {
+        "nome": "Orçamento anual",
+        "descricao": "Soma do orçamento anual declarado nas carteiras.",
+        "leitura": "É o teto aprovado para o investimento do ano."
+      },
+      {
+        "nome": "Realizado",
+        "descricao": "Soma do custo real dos projetos.",
+        "leitura": "Compare com o planejado, informado no subtítulo do próprio indicador."
+      },
+      {
+        "nome": "Progresso médio",
+        "descricao": "Média simples do percentual de conclusão dos projetos.",
+        "leitura": "O subtítulo informa quantos projetos estão atrasados, o que a média sozinha esconde."
+      }
+    ],
+    "dicas": [
+      "A saúde agregada do portfólio vem do semáforo de cada projeto vinculado — não é informada à mão.",
+      "O comparativo do fim da tela é a forma mais rápida de ver qual carteira está consumindo mais do que o planejado.",
+      "O orçamento anual da carteira e a soma do orçamento dos projetos são números diferentes: o primeiro é o limite aprovado, o segundo é o comprometido.",
+      "Programas e projetos são vinculados ao portfólio pelos próprios registros; esta tela apenas consolida."
+    ],
+    "limitacoes": [
+      "Excluir um portfólio não exclui programas nem projetos: eles permanecem cadastrados e ficam desvinculados.",
+      "A tela não permite mover programas ou projetos entre carteiras; isso é feito na edição de cada registro.",
+      "Os números refletem a última consulta feita ao abrir ou filtrar a página."
+    ],
+    "doc": "03-projetos-e-cronograma.md",
+    "permissoes": [
+      "portfolio.ver"
+    ],
+    "ordem": 50
+  },
+  {
+    "rota": "/marcos",
+    "titulo": "Marcos",
+    "grupo": "Portfólio",
+    "icone": "target",
+    "resumo": "Reúne os marcos de todos os projetos nas visões Lista, Timeline e Calendário, com filtros de projeto, status, criticidade e período e a conclusão em um clique.",
+    "para_que_serve": "Marco é a entrega que a organização cobra: um go-live, uma aprovação regulatória, o fim de uma fase. Esta tela é o painel único dessas entregas: mostra o que está vencido, o que vence nos próximos 30 dias e o que é crítico para o caminho crítico do projeto. É a leitura mais curta para saber se os compromissos externos estão sendo cumpridos.",
+    "quando_usar": [
+      "Para começar a semana sabendo quais marcos estão atrasados",
+      "Para cobrar as entregas dos próximos 30 dias com os responsáveis",
+      "Para registrar a conclusão de um marco com a data real de entrega",
+      "Para enxergar a distribuição das entregas-chave mês a mês"
+    ],
+    "passos": [
+      {
+        "titulo": "Filtrar os marcos",
+        "detalhe": "Use a busca por marco ou projeto e os filtros **Projeto**, **Status** e **Criticidade** — **Somente críticos** ou **Somente não críticos**. Defina também o período em **De** e **Até**. Os filtros aplicados aparecem como etiquetas removíveis.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler os indicadores",
+        "detalhe": "A faixa do topo mostra **Marcos**, **Atrasados**, **Concluídos**, **Críticos**, **Próximos 30 dias** e **Projetos**.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Escolher a visão",
+        "detalhe": "No canto direito da barra de ferramentas, use o seletor **Lista**, **Timeline** ou **Calendário**. A lista serve para ordenar e cobrar; a timeline agrupa por projeto; o calendário distribui as entregas em colunas por mês.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Ler a lista",
+        "detalhe": "As colunas são **Marco** — com a descrição e a etiqueta **Crítico** —, **Projeto**, **Previsto**, **Realizado**, **Status**, **Responsável** e **Ações**. Marcos atrasados aparecem com a linha destacada e um alerta ao lado do status.",
+        "icone": "list"
+      },
+      {
+        "titulo": "Concluir um marco",
+        "detalhe": "Na coluna **Ações**, clique em **Concluir**. O sistema grava a data real de hoje e muda o status para Concluído automaticamente; depois disso, a célula passa a exibir **Concluído**.",
+        "icone": "clipboard-check"
+      },
+      {
+        "titulo": "Criar um marco",
+        "detalhe": "Clique em **Novo marco** e preencha **Projeto** e **Nome do marco**, obrigatórios, e a **Data prevista**, também obrigatória. Se quiser, complete **Descrição**, **Responsável** e **Cor**. Ligue o interruptor **Marco crítico** quando o atraso impactar o caminho crítico do projeto e confirme em **Criar marco**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Abrir o projeto do marco",
+        "detalhe": "Clique no nome do projeto, na linha ou no cartão do calendário, para abrir o detalhe do projeto correspondente.",
+        "icone": "arrow-right"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Visão Lista",
+        "descricao": "Tabela ordenável por todas as colunas, com as entregas vencidas destacadas em vermelho."
+      },
+      {
+        "nome": "Visão Timeline",
+        "descricao": "Linha do tempo com uma faixa por marco, agrupada por projeto; clique na faixa para abrir o projeto."
+      },
+      {
+        "nome": "Visão Calendário",
+        "descricao": "Colunas por mês, cada uma com o rótulo do mês, a contagem de marcos e a lista das entregas daquele período."
+      },
+      {
+        "nome": "Etiqueta Crítico",
+        "descricao": "Marca os marcos que impactam o caminho crítico do projeto e que por isso aparecem destacados também no Gantt e no painel do projeto."
+      },
+      {
+        "nome": "Rodapé",
+        "descricao": "Informa o mês de referência atual e lembra que marcos concluídos registram a data real de entrega."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Projeto",
+        "descricao": "Projeto ao qual o marco pertence.",
+        "dica": "Todo marco precisa de um projeto: sem ele o sistema avisa **Selecione o projeto**."
+      },
+      {
+        "nome": "Nome do marco",
+        "descricao": "A entrega-chave que a organização acompanha.",
+        "dica": "Prefira nomes que o patrocinador reconheça, como Go-live do módulo financeiro."
+      },
+      {
+        "nome": "Descrição",
+        "descricao": "Critério de aceite ou evidência esperada da entrega.",
+        "dica": "Descreva o que precisa existir para considerar o marco cumprido."
+      },
+      {
+        "nome": "Data prevista",
+        "descricao": "Quando a entrega deve acontecer.",
+        "dica": "Data vencida sem conclusão faz o marco aparecer como atrasado automaticamente."
+      },
+      {
+        "nome": "Responsável",
+        "descricao": "Quem responde pela entrega.",
+        "dica": "Marco sem responsável é promessa sem dono — evite."
+      },
+      {
+        "nome": "Marco crítico",
+        "descricao": "Indica que o atraso impacta o caminho crítico do projeto.",
+        "dica": "Ligue com critério: se tudo for crítico, nada é."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Marcos",
+        "descricao": "Total de marcos no filtro atual.",
+        "leitura": "É a base dos demais números da tela."
+      },
+      {
+        "nome": "Atrasados",
+        "descricao": "Marcos com data prevista vencida e ainda não concluídos.",
+        "leitura": "Cada unidade aqui é uma promessa externa pendente — trate como prioridade."
+      },
+      {
+        "nome": "Concluídos",
+        "descricao": "Marcos já finalizados com data real registrada.",
+        "leitura": "Use junto do total para medir o ritmo de entrega do período."
+      },
+      {
+        "nome": "Críticos",
+        "descricao": "Marcos que impactam o caminho crítico do projeto.",
+        "leitura": "Acompanhe esses diariamente; os demais podem entrar na revisão semanal."
+      },
+      {
+        "nome": "Próximos 30 dias",
+        "descricao": "Marcos a vencer nos próximos trinta dias.",
+        "leitura": "É a sua pauta de cobrança das próximas semanas."
+      },
+      {
+        "nome": "Projetos",
+        "descricao": "Projetos com marcos cadastrados.",
+        "leitura": "Se o número for baixo diante do portfólio, faltam marcos registrados."
+      }
+    ],
+    "dicas": [
+      "Um marco com data prevista vencida já é considerado atrasado, mesmo que ninguém tenha mudado o status dele.",
+      "Ao clicar em **Concluir**, a data real recebe a data de hoje — ela não pode ser escolhida nesta tela.",
+      "Marcos criados no assistente de projeto nascem sem a marcação de crítico; ajuste aqui, na tela **Marcos**.",
+      "A visão **Calendário** ajuda a enxergar concentração de entregas: três marcos na mesma semana costumam ser um problema de capacidade, não de sorte."
+    ],
+    "limitacoes": [
+      "Não é possível editar um marco já criado por esta tela: data, responsável, descrição e criticidade são ajustados no painel da tarefa correspondente, dentro do projeto.",
+      "Não há ação de exclusão aqui; marcos cancelados continuam aparecendo na lista quando o filtro de status está vazio.",
+      "A tela não cria marcos em lote nem importa uma lista de entregas."
+    ],
+    "doc": "03-projetos-e-cronograma.md",
+    "permissoes": [
+      "projeto.ver"
+    ],
+    "ordem": 60
+  },
+  {
+    "rota": "/relatorios",
+    "titulo": "Relatórios",
+    "grupo": "Portfólio",
+    "icone": "file-bar-chart",
+    "resumo": "Monte painéis próprios arrastando widgets de um catálogo, redimensione e reordene, salve composições e crie relatórios com agendamento e destinatários.",
+    "para_que_serve": "Nem todo mundo acompanha os mesmos indicadores. Esta tela permite montar o painel que faz sentido para a sua rotina — a visão do comitê, a do financeiro, a do time — sem pedir desenvolvimento. Você escolhe os blocos no catálogo, posiciona na grade, salva a composição com um nome e, se quiser, transforma em relatório recorrente com destinatários.",
+    "quando_usar": [
+      "Para montar o painel fixo do comitê de portfólio",
+      "Para acompanhar, em uma única tela, indicadores financeiros e de riscos lado a lado",
+      "Para salvar uma composição e reaplicá-la toda semana sem remontar",
+      "Para registrar a periodicidade e os interessados de um relatório recorrente",
+      "Para imprimir ou gerar um arquivo do painel antes de uma reunião"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher os widgets no catálogo",
+        "detalhe": "À esquerda, o **Catálogo de widgets** lista os blocos disponíveis. Use o seletor de categoria — **Todas as categorias**, **Portfólio**, **Financeiro**, **Cronograma**, **Riscos**, **Capacidades**, **Recursos**, **Alocação** e **Colaboração** — para reduzir a lista.",
+        "icone": "list"
+      },
+      {
+        "titulo": "Adicionar à área de composição",
+        "detalhe": "Arraste o widget do catálogo até a **Área de composição**, à direita, ou clique no botão de adicionar no próprio item. Cada widget aparece uma única vez: quem já está na composição fica esmaecido e marcado com um sinal de conferido.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Reordenar e redimensionar",
+        "detalhe": "Arraste o widget pela alça à esquerda do título para mudar a posição. No cabeçalho de cada cartão, o primeiro seletor define a largura, de 3/12 a 12/12 colunas, e o segundo define a altura, de 2 a 4 linhas.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Remover ou limpar",
+        "detalhe": "Use o ícone de exclusão no cabeçalho do widget para tirá-lo da composição, ou **Limpar** para esvaziar a área inteira e começar de novo.",
+        "icone": "alert-circle"
+      },
+      {
+        "titulo": "Salvar a composição",
+        "detalhe": "Clique em **Salvar composição**, dê um nome — por exemplo, Painel do portfólio — e confirme em **Salvar**. A composição passa a aparecer em **Composições salvas**, com o número de widgets e a data da última atualização.",
+        "icone": "save"
+      },
+      {
+        "titulo": "Aplicar, sobrescrever ou tornar padrão",
+        "detalhe": "Em **Composições salvas**, use **Aplicar** para carregar uma composição na área de edição, **Sobrescrever** para gravar a composição atual por cima daquela mantendo o nome, e **Padrão** para marcá-la como referência, o que acrescenta a etiqueta **padrão** ao item.",
+        "icone": "clipboard-check"
+      },
+      {
+        "titulo": "Criar um relatório com agendamento",
+        "detalhe": "Clique em **Novo relatório** e preencha **Nome**, obrigatório, **Descrição**, o **Agendamento** — **Sem agendamento**, **Toda segunda-feira às 07h**, **Diariamente às 07h**, **Mensal (dia 1 às 08h)** ou **Sexta-feira às 18h** — e os **Destinatários**, digitando o e-mail e clicando em **Incluir** ou pressionando Enter. Confira o bloco **Widgets do relatório** e confirme em **Criar relatório**.",
+        "icone": "file-text"
+      },
+      {
+        "titulo": "Executar, editar e imprimir",
+        "detalhe": "Em **Relatórios salvos**, clique em **Executar** para reaplicar a composição do relatório na área de edição, **Editar** para mudar nome, descrição, agendamento, destinatários ou a composição, ou no ícone de exclusão para remover. Para levar o painel ao papel, use **Imprimir** e escolha a impressora ou o arquivo na janela do navegador.",
+        "icone": "play"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Catálogo de widgets",
+        "descricao": "Lista os blocos disponíveis agrupados por categoria. São eles: **Projetos por status**, **Saúde do portfólio**, **Projetos atrasados**, **Orçado × Realizado**, **CPI / SPI**, **Curva S (EVM)**, **Timeline do portfólio**, **Burndown**, **Matriz de riscos**, **Heatmap de capacidade**, **Matriz de skills**, **Gap de capacidades**, **Skills críticas (bus factor)**, **Ocupação de recursos**, **Aderência das recomendações** e **Atividades recentes**."
+      },
+      {
+        "nome": "Área de composição",
+        "descricao": "Grade de 12 colunas onde os widgets escolhidos são posicionados. O cabeçalho da área informa quantos widgets estão na composição e lembra que a grade tem 12 colunas."
+      },
+      {
+        "nome": "Cartão do widget",
+        "descricao": "Traz a alça de arraste, o ícone, o nome, a categoria e o tipo de gráfico, os seletores de largura e altura e o botão de remover."
+      },
+      {
+        "nome": "Composições salvas",
+        "descricao": "Lista as composições da sua conta, com as ações **Aplicar**, **Sobrescrever**, **Padrão** e exclusão, e a etiqueta **padrão** na composição de referência."
+      },
+      {
+        "nome": "Relatórios salvos",
+        "descricao": "Lista os relatórios com as etiquetas de agendamento e de quantidade de destinatários e as ações **Executar**, **Editar** e exclusão."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Nome da composição",
+        "descricao": "Identificação da composição salva.",
+        "dica": "O campo vem preenchido com Meu relatório; troque por um nome que diga para que serve."
+      },
+      {
+        "nome": "Nome",
+        "descricao": "Nome do relatório.",
+        "dica": "É o único campo obrigatório: sem ele o sistema avisa **Informe o nome do relatório**."
+      },
+      {
+        "nome": "Descrição",
+        "descricao": "Objetivo e público do relatório.",
+        "dica": "Registre para quem o relatório vai, assim qualquer pessoa entende o recorte."
+      },
+      {
+        "nome": "Agendamento",
+        "descricao": "Periodicidade combinada para a entrega.",
+        "dica": "É um registro da rotina acordada; a geração do conteúdo acontece quando alguém clica em **Executar**."
+      },
+      {
+        "nome": "Destinatários",
+        "descricao": "Pessoas que devem receber o relatório.",
+        "dica": "Cada e-mail vira uma etiqueta removível; pressione Enter para incluir mais rápido."
+      },
+      {
+        "nome": "Largura e altura do widget",
+        "descricao": "Quantas colunas e quantas linhas o widget ocupa na grade.",
+        "dica": "Use 12/12 para a Timeline do portfólio e larguras menores para os medidores."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Projetos por status",
+        "descricao": "Rosca com a distribuição dos projetos pelas fases do ciclo de vida.",
+        "leitura": "Muita coisa em Ideia ou Planejado e pouca em execução indica carteira que não anda."
+      },
+      {
+        "nome": "Saúde do portfólio",
+        "descricao": "Rosca com a quantidade de projetos em cada cor do semáforo.",
+        "leitura": "O ideal é maioria verde e nenhum vermelho sem plano de recuperação."
+      },
+      {
+        "nome": "Orçado × Realizado",
+        "descricao": "Barras comparando o orçamento planejado com o custo real.",
+        "leitura": "Quando a barra colorida alcança a clara, o orçamento do recorte está comprometido."
+      },
+      {
+        "nome": "CPI / SPI",
+        "descricao": "Medidores de desempenho de custo e de prazo, com meta em 1,00.",
+        "leitura": "Ponteiro à direita da meta é bom; à esquerda, exige investigação."
+      },
+      {
+        "nome": "Projetos atrasados",
+        "descricao": "Lista dos projetos com prazo vencido, com código, gerente e dias de atraso.",
+        "leitura": "Clique em um item para abrir o projeto e agir na causa."
+      },
+      {
+        "nome": "Matriz de riscos",
+        "descricao": "Distribuição das ameaças por probabilidade e impacto.",
+        "leitura": "Concentração no canto superior direito significa exposição alta e prioritária."
+      }
+    ],
+    "dicas": [
+      "O botão **Imprimir** esconde o catálogo, os filtros e os controles de edição: no papel saem apenas os widgets e o conteúdo deles.",
+      "Monte pensando no público: o comitê costuma querer status, saúde, prazos e riscos; a área financeira quer orçado × realizado e curva S.",
+      "Use **Aplicar** antes de editar uma composição salva — a edição acontece na área de composição, não dentro da lista.",
+      "Cada widget aparece uma única vez na composição; se precisar do mesmo assunto duas vezes, aumente o tamanho do widget existente.",
+      "O relatório guarda a composição que estava na área de edição no momento em que você clicou em **Criar relatório**."
+    ],
+    "limitacoes": [
+      "O **Agendamento** é apenas o registro da periodicidade combinada: o sistema não envia o relatório automaticamente — a geração acontece quando alguém clica em **Executar**.",
+      "Marcar uma composição como **Padrão** não a carrega sozinha ao abrir a tela; para usá-la, clique em **Aplicar**.",
+      "Alguns blocos do catálogo ainda não têm visualização nesta tela e mostram o aviso **Widget sem visualização**."
+    ],
+    "doc": "09-dashboards-e-relatorios.md",
+    "permissoes": [
+      "relatorio.ver"
+    ],
+    "ordem": 70
+  }
+]

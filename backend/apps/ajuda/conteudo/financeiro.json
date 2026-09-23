@@ -1,0 +1,580 @@
+[
+  {
+    "rota": "/financeiro",
+    "titulo": "Painel financeiro",
+    "grupo": "Financeiro",
+    "icone": "wallet",
+    "resumo": "Consolida orçamento, custo realizado, receitas e os índices de custo e prazo de todos os projetos, com os maiores estouros em destaque.",
+    "para_que_serve": "É a visão de portfólio do dinheiro: quanto existe de orçamento aprovado, quanto já foi gasto e quanto ainda sobra. Em uma única tela você compara os projetos, vê quais estouraram, como o custo se distribui por categoria e como despesas e receitas evoluíram mês a mês. Serve para responder \"onde está o dinheiro\" antes de entrar no detalhe de cada projeto.",
+    "quando_usar": [
+      "Antes da reunião de comitê, para levar o consolidado do portfólio ou de um programa",
+      "Quando você precisa saber quais projetos estouraram o orçamento e com que gravidade",
+      "Para comparar o consumo de cada categoria orçamentária com o que foi planejado",
+      "Para acompanhar a evolução mensal de despesas, receitas e saldo acumulado",
+      "Para exportar os números para uma planilha ou para o fechamento contábil"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher o recorte",
+        "detalhe": "No filtro **Programa** da barra de ferramentas, escolha um programa para analisar apenas os projetos dele. Sem filtro, a tela consolida todos os projetos não arquivados. O filtro aplicado aparece como etiqueta removível logo abaixo.",
+        "icone": "target"
+      },
+      {
+        "titulo": "Ler a faixa de indicadores",
+        "detalhe": "Os oito números do topo resumem o escopo: **Orçamento planejado**, **Custo realizado**, **Saldo**, **Receita prevista**, **ROI estimado**, **Consumo**, **CPI médio** e **SPI médio**.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Conferir o desempenho de custo e de prazo",
+        "detalhe": "Os medidores **Desempenho de custo (CPI)** e **Desempenho de prazo (SPI)** mostram a média dos projetos do escopo. A meta é 1,00: abaixo disso, o gasto está entregando menos do que deveria ou o avanço físico está atrás do plano.",
+        "icone": "radar"
+      },
+      {
+        "titulo": "Atacar os estouros",
+        "detalhe": "Em **Top estouros** aparecem os projetos com maior diferença entre realizado e orçamento, do pior para o melhor. Clique em um item para abrir a página do projeto. A barra mostra o quanto do orçamento já foi consumido.",
+        "icone": "shield-alert"
+      },
+      {
+        "titulo": "Comparar planejado e realizado por categoria",
+        "detalhe": "No gráfico **Planejado × realizado por categoria**, a barra clara é o planejado e a barra colorida é o realizado. Verde indica consumo de até 90%, amarelo até 100% e vermelho acima de 100%.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Olhar a série mensal",
+        "detalhe": "O gráfico **Série mensal de despesas, receitas e saldo** mostra a evolução mês a mês e o saldo acumulado. Use-o para ver meses de gasto concentrado e a tendência do caixa.",
+        "icone": "trending-up"
+      },
+      {
+        "titulo": "Analisar a tabela de projetos",
+        "detalhe": "A tabela **Projetos** traz orçamento, realizado, CPI, SPI, EAC, VAC e a situação de cada projeto. Clique no título de uma coluna para ordenar e em uma linha para abrir o projeto. Linhas com VAC negativo aparecem destacadas.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Exportar ou atualizar",
+        "detalhe": "Use **Exportar CSV** para baixar o recorte que está na tela, com indicadores, categorias, projetos e série mensal, e **Atualizar** para recarregar os números.",
+        "icone": "save"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Faixa de indicadores",
+        "descricao": "Oito cartões no topo com o consolidado do escopo selecionado."
+      },
+      {
+        "nome": "Medidores de CPI e SPI",
+        "descricao": "Ponteiros que comparam a média do conjunto de projetos com a meta de 1,00."
+      },
+      {
+        "nome": "Top estouros",
+        "descricao": "Ranking dos projetos com maior diferença entre realizado e orçamento. Clique para abrir o projeto."
+      },
+      {
+        "nome": "Escala de consumo",
+        "descricao": "Legenda de cores das barras: até 90% em verde, até 100% em amarelo, acima de 100% em vermelho."
+      },
+      {
+        "nome": "Planejado × realizado por categoria",
+        "descricao": "Barras por categoria orçamentária, com a barra clara representando o planejado e a colorida o realizado."
+      },
+      {
+        "nome": "Série mensal",
+        "descricao": "Linhas de despesas, receitas e saldo acumulado ao longo dos meses."
+      },
+      {
+        "nome": "Tabela de projetos",
+        "descricao": "Uma linha por projeto, com orçamento, realizado, CPI, SPI, EAC, VAC e a situação de custo e de prazo."
+      },
+      {
+        "nome": "Resumo consolidado e situação por categoria",
+        "descricao": "Quadros de fechamento com os quatro valores principais e o percentual consumido de cada categoria."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Orçamento planejado",
+        "descricao": "Soma do orçamento aprovado de todos os projetos do escopo.",
+        "leitura": "É a régua de comparação. Se um projeto tem linhas orçamentárias por categoria, o valor vem da soma delas; caso contrário, do orçamento informado no cadastro do projeto."
+      },
+      {
+        "nome": "Custo realizado",
+        "descricao": "Soma das despesas com status **Realizado** e **Comprometido** no escopo.",
+        "leitura": "Deve crescer junto com a entrega. Despesas apenas **Previstas** não entram nesse número."
+      },
+      {
+        "nome": "Saldo",
+        "descricao": "Orçamento planejado menos custo realizado.",
+        "leitura": "Positivo indica folga; negativo significa que o escopo já gastou mais do que tinha planejado."
+      },
+      {
+        "nome": "Receita prevista",
+        "descricao": "Soma das receitas contratadas ou projetadas dos projetos.",
+        "leitura": "Só ganha significado comparada ao orçamento: é a base do ROI estimado."
+      },
+      {
+        "nome": "ROI estimado",
+        "descricao": "Relação entre receita prevista e orçamento planejado, em percentual.",
+        "leitura": "Acima de zero indica que o escopo se paga. Abaixo de zero, o custo planejado supera a receita prevista e a conversa precisa acontecer cedo."
+      },
+      {
+        "nome": "Consumo",
+        "descricao": "Percentual do orçamento já gasto.",
+        "leitura": "Compare com o percentual de conclusão do trabalho: gastar 80% do orçamento com 40% de entrega é sinal de alerta."
+      },
+      {
+        "nome": "CPI médio",
+        "descricao": "Média dos índices de custo dos projetos do escopo. A meta é igual ou acima de 0,95.",
+        "leitura": "Abaixo de 1,00, cada real gasto entrega menos de um real de trabalho. Abaixo de 0,85 o desvio é crítico e exige decisão do patrocinador."
+      },
+      {
+        "nome": "SPI médio",
+        "descricao": "Média dos índices de prazo dos projetos do escopo. A meta é igual ou acima de 0,95.",
+        "leitura": "Abaixo de 1,00 o avanço físico está atrás do plano. Verifique o caminho crítico antes que o atraso chegue ao marco final."
+      },
+      {
+        "nome": "Top estouros",
+        "descricao": "Projetos ordenados pela diferença entre o realizado e o orçamento (realizado menos orçamento).",
+        "leitura": "Os primeiros da lista pedem conversa imediata. Um projeto abaixo do orçamento também pode aparecer, em verde, quando o desvio dele é relevante."
+      },
+      {
+        "nome": "Consumo por categoria",
+        "descricao": "Percentual gasto de cada categoria orçamentária, somando todos os projetos do escopo.",
+        "leitura": "Acima de 100% a categoria estourou. Antes de concluir que o problema é real, confira se os lançamentos estão vinculados à linha orçamentária certa."
+      }
+    ],
+    "dicas": [
+      "O filtro **Programa** vale para tudo o que está na tela. Aplique-o antes do comitê para levar exatamente o recorte que será discutido.",
+      "Confira o rodapé: ele diz quantos projetos e quantos períodos entraram na consolidação.",
+      "Clique em um projeto no **Top estouros** ou na tabela para abrir o EVM e entender a causa do desvio.",
+      "Exporte o CSV antes da reunião: o arquivo leva o que está na tela e evita discussão sobre qual número é o correto.",
+      "A tela não se atualiza sozinha. Clique em **Atualizar** quando precisar dos números do momento."
+    ],
+    "limitacoes": [
+      "A tela é de leitura: não aprova, não edita e não exclui lançamentos nem orçamentos.",
+      "A tabela de projetos mostra no máximo 80 projetos; em portfólios maiores, filtre por **Programa** para ver o restante.",
+      "A data do subtítulo indica quando os números foram calculados; não há atualização automática em segundo plano."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia de ajuda desta tela"
+      },
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para uma tela ou um registro"
+      }
+    ],
+    "doc": "06-financeiro-e-evm.md",
+    "permissoes": [
+      "financeiro.ver"
+    ],
+    "ordem": 10,
+    "campos": [
+      {
+        "nome": "Programa",
+        "descricao": "Filtro que restringe a consolidação a um único programa.",
+        "dica": "Sem filtro, a tela soma todos os projetos não arquivados. O recorte vale para os indicadores, os gráficos, a tabela e o CSV."
+      }
+    ]
+  },
+  {
+    "rota": "/lancamentos",
+    "titulo": "Lançamentos",
+    "grupo": "Financeiro",
+    "icone": "line-chart",
+    "resumo": "Registra, aprova e acompanha as despesas e receitas dos projetos, com filtros por projeto, tipo, status, categoria e período.",
+    "para_que_serve": "É o livro-caixa gerencial do SGP: cada despesa e cada receita entra aqui com valor, data de competência e status. São esses registros que alimentam o custo realizado do projeto, o consumo das linhas orçamentárias, o painel financeiro e o EVM — sem lançamento não existe custo real para comparar com o que foi entregue. Use esta tela para registrar, conferir e aprovar os valores do dia a dia.",
+    "quando_usar": [
+      "Ao receber uma nota, um contrato ou um pedido de compra do projeto",
+      "Na conferência mensal, para aprovar o que estava **Comprometido** e virou despesa efetiva",
+      "Quando o painel financeiro mostra uma categoria estourada e você precisa achar o lançamento responsável",
+      "Para registrar a receita contratada ou projetada de um projeto",
+      "Para corrigir o valor, a data, o status ou o vínculo de um lançamento já salvo"
+    ],
+    "passos": [
+      {
+        "titulo": "Registrar um lançamento",
+        "detalhe": "Clique em **Novo lançamento**: o painel lateral abre à direita. Escolha o **Projeto**, informe **Descrição**, **Valor (R$)** e **Competência** e clique em **Salvar lançamento**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Classificar tipo e status",
+        "detalhe": "Em **Tipo**, escolha **Despesa** ou **Receita**. Em **Status**, escolha **Previsto**, **Comprometido**, **Realizado** ou **Cancelado**. Apenas **Comprometido** e **Realizado** entram no custo realizado do painel e do EVM.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Vincular à linha orçamentária",
+        "detalhe": "Em **Orçamento vinculado**, escolha a categoria que deve receber o valor. O campo só é liberado depois de escolher o projeto e, ao escolher a linha, o campo **Categoria** é preenchido automaticamente com a categoria dela.",
+        "icone": "plug"
+      },
+      {
+        "titulo": "Aprovar os lançamentos",
+        "detalhe": "Na coluna **Ações**, clique em **Aprovar lançamento** para aprovar um registro. Para aprovar vários, marque as caixas de seleção — ou a caixa do cabeçalho para selecionar tudo o que está filtrado — e clique em **Aprovar selecionados**.",
+        "icone": "clipboard-check"
+      },
+      {
+        "titulo": "Filtrar e ordenar",
+        "detalhe": "Use **Projeto**, **Tipo**, **Status**, **Categoria**, **De** e **Até** (competência), a busca por descrição, fornecedor ou documento e o seletor **Ordenar** com **Competência**, **Valor** ou **Descrição**.",
+        "icone": "search"
+      },
+      {
+        "titulo": "Editar um lançamento",
+        "detalhe": "Clique no ícone de lápis em **Ações**, ajuste os campos no painel lateral e clique em **Salvar lançamento**. Os indicadores, o consumo da categoria e o EVM são recalculados.",
+        "icone": "settings"
+      },
+      {
+        "titulo": "Excluir um lançamento",
+        "detalhe": "Clique no ícone de lixeira em **Ações**, confira a descrição e o valor na confirmação e clique em **Excluir**. A exclusão não pode ser desfeita.",
+        "icone": "shield-alert"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Faixa de indicadores",
+        "descricao": "Despesas, Receitas, Realizado, Comprometido, Previsto e Resultado do recorte filtrado."
+      },
+      {
+        "nome": "Chips do cabeçalho da tabela",
+        "descricao": "Contam quantas receitas e quantas despesas estão carregadas e somam as despesas da lista filtrada."
+      },
+      {
+        "nome": "Etiquetas de status",
+        "descricao": "Cada lançamento recebe uma etiqueta colorida conforme o status; **Realizado** aparece sólida."
+      },
+      {
+        "nome": "Despesas por categoria e Despesas por mês",
+        "descricao": "Dois gráficos que mostram onde e quando as despesas do recorte aconteceram."
+      },
+      {
+        "nome": "Coluna Ações",
+        "descricao": "Botões de aprovar, editar e excluir. O botão de aprovar não aparece em lançamentos já **Realizado** ou **Cancelado**."
+      },
+      {
+        "nome": "Painel lateral de cadastro",
+        "descricao": "Formulário de inclusão e edição, com os botões **Cancelar** e **Salvar lançamento** no rodapé."
+      },
+      {
+        "nome": "Linhas esmaecidas",
+        "descricao": "Lançamentos **Cancelado** aparecem apagados, mas continuam visíveis para preservar o histórico."
+      },
+      {
+        "nome": "Etiquetas de filtros ativos",
+        "descricao": "Abaixo da barra de filtros, mostram o que está aplicado; cada uma pode ser removida pelo X."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Projeto",
+        "descricao": "Projeto ao qual a despesa ou receita pertence.",
+        "dica": "É o único campo de seleção obrigatório. Um lançamento pertence sempre a um único projeto."
+      },
+      {
+        "nome": "Orçamento vinculado",
+        "descricao": "Linha orçamentária que receberá o valor.",
+        "dica": "Vincule sempre que existir a linha: é o vínculo que faz a análise por categoria funcionar."
+      },
+      {
+        "nome": "Tipo",
+        "descricao": "Define se o lançamento é **Despesa** ou **Receita**.",
+        "dica": "Despesa entra com sinal negativo no resultado; receita, com sinal positivo."
+      },
+      {
+        "nome": "Status",
+        "descricao": "Estágio do valor: **Previsto**, **Comprometido**, **Realizado** ou **Cancelado**.",
+        "dica": "Previsto é intenção, comprometido é contrato assumido, realizado é dinheiro incorrido."
+      },
+      {
+        "nome": "Descrição",
+        "descricao": "O que o lançamento representa.",
+        "dica": "Escreva um texto que você reconheça daqui a seis meses — é por ele que a busca encontra o registro."
+      },
+      {
+        "nome": "Valor (R$)",
+        "descricao": "Valor do lançamento, em reais.",
+        "dica": "Precisa ser diferente de zero. Informe com duas casas decimais."
+      },
+      {
+        "nome": "Competência",
+        "descricao": "Data a que o lançamento pertence, independentemente do pagamento.",
+        "dica": "É ela que posiciona o valor na série mensal, na curva S e no fluxo de caixa."
+      },
+      {
+        "nome": "Pagamento",
+        "descricao": "Data em que o dinheiro efetivamente sai ou entra.",
+        "dica": "Se ficar vazia, a aprovação preenche com a data de hoje."
+      },
+      {
+        "nome": "Categoria",
+        "descricao": "Gaveta usada nas análises do painel financeiro.",
+        "dica": "Escolha uma categoria existente na lista de sugestões para não criar linhas duplicadas."
+      },
+      {
+        "nome": "Lançamento recorrente",
+        "descricao": "Marca despesas ou receitas que se repetem todo mês.",
+        "dica": "É apenas uma marcação: as parcelas dos meses seguintes são cadastradas manualmente."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Despesas",
+        "descricao": "Total de despesas lançadas no recorte, em qualquer status.",
+        "leitura": "É o volume bruto do período. Compare com **Realizado** para ver quanto disso já foi confirmado."
+      },
+      {
+        "nome": "Receitas",
+        "descricao": "Total de receitas lançadas no recorte.",
+        "leitura": "Só tem valor comparada às despesas: é o que o projeto efetivamente traz de volta."
+      },
+      {
+        "nome": "Realizado",
+        "descricao": "Despesas com status **Realizado**.",
+        "leitura": "É o número que entra no custo real do projeto e no AC do EVM."
+      },
+      {
+        "nome": "Comprometido",
+        "descricao": "Despesas com status **Comprometido** — contratadas e ainda não pagas.",
+        "leitura": "Também entra no custo real. Se ele cresce e o realizado não acompanha, há pagamento represado."
+      },
+      {
+        "nome": "Previsto",
+        "descricao": "Despesas com status **Previsto**.",
+        "leitura": "Não entra no custo real; serve para antecipar o desembolso dos próximos meses."
+      },
+      {
+        "nome": "Resultado",
+        "descricao": "Receitas menos despesas do recorte.",
+        "leitura": "Negativo indica que o projeto consome mais do que gera no período analisado."
+      }
+    ],
+    "dicas": [
+      "Preencha **Fornecedor / cliente**, **Documento / NF** e **Centro de custo**: são eles que permitem achar o lançamento pela busca e conferir a nota depois.",
+      "Lance no mês certo. A **Competência** define em que período o valor aparece nos gráficos, na curva S e no fluxo de caixa.",
+      "Aprove em lote uma vez por semana: selecionar vários lançamentos é mais rápido e mantém a data de pagamento coerente.",
+      "Padronize os nomes das categorias com o PMO. \"Infra\" e \"Infraestrutura\" viram duas linhas diferentes nos gráficos.",
+      "Ao selecionar a caixa do cabeçalho, tudo o que está filtrado é marcado — confira os filtros antes de aprovar em lote."
+    ],
+    "limitacoes": [
+      "Os filtros **De** e **Até** reduzem a lista e o total exibido no cabeçalho da tabela, mas não alteram os indicadores do topo nem os dois gráficos, que continuam considerando todos os períodos.",
+      "A lista carrega até 500 lançamentos por consulta. Em bases maiores, use os filtros para reduzir o recorte antes de analisar.",
+      "**Lançamento recorrente** é apenas uma marcação: o sistema não cria as parcelas dos meses seguintes."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia de ajuda desta tela"
+      },
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para uma tela ou um registro"
+      }
+    ],
+    "doc": "06-financeiro-e-evm.md",
+    "permissoes": [
+      "financeiro.ver"
+    ],
+    "ordem": 20
+  },
+  {
+    "rota": "/evm",
+    "titulo": "EVM e curva S",
+    "grupo": "Financeiro",
+    "icone": "trending-up",
+    "resumo": "Mostra se o dinheiro gasto está virando entrega e projeta quanto o projeto vai custar no término, com a curva S de PV, EV e AC.",
+    "para_que_serve": "O EVM compara três valores ao longo do tempo: o que deveria estar pronto (PV), o que está pronto (EV) e o que já foi gasto (AC). Dessa comparação saem os índices de eficiência (CPI e SPI), a projeção de custo final (EAC) e o quanto ainda falta gastar (ETC). É a tela para agir cedo: em vez de descobrir o estouro no encerramento, você vê a tendência na curva S e ainda tem tempo de renegociar escopo, prazo ou fornecedor.",
+    "quando_usar": [
+      "Na reunião semanal de acompanhamento, para explicar se o gasto está comprando entrega",
+      "Quando o CPI ou o SPI do painel financeiro acende o alerta e você precisa entender o desvio do projeto",
+      "Antes de pedir orçamento adicional, para mostrar com números onde e quando o projeto saiu da linha",
+      "No encerramento de uma fase, para reconstruir o desempenho na data do marco usando a **Data de referência**",
+      "Para saber quanto ainda falta desembolsar (**ETC**) e negociar o fluxo de caixa com o financeiro"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher o projeto",
+        "detalhe": "Use o seletor **Projeto** no topo. Se você abrir a tela sem escolher nada, o sistema carrega automaticamente o primeiro projeto da lista. O cabeçalho passa a mostrar o código, o nome e a data de referência do cálculo.",
+        "icone": "target"
+      },
+      {
+        "titulo": "Fixar a data de referência",
+        "detalhe": "No campo **Data de referência**, escolha a data de corte para recalcular PV, EV e AC considerando apenas o que ocorreu até ela. Clique em **Limpar data** para voltar ao cálculo de hoje.",
+        "icone": "calendar-days"
+      },
+      {
+        "titulo": "Ler a faixa do topo",
+        "detalhe": "Os seis números principais são **BAC (orçamento)**, **PV planejado**, **EV agregado**, **AC custo real**, **EAC projetado** e **VAC**. Os subtítulos mostram o percentual do orçamento já agregado e o já consumido.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Percorrer os cartões de indicadores",
+        "detalhe": "Os doze cartões reúnem **BAC**, **PV**, **EV**, **AC**, **CV**, **SV**, **CPI**, **SPI**, **EAC**, **ETC**, **VAC** e **TCPI**. Passe o mouse sobre a sigla para ver a explicação em uma frase.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Ler a curva S",
+        "detalhe": "No gráfico **Curva S — PV × EV × AC**, a linha azul é o planejado, a verde é o que foi entregue e a vermelha é o custo real; a linha vertical marca a data de referência. Clique em um ponto para abrir o painel **Instante selecionado** com PV, EV, AC, desvio de custo, desvio de prazo e o EAC projetado daquele momento.",
+        "icone": "line-chart"
+      },
+      {
+        "titulo": "Investigar os desvios",
+        "detalhe": "No gráfico **Desvios ao longo do tempo** compare o desvio de custo (EV menos AC) e o de prazo (EV menos PV) com a linha zero. Valores positivos são folga; negativos, problema. Encontre o ponto em que a curva cruza o zero e veja o que mudou no projeto naquelas semanas.",
+        "icone": "radar"
+      },
+      {
+        "titulo": "Conferir a projeção e o caixa",
+        "detalhe": "O quadro **Projeção no término** traz **Orçamento original (BAC)**, **EAC projetado**, **ETC (falta gastar)**, **VAC** e **TCPI necessário**. Abaixo, **Orçado × realizado por categoria**, **Saldo acumulado projetado** e a tabela **Fluxo de caixa mensal** mostram onde o dinheiro está e quando ele sai.",
+        "icone": "wallet"
+      },
+      {
+        "titulo": "Agir sobre o alerta",
+        "detalhe": "Quando o CPI fica abaixo de 0,90, a tela exibe um alerta vermelho com a projeção de estouro no término. Leve esse número para a conversa de recuperação antes que ele cresça.",
+        "icone": "shield-alert"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Semáforos de custo e prazo",
+        "descricao": "Aparecem ao lado da data de referência: **No prazo** a partir de 0,95, **Atenção** entre 0,85 e 0,95 e **Crítico** abaixo de 0,85."
+      },
+      {
+        "nome": "Medidores de CPI e SPI",
+        "descricao": "Ponteiros que comparam cada índice com a meta de 1,00."
+      },
+      {
+        "nome": "Indicadores e cartões",
+        "descricao": "Faixa com os seis números principais e doze cartões com sigla, nome, valor e explicação ao passar o mouse."
+      },
+      {
+        "nome": "Curva S",
+        "descricao": "PV, EV e AC acumulados ao longo do tempo, com linha vertical na data de referência e pontos clicáveis."
+      },
+      {
+        "nome": "Instante selecionado",
+        "descricao": "Painel com os valores do ponto clicado na curva: PV, EV, AC, desvio de custo, desvio de prazo e EAC projetado naquele instante."
+      },
+      {
+        "nome": "Desvios ao longo do tempo",
+        "descricao": "Gráfico do desvio de custo e do desvio de prazo contra a linha zero."
+      },
+      {
+        "nome": "Projeção no término",
+        "descricao": "Quadro com BAC, EAC projetado, ETC, VAC e TCPI necessário."
+      },
+      {
+        "nome": "Orçado × realizado por categoria",
+        "descricao": "Barras por linha orçamentária, sendo a barra clara o planejado e a colorida o realizado."
+      },
+      {
+        "nome": "Saldo acumulado projetado",
+        "descricao": "Barras com o saldo mês a mês e o saldo final projetado destacado abaixo."
+      },
+      {
+        "nome": "Fluxo de caixa mensal",
+        "descricao": "Tabela com **Período**, **Entradas**, **Saídas**, **Saldo**, **Previsto** e **Saldo acumulado**, com colunas ordenáveis."
+      },
+      {
+        "nome": "Alerta de desempenho de custo",
+        "descricao": "Faixa vermelha no fim da página quando o CPI fica abaixo de 0,90, com a projeção de estouro."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Projeto",
+        "descricao": "Projeto analisado. O EVM trabalha com um projeto por vez.",
+        "dica": "Ao trocar de projeto, o ponto selecionado na curva S é limpo."
+      },
+      {
+        "nome": "Data de referência",
+        "descricao": "Data de corte do cálculo: tudo o que aconteceu depois dela é ignorado.",
+        "dica": "Use a data de um marco passado para reproduzir o que a tela mostrava naquele dia e comparar com hoje."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "BAC",
+        "descricao": "Orçamento total aprovado do projeto. O sistema soma as linhas orçamentárias por categoria; se o projeto não tiver linhas, usa o orçamento informado no cadastro.",
+        "leitura": "É a régua de todo o cálculo. Se o BAC não reflete o que foi aprovado, corrija o orçamento do projeto ou as linhas por categoria antes de analisar qualquer indicador."
+      },
+      {
+        "nome": "PV",
+        "descricao": "Valor planejado (Planned Value): quanto do orçamento já deveria ter virado entrega na data de referência. O orçamento é repartido entre as tarefas conforme o esforço estimado, e cada fatia é multiplicada pelo progresso planejado.",
+        "leitura": "Se o PV está muito acima do que o time consegue entregar, o cronograma está otimista: revise as datas e o esforço das tarefas. Sem tarefas cadastradas, o cálculo usa o progresso planejado do próprio projeto."
+      },
+      {
+        "nome": "EV",
+        "descricao": "Valor agregado (Earned Value): quanto do orçamento já virou entrega de fato, pelo percentual de conclusão das tarefas.",
+        "leitura": "EV baixo com tarefas marcadas como concluídas quase sempre significa que os percentuais não estão sendo atualizados. Cobre a atualização das tarefas antes de concluir que o problema é de custo."
+      },
+      {
+        "nome": "AC",
+        "descricao": "Custo real (Actual Cost): soma das despesas com status **Realizado** e **Comprometido** com competência até a data de referência.",
+        "leitura": "AC alto sem EV correspondente indica gasto antecipado ou lançamento na categoria errada. Revise o vínculo e o status dos lançamentos: despesas apenas **Previstas** não entram."
+      },
+      {
+        "nome": "CV",
+        "descricao": "Variação de custo, em reais: EV menos AC.",
+        "leitura": "Positivo significa que você entregou mais do que gastou; negativo, que gastou mais do que entregou. Negativo e crescendo pede revisão de contratos e do escopo que resta, com o patrocinador informado enquanto ainda há margem de manobra."
+      },
+      {
+        "nome": "SV",
+        "descricao": "Variação de prazo, em reais: EV menos PV. O valor representa quanto trabalho deixou de ser entregue.",
+        "leitura": "Positivo indica adiantamento; negativo, atraso. Revise o caminho crítico, realoque pessoas e renegocie prazos antes que o atraso chegue ao marco final."
+      },
+      {
+        "nome": "CPI",
+        "descricao": "Índice de custo (Cost Performance Index): EV dividido por AC. Mostra quanto de valor cada real gasto entrega; sem custo lançado, o sistema assume 1,00.",
+        "leitura": "A meta é 1,00 — em 0,90, cada real entrega noventa centavos. Abaixo de 0,95 investigue as causas, corte o que não agrega e renegocie fornecedores; abaixo de 0,85 escale para o patrocinador, porque a recuperação exige decisão de escopo."
+      },
+      {
+        "nome": "SPI",
+        "descricao": "Índice de prazo (Schedule Performance Index): EV dividido por PV. Mostra o ritmo de entrega em relação ao plano; sem valor planejado, o sistema assume 1,00.",
+        "leitura": "Abaixo de 1,00 o avanço está atrás do plano. Abaixo de 0,95 remova bloqueios e considere reforço temporário; se o atraso for estrutural, renegocie o cronograma formalmente."
+      },
+      {
+        "nome": "EAC",
+        "descricao": "Estimativa no término (Estimate at Completion): BAC dividido pelo CPI, ou seja, o orçamento corrigido pelo desempenho atual.",
+        "leitura": "Se o EAC é maior que o BAC, o projeto tende a estourar. Decida: corte escopo, reduza custo ou aprove orçamento adicional — não deixe o número crescer sem decisão registrada."
+      },
+      {
+        "nome": "ETC",
+        "descricao": "Estimativa para concluir (Estimate to Complete): EAC menos AC, ou seja, quanto ainda falta gastar para terminar o trabalho.",
+        "leitura": "Se o ETC é alto e o prazo é curto, o ritmo de gasto necessário pode ser inviável. Revise o plano de desembolso com o financeiro antes que o mês chegue."
+      },
+      {
+        "nome": "VAC",
+        "descricao": "Variação no término (Variance at Completion): BAC menos EAC — a sobra ou o estouro projetado.",
+        "leitura": "Positivo indica que deve sobrar; negativo, que deve faltar. VAC negativo pede informação imediata ao patrocinador, com o número exato e as opções de ação na mesa."
+      },
+      {
+        "nome": "TCPI",
+        "descricao": "Índice para concluir (To-Complete Performance Index): BAC menos EV dividido por BAC menos AC — a eficiência que o time precisa atingir no que resta para caber no orçamento.",
+        "leitura": "Igual a 1,00 significa manter o ritmo dentro do orçamento; acima de 1,10 a recuperação é improvável. Reduza escopo, amplie o orçamento ou aceite formalmente a projeção."
+      }
+    ],
+    "dicas": [
+      "Leia CPI e SPI juntos, toda semana: um projeto pode estar dentro do orçamento e atrasado, ou adiantado e caro. Um indicador sozinho não conta a história.",
+      "Clique nos pontos da curva S antes de discutir o desvio: o ponto em que as linhas se separam costuma apontar a causa.",
+      "Use a **Data de referência** para reconstruir o EVM de um marco passado e comparar com o de hoje — é a forma mais honesta de contar a história da fase.",
+      "O EAC é projeção, não sentença: ele assume que o desempenho passado continua. Cortar escopo, trocar fornecedor ou repactuar contrato muda o número nas próximas atualizações.",
+      "Para comparar vários projetos, use o **Painel financeiro**; o EVM analisa um projeto por vez."
+    ],
+    "limitacoes": [
+      "A tela é de leitura: não altera cronograma, tarefas, orçamento nem lançamentos.",
+      "A curva S só é desenhada quando o projeto tem data de início e data de término — ou tarefas com datas. Sem esse período, a tela avisa que não há curva para o projeto.",
+      "O cálculo considera as despesas **Realizado** e **Comprometido**; lançamentos apenas **Previstos** não entram no custo real e, por isso, não aparecem no AC."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia de ajuda desta tela"
+      },
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para uma tela ou um registro"
+      }
+    ],
+    "doc": "06-financeiro-e-evm.md",
+    "permissoes": [
+      "financeiro.ver"
+    ],
+    "ordem": 30
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "rota": "/login",
+    "titulo": "Acesso ao sistema",
+    "grupo": "Fundamentos",
+    "icone": "log-in",
+    "resumo": "Tela de entrada do SGP: identifica você por e-mail corporativo e senha e, na aba de demonstração, permite entrar com um perfil pronto para conhecer ou apresentar o sistema.",
+    "para_que_serve": "A tela **Acessar o SGP** é a porta de entrada do sistema. É aqui que você se identifica com o seu e-mail corporativo e a sua senha, e é a partir dessa identificação que o SGP monta o seu menu, as suas permissões e o seu nome na trilha de auditoria. A mesma tela oferece contas de demonstração, úteis para conhecer o sistema sem cadastro ou para mostrar, em uma reunião, como a informação aparece na visão de outro perfil.",
+    "quando_usar": [
+      "No início do dia, para entrar com a sua identidade e ver apenas o que o seu perfil permite",
+      "Ao abrir o SGP em um computador diferente do seu",
+      "Quando você foi levado ao login no meio de uma tarefa e precisa voltar exatamente de onde parou",
+      "Antes de uma apresentação, para entrar com uma conta de demonstração e mostrar a tela de outro perfil",
+      "Para treinar uma pessoa nova no sistema sem criar cadastro para ela"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher como entrar",
+        "detalhe": "No alto do formulário há duas abas: **Entrar**, para o acesso com as suas credenciais, e **Contas de demonstração**, para os perfis prontos. Clique na que você quer usar.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Informar o e-mail corporativo",
+        "detalhe": "Preencha **E-mail corporativo** com o endereço completo, no formato nome@empresa.com.br. O campo é obrigatório: sem ele o formulário não é enviado.",
+        "icone": "mail"
+      },
+      {
+        "titulo": "Informar a senha",
+        "detalhe": "Preencha **Senha**. Se quiser conferir o que digitou, clique no ícone de olho à direita do campo — o rótulo alterna entre **Mostrar senha** e **Ocultar senha**.",
+        "icone": "lock"
+      },
+      {
+        "titulo": "Decidir sobre a sessão ativa",
+        "detalhe": "A caixa **Manter sessão ativa neste dispositivo** já vem marcada, pensando no computador pessoal. Em computador compartilhado, deixe como está e lembre-se de sair pelo menu do usuário ao terminar.",
+        "icone": "shield-check"
+      },
+      {
+        "titulo": "Entrar no SGP",
+        "detalhe": "Clique em **Entrar no SGP**. O botão mostra o carregamento enquanto o sistema confirma os seus dados. Ao final, você volta para a tela onde estava ou cai no **Dashboard executivo**, se acabou de abrir o sistema.",
+        "icone": "arrow-right"
+      },
+      {
+        "titulo": "Entrar com uma conta de demonstração",
+        "detalhe": "Na aba **Contas de demonstração**, clique em **Administrador**, **Executiva**, **Gerente de Projetos** ou **Membro de Equipe**. O SGP entra na hora com aquele perfil e mostra um indicador de carregamento no cartão escolhido. A senha padrão dessas contas é **sgp123456** e está escrita no rodapé da própria aba.",
+        "icone": "users"
+      },
+      {
+        "titulo": "Se o acesso for recusado",
+        "detalhe": "O aviso **Não foi possível entrar** aparece acima do formulário com a explicação do sistema. Confira se o e-mail está completo e sem espaços no início ou no fim, redigite a senha e tente de novo. Depois de várias tentativas, procure o administrador do SGP: o sistema não bloqueia a conta sozinho nem envia e-mail de redefinição de senha.",
+        "icone": "triangle-alert"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Faixa institucional",
+        "descricao": "Coluna à esquerda com a marca SGP, a frase de apresentação, os quatro destaques do sistema — **Portfólio visual**, **Capacidades e talentos**, **Alocação inteligente** e **Governança e EVM** — e os selos de recursos. Em telas pequenas ela não é exibida."
+      },
+      {
+        "nome": "Seletor de abas",
+        "descricao": "Alterna entre **Entrar**, que mostra o formulário de credenciais, e **Contas de demonstração**, que mostra os perfis prontos."
+      },
+      {
+        "nome": "Aviso de acesso recusado",
+        "descricao": "Faixa vermelha intitulada **Não foi possível entrar**, exibida acima do formulário, com a explicação do que impediu o acesso."
+      },
+      {
+        "nome": "Cartões de conta de demonstração",
+        "descricao": "Cada cartão traz o nome do perfil, o e-mail e um resumo do que aquele perfil enxerga, com uma seta à direita. Enquanto o SGP entra, a seta dá lugar a um indicador de carregamento."
+      },
+      {
+        "nome": "Aviso de privacidade",
+        "descricao": "Texto do rodapé lembrando que, ao entrar, você concorda com as políticas de uso e privacidade, que os dados de capacidades são tratados conforme a LGPD e que as ações relevantes ficam registradas em trilha de auditoria imutável."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "E-mail corporativo",
+        "descricao": "Seu identificador de acesso ao SGP.",
+        "dica": "Digite o endereço completo e confira se não há espaços no início ou no fim."
+      },
+      {
+        "nome": "Senha",
+        "descricao": "Sua credencial secreta, pessoal e intransferível.",
+        "dica": "Use o ícone de olho para conferir a digitação antes de enviar o formulário."
+      },
+      {
+        "nome": "Manter sessão ativa neste dispositivo",
+        "descricao": "Caixa já marcada na tela de entrada, que registra a sua preferência de continuar conectado neste navegador.",
+        "dica": "Em computador compartilhado, use **Sair** no menu do usuário ao terminar: desmarcar esta caixa não encerra a sessão."
+      }
+    ],
+    "dicas": [
+      "As contas de demonstração compartilham a mesma senha, **sgp123456**, e servem para treinamento e apresentação — não as use para trabalho real, porque tudo o que acontece no sistema fica registrado em nome de quem entrou.",
+      "Ao ser levado ao login no meio de uma tarefa, entre normalmente: o SGP devolve você exatamente para a tela onde estava.",
+      "Trocar de conta de demonstração é a forma mais rápida de mostrar, em uma reunião, como a mesma informação aparece para um executivo e para um membro de equipe.",
+      "A aparência que você escolheu — tema, modo de cor e densidade — é carregada junto com o seu perfil assim que você entra, em qualquer navegador."
+    ],
+    "limitacoes": [
+      "Não há recuperação de senha por autoatendimento nem e-mail de redefinição: quem redefine a senha é o administrador do SGP, em **Administração › Usuários e papéis**.",
+      "Nesta versão o acesso é apenas por e-mail e senha: não há login único corporativo nem verificação em duas etapas.",
+      "Com uma sessão já aberta esta tela não aparece: o SGP leva você direto para dentro. Para entrar com outro perfil, use **Sair** no menu do usuário e volte aqui."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Enter",
+        "acao": "Enviar o formulário de entrada quando o foco está em **E-mail corporativo** ou **Senha**"
+      },
+      {
+        "tecla": "Tab",
+        "acao": "Percorrer os campos, o botão de mostrar senha e o botão **Entrar no SGP** na ordem da tela"
+      }
+    ],
+    "doc": "01-visao-geral-e-primeiros-passos.md",
+    "permissoes": [],
+    "ordem": 10
+  }
+]

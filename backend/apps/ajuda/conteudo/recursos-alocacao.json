@@ -1,0 +1,891 @@
+[
+  {
+    "rota": "/alocacao",
+    "titulo": "Alocação",
+    "grupo": "Recursos e alocação",
+    "icone": "users",
+    "resumo": "Monta a alocação das pessoas por projeto na timeline, arrastando o card do pool, e mostra a sobrecarga de cada semana.",
+    "para_que_serve": "É a tela onde você decide quem trabalha em quê e por quanto tempo. O pool traz os colaboradores com a ocupação atual, a timeline mostra o que já está comprometido e o painel de conflitos aponta quem passou de 100% na semana. Cada alocação registrada aqui alimenta o mapa de ocupação, o custo do projeto e o motor de recomendação.",
+    "quando_usar": [
+      "Para montar ou refazer a equipe de um projeto que está começando",
+      "Quando alguém entra de férias ou sai do time e a carga precisa ser redistribuída",
+      "No início da semana, para tratar as semanas que passaram de 100% antes que virem atraso",
+      "Para reservar uma pessoa em uma tarefa específica, com percentual e período definidos",
+      "Para formalizar uma proposta de alocação que ainda estava apenas sinalizada"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher o recorte",
+        "detalhe": "Na busca, filtre por pessoa, cargo ou área e combine com **Todas as áreas**, **Todos os status**, **Início do período** e **Fim do período**. O interruptor **Somente disponíveis** oculta quem já está com 100% ou mais. Os filtros aplicados aparecem como etiquetas removíveis abaixo da barra.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Encontrar a pessoa no pool",
+        "detalhe": "O **Pool de colaboradores** lista quem pode ser alocado. Cada card mostra o custo por hora (ou **Custo restrito**), a ocupação média, o percentual disponível e quantas alocações estão vigentes hoje. O ícone **Ver ocupação de...** abre a agenda individual da pessoa.",
+        "icone": "users"
+      },
+      {
+        "titulo": "Arrastar o card para a linha da pessoa",
+        "detalhe": "Segure o card do pool e solte-o sobre a linha da pessoa na **Timeline de alocações**. A linha fica destacada enquanto o card está sobre ela e o painel **Confirmar alocação** abre com a pessoa escolhida e o percentual já em 50%. Se preferir, clique no ícone **Alocar** do card.",
+        "icone": "move"
+      },
+      {
+        "titulo": "Preencher os dados da alocação",
+        "detalhe": "Escolha o **Projeto** e, se quiser amarrar o esforço a uma entrega, a **Tarefa (opcional)**. Ajuste **Percentual de dedicação**, confirme **Início** e **Fim** e, se fizer sentido, informe **Papel no projeto**, **Modalidade**, **Status** e **Justificativa**.",
+        "icone": "clipboard-list"
+      },
+      {
+        "titulo": "Conferir a sobrecarga antes de salvar",
+        "detalhe": "Ao escolher uma tarefa, o próprio painel mostra os conflitos da semana de entrada: **Sobrealocação detectada pelo motor**, com nome, semana e total alocado, ou **Alocação sem conflitos**. O aviso **Como o motor avalia** lembra que o score considera skills, disponibilidade, custo, preferência, experiência e proximidade.",
+        "icone": "alert-triangle"
+      },
+      {
+        "titulo": "Confirmar a alocação",
+        "detalhe": "Clique em **Confirmar alocação** para uma alocação nova ou em **Salvar alterações** ao editar. O mapa de ocupação, a lista de conflitos e os indicadores do topo são recalculados na hora, e a mudança entra na trilha de auditoria.",
+        "icone": "check"
+      },
+      {
+        "titulo": "Tratar os conflitos da semana",
+        "detalhe": "No painel **Conflitos de alocação**, o subtítulo informa quantas sobrealocações existem e quantas são críticas. Cada linha traz a pessoa, a semana, o total alocado, o excesso e em quantas alocações ele se distribui. Clique na linha para abrir o detalhe.",
+        "icone": "shield-alert"
+      },
+      {
+        "titulo": "Revisar na tabela Alocações registradas",
+        "detalhe": "A tabela traz **Pessoa / recurso**, **Projeto / tarefa**, **Dedicação**, **Período**, **Modalidade**, **Status**, **Custo estimado** e a coluna **Ações**, com **Confirmar proposta** nas alocações com status Proposta, **Editar alocação** e **Excluir alocação**.",
+        "icone": "table"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Pool de colaboradores",
+        "descricao": "Cards arrastáveis com busca, filtros de área e status, período e o interruptor **Somente disponíveis**."
+      },
+      {
+        "nome": "Timeline de alocações",
+        "descricao": "Uma linha por pessoa e barras coloridas por projeto, com a marca de **Hoje** e a janela de datas no subtítulo."
+      },
+      {
+        "nome": "Painel de conflitos",
+        "descricao": "Semanas acima de 100%, em âmbar quando o total fica entre 101% e 129% e em vermelho quando chega a 130% ou mais."
+      },
+      {
+        "nome": "Heatmap de ocupação da equipe",
+        "descricao": "Grade de pessoas por semana, com a escala 0%, 1-84%, 85-100% e acima de 100%. Clique em uma célula para ver os projetos da semana."
+      },
+      {
+        "nome": "Alocações registradas",
+        "descricao": "Tabela completa das alocações, com as ações de confirmar, editar e excluir."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Percentual de dedicação",
+        "descricao": "Quanto da capacidade semanal da pessoa a alocação consome. A soma dos percentuais das alocações vigentes na semana é o que define a ocupação.",
+        "dica": "A barra vai de 1% a 100%, com marcas em 25%, 50%, 75% e 100%. Ao arrastar o card, ela abre em 50%."
+      },
+      {
+        "nome": "Tarefa (opcional)",
+        "descricao": "Amarra o esforço a uma entrega específica e informa ao motor de recomendação quem já está naquela tarefa.",
+        "dica": "Escolha primeiro o projeto para que a lista de tarefas seja carregada."
+      },
+      {
+        "nome": "Modalidade",
+        "descricao": "**Performance imediata**, **Desenvolvimento**, **Mista (sênior + júnior)** ou **Manual**. Alocações criadas a partir de uma recomendação já vêm com a modalidade do motor."
+      },
+      {
+        "nome": "Status",
+        "descricao": "**Proposta**, **Confirmada**, **Em execução**, **Concluída** ou **Cancelada**.",
+        "dica": "Somente Proposta, Confirmada e Em execução entram no cálculo de sobrecarga e na disponibilidade usada pelo motor."
+      },
+      {
+        "nome": "Justificativa",
+        "descricao": "Fica registrada na auditoria da alocação e visível para o PMO.",
+        "dica": "Escreva a restrição real — contrato, segurança, acordo sindical, desenvolvimento — em vez de \"decisão do gestor\"."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Alocações",
+        "descricao": "Total de alocações registradas; o subtítulo mostra quantas estão vigentes hoje.",
+        "leitura": "Crescimento sem aumento de entrega indica pulverização de esforço."
+      },
+      {
+        "nome": "Taxa de override",
+        "descricao": "Percentual de alocações que sobrepuseram a recomendação do motor.",
+        "leitura": "Acima de 30% sugere que o motor não reflete a realidade ou que faltam restrições cadastradas."
+      },
+      {
+        "nome": "Aderência média",
+        "descricao": "Score médio do motor nas alocações criadas a partir de recomendações.",
+        "leitura": "Queda indica pressão por prazo ou pool restrito."
+      },
+      {
+        "nome": "Sugeridas, Aceitas e Recusadas",
+        "descricao": "A fila de recomendações aguardando decisão e o destino das que já foram decididas.",
+        "leitura": "Acúmulo de sugeridas significa capacidade não reservada; recusas frequentes no mesmo perfil merecem investigação."
+      },
+      {
+        "nome": "Utilização média da equipe",
+        "descricao": "Média das ocupações médias das pessoas no heatmap.",
+        "leitura": "Entre 70% e 85% costuma indicar equilíbrio entre produtividade e folga para imprevistos."
+      }
+    ],
+    "dicas": [
+      "Solte o card direto na semana de início desejada: o formulário abre com o percentual em 50% e o período de hoje até 30 dias à frente.",
+      "Use o interruptor **Somente disponíveis** para esconder quem já está com 100% ou mais e ganhar tempo na escolha.",
+      "Resolva os conflitos na semana em que aparecem: 120% hoje costuma virar atraso de duas semanas no mês seguinte.",
+      "Antes de alocar manualmente, clique em **Matching inteligente** no topo e compare as recomendações do motor.",
+      "Registre a justificativa em toda alocação fora do padrão; ela sustenta a decisão meses depois, quando ninguém lembra do contexto."
+    ],
+    "limitacoes": [
+      "O sistema avisa, mas não bloqueia: uma alocação que passa de 100% na semana é gravada do mesmo jeito, porque a decisão final é sua.",
+      "A tela não controla férias, afastamentos e folgas — a capacidade semanal é um valor-base por pessoa.",
+      "Não há atualização automática em segundo plano: os números mudam quando você salva uma alocação ou clica em **Atualizar**."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para outra tela"
+      },
+      {
+        "tecla": "F1",
+        "acao": "Abrir este guia de uso"
+      }
+    ],
+    "doc": "05-recursos-e-alocacao.md",
+    "permissoes": [
+      "alocacao.ver"
+    ],
+    "ordem": 10
+  },
+  {
+    "rota": "/matching",
+    "titulo": "Motor de matching",
+    "grupo": "Recursos e alocação",
+    "icone": "compass",
+    "resumo": "Ranqueia os colaboradores mais adequados para um projeto ou uma tarefa, com score explicável, pesos por modo, penalidades e simulação de cenários.",
+    "para_que_serve": "Responde à pergunta \"quem deveria assumir esta entrega?\" com um ranking justificado, em vez de uma escolha por memória. O score combina aderência técnica, disponibilidade, custo, interesse, experiência e proximidade, e desconta penalidades de sobrecarga e de conflito de agenda. Você pode alocar a partir da recomendação, recusá-la com motivo ou registrar um override justificado — tudo fica auditado.",
+    "quando_usar": [
+      "Ao abrir uma vaga em um projeto e ainda não saber quem chamar",
+      "Quando a escolha precisa de justificativa técnica para o comitê ou para o cliente",
+      "Para formar sucessores: rode o motor no modo Desenvolvimento e escolha por potencial",
+      "Para testar se outro conjunto de pesos mudaria o ranking, sem gravar nada",
+      "Quando você quer comparar a decisão manual com a recomendação e registrar o motivo do override"
+    ],
+    "passos": [
+      {
+        "titulo": "Definir o alvo",
+        "detalhe": "Em **Alvo e modo de alocação**, escolha o **Tipo de alvo** (**Projeto** ou **Tarefa**), o **Projeto** e, quando for o caso, a **Tarefa**. O período avaliado é o da tarefa; se ela não tiver datas próprias, vale o período do projeto.",
+        "icone": "target"
+      },
+      {
+        "titulo": "Escolher o modo de alocação",
+        "detalhe": "Os três cartões de modo trazem a descrição e os pesos de cada fator. **Performance** maximiza aderência técnica e experiência para entrega imediata; **Desenvolvimento** prioriza o crescimento com lacuna controlada e apoio de mentor; **Misto** equilibra entrega e transferência de conhecimento.",
+        "icone": "compass"
+      },
+      {
+        "titulo": "Executar o motor",
+        "detalhe": "Defina o **Limite de resultados** no controle **Candidatos exibidos**, de 3 a 30, e clique em **Executar matching**. O motor ignora quem já está alocado na tarefa e não considera quem não aceita receber recomendações.",
+        "icone": "zap"
+      },
+      {
+        "titulo": "Ler o card de recomendação",
+        "detalhe": "A bolinha sobre o avatar mostra a posição no ranking, em azul para os três primeiros. O anel traz o score de 0 a 100 e as etiquetas mostram o percentual disponível, quanto a pessoa já tem alocado no período, o modo sugerido e, quando for o caso, o aviso de que o candidato não é elegível. As seis barras mostram cada fator com o peso aplicado.",
+        "icone": "user-check"
+      },
+      {
+        "titulo": "Ler a justificativa do score",
+        "detalhe": "**Skills atendidas** lista as capacidades em que a pessoa atende ou supera o nível exigido (requerido N contra atual N). **Gaps identificados** mostra o déficit e a ação sugerida: mentoria com especialista, treinamento focado ou capacitação inicial. **Penalidades aplicadas** aparece em vermelho, com o desconto em pontos.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Decidir sobre a recomendação",
+        "detalhe": "**Alocar** cria a alocação a partir da recomendação. **Recusar** exige justificativa. **Override manual** permite escolher outra pessoa, com percentual de dedicação, início, fim e justificativa obrigatória. Recusa e override só ficam disponíveis quando o alvo é uma tarefa.",
+        "icone": "split"
+      },
+      {
+        "titulo": "Simular um cenário what-if",
+        "detalhe": "Na seção **Simulação what-if de pesos**, ajuste os seis pesos, ative **Somente disponíveis** para remover do pool quem já tem alocação confirmada no período e clique em **Simular cenário**. Os pesos informados são normalizados pela soma, e a comparação mostra candidato, posição antes, posição depois, score original e score ajustado. **Restaurar pesos do modo** volta ao padrão.",
+        "icone": "sliders-horizontal"
+      },
+      {
+        "titulo": "Conferir o histórico da tarefa",
+        "detalhe": "**Histórico de recomendações da tarefa** lista as recomendações gravadas com o status da decisão: **Sugerida**, **Aceita**, **Recusada** ou **Substituída**, com posição, score e penalidades de cada uma.",
+        "icone": "history"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Explicabilidade do score",
+        "descricao": "Cartão com a fórmula aplicada, a descrição do modo, os pesos utilizados e os requisitos de capacidade do alvo — com aviso quando o alvo ainda não tem requisitos cadastrados."
+      },
+      {
+        "nome": "Card de recomendação",
+        "descricao": "Posição, anel de score, etiquetas de disponibilidade, de carga no período e de modo sugerido, além das barras dos seis fatores."
+      },
+      {
+        "nome": "Faixa de indicadores",
+        "descricao": "Avaliados, Exibidos, Elegíveis, Score médio, Melhor score e Com penalidade."
+      },
+      {
+        "nome": "Simulação what-if",
+        "descricao": "Controles de peso, interruptor de disponibilidade e o gráfico dos pesos ajustados comparados aos originais do modo."
+      },
+      {
+        "nome": "Histórico de recomendações",
+        "descricao": "As recomendações persistidas da tarefa e a decisão tomada em cada uma."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Tipo de alvo",
+        "descricao": "**Projeto** avalia o projeto inteiro; **Tarefa** avalia uma entrega específica.",
+        "dica": "A tarefa é o único alvo que permite registrar recusa e override, porque é ela que guarda as recomendações."
+      },
+      {
+        "nome": "Modo de alocação",
+        "descricao": "**Performance** dá mais peso a skill e experiência; **Desenvolvimento** dá mais peso a preferência e proximidade e busca quem está um degrau abaixo do nível exigido; **Misto** distribui os pesos entre os dois objetivos."
+      },
+      {
+        "nome": "Limite de resultados",
+        "descricao": "Quantos candidatos aparecem no ranking, de 3 a 30.",
+        "dica": "Aumente o limite quando o pool for grande e você quiser ver quem ficou fora do topo."
+      },
+      {
+        "nome": "Pesos da simulação",
+        "descricao": "Percentuais de 0% a 100% para cada fator. São normalizados pela soma antes do cálculo, então o que importa é a proporção entre eles."
+      },
+      {
+        "nome": "Justificativa",
+        "descricao": "Obrigatória na recusa e no override. Fica registrada na recomendação e alimenta a taxa de override do painel de alocação.",
+        "dica": "Descreva a restrição real: contrato, segurança, acordo sindical ou plano de desenvolvimento."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Avaliados",
+        "descricao": "Quantos candidatos entraram no cálculo.",
+        "leitura": "Número muito baixo indica pool restrito — verifique quem aceita receber recomendações e os filtros aplicados."
+      },
+      {
+        "nome": "Elegíveis",
+        "descricao": "Candidatos sem bloqueio de capacidade obrigatória e com alguma disponibilidade no período.",
+        "leitura": "Se for zero, revise os requisitos do alvo ou antecipe a contratação."
+      },
+      {
+        "nome": "Score médio e Melhor score",
+        "descricao": "A média das notas exibidas e a maior nota do ranking.",
+        "leitura": "Média acima de 60 pontos indica pool adequado; melhor score abaixo de 60 pede outro modo de alocação ou capacitação."
+      },
+      {
+        "nome": "Com penalidade",
+        "descricao": "Quantos candidatos receberam desconto no score.",
+        "leitura": "Muitos casos indicam sobrecarga generalizada ou requisitos mal calibrados."
+      }
+    ],
+    "dicas": [
+      "Rode primeiro em **Performance** e depois em **Desenvolvimento**: a diferença entre os dois rankings mostra quem está pronto e quem está em formação.",
+      "Compare sempre a etiqueta de disponibilidade com a carga já alocada no período; score alto com carga perto de 100% é uma armadilha comum.",
+      "Ative **Somente disponíveis** na simulação para ver como o ranking fica sem quem já está comprometido no período.",
+      "Toda recusa e todo override alimentam a taxa de override do painel de alocação; justificativa vaga torna o indicador inútil seis meses depois.",
+      "Se o alvo não tem requisitos de capacidade cadastrados, o fator de skill usa um valor neutro e o motor perde seu principal critério — cadastre os requisitos no projeto ou na tarefa."
+    ],
+    "limitacoes": [
+      "O motor ranqueia pessoas, não recursos materiais: equipamentos, licenças e serviços não competem por score.",
+      "A recomendação é uma sugestão — o sistema não aloca nem redistribui carga sozinho e não há fluxo de aprovação em duas etapas.",
+      "Valores de custo aparecem apenas se o seu perfil tiver permissão de visualização; fora disso, o detalhe mostra **Restrito**."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para outra tela"
+      },
+      {
+        "tecla": "F1",
+        "acao": "Abrir este guia de uso"
+      }
+    ],
+    "doc": "05-recursos-e-alocacao.md",
+    "permissoes": [
+      "alocacao.ver"
+    ],
+    "ordem": 20
+  },
+  {
+    "rota": "/recursos",
+    "titulo": "Recursos",
+    "grupo": "Recursos e alocação",
+    "icone": "boxes",
+    "resumo": "Catálogo dos recursos materiais — equipamentos, licenças, serviços e materiais — com custo, disponibilidade e as alocações em projetos.",
+    "para_que_serve": "Mantém em um só lugar tudo o que não é pessoa e que também precisa ser reservado para o projeto: equipamentos, licenças de software, instalações, serviços terceirizados e materiais. A tela mostra quanto cada item custa, quanto ainda está livre e em quais projetos cada recurso está comprometido. Esse catálogo alimenta o custo estimado das alocações e o painel financeiro do portfólio.",
+    "quando_usar": [
+      "Para cadastrar um equipamento, licença ou serviço que os projetos passam a poder reservar",
+      "Quando um recurso aparece com pouca disponibilidade e é preciso decidir entre comprar, renovar ou remanejar",
+      "Para conferir em quais projetos um recurso está alocado antes de liberá-lo para outro time",
+      "Na revisão do mês, para acompanhar o custo médio por hora do catálogo",
+      "Para inativar um item antigo sem apagar o histórico de uso nos projetos"
+    ],
+    "passos": [
+      {
+        "titulo": "Ler o resumo do catálogo",
+        "detalhe": "O cabeçalho informa quantos recursos existem, quantos estão ativos e quantas unidades estão disponíveis. A faixa de indicadores traz **Recursos**, **Custo médio/hora**, **Disponibilidade média**, **Baixa disponibilidade**, **Quantidade total** e **Fornecedores**.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Filtrar o catálogo",
+        "detalhe": "Use a busca por nome, código ou fornecedor e combine com os filtros **Tipo**, **Fornecedor** e **Situação** — **Todos**, **Somente ativos** ou **Somente inativos**.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler os gráficos de apoio",
+        "detalhe": "**Recursos por tipo** mostra a distribuição do catálogo, **Ocupação do catálogo** traz a utilização média por tipo com o percentual livre de cada um e **Alertas de disponibilidade** lista os itens com menos de 50% de disponibilidade.",
+        "icone": "pie-chart"
+      },
+      {
+        "titulo": "Cadastrar um recurso",
+        "detalhe": "Clique em **Novo recurso** e preencha **Nome**, **Tipo**, **Código / patrimônio**, **Descrição**, **Custo por hora (R$)**, **Custo unitário (R$)**, **Unidade**, **Quantidade disponível**, **Disponível de**, **Disponível até**, **Disponibilidade (%)**, **Fornecedor**, **Localização**, **Cor de identificação** e **Situação**. Confirme em **Cadastrar recurso**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Abrir o detalhe do item",
+        "detalhe": "Clique em um cartão para ver custo por hora, custo unitário, quantidade, disponibilidade, utilização, quantidade de alocações e a lista **Alocações do recurso**, com projeto, tarefa, período, status e custo estimado.",
+        "icone": "panel-right"
+      },
+      {
+        "titulo": "Manter o item atualizado",
+        "detalhe": "O ícone **Editar** reabre o formulário, que salva em **Salvar alterações**. O ícone **Excluir** remove o recurso do catálogo.",
+        "icone": "pencil"
+      },
+      {
+        "titulo": "Atualizar os números",
+        "detalhe": "O botão **Atualizar** recarrega o catálogo, os indicadores e os gráficos com os últimos cadastros.",
+        "icone": "refresh-cw"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Cartões agrupados por tipo",
+        "descricao": "O catálogo é organizado em seções por tipo — Humano, Equipamento, Software / Licença, Instalação, Serviço terceirizado e Material — com a contagem de itens em cada uma."
+      },
+      {
+        "nome": "Ocupação do catálogo",
+        "descricao": "Barras por tipo com a utilização média, acompanhadas do percentual livre e da escala de cores."
+      },
+      {
+        "nome": "Alertas de disponibilidade",
+        "descricao": "Os recursos com menos de 50% de disponibilidade, em destaque vermelho, para priorizar reposição ou renovação."
+      },
+      {
+        "nome": "Painel de detalhe",
+        "descricao": "Dados do recurso, barra de utilização e as alocações vinculadas a ele."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Tipo",
+        "descricao": "Humano, Equipamento, Software / Licença, Instalação, Serviço terceirizado ou Material. O tipo define o ícone, a cor e o agrupamento do cartão."
+      },
+      {
+        "nome": "Custo por hora (R$)",
+        "descricao": "Valor da hora do recurso, usado no custo estimado das alocações.",
+        "dica": "Preencha quando o recurso for cobrado por tempo; para itens de compra única, use o custo unitário."
+      },
+      {
+        "nome": "Custo unitário (R$)",
+        "descricao": "Valor de aquisição ou de contratação de uma unidade do recurso."
+      },
+      {
+        "nome": "Quantidade disponível",
+        "descricao": "Quantas unidades estão livres para uso, na unidade informada — unidade, licença, m² ou dia."
+      },
+      {
+        "nome": "Disponibilidade (%)",
+        "descricao": "Percentual de capacidade livre informado para o recurso.",
+        "dica": "Abaixo de 50% o item entra em **Alertas de disponibilidade**."
+      },
+      {
+        "nome": "Situação",
+        "descricao": "**Ativo no catálogo** mantém o recurso disponível para novos projetos; **Inativo** o retira das escolhas sem apagar o histórico."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Disponibilidade média",
+        "descricao": "Quanto do catálogo está livre.",
+        "leitura": "Queda generalizada indica saturação de equipamentos ou licenças; a referência saudável é acima de 60%."
+      },
+      {
+        "nome": "Baixa disponibilidade",
+        "descricao": "Recursos com menos de 50% livres.",
+        "leitura": "É a lista de risco: cada item merece um plano de reposição ou renovação."
+      },
+      {
+        "nome": "Ocupação do catálogo",
+        "descricao": "Utilização média por tipo de recurso.",
+        "leitura": "Tipos com utilização perto de 100% são gargalo recorrente."
+      },
+      {
+        "nome": "Custo médio/hora",
+        "descricao": "Média dos recursos que têm custo informado.",
+        "leitura": "Serve de referência para negociar contratos; o ideal é que fique estável no tempo."
+      }
+    ],
+    "dicas": [
+      "Prefira inativar a excluir: o recurso inativo sai das escolhas novas e preserva o histórico de uso nos projetos.",
+      "Mantenha a **Disponibilidade (%)** atualizada — é ela que dispara os **Alertas de disponibilidade** e alimenta a barra de utilização.",
+      "Cadastre **Fornecedor** e **Localização** para agrupar a renovação de contratos e comparar alternativas.",
+      "A **Cor de identificação** ajuda a reconhecer o recurso nas listas e nos relatórios.",
+      "Em catálogos grandes, busque pelo **Código / patrimônio**: é o jeito mais rápido de achar o item exato."
+    ],
+    "limitacoes": [
+      "A quantidade disponível é informativa: o sistema não dá baixa automática de estoque a cada uso.",
+      "O motor de matching não pontua recursos materiais — o score ranqueia pessoas; recursos entram como alocação no projeto.",
+      "Excluir um recurso com alocações vinculadas também remove essas alocações; quando houver histórico, inative o item."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para outra tela"
+      },
+      {
+        "tecla": "F1",
+        "acao": "Abrir este guia de uso"
+      }
+    ],
+    "doc": "05-recursos-e-alocacao.md",
+    "permissoes": [
+      "recurso.ver"
+    ],
+    "ordem": 30
+  },
+  {
+    "rota": "/capacidade",
+    "titulo": "Capacidade",
+    "grupo": "Recursos e alocação",
+    "icone": "grid-3x3",
+    "resumo": "Planejamento de capacidade em três abas: demanda contra oferta, riscos de bus factor e ocupação semanal da equipe.",
+    "para_que_serve": "Antecipa onde vão faltar pessoas e onde vai sobrar capacidade, cruzando a demanda dos projetos com o que o time consegue entregar. A tela também aponta capacidades sustentadas por poucas pessoas — o risco de a saída de uma delas parar o portfólio — e mostra a ocupação semana a semana. É o insumo para decidir contratação, mentoria e redistribuição de escopo antes que o gargalo aconteça.",
+    "quando_usar": [
+      "No ciclo de planejamento, para comparar a demanda projetada com a capacidade do time",
+      "Quando uma capacidade crítica depende de uma única pessoa e é preciso formar alternativas",
+      "Antes de assumir novos compromissos, para ver quem está sobrecarregado e quem está ocioso",
+      "Para decidir entre contratar, promover mentoria ou reduzir escopo",
+      "Para gravar a previsão do período e compará-la depois com o que realmente aconteceu"
+    ],
+    "passos": [
+      {
+        "titulo": "Definir o horizonte",
+        "detalhe": "Na aba **Demanda × Oferta**, use o **Horizonte de análise**, de 3 a 18 meses, e acompanhe os indicadores **Skills em escassez**, **Skills ociosas**, **Maior gap**, **Skills analisadas**, **Horizonte** e **Pico de demanda**.",
+        "icone": "calendar-range"
+      },
+      {
+        "titulo": "Ler o heatmap de gap",
+        "detalhe": "Em **Heatmap de gap por capacidade**, os meses ficam nas colunas: vermelho indica escassez, azul ociosidade e verde equilíbrio. A intensidade acompanha o tamanho do gap, medido em FTE. Clique em uma célula para ver demanda, oferta, nível médio, gap do período e a ação recomendada.",
+        "icone": "grid-3x3"
+      },
+      {
+        "titulo": "Ver a projeção das mais críticas",
+        "detalhe": "**Projeção das capacidades mais críticas** mostra as linhas cheias de demanda contra as tracejadas de oferta, e **Top gaps acumulados** soma o gap no horizonte. **Detalhe por capacidade** traz o pico de demanda e o bus factor de cada capacidade.",
+        "icone": "line-chart"
+      },
+      {
+        "titulo": "Gravar a previsão",
+        "detalhe": "O botão de salvar registra os valores projetados para consulta histórica e confirma com **Previsão de demanda salva**.",
+        "icone": "save"
+      },
+      {
+        "titulo": "Analisar o bus factor",
+        "detalhe": "Na aba **Skills críticas**, os indicadores **Alertas ativos**, **Sem detentor**, **Um único detentor**, **Detentores mapeados**, **Projetos dependentes** e **Ações sugeridas** resumem o risco. Cada cartão mostra a criticidade, quantos detentores de nível 4 ou superior existem e quantos projetos dependem daquela capacidade.",
+        "icone": "shield-alert"
+      },
+      {
+        "titulo": "Agir sobre a dependência",
+        "detalhe": "Em cada alerta, use **Ver grafo de dependência** para visualizar detentores e projetos, **Ver quem tem a skill** para consultar a matriz de capacidades ou **Gerar PDI** para transformar o risco em plano de desenvolvimento. O botão de persistir alertas grava os riscos detectados para acompanhamento.",
+        "icone": "network"
+      },
+      {
+        "titulo": "Acompanhar a ocupação",
+        "detalhe": "Na aba **Ocupação**, os indicadores **Pessoas no mapa**, **Utilização média**, **Sobrealocados**, **Ociosos**, **Semanas críticas** e **Semanas** resumem o período. O mapa **Ocupação por pessoa e semana** usa a escala 0%, 1-84%, 85-100% e acima de 100%, e o clique na célula abre os projetos da semana.",
+        "icone": "users"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Abas",
+        "descricao": "**Demanda × Oferta**, **Skills críticas** e **Ocupação**, com a contagem de alertas e de pessoas em cada uma."
+      },
+      {
+        "nome": "Heatmap de gap",
+        "descricao": "Grade de capacidades por mês, com a escala **▲ escassez**, **= equilíbrio** e **▼ ociosidade** e os valores em FTE."
+      },
+      {
+        "nome": "Grafo de dependência",
+        "descricao": "Nós com os detentores mapeados e um nó que agrega os projetos dependentes da capacidade; clique em um detentor para abrir a ocupação individual."
+      },
+      {
+        "nome": "Mapa de ocupação",
+        "descricao": "Grade de pessoas por semana, com clique na célula para ver os projetos alocados naquela semana."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Horizonte de análise",
+        "descricao": "Quantos meses à frente a demanda e a oferta são projetadas, de 3 a 18.",
+        "dica": "Horizontes curtos confirmam o trimestre; horizontes longos sustentam decisões de contratação."
+      },
+      {
+        "nome": "Criticidade",
+        "descricao": "Classificação da capacidade no portfólio. Capacidades críticas com poucos detentores aparecem primeiro."
+      },
+      {
+        "nome": "FTE",
+        "descricao": "Equivalente a uma pessoa em tempo integral. Uma demanda de 2,5 FTE significa duas pessoas e meia dedicadas à capacidade."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Skills em escassez",
+        "descricao": "Capacidades em que a demanda projetada supera a oferta.",
+        "leitura": "Prioriza contratação, mentoria ou redistribuição de escopo; a referência saudável é zero."
+      },
+      {
+        "nome": "Skills ociosas",
+        "descricao": "Capacidades com oferta acima da demanda.",
+        "leitura": "É oportunidade de realocar pessoas e desenvolver novas competências."
+      },
+      {
+        "nome": "Sem detentor e Um único detentor",
+        "descricao": "Capacidades sem nenhum especialista de nível 4 ou superior, ou com apenas um.",
+        "leitura": "É risco de parada: se essa pessoa sair ou adoecer, o projeto que depende dela para."
+      },
+      {
+        "nome": "Sobrealocados",
+        "descricao": "Pessoas com alguma semana acima de 100%.",
+        "leitura": "É o número que exige ação primeiro."
+      },
+      {
+        "nome": "Semanas críticas",
+        "descricao": "Células do mapa de ocupação acima de 100%.",
+        "leitura": "Concentração em poucas semanas pode ser um pico sazonal planejável."
+      }
+    ],
+    "dicas": [
+      "Comece pela aba **Demanda × Oferta** com horizonte de 9 meses: é o intervalo em que contratação e mentoria ainda dão tempo de surtir efeito.",
+      "Grave a previsão e os alertas de bus factor no fim de cada ciclo; sem gravação não existe comparação histórica.",
+      "Clique em um detentor no grafo para abrir a **Ocupação do colaborador** e checar se ele tem folga para mentorar.",
+      "Cruze **Skills em escassez** com **Sobrealocados**: quando os dois aparecem juntos, a saída costuma ser redistribuir escopo, não alocar mais.",
+      "Use **Gerar PDI** para transformar um risco de bus factor em plano de desenvolvimento registrado, com prazo e responsável."
+    ],
+    "limitacoes": [
+      "A projeção parte dos requisitos de capacidade cadastrados nos projetos ativos e dos perfis validados; sem eles, a demanda aparece vazia.",
+      "O planejamento não prevê turnover nem ausências futuras — apenas o que os dados atuais permitem esperar.",
+      "A tela projeta e sinaliza: não contrata, não remaneja pessoas e não altera alocações automaticamente."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para outra tela"
+      },
+      {
+        "tecla": "F1",
+        "acao": "Abrir este guia de uso"
+      }
+    ],
+    "doc": "05-recursos-e-alocacao.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 40
+  },
+  {
+    "rota": "/capacidade/:userId",
+    "titulo": "Ocupação do colaborador",
+    "grupo": "Recursos e alocação",
+    "icone": "gauge",
+    "resumo": "Retrato individual da carga de uma pessoa: ocupação semana a semana, alocações futuras e o contexto que alimenta o motor de alocação.",
+    "para_que_serve": "Mostra exatamente como a agenda de uma pessoa está comprometida nas próximas semanas, o que está livre e em que semanas a carga passou de 100%. Serve para decidir se ela pode assumir mais um projeto, para ajustar percentuais e para conversar sobre sobrecarga com base em dados, não em impressão. A tela reúne a série semanal, a classificação de cada semana, as alocações futuras e os dados cadastrais relevantes para a alocação.",
+    "quando_usar": [
+      "Antes de alocar alguém em um novo projeto, para confirmar que existe folga real",
+      "Quando a pessoa relata sobrecarga e você precisa ver em que semanas o problema se concentra",
+      "Para conferir se uma alocação com dedicação alta deixou alguma semana acima de 100%",
+      "Na conversa de desenvolvimento, para cruzar interesses, mentoria e disponibilidade",
+      "Ao revisar o horizonte de um projeto, para ver os compromissos que a pessoa já assumiu até lá"
+    ],
+    "passos": [
+      {
+        "titulo": "Chegar até aqui",
+        "detalhe": "Abra esta tela clicando em uma célula do mapa de ocupação na tela **Capacidade**, em um detentor no grafo de dependência, em uma pessoa na lista **Pessoas** ou no ícone **Ver ocupação** do card do pool na tela **Alocação**. As migalhas no topo mostram o caminho e **Planejamento de capacidade** traz você de volta.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Ajustar o horizonte",
+        "detalhe": "O controle **Horizonte** define quantas semanas entram na análise, de 4 a 26. O restante da tela se recalcula sobre esse recorte.",
+        "icone": "calendar-range"
+      },
+      {
+        "titulo": "Ler os indicadores do topo",
+        "detalhe": "**Ocupação média**, **Pico de ocupação**, **Menor ocupação**, **Horas apontadas**, **Semanas superalocadas** e **Alocações futuras** resumem a carga e os compromissos da pessoa.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Acompanhar a série semanal",
+        "detalhe": "Em **Ocupação ao longo das semanas**, a linha cheia é a **Ocupação**, a tracejada é o **Disponível** e existe uma linha de **Referência 100%**. Os pontos mostram o percentual de dedicação somado em cada semana.",
+        "icone": "line-chart"
+      },
+      {
+        "titulo": "Classificar cada semana",
+        "detalhe": "**Situação semana a semana** mostra a carga de cada semana com a classificação automática: **Superalocado** acima de 100%, **Ocupado** entre 85% e 100%, **Disponível** quando há folga e **Ocioso** quando não há alocação. Cada cartão traz também o quanto está livre.",
+        "icone": "grid-3x3"
+      },
+      {
+        "titulo": "Ver o que já está comprometido",
+        "detalhe": "**Alocações futuras** lista os compromissos a partir de hoje, com projeto, tarefa, período, dedicação, modalidade, status e custo estimado; o subtítulo soma quantas são e quanto custam.",
+        "icone": "layers"
+      },
+      {
+        "titulo": "Fechar o contexto",
+        "detalhe": "**Distribuição da carga** mostra como as semanas se classificam, **Tendência de ocupação** traz a média e a variação do período e **Contexto do colaborador** reúne gestor, admissão, se a pessoa aceita recomendações do motor, disponibilidade para mentoria e interesses declarados.",
+        "icone": "users"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Faixa de indicadores",
+        "descricao": "Retrato da carga no horizonte escolhido, com ocupação média, pico, menor ocupação, horas apontadas, semanas superalocadas e alocações futuras."
+      },
+      {
+        "nome": "Ocupação ao longo das semanas",
+        "descricao": "Gráfico de linha com a ocupação, o disponível e a referência de 100%, ajustável pelo controle **Horizonte**."
+      },
+      {
+        "nome": "Situação semana a semana",
+        "descricao": "Cartões por semana, coloridos pela classificação **Superalocado**, **Ocupado**, **Disponível** ou **Ocioso**."
+      },
+      {
+        "nome": "Contexto do colaborador",
+        "descricao": "Dados cadastrais que influenciam a alocação e as recomendações do motor."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Horizonte",
+        "descricao": "Número de semanas analisadas, de 4 a 26.",
+        "dica": "Use 4 semanas para a decisão imediata e 26 para planejar o semestre."
+      },
+      {
+        "nome": "Dedicação",
+        "descricao": "Percentual que cada alocação consome da capacidade semanal da pessoa; a soma por semana é a ocupação daquela semana."
+      },
+      {
+        "nome": "Modalidade",
+        "descricao": "**Performance imediata**, **Desenvolvimento**, **Mista** ou **Manual**. Mostra como aquela alocação foi decidida."
+      },
+      {
+        "nome": "Custo estimado",
+        "descricao": "Custo da alocação no período, exibido apenas quando o seu perfil tem permissão de visualização; fora disso, aparece **Custo restrito**."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Ocupação média, Pico de ocupação e Menor ocupação",
+        "descricao": "O centro e os extremos da carga no horizonte escolhido.",
+        "leitura": "Diferença grande entre pico e média indica calendário irregular; pico acima de 110% pede redistribuição."
+      },
+      {
+        "nome": "Semanas superalocadas",
+        "descricao": "Quantas semanas da pessoa passam de 100%.",
+        "leitura": "Qualquer valor acima de zero é sinal claro de necessidade de redistribuir alocações ou reduzir dedicação."
+      },
+      {
+        "nome": "Horas apontadas",
+        "descricao": "Horas registradas no apontamento de horas da pessoa.",
+        "leitura": "Comparar com a dedicação planejada mostra o quanto do plano virou trabalho real."
+      },
+      {
+        "nome": "Alocações futuras",
+        "descricao": "Compromissos já assumidos a partir de hoje.",
+        "leitura": "Evita aceitar novos compromissos sem base."
+      }
+    ],
+    "dicas": [
+      "O aviso de **Semanas acima de 100%** já traz a ação sugerida: redistribuir alocações ou reduzir a dedicação antes que vire atraso.",
+      "Compare a linha de **Ocupação** com a de **Disponível**: as semanas com folga são as candidatas naturais a receber trabalho novo.",
+      "O botão **Perfil de capacidades** abre o cadastro da pessoa, onde ficam os níveis, interesses e a disponibilidade para mentoria que alimentam o motor.",
+      "Antes de aprovar um projeto longo, coloque o **Horizonte** em 26 semanas e confira se o fim do período continua livre.",
+      "Custo estimado aparece só para perfis com permissão de visualização de custo; sem ela, use a dedicação como referência de esforço."
+    ],
+    "limitacoes": [
+      "A tela não registra férias, afastamentos nem folgas: a capacidade semanal é um valor-base por pessoa.",
+      "As **Horas apontadas** vêm do registro de horas na tela **Timesheet**; sem apontamento, o indicador fica zerado.",
+      "Aqui a alocação é somente leitura — para incluir, editar ou excluir, use a tela **Alocação**."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para outra tela"
+      },
+      {
+        "tecla": "F1",
+        "acao": "Abrir este guia de uso"
+      }
+    ],
+    "doc": "05-recursos-e-alocacao.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 50
+  },
+  {
+    "rota": "/auditoria-vies",
+    "titulo": "Auditoria de viés",
+    "grupo": "Recursos e alocação",
+    "icone": "scale",
+    "resumo": "Compara as recomendações do motor de alocação entre grupos de colaboradores e mede a disparidade estatística de cada grupo.",
+    "para_que_serve": "Verifica se as recomendações do motor estão distribuídas de forma equilibrada entre áreas, localidades, faixas de tempo de casa, faixas de custo por hora e perfis de acesso. É um instrumento de governança do uso de automação sobre pessoas: mostra onde a diferença entre grupos passa dos limites de atenção e de criticidade e propõe caminhos de ação. O resultado não decide nada sozinho — ele indica onde olhar e exige revisão humana qualificada.",
+    "quando_usar": [
+      "No ciclo de governança de pessoas, para auditar o período e registrar o resultado",
+      "Quando você suspeita que algum grupo recebe menos recomendações do que os demais",
+      "Antes de revisar os pesos do motor, para ter dados que sustentem a mudança",
+      "Para acompanhar a evolução, comparando a apuração atual com as anteriores gravadas",
+      "Ao investigar uma taxa de override alta concentrada em um único grupo"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher o período",
+        "detalhe": "No topo, o seletor **Período** oferece **30 dias**, **90 dias**, **180 dias** e **365 dias**. Quanto maior o intervalo, mais confiável fica a amostra — e mais demorada a leitura.",
+        "icone": "calendar-range"
+      },
+      {
+        "titulo": "Ler o aviso metodológico",
+        "detalhe": "A faixa **Aviso metodológico — leia antes de qualquer decisão** explica que a tela mede disparidade estatística entre grupos e não comprova discriminação, que diferenças podem vir de especialização, disponibilidade, região ou amostra pequena e que todo resultado exige revisão humana qualificada.",
+        "icone": "shield-alert"
+      },
+      {
+        "titulo": "Executar a auditoria",
+        "detalhe": "Clique em **Executar nova auditoria** para recalcular as dimensões do período e gravar os registros no histórico. Sem gravação, não há comparação ao longo do tempo.",
+        "icone": "refresh-cw"
+      },
+      {
+        "titulo": "Conferir o resumo",
+        "detalhe": "Os indicadores do topo trazem **Grupos avaliados**, **Registros críticos**, **Registros em atenção**, **Sem disparidade**, **Grupos críticos**, **Taxa de seleção geral**, **Score médio recebido**, **Taxa de override**, **Posição média no ranking**, **Recomendações analisadas**, **Período analisado** e **Amostra mínima**. Se o período tiver poucas recomendações, aparece o alerta **Amostra do período abaixo do mínimo confiável**.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Percorrer as dimensões auditadas",
+        "detalhe": "Cada seção — **Área**, **Localização**, **Tempo de casa**, **Faixa de custo/hora** e **Perfil** — explica o que compara e abre com os grupos que têm disparidade crítica. O gráfico **Disparidade na taxa de seleção por grupo** mostra barras à direita para seleção acima da média geral e à esquerda para abaixo.",
+        "icone": "layers"
+      },
+      {
+        "titulo": "Ler a tabela de cada dimensão",
+        "detalhe": "A tabela traz **Grupo**, **Indicador**, **Valor do grupo**, **Média geral**, **Disparidade**, **Severidade** e **Recomendação**, com uma leitura do caso e o próximo passo sugerido. Linhas críticas ficam destacadas em vermelho e as de atenção em âmbar.",
+        "icone": "table"
+      },
+      {
+        "titulo": "Transformar em ação",
+        "detalhe": "O bloco **Como agir** reúne quatro alavancas com atalho para a tela correspondente: revisar os pesos do modo Performance no motor de alocação, incentivar o modo Desenvolvimento em tarefas de menor criticidade, levar os grupos com disparidade para a reunião de alocação e registrar a justificativa de todo override.",
+        "icone": "lightbulb"
+      },
+      {
+        "titulo": "Comparar com o histórico",
+        "detalhe": "**Histórico de auditorias** lista as execuções gravadas com filtros de **Métrica** e **Severidade**, navegação por página e o detalhe de cada registro: valor do grupo, média geral, disparidade, período apurado e recomendação registrada.",
+        "icone": "history"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Aviso metodológico",
+        "descricao": "Faixa fixa no topo da tela, obrigatória antes de qualquer conclusão sobre os números."
+      },
+      {
+        "nome": "Escala de severidade",
+        "descricao": "Até 15% sem disparidade relevante, de 15% a 30% em atenção e acima de 30% crítico."
+      },
+      {
+        "nome": "Gráfico de disparidade divergente",
+        "descricao": "Barras à direita indicam seleção acima da média geral; à esquerda, abaixo. O vermelho marca disparidade negativa relevante."
+      },
+      {
+        "nome": "Bloco Como agir",
+        "descricao": "Quatro caminhos concretos, cada um com um botão que abre a tela onde a ação acontece."
+      },
+      {
+        "nome": "Histórico de auditorias",
+        "descricao": "Tabela das execuções gravadas, com métrica, grupo, amostra, grupo contra média, disparidade e severidade."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Disparidade",
+        "descricao": "Diferença percentual entre o valor do grupo e a média geral do período.",
+        "dica": "Valor positivo indica grupo acima da média; negativo, abaixo. O que importa é o tamanho, não o sinal."
+      },
+      {
+        "nome": "Severidade",
+        "descricao": "**Sem disparidade** até 15%, **Atenção** de 15% a 30% e **Crítico** acima de 30%."
+      },
+      {
+        "nome": "Amostra",
+        "descricao": "Quantas recomendações o grupo recebeu no período.",
+        "dica": "Grupos com menos de dez recomendações recebem o aviso de amostra pequena em cada linha."
+      },
+      {
+        "nome": "Recomendação",
+        "descricao": "Leitura do caso com o próximo passo sugerido, incluindo o alerta de amostra pequena quando for o caso."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Registros críticos",
+        "descricao": "Comparações com disparidade acima de 30%.",
+        "leitura": "Prioriza a apuração; a referência saudável é zero."
+      },
+      {
+        "nome": "Taxa de seleção geral",
+        "descricao": "Recomendações aceitas sobre o total recomendado.",
+        "leitura": "Mede a aderência dos gestores ao motor; o esperado é estabilidade e crescimento."
+      },
+      {
+        "nome": "Taxa de override",
+        "descricao": "Decisões manuais que substituíram a recomendação do motor.",
+        "leitura": "Override alto e sem justificativa enfraquece o motor — investigue o motivo registrado no grupo."
+      },
+      {
+        "nome": "Posição média no ranking",
+        "descricao": "Em que posição média o grupo costuma aparecer.",
+        "leitura": "Quanto menor, melhor colocado; a distribuição saudável é equilibrada entre os grupos."
+      },
+      {
+        "nome": "Amostra mínima",
+        "descricao": "Se o período tem recomendações suficientes para conclusões.",
+        "leitura": "Sem pelo menos dez recomendações, não conclua: amplie o intervalo analisado."
+      }
+    ],
+    "dicas": [
+      "Compare sempre períodos equivalentes e com amostra suficiente: grupos pequenos oscilam muito de uma apuração para outra.",
+      "Cruze a disparidade de seleção com o **Score médio recebido**: score parecido com seleção menor é o sinal mais forte de atenção.",
+      "Taxa de override alta concentrada no mesmo grupo indica que a decisão humana está substituindo o motor; leia as justificativas registradas antes de concluir.",
+      "Registre o resultado da revisão: sem registro, a próxima auditoria não consegue explicar a evolução.",
+      "Comece por **Revise os pesos do modo Performance** quando a disparidade estiver na taxa de seleção, e por **Incentive o modo Desenvolvimento** quando o grupo tiver pouca experiência registrada."
+    ],
+    "limitacoes": [
+      "A auditoria mede disparidade estatística e não prova discriminação: diferenças podem decorrer de especialização técnica, disponibilidade, região de atuação, regime de trabalho ou amostra pequena. Todo resultado exige revisão humana qualificada (especificação §9.4) antes de qualquer decisão que afete pessoas.",
+      "Ela não roda sozinha em tempo real: é executada sob demanda, em um período escolhido, e só é comparável ao longo do tempo se o resultado for gravado.",
+      "Não identifica culpados nem avalia mérito, competência ou adequação técnica de ninguém."
+    ],
+    "atalhos": [
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para outra tela"
+      },
+      {
+        "tecla": "F1",
+        "acao": "Abrir este guia de uso"
+      }
+    ],
+    "doc": "13-integracoes-e-analytics.md",
+    "permissoes": [
+      "auditoria.ver"
+    ],
+    "ordem": 60
+  }
+]

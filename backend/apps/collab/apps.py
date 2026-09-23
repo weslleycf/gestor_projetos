@@ -1,0 +1,8 @@
+from django.apps import AppConfig
+
+
+class CollabConfig(AppConfig):
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "apps.collab"
+    label = "collab"
+    verbose_name = "Colaboração (chat e salas)"

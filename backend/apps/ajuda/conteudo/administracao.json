@@ -1,0 +1,757 @@
+[
+  {
+    "rota": "/integracoes",
+    "titulo": "Integrações",
+    "grupo": "Administração",
+    "icone": "plug",
+    "resumo": "Conecta o SGP a sistemas externos e mostra o resultado de cada sincronização, com fila de eventos, webhooks e dados prontos para consumo.",
+    "para_que_serve": "É a central onde você liga o SGP a outros sistemas — ERP, CRM, RH, LMS, Jira, repositórios de código, agendas e ferramentas de análise — e acompanha o que cada conexão fez. Aqui você valida a ligação antes de deixá-la valendo, decide o que entra e o que sai e vê, execução por execução, quantos itens foram criados, atualizados, ignorados ou deram erro. A tela também entrega dois produtos prontos, sem depender de terceiros: o feed de calendário e o conjunto de dados para análise.",
+    "quando_usar": [
+      "Para levar tarefas e marcos do SGP para a agenda do Google Calendar ou do Outlook",
+      "Para alimentar Power BI, Tableau ou uma planilha com os números do portfólio",
+      "Para avisar outros sistemas quando um projeto entra em risco, uma tarefa é concluída ou um orçamento estoura",
+      "Para investigar por que uma sincronização falhou e o que exatamente deixou de ser importado",
+      "Para emitir acessos de leitura para painéis e ferramentas externas"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher por onde começar",
+        "detalhe": "A tela abre na aba **Integrações**. Se ainda não sabe qual conexão montar, clique em **Ver catálogo** e veja os 15 tipos previstos; no **Catálogo**, o botão **Configurar** abre o formulário já com o tipo preenchido. Para começar do zero, use **Nova integração**.",
+        "icone": "layers"
+      },
+      {
+        "titulo": "Descrever a conexão",
+        "detalhe": "No painel **Nova integração**, informe **Nome**, **Tipo**, **Direção** (entrada, saída ou bidirecional), **Descrição**, o endereço base, a forma de autenticação, as credenciais e os cabeçalhos adicionais. Em **Entidade alvo** você indica qual cadastro do SGP a conexão movimenta.",
+        "icone": "settings"
+      },
+      {
+        "titulo": "Validar em modo simulação",
+        "detalhe": "Mantenha **Modo simulação** ligado e clique em **Testar conexão**. Nesse modo o SGP monta a requisição e registra exatamente o que seria enviado ou importado, sem chamar o sistema externo — é a forma segura de conferir endereço, autenticação e mapeamento.",
+        "icone": "flask-conical"
+      },
+      {
+        "titulo": "Mapear os campos",
+        "detalhe": "Salve a integração, abra-a em **Editar** e use o bloco **Mapeamento de campos** para relacionar cada campo do sistema externo ao campo correspondente no SGP. Escolha a **Transformação**, informe o **Valor padrão** e a **Ordem** e ligue **Campo obrigatório** quando a ausência do valor tiver de virar pendência.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Definir o agendamento",
+        "detalhe": "Informe a frequência em minutos e ligue **Integração ativa**. Só integrações ativas entram no agendador: cada execução bem-sucedida agenda a próxima, somando a frequência ao horário em que terminou. Em **Execuções**, o botão **Sincronizar todas as vencidas** faz o mesmo sob demanda.",
+        "icone": "clock"
+      },
+      {
+        "titulo": "Ligar o modo real",
+        "detalhe": "Depois do teste bem-sucedido e do mapeamento revisado, desligue **Modo simulação**. Em **Sincronizar agora**, escolha a operação — **Importar** traz dados de fora, **Exportar** envia dados do SGP e **Testar** apenas valida a conexão — defina o **Limite de itens** e confirme em **Executar sincronização**.",
+        "icone": "play"
+      },
+      {
+        "titulo": "Acompanhar as execuções",
+        "detalhe": "Na aba **Execuções**, filtre por integração, status e operação para ver quantos itens foram lidos, criados, atualizados e ignorados, quantos deram erro e quanto durou. Uma falha marca a integração como **Com erro** e mantém a última mensagem visível no card.",
+        "icone": "history"
+      },
+      {
+        "titulo": "Distribuir os dados prontos",
+        "detalhe": "Na aba **Catálogo**, copie o endereço do **Feed de calendário (.ics)** para assinar tarefas e marcos na sua agenda, ou baixe o **Dataset analítico** com **Baixar JSON** ou **Baixar CSV** para levar os indicadores do portfólio a uma ferramenta de análise.",
+        "icone": "download"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Selo de modo",
+        "descricao": "Cada card mostra **simulação** ou **real**, para você saber sem abrir a configuração o que aquela conexão faz hoje."
+      },
+      {
+        "nome": "Teste de conexão",
+        "descricao": "Valida endereço e autenticação. Em modo simulação, avisa que a ligação não foi exercitada e mostra a requisição prevista."
+      },
+      {
+        "nome": "Fila de eventos",
+        "descricao": "Lista os acontecimentos do SGP aguardando entrega. Um evento só é considerado entregue quando todos os webhooks interessados respondem com sucesso."
+      },
+      {
+        "nome": "Credenciais de API",
+        "descricao": "Acessos emitidos para sistemas externos, com escopos, restrição por endereço de origem, validade e contador de chamadas."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Modo simulação",
+        "descricao": "Quando ligado, nada sai do SGP e nenhum dado externo é gravado.",
+        "dica": "Comece sempre por aqui e só desligue depois de um teste de conexão bem-sucedido."
+      },
+      {
+        "nome": "Frequência (minutos)",
+        "descricao": "Intervalo entre as execuções automáticas de uma integração ativa.",
+        "dica": "Frequências muito curtas aumentam a carga sobre o sistema externo."
+      },
+      {
+        "nome": "Campo obrigatório",
+        "descricao": "No mapeamento, indica que a importação deve registrar erro se o campo externo vier vazio.",
+        "dica": "Use apenas nos campos sem os quais o registro não faz sentido."
+      },
+      {
+        "nome": "Valor padrão",
+        "descricao": "Valor aplicado quando o campo de origem vem vazio e ele não é obrigatório."
+      },
+      {
+        "nome": "Limite de itens",
+        "descricao": "Quantidade máxima de registros processados em uma execução manual.",
+        "dica": "Comece com um limite baixo na primeira execução em modo real."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Taxa de sucesso média",
+        "descricao": "Média das execuções bem-sucedidas entre as integrações.",
+        "leitura": "Abaixo de 90%, abra a aba **Execuções** e procure o padrão das falhas."
+      },
+      {
+        "nome": "Em simulação",
+        "descricao": "Integrações que não chamam o sistema externo.",
+        "leitura": "Número alto é esperado no início; acompanhe a queda conforme valida cada conexão."
+      },
+      {
+        "nome": "Itens com erro",
+        "descricao": "Registros lidos que não puderam ser gravados.",
+        "leitura": "Em geral indicam mapeamento incompleto ou campo obrigatório vazio."
+      },
+      {
+        "nome": "Eventos pendentes",
+        "descricao": "Acontecimentos ainda não entregues aos destinos interessados.",
+        "leitura": "Se não cair depois de **Disparar evento de teste**, revise os webhooks e o endereço de destino."
+      },
+      {
+        "nome": "Entregas de webhook",
+        "descricao": "Quantidade de envios realizados e o tempo médio de resposta.",
+        "leitura": "Falhas repetidas costumam ser endereço indisponível ou segredo divergente."
+      }
+    ],
+    "dicas": [
+      "Antes de ligar o modo real, rode uma execução com **Limite de itens** baixo e confira o resultado item a item na aba **Execuções**.",
+      "Restrinja cada credencial por endereço de origem e por escopo, com data de expiração definida.",
+      "Use webhooks com segredo para que o destino consiga confirmar que a chamada partiu do SGP.",
+      "O valor do token é mostrado uma única vez, na criação: copie e guarde em um cofre de segredos.",
+      "O **Dataset analítico** é um retrato do momento do clique; para painéis sempre atualizados, agende a coleta do lado da ferramenta de análise."
+    ],
+    "limitacoes": [
+      "Nesta versão, a maioria dos conectores — ERP, RH, LMS, Jira, Azure DevOps, GitHub, GitLab, certificadoras, BI e agendas — opera em modo simulação e não chama o sistema externo. Funcionam de ponta a ponta apenas o recebimento de eventos por webhook, o feed de calendário e a exportação do dataset.",
+      "Não há edição colaborativa em tempo real: duas pessoas editando a mesma configuração podem sobrescrever a alteração uma da outra.",
+      "O SGP não corrige falhas sozinho: não existe nova tentativa infinita nem ajuste automático de mapeamento — o erro é registrado e espera a correção de quem é responsável."
+    ],
+    "doc": "13-integracoes-e-analytics.md",
+    "permissoes": [
+      "dashboard.ver"
+    ],
+    "ordem": 10
+  },
+  {
+    "rota": "/temas",
+    "titulo": "Temas e aparência",
+    "grupo": "Administração",
+    "icone": "palette",
+    "resumo": "Escolhe a paleta de cores, o modo claro ou escuro e a densidade da interface, com prévia real de cada combinação.",
+    "para_que_serve": "Define como o SGP se parece para você: as cores de marca e de estado, o modo claro ou escuro e o quanto de espaço existe entre os elementos. Cada cartão mostra o tema aplicado em telas e elementos de verdade do sistema, então o que você vê na prévia é exatamente o resultado final. Também é aqui que você monta um tema próprio, com as cores da sua área, quando nenhum dos oito temas predefinidos atende.",
+    "quando_usar": [
+      "Para deixar a interface mais confortável em uso prolongado ou sob luz forte",
+      "Para alinhar o sistema à identidade visual da sua organização",
+      "Para ganhar espaço na tela e ver mais linhas em matrizes, listas e tabelas",
+      "Para conferir se as cores escolhidas mantêm contraste suficiente para leitura"
+    ],
+    "passos": [
+      {
+        "titulo": "Trocar o modo de cor",
+        "detalhe": "No topo da tela, em **Modo de cor**, escolha **Claro**, **Escuro** ou **Sistema**. A opção **Sistema** acompanha a preferência do seu sistema operacional e muda sozinha quando o ambiente escurece.",
+        "icone": "sun"
+      },
+      {
+        "titulo": "Escolher um tema predefinido",
+        "detalhe": "Na aba **Temas predefinidos**, filtre por categoria — **Todos**, **Institucional**, **Clássicos**, **Vibrantes** ou **Acessibilidade** — e clique em **Aplicar tema** no cartão desejado. O cartão do tema em uso passa a exibir **Em uso**.",
+        "icone": "palette"
+      },
+      {
+        "titulo": "Comparar com calma",
+        "detalhe": "Use o botão de prévia do cartão para alternar entre **Prévia compacta** e **Prévia detalhada** e confira o selo de contraste antes de decidir.",
+        "icone": "eye"
+      },
+      {
+        "titulo": "Criar o seu tema",
+        "detalhe": "Na aba **Criar meu tema**, informe o **Nome do tema**, escolha o **Tema base** e altere as cores em **Modo claro** e **Modo escuro**. Os ajustes aparecem na hora em toda a interface; nada é gravado até você clicar em **Salvar e aplicar**.",
+        "icone": "paintbrush"
+      },
+      {
+        "titulo": "Ajustar cor a cor",
+        "detalhe": "Cada cor tem os comandos **Clarear**, **Escurecer** e **Restaurar**, além do código da cor, e o contraste é recalculado a cada mudança. Use **Restaurar base** para voltar ao ponto de partida.",
+        "icone": "wand-2"
+      },
+      {
+        "titulo": "Levar o tema para outro lugar",
+        "detalhe": "Em **Exportar meu tema** você guarda o tema em um arquivo; **Importar JSON** traz um tema recebido de outra pessoa ou salvo em outro navegador.",
+        "icone": "download"
+      },
+      {
+        "titulo": "Escolher a densidade",
+        "detalhe": "Na aba **Densidade**, escolha **Compacta** (85% do espaçamento), **Padrão** (100%) ou **Confortável** (115%). A mudança vale para todas as telas e não altera o tamanho de ícones e textos: o que muda é o espaço entre os elementos.",
+        "icone": "ruler"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Selo de contraste",
+        "descricao": "Mostra a razão de contraste entre o texto principal e o fundo de cada tema, calculada pela regra WCAG 2.1, no modo claro e no escuro."
+      },
+      {
+        "nome": "Cartão de tema",
+        "descricao": "Prévia real de telas e elementos do SGP com as cores daquele tema, no formato compacto ou detalhado."
+      },
+      {
+        "nome": "Escala de conformidade",
+        "descricao": "Legenda que explica o selo: **Insuficiente**, **AA (texto grande)**, **AA** e **AAA**."
+      },
+      {
+        "nome": "Mapa de tokens",
+        "descricao": "Lista todas as cores do tema ativo com o respectivo valor, útil para conferir um tom específico."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Tema base",
+        "descricao": "Paleta de onde partem os ajustes do seu tema personalizado.",
+        "dica": "Comece pelo tema predefinido mais próximo do que você quer."
+      },
+      {
+        "nome": "Densidade",
+        "descricao": "Espaçamento base da interface, aplicado a tabelas, listas, cartões, formulários e barras de ferramentas.",
+        "dica": "**Compacta** para analisar muitos dados; **Confortável** para tablets, telas sensíveis ao toque e uso prolongado."
+      }
+    ],
+    "dicas": [
+      "O tema **Alto contraste** é o recurso de acessibilidade do sistema: fundo branco puro no modo claro e preto puro no escuro, com bordas reforçadas. Ele atinge o nível AAA e é a escolha recomendada para baixa visão ou uso sob luz solar direta.",
+      "A escolha fica gravada na sua conta, então acompanha você em qualquer navegador.",
+      "**Compacta** é ideal para matriz de skills, mapas de calor, listas longas de tarefas e conferência de lançamentos.",
+      "Exporte o seu tema antes de mexer nas cores: assim você volta ao ponto anterior sem retrabalho."
+    ],
+    "limitacoes": [
+      "O selo de contraste compara o texto principal com o fundo; ele não avalia cada combinação de cor usada em gráficos, semáforos e textos secundários.",
+      "O tema **Bradesco 2026** foi montado a partir das cores públicas documentadas da marca. Confirme os valores com o time de marca antes de um uso institucional amplo.",
+      "O tema personalizado é uma preferência da sua conta: não é uma política visual aplicada à organização inteira."
+    ],
+    "doc": "01-visao-geral-e-primeiros-passos.md",
+    "permissoes": [],
+    "ordem": 20
+  },
+  {
+    "rota": "/preferencias",
+    "titulo": "Preferências",
+    "grupo": "Administração",
+    "icone": "settings",
+    "resumo": "Reúne seus dados de perfil, aparência, privacidade, visualizações padrão, notificações, filtros salvos e segurança em um só lugar.",
+    "para_que_serve": "Aqui você ajusta como o SGP se comporta para você: seus dados de contato e apresentação, a aparência da interface, o que pode ser feito com o seu perfil de capacidades e quais avisos deseja receber. É também onde você define a visualização com que cada módulo abre e guarda combinações de filtros que usa toda semana. Por fim, a tela mostra a situação da sua sessão e permite encerrá-la neste e em outros acessos.",
+    "quando_usar": [
+      "Para atualizar seus dados de perfil, cargo, área, fuso horário ou foto",
+      "Para autorizar ou revogar o uso do seu perfil nas recomendações automáticas de alocação",
+      "Para deixar cada módulo abrindo na visualização que você prefere",
+      "Para escolher por quais canais quer ser avisado de cada tipo de evento",
+      "Para guardar um recorte de filtros recorrente e reaplicá-lo com um clique"
+    ],
+    "passos": [
+      {
+        "titulo": "Revisar o perfil",
+        "detalhe": "No bloco **Perfil**, ajuste **Nome**, **Cargo**, **Área**, **Localização**, **Fuso horário**, **Iniciais exibidas**, **Foto** e a **Cor do avatar**. O **E-mail** de acesso não é alterado por aqui.",
+        "icone": "user"
+      },
+      {
+        "titulo": "Ajustar a aparência",
+        "detalhe": "No bloco **Aparência**, escolha o **Modo de cor** (**Claro**, **Escuro** ou **Sistema**), o **Tema** e a **Densidade**. A aplicação é imediata; o editor completo de cores fica em **Temas e aparência**.",
+        "icone": "palette"
+      },
+      {
+        "titulo": "Definir privacidade e consentimento",
+        "detalhe": "Em **Privacidade e capacidades**, ligue **Aceito ser recomendado em alocações** e **Disponível para mentoria**, escolha a **Visibilidade padrão das capacidades** (**Público**, **Restrito** ou **Privado**) e registre seus **Interesses**.",
+        "icone": "fingerprint"
+      },
+      {
+        "titulo": "Escolher as visualizações padrão",
+        "detalhe": "Em **Visualizações padrão**, defina para cada módulo — Projetos, Tarefas, Riscos, Capacidades, Alocação, Financeiro, PDI, Relatórios e Auditoria — o formato de abertura: **Lista**, **Kanban**, **Gantt**, **Calendário**, **Timeline**, **Matriz**, **Grafo** ou **Dashboard**. O item escolhido fica marcado como **definida**.",
+        "icone": "layout-dashboard"
+      },
+      {
+        "titulo": "Ajustar as notificações",
+        "detalhe": "Em **Notificações**, cada regra mostra o nome, o evento e o nível (**Informativo**, **Sucesso**, **Alerta** ou **Crítico**). Use o interruptor para ligar ou desligar a regra e clique nos canais — **No aplicativo**, **E-mail**, **Microsoft Teams**, **Slack** e **Push no navegador** — para escolher por onde quer ser avisado.",
+        "icone": "bell"
+      },
+      {
+        "titulo": "Salvar um filtro",
+        "detalhe": "Em **Filtros salvos**, clique em **Novo filtro**, dê um **Nome**, escolha o **Módulo**, o ícone, a cor e os **Critérios**, separando vários valores por vírgula. Ligue **Compartilhar com a equipe** para que o filtro fique visível para as demais pessoas do módulo.",
+        "icone": "bookmark"
+      },
+      {
+        "titulo": "Conferir a segurança",
+        "detalhe": "No bloco **Segurança**, veja o token da sessão mascarado, a data de expiração, o **Idioma** e o **Fuso**. Use **Sair de todos os dispositivos** para remover os acessos guardados neste navegador.",
+        "icone": "lock"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Aviso de LGPD",
+        "descricao": "Explica para que os seus dados são usados, como pedir correção de dados incorretos e como contestar uma avaliação de capacidade."
+      },
+      {
+        "nome": "Indicadores do topo",
+        "descricao": "Mostram o seu perfil de acesso, quantas permissões você tem, quantas notificações não foram lidas e quantos filtros salvos existem."
+      },
+      {
+        "nome": "Chips de canal",
+        "descricao": "Nos cartões de notificação, indicam quais canais estão ativos para aquela regra."
+      }
+    ],
+    "dicas": [
+      "Revogar o consentimento para recomendações não apaga o histórico: as avaliações contestadas continuam registradas, com a justificativa, na trilha de auditoria.",
+      "A visibilidade **Restrito** deixa a capacidade visível para você, seu gestor e o RH; **Privado** deixa apenas para você.",
+      "Filtros compartilhados poupam tempo do time inteiro — bons para recortes de comitê e de fechamento mensal.",
+      "O tema e a densidade escolhidos aqui são os mesmos de **Temas e aparência**: mudar em uma tela muda na outra."
+    ],
+    "limitacoes": [
+      "Não há verificação em duas etapas nem login único corporativo nesta versão.",
+      "Não existe autoatendimento de senha: a redefinição é feita pelo administrador no seu cadastro.",
+      "Os canais **Microsoft Teams**, **Slack** e **Push no navegador** ficam registrados como destino pretendido; a entrega depende de um webhook ou de uma integração configurada."
+    ],
+    "doc": "02-perfis-permissoes-e-seguranca.md",
+    "permissoes": [],
+    "ordem": 30
+  },
+  {
+    "rota": "/admin/usuarios",
+    "titulo": "Usuários e papéis",
+    "grupo": "Administração",
+    "icone": "user-check",
+    "resumo": "Administra quem entra no SGP, com que perfil, quais papéis complementares e exatamente o que cada perfil pode fazer.",
+    "para_que_serve": "É onde os acessos ao sistema são criados e mantidos: cada pessoa recebe um perfil de acesso, um gestor, um custo por hora e as preferências iniciais. Além das pessoas, a tela permite criar papéis sob medida, que somam permissões às do perfil, e mostra a matriz completa de permissões por perfil. Use-a para responder com precisão à pergunta \"quem pode ver e fazer o quê\".",
+    "quando_usar": [
+      "Para cadastrar uma pessoa que entrou na equipe e definir o perfil de acesso dela",
+      "Para trocar o gestor imediato, a área ou o custo por hora de alguém",
+      "Para criar um papel sob medida que conceda uma permissão específica a poucas pessoas",
+      "Para conferir, antes de uma auditoria, quais perfis alcançam um determinado módulo",
+      "Para desativar o acesso de quem saiu do time sem apagar o histórico"
+    ],
+    "passos": [
+      {
+        "titulo": "Encontrar a pessoa",
+        "detalhe": "Na aba **Usuários**, busque por nome, e-mail, cargo ou área e use os filtros de **Perfil**, **Área** e **Situação** (**Ativos** ou **Inativos**). Clique na linha para abrir o cadastro.",
+        "icone": "search"
+      },
+      {
+        "titulo": "Criar ou editar o cadastro",
+        "detalhe": "Use **Novo usuário** ou abra a pessoa. No bloco **Identificação**, informe **Nome**, **E-mail**, **Senha** (mínimo de 6 caracteres; em branco mantém a atual), **Cargo**, **Área**, **Localização** e **Fuso horário**.",
+        "icone": "user-plus"
+      },
+      {
+        "titulo": "Definir vínculo e acesso",
+        "detalhe": "No bloco **Vínculo e acesso**, escolha o **Perfil de acesso**, o **Gestor imediato**, a **Data de admissão** e o **Idioma**. O interruptor **Usuário ativo** decide se a pessoa consegue entrar no SGP; há também um controle de acesso administrativo técnico, que só deve ser ligado pela equipe de TI.",
+        "icone": "shield-check"
+      },
+      {
+        "titulo": "Ajustar custo e preferências",
+        "detalhe": "Em **Custo e capacidade**, informe o **Custo por hora** e a capacidade semanal. Em **Preferências do usuário**, defina o que já vale no primeiro acesso, inclusive o consentimento para uso do perfil nas recomendações.",
+        "icone": "wallet"
+      },
+      {
+        "titulo": "Criar um papel sob medida",
+        "detalhe": "Na aba **Papéis**, clique em **Novo papel**, dê um **Nome**, uma descrição e marque as permissões agrupadas por recurso. Papéis de sistema não podem ser removidos; os papéis novos podem ser editados e excluídos.",
+        "icone": "key-round"
+      },
+      {
+        "titulo": "Vincular o papel",
+        "detalhe": "No cadastro da pessoa, ligue o papel desejado e informe o escopo. As permissões do papel somam-se às do perfil de acesso.",
+        "icone": "link"
+      },
+      {
+        "titulo": "Consultar a matriz",
+        "detalhe": "Na aba **Matriz de permissões**, cada linha é uma permissão no formato recurso e ação, e você vê quais perfis a possuem. O perfil **Administrador** tem o curinga que concede todas as permissões do sistema.",
+        "icone": "table"
+      },
+      {
+        "titulo": "Desativar em vez de apagar",
+        "detalhe": "Ao excluir uma pessoa pela tela, o cadastro apenas fica **inativo** e a operação vai para a auditoria. O histórico de projetos e de acessos permanece.",
+        "icone": "user-x"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Indicadores do topo",
+        "descricao": "Usuários listados, ativos, mentores, pessoas com acesso administrativo, áreas distintas e papéis cadastrados."
+      },
+      {
+        "nome": "Situação do usuário",
+        "descricao": "Marca se a pessoa está ativa ou inativa e é o que decide se ela consegue autenticar no SGP."
+      },
+      {
+        "nome": "Vínculos do papel",
+        "descricao": "Ao abrir um papel, a tela mostra quem está vinculado a ele e com qual escopo."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Perfil de acesso",
+        "descricao": "Papel funcional que define o conjunto base de permissões.",
+        "dica": "O perfil **Administrador** concede todas as permissões do sistema."
+      },
+      {
+        "nome": "Escopo",
+        "descricao": "Registra o alcance do vínculo com o papel, para governança e auditoria.",
+        "dica": "O escopo não recorta automaticamente o que a pessoa vê."
+      },
+      {
+        "nome": "Custo por hora",
+        "descricao": "Valor usado nos cálculos financeiros e de alocação.",
+        "dica": "É dado sensível: quando a visibilidade do custo está desligada, só administradores, RH e a própria pessoa veem o valor."
+      },
+      {
+        "nome": "Usuário ativo",
+        "descricao": "Liga ou desliga a possibilidade de entrar no SGP.",
+        "dica": "Usuários inativos não conseguem autenticar."
+      },
+      {
+        "nome": "Senha",
+        "descricao": "Senha de acesso da pessoa, com no mínimo 6 caracteres.",
+        "dica": "Ao editar, deixe o campo em branco para manter a senha atual."
+      }
+    ],
+    "dicas": [
+      "Prefira desativar a excluir: a exclusão pela tela já é uma desativação e preserva o histórico.",
+      "Papéis servem para exceções pontuais; o grosso do acesso deve vir do perfil, que é mais simples de auditar.",
+      "Antes de trocar o perfil de alguém, confira na matriz o que a pessoa deixa de acessar.",
+      "Toda operação desta tela é registrada na trilha de auditoria, com autor, data e endereço de origem."
+    ],
+    "limitacoes": [
+      "Não há autoatendimento de senha, verificação em duas etapas nem login único corporativo nesta versão: a senha é redefinida pelo administrador no cadastro da pessoa.",
+      "A verificação de gravação é única por módulo — não há controle separado de criação, edição e exclusão, nem permissão campo a campo.",
+      "O escopo do papel é registrado e aparece na auditoria, mas não filtra automaticamente os registros que a pessoa vê."
+    ],
+    "doc": "11-administracao.md",
+    "permissoes": [
+      "admin.ver"
+    ],
+    "ordem": 40
+  },
+  {
+    "rota": "/admin/workflows",
+    "titulo": "Workflows",
+    "grupo": "Administração",
+    "icone": "workflow",
+    "resumo": "Desenha o fluxo de estados de tarefas, projetos, riscos e issues em um quadro visual, com transições, limites de WIP e aprovações.",
+    "para_que_serve": "Define por quais estados um item passa e quem pode movê-lo de um para o outro. O desenho feito aqui é o que aparece no quadro Kanban e nas telas de execução, então ele é a referência de processo da organização. Cada fluxo pertence a uma entidade — tarefa, projeto, risco ou issue — e pode ter quantos estados você precisar.",
+    "quando_usar": [
+      "Para criar o fluxo de trabalho de um tipo de item que ainda não tem processo definido",
+      "Para acrescentar uma etapa de aprovação antes de um estado sensível",
+      "Para limitar quantos itens podem ficar parados em uma etapa de gargalo",
+      "Para reorganizar o quadro Kanban quando o processo da equipe muda"
+    ],
+    "passos": [
+      {
+        "titulo": "Criar ou escolher o fluxo",
+        "detalhe": "Use **Novo workflow**, dê um **Nome**, escolha a **Entidade** (**Tarefa**, **Projeto**, **Risco** ou **Issue**) e descreva o objetivo. Na lista lateral, selecione o fluxo em que vai trabalhar.",
+        "icone": "workflow"
+      },
+      {
+        "titulo": "Criar os estados",
+        "detalhe": "Clique em **Novo estado** e informe **Nome**, **Chave** (sem espaços), **Ordem**, **Limite de WIP** (0 significa sem limite), **Cor** e ícone. Marque se o estado é inicial — por onde todo item nasce — ou final, que encerra o ciclo de vida do item.",
+        "icone": "circle-dot"
+      },
+      {
+        "titulo": "Desenhar o quadro",
+        "detalhe": "Arraste os nós no quadro para posicionar as etapas na ordem do processo; a posição é gravada automaticamente e volta igual na próxima visita. Use **organizar em grade** para alinhar tudo de uma vez.",
+        "icone": "move"
+      },
+      {
+        "titulo": "Conectar os estados",
+        "detalhe": "Clique em **Nova transição** e escolha **Estado de origem**, **Estado de destino** e o **Rótulo da transição**, que aparece sobre a seta. Ligue a exigência de aprovação quando a mudança só puder ser concluída com o aval de um responsável.",
+        "icone": "link-2"
+      },
+      {
+        "titulo": "Usar o modo conexão",
+        "detalhe": "Ligue o **Modo conexão** e clique no estado de origem e depois no de destino para criar a transição em dois cliques. Pressione Esc ou saia do modo para voltar a mover os nós.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Conferir o resultado",
+        "detalhe": "Abra **Pré-visualização do board Kanban** para ver como as colunas ficarão e revise **Transições configuradas** e **Estados do workflow** para checar ordem, limites e o que exige aprovação.",
+        "icone": "layers"
+      },
+      {
+        "titulo": "Manter o fluxo",
+        "detalhe": "Edite um estado ou uma transição pelo lápis e exclua pelo ícone de lixeira. Ao excluir um estado, as transições que partem ou chegam nele também são removidas.",
+        "icone": "pencil"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Aviso de estado inicial",
+        "descricao": "Aparece quando nenhum estado está marcado como inicial — sem ele, novos itens não têm onde nascer."
+      },
+      {
+        "nome": "Aviso de estado final",
+        "descricao": "Aparece quando nenhum estado encerra o ciclo de vida do item."
+      },
+      {
+        "nome": "Seta tracejada",
+        "descricao": "Transições que exigem aprovação são desenhadas com linha tracejada, para facilitar a leitura do fluxo."
+      },
+      {
+        "nome": "Etiquetas do nó",
+        "descricao": "**inicial**, **final**, o limite de **WIP** e a ordem aparecem sobre cada estado no quadro."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Chave",
+        "descricao": "Identificador do estado usado pelo quadro; não pode repetir dentro do mesmo fluxo e não aceita espaços."
+      },
+      {
+        "nome": "Limite de WIP",
+        "descricao": "Quantidade máxima de itens que podem ficar naquele estado; 0 significa sem limite.",
+        "dica": "Use nos gargalos para forçar a conclusão antes de puxar mais trabalho."
+      },
+      {
+        "nome": "Rótulo da transição",
+        "descricao": "Texto exibido sobre a seta que liga dois estados."
+      },
+      {
+        "nome": "Requer aprovação",
+        "descricao": "A transição só é concluída após a aprovação de um responsável.",
+        "dica": "Útil nas passagens de homologação e de encerramento."
+      }
+    ],
+    "dicas": [
+      "Todo fluxo precisa de um estado inicial e de ao menos um estado final: os avisos no rodapé da tela lembram disso.",
+      "Não existem dois caminhos iguais entre o mesmo par de estados — cada par origem e destino tem uma única transição.",
+      "A posição dos nós é salva automaticamente: organize o desenho uma vez e ele fica igual para todos.",
+      "Cores e ícones dos estados aparecem nas colunas do Kanban; use-os para dar leitura rápida ao processo."
+    ],
+    "limitacoes": [
+      "Não há edição colaborativa em tempo real: dois administradores editando o mesmo fluxo ao mesmo tempo podem sobrescrever a posição dos nós um do outro.",
+      "Os estados não têm prazo, responsável automático nem alerta por tempo de permanência; o controle de acúmulo é o limite de WIP.",
+      "O sistema avisa quando falta um estado inicial ou final, mas não impede um desenho sem saída: a coerência do processo é responsabilidade de quem o modela."
+    ],
+    "doc": "11-administracao.md",
+    "permissoes": [
+      "workflow.editar"
+    ],
+    "ordem": 50
+  },
+  {
+    "rota": "/admin/campos",
+    "titulo": "Campos personalizados",
+    "grupo": "Administração",
+    "icone": "blocks",
+    "resumo": "Cria campos novos nas entidades do SGP e monta o formulário por arrastar e soltar, sem depender de mudanças no sistema.",
+    "para_que_serve": "Permite estender o cadastro de projetos, tarefas e riscos com informações que a sua organização usa e o sistema não prevê — centro de custo, tipo de contrato, unidade solicitante. Cada campo declara tipo, seção, ordem e largura, e só entra no formulário quando está ativo. A aba **Editor visual** mostra como o formulário ficará e a aba **Schema** confere o resultado final que a pessoa verá no cadastro.",
+    "quando_usar": [
+      "Para registrar uma informação que hoje vive em uma planilha paralela",
+      "Para padronizar uma lista de opções, como unidade, tipo de demanda ou centro de custo",
+      "Para tornar obrigatório um dado que passou a ser exigido no cadastro",
+      "Para reorganizar o formulário de uma entidade, aproximando campos relacionados"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher a entidade",
+        "detalhe": "A tela abre na aba **Campos**, com os campos da entidade selecionada. Troque a entidade entre **Projeto**, **Tarefa** e **Risco** conforme o cadastro que você quer estender, e use **Todos**, **Ativos** ou **Inativos** para filtrar a lista.",
+        "icone": "table"
+      },
+      {
+        "titulo": "Criar o campo",
+        "detalhe": "Clique em **Novo campo** e informe o **Nome exibido**, que é o rótulo visto por quem preenche, e a **Chave técnica**, sem espaços e única por entidade.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Escolher tipo e posição",
+        "detalhe": "Defina o **Tipo** — **Texto**, **Número**, **Data**, **Seleção**, **Sim/Não**, **Moeda** ou **Pessoa** — e informe a **Seção do formulário**, a **Ordem** dentro da seção e a **Largura na grade**, de 1 a 12 colunas.",
+        "icone": "settings"
+      },
+      {
+        "titulo": "Completar as opções",
+        "detalhe": "Em campos de **Seleção**, cadastre as opções uma a uma, pressionando Enter entre elas. Informe também o **Valor padrão** e o **Texto de ajuda**, que aparece abaixo do campo no formulário.",
+        "icone": "list"
+      },
+      {
+        "titulo": "Definir obrigatoriedade e uso",
+        "detalhe": "Ligue **Obrigatório** para bloquear o salvamento do registro sem esse dado e **Campo ativo** para que ele apareça no formulário e no schema da entidade.",
+        "icone": "toggle-left"
+      },
+      {
+        "titulo": "Ajustar no editor visual",
+        "detalhe": "Na aba **Editor visual**, arraste os campos para reordená-los. Ao soltar um campo sobre outro, ele assume a seção de destino e a nova ordem é gravada automaticamente.",
+        "icone": "layout-dashboard"
+      },
+      {
+        "titulo": "Conferir o schema",
+        "detalhe": "Na aba **Schema**, revise como o cadastro ficará para quem preenche: ordem dos campos, textos de ajuda e destaques de obrigatoriedade.",
+        "icone": "braces"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Grade de 12 colunas",
+        "descricao": "A largura de cada campo é medida em colunas; a soma define quantos campos cabem na mesma linha do formulário."
+      },
+      {
+        "nome": "Seção",
+        "descricao": "Agrupamento visual dos campos no formulário, útil para separar blocos como dados gerais e dados financeiros."
+      },
+      {
+        "nome": "Indicadores do topo",
+        "descricao": "Campos da entidade, ativos, obrigatórios, seções, campos de seleção e campos de moeda."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Chave técnica",
+        "descricao": "Identificador do campo usado internamente; não pode repetir dentro da mesma entidade.",
+        "dica": "Alterá-la depois de haver dados gravados pode exigir ajuste manual dos valores — escolha uma chave estável desde o início."
+      },
+      {
+        "nome": "Tipo",
+        "descricao": "Define como o campo é apresentado e validado no formulário.",
+        "dica": "**Moeda** e **Pessoa** têm apresentação própria; defina o tipo antes de começar a cadastrar dados."
+      },
+      {
+        "nome": "Campo ativo",
+        "descricao": "Campos inativos não aparecem no formulário nem no schema.",
+        "dica": "Desativar preserva os valores já informados e permite reativar o campo depois."
+      },
+      {
+        "nome": "Obrigatório",
+        "descricao": "Bloqueia o salvamento do registro sem este campo preenchido."
+      }
+    ],
+    "dicas": [
+      "Campos inativos continuam guardando os valores já informados: desativar não apaga dados.",
+      "Prefira o tipo **Seleção** ao texto livre quando os valores possíveis são conhecidos: isso padroniza filtros e relatórios.",
+      "Use o **Texto de ajuda** para explicar a regra de preenchimento no próprio formulário, evitando dúvidas no cadastro.",
+      "A largura em colunas é o que dá o ritmo visual do formulário: campos curtos lado a lado, campos longos ocupando a linha inteira."
+    ],
+    "limitacoes": [
+      "A tela administra apenas os campos criados por você: não é possível esconder, renomear ou reordenar os campos nativos do SGP por aqui.",
+      "Não há controle de permissão por campo: quem pode editar a entidade edita todos os campos dela.",
+      "Mudar o tipo de um campo já em uso altera a forma de preenchimento e de validação, sem converter automaticamente os valores existentes."
+    ],
+    "doc": "11-administracao.md",
+    "permissoes": [
+      "admin.ver"
+    ],
+    "ordem": 60
+  },
+  {
+    "rota": "/admin/auditoria",
+    "titulo": "Auditoria",
+    "grupo": "Administração",
+    "icone": "history",
+    "resumo": "Trilha somente leitura de quem fez o quê, quando, de qual endereço e o que mudou em cada registro.",
+    "para_que_serve": "Registra automaticamente as operações relevantes do sistema — criação, atualização, exclusão, aprovação, alocação, validação, exportação, login e logout — com autor, data, endereço de origem e o comparativo de valores. É a fonte de verdade para investigar uma mudança, atender a uma auditoria interna ou demonstrar conformidade. Os registros são imutáveis e permanecem disponíveis por no mínimo 5 anos.",
+    "quando_usar": [
+      "Para descobrir quem alterou o orçamento, o prazo ou o responsável de um projeto",
+      "Para reconstruir o que havia antes de uma mudança que quebrou o cronograma",
+      "Para atender a uma solicitação de auditoria interna ou de conformidade",
+      "Para conferir quem acessou ou exportou informações sensíveis",
+      "Para documentar a justificativa de uma decisão que afeta pessoas"
+    ],
+    "passos": [
+      {
+        "titulo": "Filtrar o que interessa",
+        "detalhe": "Na **Trilha de auditoria**, use a busca por usuário, entidade ou justificativa e os filtros de **Entidade**, **Ação** e **Usuário**. Os filtros aplicados aparecem como chips removíveis abaixo da barra de ferramentas.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler os indicadores",
+        "detalhe": "Os cartões do topo mostram **Registros no filtro**, **Criações**, **Exclusões**, **Logins**, **Entidades distintas** e **Usuários ativos na trilha**.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Ver os gráficos",
+        "detalhe": "**Distribuição por ação**, **Entidades mais auditadas** e **Volume por usuário** dão o panorama do recorte antes de você entrar no detalhe de um evento.",
+        "icone": "chart-column"
+      },
+      {
+        "titulo": "Abrir o registro",
+        "detalhe": "Clique na linha para abrir **Detalhe do registro**, com a ação, a data e a hora, o autor, o endereço de origem, a justificativa informada e a identificação do registro afetado.",
+        "icone": "eye"
+      },
+      {
+        "titulo": "Comparar antes e depois",
+        "detalhe": "No **Comparativo antes × depois**, cada campo aparece com o valor de **Antes**, em vermelho, e o de **Depois**, em verde, com a etiqueta **adicionado**, **removido** ou **alterado**. Eventos sem mudança de campo, como login e logout, informam que não houve alteração.",
+        "icone": "git-compare"
+      },
+      {
+        "titulo": "Exportar o recorte",
+        "detalhe": "Clique em **Exportar CSV** para baixar exatamente o que os filtros mostram. A própria exportação também é registrada na trilha, com autor e filtros utilizados.",
+        "icone": "file-spreadsheet"
+      },
+      {
+        "titulo": "Consultar a política",
+        "detalhe": "O botão **Política de retenção** abre o resumo das regras: registros imutáveis, retenção mínima de 5 anos, acesso restrito e o que é capturado em cada evento.",
+        "icone": "shield-alert"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Somente leitura",
+        "descricao": "Não há como editar nem excluir um lançamento pela interface, nem para o perfil **Administrador**."
+      },
+      {
+        "nome": "Chips de identificação",
+        "descricao": "No detalhe do registro, mostram a entidade, o identificador do registro afetado e o número do evento."
+      },
+      {
+        "nome": "Valores completos",
+        "descricao": "Uma seção recolhível do detalhe guarda os valores anteriores e novos por inteiro, útil quando o comparativo campo a campo não basta."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Justificativa",
+        "descricao": "Texto informado por quem executou a operação, quando a ação exige motivo.",
+        "dica": "Uma justificativa clara é o que transforma o registro em prova útil meses depois."
+      },
+      {
+        "nome": "Endereço de origem",
+        "descricao": "Endereço de rede de onde a operação partiu, usado para rastrear acessos."
+      },
+      {
+        "nome": "Ação",
+        "descricao": "Tipo da operação registrada: criação, atualização, exclusão, login, logout, exportação, aprovação, alocação ou validação."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Registros no filtro",
+        "descricao": "Total de eventos que atendem aos filtros aplicados.",
+        "leitura": "Use junto com **Entidades distintas** para saber se o recorte é amplo ou concentrado."
+      },
+      {
+        "nome": "Exclusões",
+        "descricao": "Quantidade de registros excluídos no recorte.",
+        "leitura": "Exclusões fora de uma janela de manutenção merecem conferência."
+      },
+      {
+        "nome": "Usuários ativos na trilha",
+        "descricao": "Quantas pessoas diferentes aparecem nos eventos filtrados.",
+        "leitura": "Ajuda a identificar acessos fora do padrão."
+      }
+    ],
+    "dicas": [
+      "Exporte o recorte antes de encerrar a investigação: o arquivo respeita exatamente os filtros e serve como evidência.",
+      "Logins, logouts e exportações também são auditados, o que permite rastrear quem viu informação sensível.",
+      "Ao mudar um dado sensível, escreva a justificativa pensando em quem vai ler o registro daqui a um ano.",
+      "Nem todo evento tem alteração de campos: login, logout e exportação aparecem sem comparativo, e isso é esperado."
+    ],
+    "limitacoes": [
+      "Não é possível editar nem excluir registros de auditoria pela aplicação, inclusive para o perfil **Administrador**.",
+      "O acesso é restrito a perfis autorizados: ver a auditoria não é uma permissão concedida a todos os perfis.",
+      "A trilha mostra o que o sistema registrou; ela não substitui a avaliação jurídica de conformidade."
+    ],
+    "doc": "11-administracao.md",
+    "permissoes": [
+      "auditoria.ver"
+    ],
+    "ordem": 70
+  }
+]

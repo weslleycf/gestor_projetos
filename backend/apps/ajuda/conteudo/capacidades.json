@@ -1,0 +1,1724 @@
+[
+  {
+    "rota": "/capacidades",
+    "titulo": "Catálogo de capacidades",
+    "grupo": "Capacidades e talentos",
+    "icone": "sparkles",
+    "resumo": "Reúne todo o catálogo de capacidades da organização nas visões **Cards**, **Árvore** e **Grafo** e permite importar uma taxonomia de referência.",
+    "para_que_serve": "É o ponto de partida do módulo: aqui a organização registra oficialmente o que precisa saber fazer, com categoria, tipo, criticidade e status. É este catálogo que permite aos projetos exigir capacidades, às pessoas receberem nível e ao risco de dependência ser monitorado. Use os filtros para montar recortes e as visões de árvore e grafo para entender a hierarquia e as dependências entre capacidades.",
+    "quando_usar": [
+      "Para cadastrar uma capacidade nova ou corrigir a descrição de uma existente",
+      "Para descobrir quantas capacidades estratégicas existem e onde estão os riscos",
+      "Antes de montar a equipe de um projeto, para conferir o que o catálogo já cobre",
+      "Para aproveitar um framework de mercado em vez de criar o catálogo do zero",
+      "Para localizar rapidamente uma capacidade pela busca ou pelo código externo"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher a visão",
+        "detalhe": "No topo, alterne entre **Cards**, **Árvore** e **Grafo**. Os cartões mostram a categoria, a criticidade, o nível médio e o bus factor de cada capacidade.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Filtrar e buscar",
+        "detalhe": "Use a busca **Buscar capacidade, código externo...** e combine os filtros **Categoria**, **Tipo**, **Criticidade** e **Status**. Os filtros aplicados aparecem como chips removíveis logo abaixo.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler os indicadores do topo",
+        "detalhe": "Acompanhe **Capacidades**, **Detentores (nível ≥ 3)**, **Nível médio**, **Em risco** e **Sem especialista**. **Em risco** conta as capacidades de criticidade alta com bus factor menor ou igual a 1.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Cadastrar uma capacidade",
+        "detalhe": "Clique em **Nova capacidade**, preencha **Nome**, **Descrição**, **Categoria**, **Capacidade pai**, **Tipo**, **Status** e **Criticidade**, ajuste **Peso estratégico** e **Sinônimos** e confirme em **Cadastrar capacidade**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Explorar a árvore",
+        "detalhe": "Na visão **Árvore**, use **Expandir tudo** e **Recolher tudo** para abrir os ramos. Ao clicar em uma capacidade, o painel lateral mostra **Detentores (nível ≥ 3)**, **Subcapacidades** e **Capacidades derivadas**, com o atalho **Abrir detalhe completo**.",
+        "icone": "layers"
+      },
+      {
+        "titulo": "Explorar o grafo",
+        "detalhe": "Na visão **Grafo**, use **Ampliar zoom**, **Reduzir zoom** e **Centralizar**. Cada nó traz os detentores e o bus factor, e a borda vermelha indica bus factor crítico. Selecione um nó e clique em **Ver detalhe**.",
+        "icone": "share-2"
+      },
+      {
+        "titulo": "Importar uma taxonomia",
+        "detalhe": "Clique em **Importar taxonomia**, escolha o **Framework de origem** entre **SFIA**, **ESCO**, **O*NET** e **Taxonomia interna** e cole a lista de itens. A pré-visualização mostra quantos itens foram reconhecidos; confirme em **Importar «n» item(ns)**.",
+        "icone": "upload"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Cartão de capacidade",
+        "descricao": "Mostra categoria, nível médio, detentores e bus factor, com o botão que abre a capacidade."
+      },
+      {
+        "nome": "Árvore de capacidades",
+        "descricao": "Organiza o catálogo por categoria e por capacidade pai, com contagem de subcapacidades em cada ramo."
+      },
+      {
+        "nome": "Grafo de capacidades",
+        "descricao": "Desenha as capacidades e suas ligações, com zoom, deslocamento e destaque dos nós em risco."
+      },
+      {
+        "nome": "Aviso de dependência concentrada",
+        "descricao": "Aparece quando apenas uma ou nenhuma pessoa de nível 4 ou superior sustenta a capacidade."
+      },
+      {
+        "nome": "Chips de filtro",
+        "descricao": "Mostram os filtros aplicados e podem ser removidos com um clique."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Nome",
+        "descricao": "Como a capacidade é chamada na organização.",
+        "dica": "Use o nome pelo qual as pessoas já a conhecem."
+      },
+      {
+        "nome": "Descrição",
+        "descricao": "O que a capacidade abrange e como ela é demonstrada.",
+        "dica": "Descreva comportamentos observáveis: é isso que faz dois avaliadores concordarem sobre o mesmo nível."
+      },
+      {
+        "nome": "Categoria",
+        "descricao": "Agrupamento do catálogo, como Dados, Tecnologia ou Comportamental.",
+        "dica": "Uma categoria pode ter subcategorias."
+      },
+      {
+        "nome": "Capacidade pai",
+        "descricao": "Capacidade da qual esta deriva; **Nenhuma (raiz)** cria o item no topo da hierarquia.",
+        "dica": "Use a hierarquia para separar o que é especialização do que é capacidade independente."
+      },
+      {
+        "nome": "Tipo",
+        "descricao": "**Técnica**, **Comportamental**, **Idioma**, **Certificação**, **Domínio de negócio**, **Ferramenta** ou **Metodologia**."
+      },
+      {
+        "nome": "Status",
+        "descricao": "**Ativa**, **Emergente**, **Em descontinuação** ou **Obsoleta**.",
+        "dica": "Mantenha **Ativa** apenas o que está em uso."
+      },
+      {
+        "nome": "Criticidade",
+        "descricao": "**Baixa**, **Média**, **Alta** ou **Estratégica**.",
+        "dica": "Reflita o impacto da ausência dessa capacidade no negócio."
+      },
+      {
+        "nome": "Framework de origem e Código externo",
+        "descricao": "Identificam de qual framework de mercado a capacidade veio e qual é o código dela lá.",
+        "dica": "O código externo evita duplicidade nas importações."
+      },
+      {
+        "nome": "Sinônimos",
+        "descricao": "Variações do nome da capacidade, separadas por vírgula.",
+        "dica": "Melhora o resultado das buscas."
+      },
+      {
+        "nome": "Peso estratégico",
+        "descricao": "Multiplicador que dá mais relevância à capacidade nos cálculos de priorização e alocação."
+      },
+      {
+        "nome": "Substituível por tecnologia similar",
+        "descricao": "Indica se existe alternativa no mercado para essa capacidade."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Capacidades",
+        "descricao": "Tamanho do catálogo no filtro atual.",
+        "leitura": "Catálogo muito grande sem uso indica taxonomia inflada; muito pequeno, visão incompleta da organização."
+      },
+      {
+        "nome": "Detentores (nível ≥ 3)",
+        "descricao": "Pessoas autônomas na capacidade.",
+        "leitura": "Número baixo em capacidade crítica é sinal de dependência."
+      },
+      {
+        "nome": "Nível médio",
+        "descricao": "Média dos níveis atribuídos, na escala de 1 a 5.",
+        "leitura": "Serve para comparar capacidades e equipes, não para avaliar pessoas isoladamente."
+      },
+      {
+        "nome": "Em risco",
+        "descricao": "Capacidades de criticidade alta com bus factor menor ou igual a 1.",
+        "leitura": "Qualquer valor acima de zero pede plano de mitigação."
+      },
+      {
+        "nome": "Sem especialista",
+        "descricao": "Capacidades sem ninguém de nível 4 ou 5.",
+        "leitura": "Em capacidade crítica, significa risco de parada total."
+      }
+    ],
+    "dicas": [
+      "Mantenha o catálogo enxuto: poucas capacidades bem descritas valem mais do que centenas de registros sem uso.",
+      "Use **Sinônimos** para que as pessoas encontrem a capacidade pelos nomes que realmente usam no dia a dia.",
+      "Prefira criar a capacidade dentro de uma categoria: isso facilita os filtros na matriz e nas análises.",
+      "Ao importar uma taxonomia, revise a prévia antes de confirmar — itens com o mesmo código externo são atualizados em vez de duplicados."
+    ],
+    "limitacoes": [
+      "Os indicadores refletem a última atualização do catálogo; a tela não se atualiza sozinha em segundo plano.",
+      "A importação de taxonomia é uma carga pontual: não há sincronização contínua com SFIA, ESCO ou O*NET.",
+      "Cadastrar uma capacidade não atribui nível a ninguém: os níveis são registrados no perfil das pessoas, na matriz de skills."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      },
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para uma tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 10
+  },
+  {
+    "rota": "/capacidades/skills/:id",
+    "titulo": "Detalhe da capacidade",
+    "grupo": "Capacidades e talentos",
+    "icone": "sparkles",
+    "resumo": "Mostra a ficha completa de uma capacidade: quem a domina, quais projetos a exigem, os critérios de nível e a previsão de demanda.",
+    "para_que_serve": "É a visão aprofundada de uma capacidade do catálogo, onde a decisão sobre pessoas e projetos fica mais fácil. Aqui você vê quem são os detentores e em que nível estão, quais projetos dependem da capacidade, quais critérios valem para subir de nível e como a demanda deve evoluir nos próximos meses. Também é daqui que se ajusta a régua de promoção de uma capacidade específica e se sugerem mentores.",
+    "quando_usar": [
+      "Para saber quem domina uma capacidade e qual é o risco de dependência",
+      "Antes de definir os requisitos de capacidade de um projeto",
+      "Para ajustar a régua de promoção de uma capacidade muito específica",
+      "Para propor uma mentoria a partir de uma capacidade",
+      "Para revisar se a capacidade continua ativa ou já pode ser descontinuada"
+    ],
+    "passos": [
+      {
+        "titulo": "Chegar ao detalhe",
+        "detalhe": "Abra pelo catálogo, clicando em **Abrir** no cartão, ou pelo nó da árvore e do grafo, com **Abrir detalhe completo** e **Ver detalhe**.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Ler o cabeçalho",
+        "detalhe": "Confira a categoria, o tipo, a criticidade, o status, a marca **Substituível** ou **Não substituível** e os **Sinônimos** da capacidade.",
+        "icone": "circle-help"
+      },
+      {
+        "titulo": "Acompanhar os indicadores",
+        "detalhe": "**Detentores (nível ≥ 3)**, **Nível médio**, **Bus factor** e **Projetos que exigem** resumem a saúde da capacidade. O aviso **Capacidade em risco de dependência** aparece quando ela é sustentada por poucas pessoas.",
+        "icone": "gauge"
+      },
+      {
+        "titulo": "Ver os detentores",
+        "detalhe": "Na aba **Detentores**, confira **Colaborador**, **Nível**, **Consolidado × validado**, **XP**, **Status**, **Evidências** e **Gap para o desejado**. O botão **Perfil** abre a pessoa.",
+        "icone": "users"
+      },
+      {
+        "titulo": "Ver os projetos",
+        "detalhe": "Na aba **Projetos**, confira **Nível mínimo**, **Nível desejado**, **Pessoas**, **Peso**, a marca **Obrigatório** ou **Desejável** e **Necessário a partir de**; o botão **Abrir** leva ao projeto.",
+        "icone": "target"
+      },
+      {
+        "titulo": "Revisar os critérios de nível",
+        "detalhe": "Na aba **Critérios**, veja **XP mínimo**, **Meses mínimos no nível**, **Evidências válidas**, **Banca / mentor** e **Avaliação do gestor** de cada nível e use **Ajustar critérios** para mudar a régua.",
+        "icone": "clipboard-check"
+      },
+      {
+        "titulo": "Ver a previsão",
+        "detalhe": "Na aba **Previsão**, acompanhe **Gap acumulado**, **Meses em escassez**, **Pico de demanda** e **Oferta atual**, com o comparativo de demanda e oferta por período em FTE (equivalente a tempo integral).",
+        "icone": "trending-up"
+      },
+      {
+        "titulo": "Agir sobre a capacidade",
+        "detalhe": "Use **Sugerir mentores** para ver quem pode mentorar e **Propor mentoria**, ou **Editar capacidade** para atualizar o cadastro, com **Ver na matriz de capacidades** para voltar ao mapa de calor.",
+        "icone": "settings"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Etiquetas de identificação",
+        "descricao": "Mostram categoria, tipo, criticidade, status e a marca de substituível, além dos sinônimos."
+      },
+      {
+        "nome": "Painel de critérios",
+        "descricao": "Abre em **Ajustar critérios** e permite definir a exigência de cada nível, com **Promover exigência** e **Rebaixar**."
+      },
+      {
+        "nome": "Escala de nível",
+        "descricao": "Legenda de cores da escala de 1 a 5 usada nos indicadores e nas listas."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Detentores (nível ≥ 3)",
+        "descricao": "Pessoas autônomas na capacidade.",
+        "dica": "Número baixo em capacidade crítica é sinal de dependência."
+      },
+      {
+        "nome": "Bus factor",
+        "descricao": "Quantidade de pessoas de nível 4 ou superior que sustentam a capacidade.",
+        "dica": "Abaixo de 2 em capacidade crítica, trate como risco."
+      },
+      {
+        "nome": "Projetos que exigem",
+        "descricao": "Projetos que declararam precisar desta capacidade, com destaque para os obrigatórios."
+      },
+      {
+        "nome": "Consolidado × validado",
+        "descricao": "Compara o nível resultante das avaliações com o nível chancelado por validação formal."
+      },
+      {
+        "nome": "Possível decay",
+        "descricao": "Pessoas que não usam a capacidade há mais de 365 dias."
+      },
+      {
+        "nome": "XP mínimo",
+        "descricao": "Pontos de experiência exigidos para ser elegível ao nível."
+      },
+      {
+        "nome": "Meses mínimos no nível",
+        "descricao": "Tempo mínimo de permanência no nível anterior."
+      },
+      {
+        "nome": "Evidências válidas",
+        "descricao": "Quantidade de provas conferidas necessárias para a promoção."
+      },
+      {
+        "nome": "Banca / mentor",
+        "descricao": "Indica se o nível exige validação de banca ou mentor.",
+        "dica": "A partir do nível 4 essa exigência é aplicada automaticamente."
+      },
+      {
+        "nome": "Avaliação do gestor",
+        "descricao": "Indica se o nível exige avaliação do gestor igual ou superior ao nível proposto."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Nível médio",
+        "descricao": "Média dos níveis dos detentores.",
+        "leitura": "Compare com o nível mínimo exigido pelos projetos na aba **Projetos**."
+      },
+      {
+        "nome": "XP acumulado",
+        "descricao": "Soma dos pontos de experiência dos detentores.",
+        "leitura": "Compare apenas dentro da mesma capacidade e do mesmo nível."
+      },
+      {
+        "nome": "Gap acumulado",
+        "descricao": "Diferença acumulada entre demanda e oferta no horizonte, em FTE.",
+        "leitura": "Valor positivo indica falta de pessoas no período."
+      },
+      {
+        "nome": "Meses em escassez",
+        "descricao": "Quantidade de períodos em que a demanda supera a oferta.",
+        "leitura": "Escassez recorrente é sinal para contratar ou desenvolver internamente."
+      }
+    ],
+    "dicas": [
+      "Antes de exigir uma capacidade em um projeto, confira aqui quantas pessoas realmente a dominam.",
+      "Use **Sugerir mentores** para transformar uma capacidade concentrada em um plano de formação de sucessores.",
+      "Descreva bem os critérios de cada nível: é essa descrição que orienta avaliadores e candidatos a promoção.",
+      "Capacidades sem nenhum detentor merecem decisão rápida: formar internamente, contratar ou registrar a dependência externa."
+    ],
+    "limitacoes": [
+      "As abas são de consulta; as ações possíveis são **Editar capacidade**, **Ajustar critérios** e o caminho de mentoria.",
+      "A tela não exclui capacidades nem rebaixa o nível de uma pessoa.",
+      "Ajustar os critérios muda as próximas sugestões de promoção daquela capacidade; promoções já decididas não são recalculadas."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 20
+  },
+  {
+    "rota": "/matriz-skills",
+    "titulo": "Matriz de skills",
+    "grupo": "Capacidades e talentos",
+    "icone": "grid-3x3",
+    "resumo": "Desenha o mapa de calor de pessoas e capacidades, mostra o nível de cada vínculo e abre um painel para avaliar, endossar, anexar evidência e creditar XP.",
+    "para_que_serve": "A matriz transforma o catálogo em uma fotografia visual da equipe: cada linha é uma pessoa, cada coluna é uma capacidade e cada cruzamento mostra o nível efetivo, ou seja, o consolidado quando existe ou o nível atual. Pela cor você identifica em segundos onde o time é forte e onde existem buracos de conhecimento. Ao clicar em um cruzamento, abre um painel com o perfil daquela capacidade, onde ficam as ações do dia a dia: avaliar, endossar, anexar evidência, creditar XP e conferir o que falta para o próximo nível.",
+    "quando_usar": [
+      "Antes de montar uma equipe, para ver a cobertura real do time",
+      "Para registrar avaliações, endossos e evidências sem sair da tela",
+      "Para acompanhar quem está elegível ao próximo nível",
+      "Para identificar capacidades sem nenhum especialista no recorte",
+      "Na conversa de carreira, para mostrar a evolução com dados em vez de percepção"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher a visão",
+        "detalhe": "Alterne entre **Heatmap**, o mapa de calor de pessoas e capacidades, e **Cobertura**, a análise capacidade por capacidade.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Ajustar o recorte",
+        "detalhe": "No **Heatmap**, escolha **Área**, **Categoria** e **Tipo** e defina quantas **Skills** e **Pessoas** aparecem. Use **Limpar filtros** para voltar ao padrão.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Ler o mapa de calor",
+        "detalhe": "As cores seguem a escala **Nível**, de 1 a 5. Cruzamentos vazios indicam capacidade ainda não registrada no perfil da pessoa — clique para incluir.",
+        "icone": "palette"
+      },
+      {
+        "titulo": "Acompanhar os indicadores",
+        "detalhe": "**Pessoas no recorte**, **Nível médio da equipe**, **Capacidades no recorte** e **Sem especialista (N4+)** mostram a abrangência e a qualidade do recorte.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Abrir o cruzamento",
+        "detalhe": "Clique na pessoa e na capacidade desejada. Se o vínculo ainda não existir, defina o **Nível inicial** e clique em **Adicionar capacidade ao perfil**.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Registrar uma avaliação",
+        "detalhe": "Em **Ações rápidas**, no bloco **Registrar avaliação**, escolha o **Tipo** — **Autoavaliação**, **Avaliação do gestor**, **Avaliação de pares**, **Avaliação de mentor**, **Banca avaliadora** ou **Avaliação de cliente** —, o **Nível atribuído** e escreva o **Comentário**.",
+        "icone": "award"
+      },
+      {
+        "titulo": "Endossar, anexar evidência e creditar XP",
+        "detalhe": "Em **Endossar capacidade**, escolha o **Nível sugerido** e o comentário. Em **Adicionar evidência**, informe **Tipo**, **Data**, **Descrição**, **Link** e **Emitido por**. Em **Creditar XP manual**, informe **XP**, **Origem** e **Motivo**.",
+        "icone": "thumbs-up"
+      },
+      {
+        "titulo": "Conferir o próximo nível e a cobertura",
+        "detalhe": "No painel, a aba **Critérios** mostra **Progresso para o nível**, a etiqueta **Elegível** ou **Não elegível** e cada critério com o valor atual e o exigido; a aba **Histórico** reúne **Avaliações**, **Endossos**, **Evidências** e o **Histórico de evolução**. Na aba **Cobertura**, veja **Criticidade**, **Pessoas**, **Nível médio**, **N3+**, **N4+** e **Risco**, com as etiquetas **Coberto** e **Bus factor**.",
+        "icone": "clipboard-check"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Mapa de calor",
+        "descricao": "Grade de pessoas e capacidades colorida conforme o nível, com legenda da escala de 1 a 5."
+      },
+      {
+        "nome": "Painel do cruzamento",
+        "descricao": "Abre ao clicar na grade e reúne o resumo do vínculo, os critérios do próximo nível, o histórico e as ações rápidas."
+      },
+      {
+        "nome": "Abas Histórico e Critérios",
+        "descricao": "Alternam entre a linha do tempo de movimentações e a checagem dos requisitos para o próximo nível."
+      },
+      {
+        "nome": "Aba Cobertura",
+        "descricao": "Troca a leitura por pessoa pela leitura por capacidade, com destaque para quem está em risco de dependência."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Atual",
+        "descricao": "Nível reconhecido hoje para a pessoa naquela capacidade."
+      },
+      {
+        "nome": "Validado",
+        "descricao": "Nível chancelado por uma validação formal.",
+        "dica": "Quando existe, entra no cálculo do nível consolidado."
+      },
+      {
+        "nome": "Desejado",
+        "descricao": "Onde a pessoa quer chegar naquela capacidade.",
+        "dica": "É o que alimenta as trilhas recomendadas e o gap geral."
+      },
+      {
+        "nome": "Progresso para o nível",
+        "descricao": "Quanto do alvo de XP do próximo nível já foi acumulado."
+      },
+      {
+        "nome": "Tipo (avaliação)",
+        "descricao": "Quem está avaliando: autoavaliação, gestor, pares, mentor, banca ou cliente.",
+        "dica": "Cada fonte tem um peso diferente no nível consolidado; a autoavaliação tem o menor peso."
+      },
+      {
+        "nome": "Nível atribuído",
+        "descricao": "Nível que o avaliador reconhece, de 1 a 5.",
+        "dica": "Compare com a descrição do nível antes de escolher."
+      },
+      {
+        "nome": "Origem (XP)",
+        "descricao": "**Ajuste manual**, **Tarefa concluída**, **Treinamento**, **Mentoria** ou **Certificação**."
+      },
+      {
+        "nome": "Motivo (XP)",
+        "descricao": "Justificativa que fica registrada no histórico da capacidade.",
+        "dica": "Escreva o motivo pensando em quem vai auditar depois."
+      },
+      {
+        "nome": "Nível sugerido (endosso)",
+        "descricao": "Nível que o par ou mentor reconhece na capacidade."
+      },
+      {
+        "nome": "Status do vínculo",
+        "descricao": "Situação do vínculo entre a pessoa e a capacidade, como **Ativa** ou **Enferrujada**."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Pessoas no recorte",
+        "descricao": "Quantidade de pessoas exibidas na matriz.",
+        "leitura": "Confirme se o recorte cobre a organização ou apenas um time."
+      },
+      {
+        "nome": "Nível médio da equipe",
+        "descricao": "Média dos níveis no recorte, na escala de 1 a 5.",
+        "leitura": "Use para comparar times, nunca para avaliar uma pessoa isoladamente."
+      },
+      {
+        "nome": "Sem especialista (N4+)",
+        "descricao": "Capacidades sem ninguém de nível 4 ou 5 no recorte.",
+        "leitura": "Ajuste o recorte antes de concluir: pode ser efeito do filtro."
+      },
+      {
+        "nome": "Sem nível 4 ou superior",
+        "descricao": "Capacidades da aba **Cobertura** sem especialista.",
+        "leitura": "São as candidatas naturais a alerta de bus factor."
+      },
+      {
+        "nome": "Com apenas um especialista",
+        "descricao": "Capacidades sustentadas por uma única pessoa de nível 4 ou 5.",
+        "leitura": "Se essa pessoa sair, a capacidade para."
+      }
+    ],
+    "dicas": [
+      "Antes de concluir que falta gente, ajuste **Skills** e **Pessoas**: a matriz mostra um número limitado de linhas e colunas por vez.",
+      "Avalie com mais de uma fonte: uma avaliação única distorce o nível consolidado.",
+      "Sempre que registrar XP positivo, escreva um **Motivo** claro — o histórico da capacidade é auditável.",
+      "Célula vazia não significa que a pessoa não sabe: significa que o vínculo ainda não foi registrado."
+    ],
+    "limitacoes": [
+      "A tela carrega um número limitado de pessoas e capacidades por vez; use os filtros ou ajuste os campos **Skills** e **Pessoas** para chegar ao recorte desejado.",
+      "Não é possível rebaixar o nível de alguém por aqui: o nível sobe pela aprovação de uma promoção.",
+      "O nível consolidado é calculado pelo sistema; a tela não permite editar o valor diretamente."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 30
+  },
+  {
+    "rota": "/gap",
+    "titulo": "Gap analysis",
+    "grupo": "Capacidades e talentos",
+    "icone": "target",
+    "resumo": "Compara o que é exigido com o que a equipe realmente tem e devolve uma lista de gaps priorizada por severidade, com ações sugeridas.",
+    "para_que_serve": "A análise de gap responde à pergunta mais prática do módulo: onde investir para a entrega não travar. Ela confronta o nível exigido com o nível que as pessoas realmente têm e ordena o resultado pela urgência, mostrando quantas pessoas faltam em cada capacidade. Cada gap vem com sugestões de ação — alocar quem já atende, treinar, contratar ou formar novos detentores — e a análise inteira pode ser levada para uma planilha.",
+    "quando_usar": [
+      "Antes de iniciar um projeto, para saber se a equipe cobre os requisitos",
+      "Para decidir entre contratar, treinar ou remanejar pessoas",
+      "No comitê de portfólio, para priorizar investimento em capacidade",
+      "Para identificar requisitos obrigatórios ainda sem atendimento",
+      "Para montar um plano de desenvolvimento a partir dos gaps reais"
+    ],
+    "passos": [
+      {
+        "titulo": "Escolher o modo",
+        "detalhe": "**Gap geral** compara o nível desejado de cada pessoa com o nível atual; **Por projeto** compara os requisitos de capacidade do projeto com a equipe disponível.",
+        "icone": "layers"
+      },
+      {
+        "titulo": "Selecionar o projeto",
+        "detalhe": "No modo **Por projeto**, escolha o projeto no filtro **Projeto**. Sem projeto selecionado, a tela pede que você escolha um para calcular.",
+        "icone": "folder-kanban"
+      },
+      {
+        "titulo": "Ler a cobertura e os indicadores",
+        "detalhe": "O anel mostra o **índice de cobertura** e, ao lado, aparecem **Requisitos analisados**, **Severidade crítica**, **Severidade alta**, **Severidade média**, **Obrigatórios pendentes** e **Sem déficit**.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Entender a severidade",
+        "detalhe": "**OK** quando não há déficit; **Crítico** quando o requisito é obrigatório ou a capacidade é de criticidade alta ou estratégica com déficit de 2 pessoas ou mais; **Alto** quando o déficit é de 2 pessoas ou mais ou a capacidade é de criticidade alta ou estratégica; **Médio** quando falta 1 pessoa em capacidade de criticidade baixa ou média.",
+        "icone": "alert-triangle"
+      },
+      {
+        "titulo": "Abrir o detalhe do gap",
+        "detalhe": "Clique em um item para ver **Déficit**, **Já atendem**, **Precisam evoluir** e **Necessário**, com o nível atual e o déficit de cada pessoa. O botão **Abrir capacidade** leva ao detalhe da capacidade.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Ler as ações sugeridas",
+        "detalhe": "**Alocar quem já atende** aparece quando há alguém no nível mínimo; **Treinar e mentorar** quando existem pessoas com gap; **Contratar / terceirizar** quando o déficit é de 2 pessoas ou mais ou a capacidade é crítica; **Formar novos detentores** sempre que há déficit.",
+        "icone": "lightbulb"
+      },
+      {
+        "titulo": "Registrar o plano de desenvolvimento",
+        "detalhe": "Clique em **Registrar plano**, marque as pessoas — use **Selecionar todas** e **Desmarcar todas** para agilizar — e defina **Título do PDI**, **Objetivo**, **Tipo de ação**, **Prazo da ação** e **Carga horária (h)**. Confirme em **Criar «n» ação(ões) de PDI**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Exportar a análise",
+        "detalhe": "Clique em **Exportar CSV** para gerar a planilha com capacidade, criticidade, nível mínimo, quantidade, quantas pessoas atendem, déficit, severidade, se é obrigatório e quem tem gap.",
+        "icone": "file-bar-chart"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Anel de cobertura",
+        "descricao": "Mostra a proporção média dos requisitos já atendidos no escopo analisado."
+      },
+      {
+        "nome": "Déficit de pessoas por capacidade",
+        "descricao": "Barras que comparam quantas pessoas faltam em cada capacidade."
+      },
+      {
+        "nome": "Distribuição por severidade",
+        "descricao": "Reparte os requisitos entre **Crítico**, **Alto**, **Médio** e as demais faixas."
+      },
+      {
+        "nome": "Etiqueta Obrigatório",
+        "descricao": "Marca os requisitos eliminatórios, que bloqueiam a alocação recomendada quando não são atendidos."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Déficit",
+        "descricao": "Quantas pessoas faltam para atender o requisito."
+      },
+      {
+        "nome": "Já atendem",
+        "descricao": "Pessoas que já estão no nível mínimo exigido."
+      },
+      {
+        "nome": "Precisam evoluir",
+        "descricao": "Pessoas abaixo do nível mínimo, com o déficit de cada uma."
+      },
+      {
+        "nome": "Necessário",
+        "descricao": "Quantidade de pessoas que o requisito pede e o nível mínimo aceito."
+      },
+      {
+        "nome": "Índice de cobertura",
+        "descricao": "Proporção média dos requisitos já atendidos no escopo.",
+        "dica": "Abaixo de 80% compromete a formação de equipes pelos requisitos atuais."
+      },
+      {
+        "nome": "Tipo de ação (PDI)",
+        "descricao": "**Prática deliberada**, **Curso / treinamento**, **Mentoria**, **Atuação em projeto**, **Certificação** ou **Job rotation**."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Requisitos analisados",
+        "descricao": "Quantidade de requisitos no escopo, com o total de pessoas consideradas.",
+        "leitura": "Confirme se o escopo é o projeto certo ou o portfólio inteiro."
+      },
+      {
+        "nome": "Severidade crítica",
+        "descricao": "Requisitos obrigatórios ou estratégicos sem atendimento.",
+        "leitura": "Cada item crítico é uma decisão pendente de alocar, treinar ou contratar."
+      },
+      {
+        "nome": "Obrigatórios pendentes",
+        "descricao": "Requisitos marcados como obrigatórios e não atendidos.",
+        "leitura": "Bloqueiam a alocação recomendada pelo motor de matching."
+      },
+      {
+        "nome": "Sem déficit",
+        "descricao": "Requisitos sob controle no escopo.",
+        "leitura": "Se este número cai, a cobertura do escopo está piorando."
+      }
+    ],
+    "dicas": [
+      "Trate gap crítico como decisão de portfólio: é risco de entrega, não apenas um assunto de RH.",
+      "Exporte a análise antes da reunião de priorização — a planilha ajuda a comparar cenários.",
+      "Ao registrar um plano, prefira poucas ações com prazo e responsável a uma lista longa que ninguém executa.",
+      "Requisitos obrigatórios sem atendimento derrubam a recomendação de alocação: resolva-os primeiro."
+    ],
+    "limitacoes": [
+      "A análise não altera cadastro nenhum: ela mostra o gap e cria ações de desenvolvimento quando você pede.",
+      "No modo **Por projeto**, é preciso escolher um projeto; sem isso, o cálculo não é exibido.",
+      "A tela não projeta cenários futuros: para isso, use a aba **Previsão** do detalhe da capacidade."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 40
+  },
+  {
+    "rota": "/bus-factor",
+    "titulo": "Bus factor",
+    "grupo": "Capacidades e talentos",
+    "icone": "network",
+    "resumo": "Lista as capacidades sustentadas por poucas pessoas e mostra onde um único afastamento interromperia o trabalho.",
+    "para_que_serve": "Bus factor é a quantidade de pessoas de nível 4 ou 5 que sustentam uma capacidade. Quando esse número é 0 ou 1, a organização depende de uma pessoa só: férias, saída ou doença param a entrega, e o conhecimento não está registrado em lugar nenhum. Esta tela transforma essa dependência invisível em uma lista priorizada, com os projetos expostos e um plano de mitigação pronto para ser registrado no plano de desenvolvimento das pessoas.",
+    "quando_usar": [
+      "Para descobrir onde a saída de uma pessoa pararia um projeto",
+      "Antes de aprovar férias longas, licenças ou movimentações de especialistas",
+      "Para planejar a formação de sucessores em capacidades críticas",
+      "Na revisão periódica de risco do portfólio",
+      "Para justificar um programa de mentoria ou uma contratação"
+    ],
+    "passos": [
+      {
+        "titulo": "Ler os indicadores",
+        "detalhe": "**Capacidades em alerta**, **Sem especialista**, **Com um especialista**, **Projetos expostos** e **Índice de risco** mostram o tamanho do problema no momento.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Filtrar os alertas",
+        "detalhe": "Escolha a **Criticidade** ou use o chip **Apenas 0 ou 1 detentor**; **Limpar filtros** volta ao conjunto completo.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Entender cada alerta",
+        "detalhe": "Cada cartão traz **Detentores N4+**, **Especialistas atuais**, **Projetos que exigem** e **Ações sugeridas**, com as etiquetas **Sem especialista** e **Bus factor 1**. Os botões **Ver grafo** e **Detalhe da capacidade** levam ao contexto.",
+        "icone": "circle-help"
+      },
+      {
+        "titulo": "Ler as ações sugeridas",
+        "detalhe": "**Programa de mentoria** vincula quem tem nível 2 ou 3 a um mentor de nível 4 ou 5, com metas trimestrais; **Documentar conhecimento** cria base de consulta para reduzir a dependência individual; **Job rotation** gera exposição prática nas tarefas críticas; **Reforço externo** cobre o intervalo até a capacidade interna amadurecer.",
+        "icone": "lightbulb"
+      },
+      {
+        "titulo": "Abrir o grafo de dependência",
+        "detalhe": "Na aba **Grafo de dependência**, escolha a **Capacidade analisada** e veja a relação entre especialistas, projetos dependentes e requisitos obrigatórios. A legenda diferencia holder nível ≥ 4, projeto dependente e requisito obrigatório.",
+        "icone": "network"
+      },
+      {
+        "titulo": "Registrar o plano de mitigação",
+        "detalhe": "Clique em **Mitigar risco** — no cabeçalho, no cartão ou no painel do grafo —, marque os candidatos a sucessores, que são pessoas de nível 2 ou 3, e escolha o **Mentor responsável**, o **Tipo de ação de PDI**, o **Prazo**, a **Carga horária (h)** e escreva o **Objetivo**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Confirmar o plano",
+        "detalhe": "Clique em **Registrar plano para «n» pessoa(s)**. As ações entram no plano de desenvolvimento das pessoas escolhidas e o alerta continua monitorado até surgirem novos especialistas.",
+        "icone": "save"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Cartão de alerta",
+        "descricao": "Reúne a criticidade, os especialistas atuais, os projetos que exigem a capacidade e as ações sugeridas."
+      },
+      {
+        "nome": "Grafo de dependência",
+        "descricao": "Liga a capacidade analisada aos especialistas de um lado e aos projetos dependentes do outro."
+      },
+      {
+        "nome": "Legenda do grafo",
+        "descricao": "Diferencia a linha de holder nível ≥ 4, a de projeto dependente e a de requisito obrigatório."
+      },
+      {
+        "nome": "Chip Apenas 0 ou 1 detentor",
+        "descricao": "Restringe a lista às capacidades com concentração de conhecimento."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Detentores N4+",
+        "descricao": "Quantidade de pessoas de nível 4 ou superior na capacidade; é o próprio bus factor."
+      },
+      {
+        "nome": "Especialistas atuais",
+        "descricao": "Lista com quem são essas pessoas e em que nível estão."
+      },
+      {
+        "nome": "Projetos que exigem",
+        "descricao": "Projetos que dependem da capacidade, com destaque para os requisitos obrigatórios.",
+        "dica": "Projeto com requisito obrigatório e sem especialista é o caso mais urgente."
+      },
+      {
+        "nome": "Mentor responsável",
+        "descricao": "Especialista de nível 4 ou 5 que vai conduzir o desenvolvimento dos candidatos.",
+        "dica": "Sem mentor formal, o plano fica registrado mas perde tração."
+      },
+      {
+        "nome": "Tipo de ação de PDI",
+        "descricao": "**Mentoria**, **Curso / treinamento**, **Atuação em projeto crítico**, **Prática deliberada**, **Job rotation** ou **Comunidade de prática**."
+      },
+      {
+        "nome": "Candidatos a sucessores",
+        "descricao": "Pessoas de nível 2 ou 3 escolhidas para evoluir na capacidade."
+      },
+      {
+        "nome": "Prazo e Carga horária (h)",
+        "descricao": "Quando a ação deve terminar e quanto tempo ela consome."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Capacidades em alerta",
+        "descricao": "Capacidades com 2 ou menos especialistas que são críticas ou têm projeto dependente.",
+        "leitura": "Cada item é uma dependência que precisa de plano."
+      },
+      {
+        "nome": "Sem especialista",
+        "descricao": "Capacidades sem ninguém de nível 4 ou 5.",
+        "leitura": "Risco de parada total: ninguém internamente sustenta a capacidade."
+      },
+      {
+        "nome": "Com um especialista",
+        "descricao": "Capacidades sustentadas por uma única pessoa.",
+        "leitura": "Recomendação padrão: formar ao menos dois sucessores em seis meses."
+      },
+      {
+        "nome": "Projetos expostos",
+        "descricao": "Soma das dependências diretas dos projetos nas capacidades em alerta.",
+        "leitura": "Quanto maior, mais entrega está apoiada em poucas pessoas."
+      },
+      {
+        "nome": "Índice de risco",
+        "descricao": "Concentração de conhecimento no escopo analisado.",
+        "leitura": "Quanto maior, mais a organização depende de poucas pessoas; abaixo de 30% é uma faixa confortável."
+      }
+    ],
+    "dicas": [
+      "Aja antes da urgência: formar um sucessor de nível 4 leva de 6 a 12 meses.",
+      "Documentar conhecimento é a mitigação mais barata e a que costuma ser esquecida.",
+      "Comece pelas capacidades críticas com projeto dependente: são as que param a entrega.",
+      "Revise a lista depois de cada movimentação interna relevante — o risco muda junto com o time."
+    ],
+    "limitacoes": [
+      "Capacidades sem especialistas e sem nenhum projeto dependente não entram na lista.",
+      "A tela não forma especialistas: ela registra planos de desenvolvimento que precisam ser executados.",
+      "O índice de risco é uma leitura do recorte atual; não é uma projeção de cenários futuros."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 50
+  },
+  {
+    "rota": "/pessoas",
+    "titulo": "Pessoas",
+    "grupo": "Capacidades e talentos",
+    "icone": "users",
+    "resumo": "Diretório de colaboradores com busca, filtros, visão de cartões ou tabela e organograma da hierarquia de gestão.",
+    "para_que_serve": "É a porta de entrada para encontrar pessoas por nome, cargo, área, perfil de acesso ou disponibilidade para mentoria. Além do diretório, a tela traz o organograma, que mostra como as equipes estão estruturadas e quem responde a quem. De cada pessoa você abre o perfil de capacidades, onde ficam o radar, as evidências, as avaliações e o plano de desenvolvimento.",
+    "quando_usar": [
+      "Para localizar quem tem determinada capacidade ou quem aceita ser mentor",
+      "Antes de montar uma equipe, para conferir área, cargo e nível médio das pessoas",
+      "Para abrir o perfil de capacidades de alguém e preparar uma conversa de carreira",
+      "Para entender a estrutura de gestão da organização",
+      "Para conferir quantos colaboradores já têm capacidades mapeadas"
+    ],
+    "passos": [
+      {
+        "titulo": "Buscar e filtrar",
+        "detalhe": "Use a busca **Buscar por nome, cargo, área ou e-mail...** e combine **Perfil**, **Área** e **Situação** — **Ativos**, **Inativos** ou **Todos**. O chip **Apenas mentores** restringe a quem aceita mentoria, e **Limpar filtros** volta ao padrão.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Escolher entre Cards e Tabela",
+        "detalhe": "A visão **Tabela** é melhor para ordenar por **Colaborador**, **Cargo**, **Área** ou **Perfil**; a visão **Cards** destaca **Capacidades**, **Nível médio**, os interesses e as etiquetas **Mentor** e **Inativo**.",
+        "icone": "layout-grid"
+      },
+      {
+        "titulo": "Ler os indicadores",
+        "detalhe": "**Colaboradores ativos**, **Com capacidades mapeadas**, **Nível médio geral** e **Mentores disponíveis** resumem o diretório.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Abrir o perfil de capacidades",
+        "detalhe": "Clique em **Perfil** na linha da tabela ou no cartão da pessoa. A coluna **Mentoria** mostra **Disponível** ou **Indisponível** para mentoria.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Percorrer o organograma",
+        "detalhe": "Na aba **Organograma**, use **Expandir tudo** e **Recolher tudo** para navegar pela hierarquia. O organograma mostra colaboradores ativos com relação de gestão cadastrada.",
+        "icone": "network"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Cartão de pessoa",
+        "descricao": "Traz a foto, o cargo, a área, o perfil, as capacidades, o nível médio e os interesses, com o botão que abre o perfil."
+      },
+      {
+        "nome": "Tabela do diretório",
+        "descricao": "Colunas **Colaborador**, **Cargo**, **Área**, **Perfil**, **Localização**, **Capacidades** e **Mentoria**."
+      },
+      {
+        "nome": "Organograma",
+        "descricao": "Árvore de gestão que pode ser aberta e recolhida por ramo."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Perfil",
+        "descricao": "Papel de acesso da pessoa na plataforma, como **Administrador**, **Executivo**, **PMO**, **Gerente**, **Líder**, **Membro**, **RH** ou **Stakeholder**."
+      },
+      {
+        "nome": "Situação",
+        "descricao": "Filtra entre colaboradores **Ativos** e **Inativos**."
+      },
+      {
+        "nome": "Capacidades",
+        "descricao": "Quantidade de capacidades registradas no perfil da pessoa."
+      },
+      {
+        "nome": "Mentoria",
+        "descricao": "Indica se a pessoa aceita ser mentor.",
+        "dica": "Só quem está disponível aparece nas sugestões de mentoria das capacidades em que tem nível 4 ou 5."
+      },
+      {
+        "nome": "Localização",
+        "descricao": "Cidade ou unidade onde a pessoa trabalha."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Colaboradores ativos",
+        "descricao": "Quantidade de pessoas no recorte filtrado.",
+        "leitura": "Compare com o total da organização para saber se o filtro está restringindo demais."
+      },
+      {
+        "nome": "Com capacidades mapeadas",
+        "descricao": "Pessoas com pelo menos um vínculo de capacidade registrado.",
+        "leitura": "Se este número é baixo, a matriz e as análises ficam incompletas."
+      },
+      {
+        "nome": "Nível médio geral",
+        "descricao": "Média dos níveis registrados, na escala de 1 a 5.",
+        "leitura": "Use para tendência, nunca para avaliar uma pessoa isoladamente."
+      },
+      {
+        "nome": "Mentores disponíveis",
+        "descricao": "Pessoas que aceitam mentoria.",
+        "leitura": "Poucos mentores disponíveis limitam os planos de mitigação de bus factor."
+      }
+    ],
+    "dicas": [
+      "O chip **Apenas mentores** é o caminho mais rápido para achar quem pode conduzir uma mentoria.",
+      "Use a busca por e-mail quando houver homônimos no diretório.",
+      "Pessoas sem capacidades mapeadas não aparecem nas análises: incentive o preenchimento do perfil.",
+      "O organograma ajuda a identificar quem responde por cada área antes de propor uma movimentação."
+    ],
+    "limitacoes": [
+      "A tela é de consulta: ela não cadastra nem edita pessoas, cargos ou relações de gestão.",
+      "Colaboradores inativos só aparecem se você mudar o filtro **Situação**.",
+      "O que você enxerga de cada perfil depende da visibilidade que a própria pessoa definiu em **Preferências**."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      },
+      {
+        "tecla": "Ctrl+K",
+        "acao": "Abrir a busca global e pular direto para uma pessoa"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 60
+  },
+  {
+    "rota": "/pessoas/:id",
+    "titulo": "Perfil de capacidades",
+    "grupo": "Capacidades e talentos",
+    "icone": "radar",
+    "resumo": "Reúne o radar de capacidades, a evolução, as evidências, as avaliações, o PDI e a ocupação de uma pessoa.",
+    "para_que_serve": "É a visão completa de uma pessoa para conversas de carreira, formação de equipe e preparação de sucessão. O radar mostra o nível atual contra o desejado, e as abas detalham a evolução dos níveis, as provas registradas, as avaliações recebidas, o plano de desenvolvimento e a carga semanal. É também daqui que o gestor valida evidências, registra avaliações e credita XP.",
+    "quando_usar": [
+      "Para preparar uma conversa de carreira com dados na mão",
+      "Para validar as evidências que sustentam uma promoção",
+      "Para conferir o que falta para o próximo nível",
+      "Para verificar se a pessoa tem espaço na agenda antes de propor uma nova alocação",
+      "Para acompanhar o andamento do plano de desenvolvimento de alguém"
+    ],
+    "passos": [
+      {
+        "titulo": "Chegar ao perfil",
+        "detalhe": "Abra por **Pessoas**, clicando em **Perfil**, ou pelo menu do usuário, na opção **Meu perfil e capacidades**.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Ler o cabeçalho e o radar",
+        "detalhe": "Confira cargo, área, interesses, a etiqueta **Disponível para mentoria** e o bloco **Radar de capacidades (atual × desejado)**, ao lado de **Distribuição por categoria**.",
+        "icone": "radar"
+      },
+      {
+        "titulo": "Acompanhar os indicadores",
+        "detalhe": "**Capacidades mapeadas**, **Nível médio**, **Em desenvolvimento**, **Enferrujadas** e **XP total** resumem o perfil.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Explorar a aba Capacidades",
+        "detalhe": "Cada capacidade mostra o status, a marca **Destaque**, a etiqueta **Promoção aprovada**, a barra **Progresso para o nível**, **XP**, evidências, avaliações, endossos e os dias sem uso. Use **Detalhes** para ver **Atual**, **Validado**, **Desejado**, **Critérios para o nível** e **Creditar XP**, ou **Avaliar** para registrar uma avaliação.",
+        "icone": "layers"
+      },
+      {
+        "titulo": "Ver a evolução",
+        "detalhe": "Na aba **Evolução**, acompanhe **Evolução dos níveis ao longo do tempo** e a linha do tempo das movimentações, com nível anterior, nível novo, XP movimentado, motivo e quem registrou.",
+        "icone": "line-chart"
+      },
+      {
+        "titulo": "Conferir evidências e avaliações",
+        "detalhe": "Na aba **Evidências**, use **Validar** ou **Validada** em cada prova; o rodapé mostra se ela aguarda validação e quem validou. Na aba **Avaliações**, use o bloco **Nova avaliação** com **Capacidade**, **Tipo de avaliação**, **Nível atribuído** e **Comentário** e confirme em **Registrar avaliação**.",
+        "icone": "file-text"
+      },
+      {
+        "titulo": "Acompanhar o plano de desenvolvimento",
+        "detalhe": "Na aba **PDI**, use **Gerar PDI a partir dos gaps** ou **Gerar PDI** para criar o plano e atualize o status de cada ação entre **Planejada**, **Em andamento**, **Concluída**, **Atrasada** e **Cancelada**.",
+        "icone": "target"
+      },
+      {
+        "titulo": "Ver a ocupação",
+        "detalhe": "Na aba **Ocupação**, confira **Ocupação média**, **Pico de ocupação**, **Semanas superalocadas**, **Semanas ociosas** e **Horas apontadas**.",
+        "icone": "calendar-range"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Radar de capacidades",
+        "descricao": "Compara o nível atual com o desejado em cada capacidade, formando a área de desenvolvimento da pessoa."
+      },
+      {
+        "nome": "Distribuição por categoria",
+        "descricao": "Mostra como as capacidades da pessoa se espalham entre as categorias do catálogo."
+      },
+      {
+        "nome": "Cartão de capacidade",
+        "descricao": "Reúne nível, XP, evidências, avaliações, endossos e a barra de progresso para o próximo nível."
+      },
+      {
+        "nome": "Painel de detalhes",
+        "descricao": "Abre em **Detalhes** com **Atual**, **Validado**, **Desejado**, os critérios do próximo nível e o bloco **Creditar XP**."
+      },
+      {
+        "nome": "Escala de nível",
+        "descricao": "Legenda de cores da escala de 1 a 5."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Atual",
+        "descricao": "Nível reconhecido hoje naquela capacidade."
+      },
+      {
+        "nome": "Validado",
+        "descricao": "Nível chancelado por validação formal."
+      },
+      {
+        "nome": "Desejado",
+        "descricao": "Onde a pessoa quer chegar.",
+        "dica": "É o que alimenta as trilhas recomendadas e o radar."
+      },
+      {
+        "nome": "Progresso para o nível",
+        "descricao": "Quanto do alvo de XP do próximo nível já foi acumulado."
+      },
+      {
+        "nome": "Critérios para o nível",
+        "descricao": "Lista cada exigência com o valor atual e o exigido, marcando o que já foi atendido."
+      },
+      {
+        "nome": "Dias sem uso",
+        "descricao": "Tempo desde a última utilização registrada da capacidade.",
+        "dica": "Acima de 365 dias o vínculo é marcado como **Enferrujada**."
+      },
+      {
+        "nome": "Tipo de avaliação",
+        "descricao": "**Autoavaliação**, **Avaliação do gestor**, **Avaliação de pares**, **Avaliação de mentor**, **Banca avaliadora** ou **Avaliação de cliente**."
+      },
+      {
+        "nome": "XP a creditar e Origem",
+        "descricao": "Quantidade de pontos e a razão do crédito: **Ajuste manual**, **Tarefa concluída**, **Treinamento**, **Mentoria** ou **Certificação**."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Nível médio",
+        "descricao": "Média dos níveis consolidados das capacidades da pessoa.",
+        "leitura": "Serve de contexto; a decisão de carreira olha capacidade por capacidade."
+      },
+      {
+        "nome": "Em desenvolvimento",
+        "descricao": "Capacidades com plano de evolução em andamento, incluindo reciclagem.",
+        "leitura": "Ajuda a calibrar quantas frentes a pessoa está tocando ao mesmo tempo."
+      },
+      {
+        "nome": "Enferrujadas",
+        "descricao": "Capacidades sem uso recente.",
+        "leitura": "Volume alto indica conhecimento parado — candidato a reciclagem no PDI."
+      },
+      {
+        "nome": "XP total",
+        "descricao": "Soma dos pontos de experiência da pessoa.",
+        "leitura": "Compare dentro da mesma capacidade e do mesmo nível."
+      },
+      {
+        "nome": "Ocupação média",
+        "descricao": "Média da carga semanal no período analisado.",
+        "leitura": "Acima de 100% indica sobrecarga; muito abaixo, ociosidade."
+      }
+    ],
+    "dicas": [
+      "O radar só aparece com pelo menos três capacidades registradas: complete o perfil antes de usá-lo em uma conversa.",
+      "Valide as evidências assim que elas forem registradas — certificados e links se perdem com o tempo.",
+      "Na aba **Ocupação**, confira a carga antes de propor um plano de desenvolvimento muito pesado.",
+      "Ao creditar XP, escreva um motivo claro: ele fica no histórico da capacidade e é auditável."
+    ],
+    "limitacoes": [
+      "O radar exige ao menos 3 capacidades registradas; abaixo disso, a tela avisa que ele está indisponível.",
+      "Os dados de ocupação vêm das alocações confirmadas e das horas apontadas; a tela não controla férias nem afastamentos.",
+      "Quem enxerga o perfil depende da visibilidade definida em **Preferências**: **Público**, **Restrito** ou **Privado**."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 70
+  },
+  {
+    "rota": "/pdi",
+    "titulo": "PDI e trilhas",
+    "grupo": "Capacidades e talentos",
+    "icone": "route",
+    "resumo": "Reúne o plano de desenvolvimento individual, as trilhas recomendadas, as mentorias e o catálogo de treinamentos.",
+    "para_que_serve": "Transforma o diagnóstico em ação: aqui o plano de desenvolvimento da própria pessoa é gerado a partir das trilhas recomendadas e o gestor acompanha os planos da equipe. A tela também concentra as mentorias, que ligam quem já é referência a quem precisa evoluir, e o catálogo de treinamentos com as participações. É o lugar onde o desenvolvimento combinado com a liderança vira prazo, carga horária e responsável.",
+    "quando_usar": [
+      "Para gerar um plano de desenvolvimento a partir dos gaps do próprio perfil",
+      "Para incluir uma ação de desenvolvimento combinada com a liderança",
+      "Para acompanhar o plano da equipe e identificar o que está atrasado",
+      "Para criar e conduzir mentorias entre especialistas e quem precisa evoluir",
+      "Para atualizar o andamento de treinamentos e certificações"
+    ],
+    "passos": [
+      {
+        "titulo": "Abrir as trilhas recomendadas",
+        "detalhe": "Na aba **Meu PDI**, confira **Trilhas recomendadas**, **Gap total**, **Demanda em projetos** e **Progresso médio**, além do **Radar de capacidades (atual × desejado)** e da lista de trilhas com as etiquetas de **Urgência** — **Alta**, **Média** ou **Baixa** — e a marca **Enferrujada**.",
+        "icone": "route"
+      },
+      {
+        "titulo": "Gerar o plano",
+        "detalhe": "Clique em **Gerar PDI** ou em **Gerar meu PDI** e informe **Título** — deixe vazio para usar o padrão do sistema —, **Objetivo** e **Prazo do plano**. Confirme em **Gerar plano**.",
+        "icone": "wand-2"
+      },
+      {
+        "titulo": "Acompanhar as ações",
+        "detalhe": "No quadro **Ações do PDI**, mova os cartões entre **Planejada**, **Em andamento**, **Concluída**, **Atrasada** e **Cancelada**. Ações com prazo vencido aparecem com destaque de atraso.",
+        "icone": "square-kanban"
+      },
+      {
+        "titulo": "Incluir uma ação manual",
+        "detalhe": "Clique em **Nova ação manual** e preencha **Tipo**, **Prazo**, **Descrição**, **Capacidade**, **Nível alvo**, **Carga horária (h)**, **Custo (R$)** e **Responsável**. Confirme em **Adicionar ação**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Acompanhar a equipe",
+        "detalhe": "Na aba **Equipe**, filtre por **Colaborador** e **Status do plano** — **Rascunho**, **Ativo**, **Concluído** ou **Cancelado** — e leia **Planos**, **Ações totais**, **Concluídas**, **Atrasadas** e **Progresso médio**, com os gráficos **Progresso por colaborador** e **Ações por status**. O botão **Perfil** abre o perfil da pessoa.",
+        "icone": "users"
+      },
+      {
+        "titulo": "Criar uma mentoria",
+        "detalhe": "Na aba **Mentorias**, clique em **Nova mentoria**, escolha a **Capacidade** para ver os mentores sugeridos, selecione **Mentor** e **Mentorado**, defina a **Frequência** — **Semanal**, **Quinzenal**, **Mensal** ou **Sob demanda** — e escreva o **Objetivo**. No cartão da mentoria, use **Ativar**, **Concluir** ou **+2h** para registrar o andamento.",
+        "icone": "graduation-cap"
+      },
+      {
+        "titulo": "Acompanhar treinamentos",
+        "detalhe": "Na aba **Treinamentos**, veja **Treinamentos**, **Carga horária total**, **Participações** e **Investimento**. Filtre por **Capacidade** e **Colaborador** ou use o chip **Apenas com certificação**.",
+        "icone": "book-open"
+      },
+      {
+        "titulo": "Atualizar as participações",
+        "detalhe": "Na tabela de participações, altere o **Status** de cada pessoa entre **Inscrito**, **Em andamento**, **Concluído**, **Reprovado** e **Cancelado**. Ao marcar **Concluído**, o XP do treinamento é creditado e a evidência de certificação é criada quando o treinamento gera certificação.",
+        "icone": "save"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Quadro de ações do PDI",
+        "descricao": "Organiza as ações por situação, e o progresso do plano é a proporção de ações concluídas sobre o total."
+      },
+      {
+        "nome": "Trilhas recomendadas",
+        "descricao": "Sugerem caminho de desenvolvimento combinando treinamentos, mentores e prática em projeto, com a urgência de cada caso."
+      },
+      {
+        "nome": "Cartão de mentoria",
+        "descricao": "Mostra mentor, mentorado, horas realizadas, frequência, nota e as ações de andamento."
+      },
+      {
+        "nome": "Cartões de treinamento",
+        "descricao": "Trazem fornecedor, carga horária, **Nível alvo**, custo, XP concedido e número de participações."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Título e Objetivo do plano",
+        "descricao": "Nome e propósito do plano de desenvolvimento.",
+        "dica": "Deixe o título vazio para usar o padrão do sistema."
+      },
+      {
+        "nome": "Prazo do plano",
+        "descricao": "Data limite do conjunto de ações."
+      },
+      {
+        "nome": "Tipo (ação)",
+        "descricao": "**Curso / treinamento**, **Certificação**, **Mentoria**, **Atuação em projeto**, **Prática deliberada**, **Leitura / estudo**, **Comunidade de prática**, **Palestra / docência** ou **Job rotation**."
+      },
+      {
+        "nome": "Capacidade e Nível alvo",
+        "descricao": "Qual capacidade a ação desenvolve e até que nível a pessoa quer chegar.",
+        "dica": "Vincular a capacidade é o que faz a ação creditar XP ao ser concluída."
+      },
+      {
+        "nome": "Carga horária e Custo",
+        "descricao": "Esforço e investimento previstos na ação."
+      },
+      {
+        "nome": "Responsável",
+        "descricao": "Quem acompanha a execução da ação."
+      },
+      {
+        "nome": "Status do plano",
+        "descricao": "**Rascunho**, **Ativo**, **Concluído** ou **Cancelado**."
+      },
+      {
+        "nome": "Frequência da mentoria",
+        "descricao": "**Semanal**, **Quinzenal**, **Mensal** ou **Sob demanda**."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Progresso médio",
+        "descricao": "Proporção de ações concluídas nos planos do recorte.",
+        "leitura": "Planos com progresso parado perdem aderência; acima de 60% é uma faixa saudável."
+      },
+      {
+        "nome": "Ações atrasadas",
+        "descricao": "Ações com prazo vencido e status diferente de concluída ou cancelada.",
+        "leitura": "Quanto maior, mais o plano precisa de conversa e não de mais ações."
+      },
+      {
+        "nome": "Horas realizadas",
+        "descricao": "Soma das horas registradas nas mentorias ativas.",
+        "leitura": "Compare com a nota: muitas horas e nota baixa indicam pareamento inadequado."
+      },
+      {
+        "nome": "Avaliação média",
+        "descricao": "Média das notas das mentorias ativas, na escala de 1 a 5.",
+        "leitura": "Nota 4 ou superior indica que o pareamento está funcionando."
+      },
+      {
+        "nome": "Investimento",
+        "descricao": "Soma do custo do catálogo de treinamentos no filtro.",
+        "leitura": "Serve para acompanhar o esforço de desenvolvimento, não para controlar pagamentos."
+      },
+      {
+        "nome": "Carga horária total",
+        "descricao": "Soma da carga horária dos treinamentos no filtro.",
+        "leitura": "Ajuda a dimensionar o tempo que a equipe dedicará ao desenvolvimento."
+      }
+    ],
+    "dicas": [
+      "Use o plano como conversa, não como formulário: poucas ações com prazo e responsável funcionam melhor do que vinte sem dono.",
+      "Ao concluir uma ação vinculada a uma capacidade, o XP é creditado automaticamente e quem acompanha o plano é avisado.",
+      "Aproveite o campo **Capacidade** das mentorias para que o sistema sugira os mentores de nível 4 ou 5 mais disponíveis.",
+      "Marque os treinamentos como **Concluído** para que o XP e a evidência de certificação entrem no perfil da pessoa."
+    ],
+    "limitacoes": [
+      "A tela não realiza pagamento, reembolso nem gestão de fornecedor: o custo do treinamento é apenas acompanhado.",
+      "Concluir ações não promove ninguém: a promoção depende dos critérios de nível e da validação humana.",
+      "As ações atrasadas são marcadas pela comparação entre prazo e status; a tela não envia cobranças automáticas."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [],
+    "ordem": 80
+  },
+  {
+    "rota": "/validacoes",
+    "titulo": "Validações",
+    "grupo": "Capacidades e talentos",
+    "icone": "award",
+    "resumo": "É a fila de promoções que aguardam decisão humana, com os critérios objetivos já avaliados em cada caso.",
+    "para_que_serve": "Nenhuma promoção acontece sozinha: quando a pessoa atende aos critérios, o sistema cria uma sugestão e a coloca nesta fila. Aqui o gestor, o RH ou o PMO conferem o que foi atingido — XP mínimo, tempo no nível, evidências validadas, avaliação do gestor e validação de banca ou mentor — e decidem com justificativa registrada. Aprovar atualiza o nível atual e o nível validado de uma só vez; rejeitar devolve ao colaborador o motivo, para direcionar o desenvolvimento.",
+    "quando_usar": [
+      "Para decidir as promoções que estão aguardando aprovação",
+      "Para conferir se os critérios objetivos foram realmente atingidos antes de aprovar",
+      "Para registrar o motivo de uma rejeição e orientar o próximo ciclo de desenvolvimento",
+      "Para acompanhar quantas promoções foram aprovadas ou rejeitadas no período"
+    ],
+    "passos": [
+      {
+        "titulo": "Abrir a fila",
+        "detalhe": "A aba **Pendentes** mostra as sugestões aguardando decisão; **Aprovadas** e **Rejeitadas** guardam o histórico.",
+        "icone": "clock"
+      },
+      {
+        "titulo": "Ler os indicadores",
+        "detalhe": "**Aguardando validação**, **Elegíveis a todos os critérios**, **Aprovadas** e **Rejeitadas** mostram o tamanho da fila e o resultado das decisões.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Conferir o caso",
+        "detalhe": "Em cada cartão, veja **Nível atual**, **Nível proposto**, a quantidade de critérios atendidos, a justificativa da sugestão e a lista **Critérios objetivos**, com o valor atual e o exigido em cada item.",
+        "icone": "clipboard-check"
+      },
+      {
+        "titulo": "Entender os critérios de promoção",
+        "detalhe": "**XP mínimo** de 100 pontos por nível proposto, salvo critério próprio da capacidade; **tempo mínimo no nível** de 6 meses; **2 evidências validadas**; **avaliação do gestor** no nível igual ou superior ao proposto; e **validação por mentor ou banca**, obrigatória a partir do nível 4.",
+        "icone": "list-checks"
+      },
+      {
+        "titulo": "Aprovar uma promoção",
+        "detalhe": "Clique em **Aprovar promoção**, ajuste o **Nível final aprovado** se quiser um nível diferente do proposto e escreva o **Comentário**, que na aprovação é opcional. Confirme em **Confirmar promoção**.",
+        "icone": "thumbs-up"
+      },
+      {
+        "titulo": "Rejeitar uma promoção",
+        "detalhe": "Clique em **Rejeitar**, escreva o **Comentário** — obrigatório, com no mínimo cinco caracteres — e confirme em **Confirmar rejeição**.",
+        "icone": "alert-circle"
+      },
+      {
+        "titulo": "Conferir o resultado",
+        "detalhe": "Na aprovação, o nível atual e o validado são atualizados, o histórico de evolução registra a promoção e o colaborador é notificado. Na rejeição, a pessoa recebe a justificativa. As duas decisões ficam na auditoria, com autor e comentário.",
+        "icone": "history"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Cartão de sugestão",
+        "descricao": "Mostra quem é a pessoa, a capacidade, quando a sugestão foi criada e a comparação entre nível atual e nível proposto."
+      },
+      {
+        "nome": "Barra de critérios atendidos",
+        "descricao": "Indica quantos critérios já foram cumpridos em relação ao total."
+      },
+      {
+        "nome": "Lista Critérios objetivos",
+        "descricao": "Cada critério aparece com o valor atual e o exigido e com a marca de atendido ou não."
+      },
+      {
+        "nome": "Aviso de promoção registrada",
+        "descricao": "Confirma que o histórico de evolução foi atualizado após a aprovação."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Nível atual",
+        "descricao": "Nível reconhecido hoje para a pessoa naquela capacidade."
+      },
+      {
+        "nome": "Nível proposto",
+        "descricao": "Nível sugerido pelo sistema quando os critérios foram atingidos."
+      },
+      {
+        "nome": "Nível final aprovado",
+        "descricao": "Nível efetivamente concedido; pode ser ajustado em relação ao proposto.",
+        "dica": "Aprovar atualiza o nível atual e o nível validado de uma só vez."
+      },
+      {
+        "nome": "Comentário",
+        "descricao": "Justificativa da decisão, registrada na auditoria e no histórico da pessoa.",
+        "dica": "Na rejeição é obrigatório e precisa de pelo menos cinco caracteres."
+      },
+      {
+        "nome": "XP mínimo",
+        "descricao": "Pontos de experiência exigidos para o nível proposto."
+      },
+      {
+        "nome": "Tempo mínimo no nível",
+        "descricao": "Meses de permanência no nível atual antes da promoção."
+      },
+      {
+        "nome": "Evidências válidas",
+        "descricao": "Quantidade de evidências conferidas necessárias."
+      },
+      {
+        "nome": "Validação por mentor/banca",
+        "descricao": "Avaliação de mentor ou banca no nível proposto.",
+        "dica": "A partir do nível 4 essa exigência é aplicada automaticamente."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Aguardando validação",
+        "descricao": "Sugestões de promoção pendentes de decisão.",
+        "leitura": "Fila grande significa decisão represada e desmotivação; o ideal é zerar em até 30 dias."
+      },
+      {
+        "nome": "Elegíveis a todos os critérios",
+        "descricao": "Casos com todos os critérios objetivos atendidos.",
+        "leitura": "São os candidatos mais diretos à aprovação."
+      },
+      {
+        "nome": "Aprovadas",
+        "descricao": "Promoções já aprovadas.",
+        "leitura": "Serve de histórico para acompanhar a evolução do time."
+      },
+      {
+        "nome": "Rejeitadas",
+        "descricao": "Promoções recusadas com justificativa.",
+        "leitura": "Volume alto de rejeições pode indicar descrição de nível ou critérios mal calibrados."
+      }
+    ],
+    "dicas": [
+      "Decida rápido: promoção pendente por meses desmotiva e esvazia o critério.",
+      "Ao rejeitar, seja específico sobre o que falta — o colaborador recebe exatamente esse comentário.",
+      "Confira se as evidências foram validadas antes de aprovar; sem isso, o critério não conta.",
+      "Se a decisão for por um nível intermediário, ajuste o **Nível final aprovado** antes de confirmar."
+    ],
+    "limitacoes": [
+      "A tela não cria promoções: ela decide sobre as sugestões geradas quando os critérios são atingidos.",
+      "Não existe rebaixamento de nível por aqui; para corrigir um registro incorreto, acione o administrador.",
+      "Uma pessoa que já está no nível 5 não gera novas sugestões — o topo da escala é o limite."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.validar"
+    ],
+    "ordem": 90
+  },
+  {
+    "rota": "/oportunidades",
+    "titulo": "Oportunidades",
+    "grupo": "Capacidades e talentos",
+    "icone": "trophy",
+    "resumo": "Marketplace interno de vagas, mentorias, trilhas e movimentações, ordenado pela aderência ao seu perfil de capacidades.",
+    "para_que_serve": "Permite que as pessoas encontrem projetos, mentorias e movimentações dentro da própria empresa, em vez de procurar fora. Cada oportunidade é comparada com o seu perfil de capacidades e a aderência resultante ordena as recomendações, mostrando o que você já atende e o que falta. Do outro lado, quem publica a vaga recebe as candidaturas com esse mesmo contexto, o que torna a escolha mais objetiva do que a indicação por proximidade.",
+    "quando_usar": [
+      "Para encontrar uma vaga interna alinhada ao que você já domina",
+      "Para descobrir mentorias e trilhas que ajudam a fechar um gap",
+      "Para se candidatar a uma movimentação interna com critério de aderência",
+      "Para publicar uma vaga de projeto e atrair candidatos internos",
+      "Para acompanhar em que pé estão as candidaturas que você enviou"
+    ],
+    "passos": [
+      {
+        "titulo": "Ver as recomendações",
+        "detalhe": "Na aba **Recomendadas para mim**, as oportunidades aparecem ordenadas pela sua aderência, com a leitura correspondente: **Forte candidato** a partir de 80%, candidato viável com plano de desenvolvimento entre 50% e 79% e necessidade de capacitação abaixo de 50%.",
+        "icone": "sparkles"
+      },
+      {
+        "titulo": "Ler os indicadores",
+        "detalhe": "**Oportunidades abertas**, **Aderência média**, **Forte aderência** e **Candidaturas aprovadas** resumem o marketplace no seu recorte.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Explorar todas as oportunidades",
+        "detalhe": "Na aba **Todas**, filtre por **Tipo** — **Vaga em projeto**, **Vaga de mentoria**, **Trilha de treinamento**, **Movimentação interna** ou **Comunidade de prática** — e por **Situação**: **Ativas**, **Encerradas** ou **Todas**.",
+        "icone": "filter"
+      },
+      {
+        "titulo": "Abrir os detalhes",
+        "detalhe": "Clique em **Detalhes** para ver **Nível mínimo**, **Vagas**, **Carga semanal**, **Candidaturas até**, **Responsável**, **Capacidades requeridas** e as listas do que você já atende e do que falta, além do gráfico **Aderência ao seu perfil**.",
+        "icone": "mouse-pointer-click"
+      },
+      {
+        "titulo": "Candidatar-se",
+        "detalhe": "Clique em **Candidatar-se**, escreva a **Motivação** destacando experiências e o que pretende desenvolver e confirme em **Enviar candidatura**.",
+        "icone": "arrow-right"
+      },
+      {
+        "titulo": "Acompanhar o processo",
+        "detalhe": "Na aba **Minhas candidaturas**, cada candidatura mostra a aderência calculada, as capacidades atendidas e as que faltam, além da situação do processo.",
+        "icone": "history"
+      },
+      {
+        "titulo": "Publicar uma oportunidade",
+        "detalhe": "Clique em **Criar oportunidade**, preencha **Título**, **Tipo**, **Projeto vinculado**, **Descrição**, **Vagas**, **Carga horária semanal (h)**, **Candidaturas até** e **Responsável**, ajuste o **Nível mínimo exigido** e selecione as **Capacidades requeridas** pela busca **Filtrar capacidades...**. Confirme em **Publicar oportunidade**.",
+        "icone": "plus"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Cartão de oportunidade",
+        "descricao": "Mostra título, tipo, projeto vinculado, situação, percentual de aderência e a recomendação correspondente."
+      },
+      {
+        "nome": "Gráfico de aderência",
+        "descricao": "Compara o seu perfil com as capacidades exigidas pela oportunidade."
+      },
+      {
+        "nome": "Painel de detalhes",
+        "descricao": "Reúne condições da vaga, capacidades requeridas, o que já é atendido e o que falta."
+      },
+      {
+        "nome": "Chips de capacidades",
+        "descricao": "Nas candidaturas, os chips verdes mostram o que você atende e os vermelhos o que falta e em qual nível."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Tipo",
+        "descricao": "**Vaga em projeto**, **Vaga de mentoria**, **Trilha de treinamento**, **Movimentação interna** ou **Comunidade de prática**."
+      },
+      {
+        "nome": "Nível mínimo exigido",
+        "descricao": "Piso de proficiência para se candidatar.",
+        "dica": "É a base do cálculo de aderência: baixar o piso aumenta o número de candidatos."
+      },
+      {
+        "nome": "Capacidades requeridas",
+        "descricao": "O que a oportunidade exige, selecionado pela busca **Filtrar capacidades...**."
+      },
+      {
+        "nome": "Vagas, Carga horária semanal (h) e Candidaturas até",
+        "descricao": "Condições da oportunidade: quantas pessoas, quantas horas por semana e até quando recebe candidaturas."
+      },
+      {
+        "nome": "Aderência",
+        "descricao": "Percentual de capacidades exigidas que a pessoa já atende no nível mínimo."
+      },
+      {
+        "nome": "Motivação",
+        "descricao": "Texto em que o candidato explica por que quer a oportunidade.",
+        "dica": "Destaque experiências concretas e o que pretende desenvolver."
+      },
+      {
+        "nome": "Situação",
+        "descricao": "**Ativa** ou **Encerrada**."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Oportunidades abertas",
+        "descricao": "Oportunidades ativas no marketplace.",
+        "leitura": "Poucas oportunidades abertas reduzem o movimento interno."
+      },
+      {
+        "nome": "Aderência média",
+        "descricao": "Média da aderência das oportunidades recomendadas para você.",
+        "leitura": "Abaixo de 60% pode indicar perfil incompleto ou exigências fora da sua área."
+      },
+      {
+        "nome": "Forte aderência",
+        "descricao": "Quantidade de oportunidades em que você atende 80% ou mais das capacidades exigidas.",
+        "leitura": "São as candidaturas com maior chance de avançar."
+      },
+      {
+        "nome": "Candidaturas aprovadas",
+        "descricao": "Suas candidaturas que já foram aprovadas, com o total ao lado.",
+        "leitura": "Acompanhe junto com as recomendações para calibrar onde se candidatar."
+      }
+    ],
+    "dicas": [
+      "Mantenha o perfil de capacidades atualizado: é ele que define a sua aderência e a ordem das recomendações.",
+      "Antes de se candidatar com aderência abaixo de 50%, monte um plano de desenvolvimento para o gap.",
+      "Ao publicar uma vaga, descreva o contexto e as responsabilidades: vaga genérica atrai candidatura desalinhada.",
+      "Aproveite as vagas de mentoria para atacar exatamente o gap que você vê no seu perfil."
+    ],
+    "limitacoes": [
+      "O sistema calcula a aderência e organiza as candidaturas, mas não faz a seleção: a decisão é de quem publicou a vaga.",
+      "A aderência é calculada sobre as capacidades exigidas na publicação; ela não substitui entrevista nem avaliação.",
+      "A tela não envia comunicados por e-mail: os avisos chegam pelas notificações da própria plataforma."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 100
+  },
+  {
+    "rota": "/sucessao",
+    "titulo": "Sucessão",
+    "grupo": "Capacidades e talentos",
+    "icone": "git-branch",
+    "resumo": "Mostra, em grafo, quem pode assumir cada posição-chave, com prontidão, prioridade, aderência e plano de desenvolvimento.",
+    "para_que_serve": "Responde à pergunta mais desconfortável da organização: se essa pessoa sair amanhã, quem assume? Aqui as posições críticas são cadastradas com ocupante, criticidade e risco de sucessão, e os candidatos são mapeados com prontidão e aderência às capacidades exigidas. O grafo mostra as conexões entre posição, ocupante e sucessores, e cada candidato tem um plano de desenvolvimento registrado.",
+    "quando_usar": [
+      "Para responder quem assume cada posição crítica em caso de saída",
+      "Antes de uma revisão de risco do portfólio com a liderança",
+      "Para cadastrar uma nova função crítica que passou a ser monitorada",
+      "Para mapear candidatos e combinar o plano de desenvolvimento de cada um",
+      "Para acompanhar a cobertura de sucessão das posições estratégicas"
+    ],
+    "passos": [
+      {
+        "titulo": "Ler os indicadores",
+        "detalhe": "**Posições críticas**, **Sem sucessor mapeado**, **Risco alto de sucessão** e **Cobertura de sucessão** mostram a situação do mapa.",
+        "icone": "bar-chart-3"
+      },
+      {
+        "titulo": "Filtrar e explorar o grafo",
+        "detalhe": "Filtre por **Criticidade** e clique em um nó do grafo para destacar as conexões e ver o plano de desenvolvimento. A legenda diferencia **ocupa a posição** e **sucessão mapeada**.",
+        "icone": "network"
+      },
+      {
+        "titulo": "Ver as posições-chave",
+        "detalhe": "Na aba **Posições-chave**, cada card traz **Risco de sucessão**, **Sucessores**, as capacidades críticas e o aviso **Posição vaga** quando não há ocupante. Os botões **Ver plano** e **Adicionar sucessor** abrem as ações.",
+        "icone": "briefcase"
+      },
+      {
+        "titulo": "Criar uma posição",
+        "detalhe": "Clique em **Nova posição-chave** e preencha **Título da posição**, **Área**, **Criticidade**, **Ocupante atual** — ou deixe **Posição vaga** —, **Gestor responsável**, **Risco de sucessão** e **Observações**, selecionando as **Capacidades críticas**. Confirme em **Criar posição**.",
+        "icone": "plus"
+      },
+      {
+        "titulo": "Mapear um sucessor",
+        "detalhe": "Clique em **Adicionar sucessor** no card, na aba **Posições-chave** ou no painel da posição e informe **Sucessor**, **Prontidão** — **Pronto agora**, **Pronto em 1–2 anos**, **Pronto em 3–5 anos** ou **A desenvolver** —, **Prioridade**, **Aderência às capacidades da posição** e **Plano de desenvolvimento**.",
+        "icone": "user-plus"
+      },
+      {
+        "titulo": "Confirmar o mapeamento",
+        "detalhe": "Clique em **Mapear sucessor**. O grafo é atualizado com o percentual de aderência na conexão e a posição passa a contar na **Cobertura de sucessão**.",
+        "icone": "save"
+      },
+      {
+        "titulo": "Revisar os planos",
+        "detalhe": "No painel da posição, a lista **Planos de desenvolvimento** mostra prontidão, prioridade, aderência, os gaps de capacidade e a data do mapeamento.",
+        "icone": "clipboard-check"
+      }
+    ],
+    "elementos": [
+      {
+        "nome": "Grafo de sucessão",
+        "descricao": "Conecta cada posição ao ocupante atual e aos sucessores mapeados, com o percentual de aderência na conexão."
+      },
+      {
+        "nome": "Card de posição-chave",
+        "descricao": "Traz risco de sucessão, número de sucessores e as capacidades críticas da função."
+      },
+      {
+        "nome": "Painel da posição",
+        "descricao": "Reúne ocupante, capacidades críticas e os planos de desenvolvimento dos sucessores, com os gaps de cada um."
+      },
+      {
+        "nome": "Aviso de posição vaga",
+        "descricao": "Aparece quando nenhum ocupante foi definido para a posição."
+      }
+    ],
+    "campos": [
+      {
+        "nome": "Título da posição",
+        "descricao": "Nome da função crítica monitorada.",
+        "dica": "Use o nome pelo qual a posição é conhecida na organização."
+      },
+      {
+        "nome": "Criticidade",
+        "descricao": "**Baixa**, **Média**, **Alta** ou **Estratégica**."
+      },
+      {
+        "nome": "Ocupante atual",
+        "descricao": "Quem ocupa a posição hoje, ou **Posição vaga**."
+      },
+      {
+        "nome": "Gestor responsável",
+        "descricao": "Quem responde pela posição e acompanha a sucessão."
+      },
+      {
+        "nome": "Risco de sucessão",
+        "descricao": "**Baixo**, **Médio**, **Alto** ou **Crítico**: a dificuldade de repor a posição.",
+        "dica": "Avalie o quão difícil é encontrar alguém com esse conjunto de capacidades."
+      },
+      {
+        "nome": "Capacidades críticas",
+        "descricao": "Capacidades que a posição exige, usadas como referência da aderência."
+      },
+      {
+        "nome": "Sucessor",
+        "descricao": "Colaborador candidato a assumir a posição."
+      },
+      {
+        "nome": "Prontidão",
+        "descricao": "**Pronto agora**, **Pronto em 1–2 anos**, **Pronto em 3–5 anos** ou **A desenvolver**.",
+        "dica": "Seja realista: o mapa perde valor quando todos aparecem como prontos agora."
+      },
+      {
+        "nome": "Prioridade",
+        "descricao": "Ordem de preferência entre os sucessores; 1 é a maior prioridade."
+      },
+      {
+        "nome": "Aderência às capacidades da posição",
+        "descricao": "Percentual de atendimento às capacidades críticas da função."
+      },
+      {
+        "nome": "Plano de desenvolvimento",
+        "descricao": "Caminho até a prontidão, com ações, mentorias e prazos."
+      }
+    ],
+    "indicadores": [
+      {
+        "nome": "Posições críticas",
+        "descricao": "Posições com criticidade alta ou estratégica.",
+        "leitura": "São as que exigem sucessor mapeado e plano ativo."
+      },
+      {
+        "nome": "Sem sucessor mapeado",
+        "descricao": "Posições sem nenhum candidato preparado.",
+        "leitura": "Cada posição sem sucessor é um risco não gerenciado."
+      },
+      {
+        "nome": "Risco alto de sucessão",
+        "descricao": "Posições com risco alto ou crítico de reposição.",
+        "leitura": "Combine com o mapa de bus factor para priorizar ações."
+      },
+      {
+        "nome": "Cobertura de sucessão",
+        "descricao": "Percentual de posições com sucessores mapeados.",
+        "leitura": "Abaixo de 70% em posições críticas, o risco institucional é alto; acima de 80% é uma faixa segura."
+      }
+    ],
+    "dicas": [
+      "Mapeie mais de um sucessor por posição crítica: depender de um único nome repete o problema do bus factor.",
+      "Cada sucessor deveria sair do mapeamento com um plano de desenvolvimento combinado, não apenas com um percentual.",
+      "Use o **Risco de sucessão** para separar o que é desconfortável do que é urgente.",
+      "Revise o mapa depois de cada promoção, movimentação ou desligamento na liderança."
+    ],
+    "limitacoes": [
+      "A aderência do sucessor é informada no mapeamento; o sistema não a recalcula a partir dos gaps reais de capacidade.",
+      "A tela não executa movimentações nem promoções: ela registra o plano e o acompanhamento.",
+      "O mapa não avisa sozinho quando um sucessor muda de área ou de nível; a revisão é manual."
+    ],
+    "atalhos": [
+      {
+        "tecla": "F1",
+        "acao": "Abrir o guia desta tela"
+      }
+    ],
+    "doc": "08-capacidades-e-talentos.md",
+    "permissoes": [
+      "capacidade.ver"
+    ],
+    "ordem": 110
+  }
+]
